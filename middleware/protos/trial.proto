@@ -1,0 +1,17 @@
+
+syntax = "proto3";
+
+package trial;
+
+message chatArgs{
+    string agree = 1; 
+}
+
+message chatRep{
+    string retail = 1;
+}
+service Trial{
+
+rpc MessageExamples(chatArgs) returns (chatRep);
+
+}

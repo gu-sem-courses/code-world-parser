@@ -1547,11 +1547,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Fake Desktop\\Coding\\Trial\\Trial.csproj",
+      "projectUniqueName": "C:\\Fake Desktop\\Coding\\TEAM FLEX\\dit355\\middleware\\Trial.csproj",
       "projectName": "Trial",
-      "projectPath": "c:\\Fake Desktop\\Coding\\Trial\\Trial.csproj",
+      "projectPath": "C:\\Fake Desktop\\Coding\\TEAM FLEX\\dit355\\middleware\\Trial.csproj",
       "packagesPath": "C:\\Users\\Hakim\\.nuget\\packages\\",
-      "outputPath": "c:\\Fake Desktop\\Coding\\Trial\\obj\\",
+      "outputPath": "C:\\Fake Desktop\\Coding\\TEAM FLEX\\dit355\\middleware\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

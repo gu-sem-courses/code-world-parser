@@ -9,3 +9,9 @@ C:\Fake Desktop\Coding\Trial\obj\Debug\netcoreapp2.1\Trial.AssemblyInfoInputs.ca
 C:\Fake Desktop\Coding\Trial\obj\Debug\netcoreapp2.1\Trial.AssemblyInfo.cs
 C:\Fake Desktop\Coding\Trial\obj\Debug\netcoreapp2.1\Trial.dll
 C:\Fake Desktop\Coding\Trial\obj\Debug\netcoreapp2.1\Trial.pdb
+c:\Fake Desktop\Coding\TEAM FLEX\dit355\middleware\obj\Debug\netcoreapp2.1\Trial.csprojAssemblyReference.cache
+c:\Fake Desktop\Coding\TEAM FLEX\dit355\middleware\obj\Debug\netcoreapp2.1\Trial.csproj.CoreCompileInputs.cache
+c:\Fake Desktop\Coding\TEAM FLEX\dit355\middleware\obj\Debug\netcoreapp2.1\Trial.AssemblyInfoInputs.cache
+c:\Fake Desktop\Coding\TEAM FLEX\dit355\middleware\obj\Debug\netcoreapp2.1\Trial.AssemblyInfo.cs
+c:\Fake Desktop\Coding\TEAM FLEX\dit355\middleware\obj\Debug\netcoreapp2.1\Trial.dll
+c:\Fake Desktop\Coding\TEAM FLEX\dit355\middleware\obj\Debug\netcoreapp2.1\Trial.pdb

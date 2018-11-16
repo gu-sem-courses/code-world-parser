@@ -1,10 +1,18 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 using System.Threading;
+using System.Threading.Tasks;
 using Grpc.Core;
+using Grpc.Core.Utils;
 
 namespace Trial
 {
+
+class ServiceImpl : Trial.TrialBase{
+
+
+}
+
     class ServerProgram
     {
         const string Host = "0.0.0.0";
