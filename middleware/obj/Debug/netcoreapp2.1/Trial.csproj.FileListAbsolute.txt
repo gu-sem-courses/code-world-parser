@@ -1,0 +1,11 @@
+C:\Fake Desktop\Coding\Trial\bin\Debug\netcoreapp2.1\Trial.deps.json
+C:\Fake Desktop\Coding\Trial\bin\Debug\netcoreapp2.1\Trial.runtimeconfig.json
+C:\Fake Desktop\Coding\Trial\bin\Debug\netcoreapp2.1\Trial.runtimeconfig.dev.json
+C:\Fake Desktop\Coding\Trial\bin\Debug\netcoreapp2.1\Trial.dll
+C:\Fake Desktop\Coding\Trial\bin\Debug\netcoreapp2.1\Trial.pdb
+C:\Fake Desktop\Coding\Trial\obj\Debug\netcoreapp2.1\Trial.csprojAssemblyReference.cache
+C:\Fake Desktop\Coding\Trial\obj\Debug\netcoreapp2.1\Trial.csproj.CoreCompileInputs.cache
+C:\Fake Desktop\Coding\Trial\obj\Debug\netcoreapp2.1\Trial.AssemblyInfoInputs.cache
+C:\Fake Desktop\Coding\Trial\obj\Debug\netcoreapp2.1\Trial.AssemblyInfo.cs
+C:\Fake Desktop\Coding\Trial\obj\Debug\netcoreapp2.1\Trial.dll
+C:\Fake Desktop\Coding\Trial\obj\Debug\netcoreapp2.1\Trial.pdb
