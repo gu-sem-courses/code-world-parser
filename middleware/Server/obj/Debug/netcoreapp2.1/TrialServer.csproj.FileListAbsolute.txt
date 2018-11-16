@@ -1,0 +1,14 @@
+c:\Fake Desktop\Coding\TEAM FLEX\dit355\middleware\Server\obj\Debug\netcoreapp2.1\TrialServer.csprojAssemblyReference.cache
+c:\Fake Desktop\Coding\TEAM FLEX\dit355\middleware\Server\obj\Debug\netcoreapp2.1\TrialServer.csproj.CoreCompileInputs.cache
+c:\Fake Desktop\Coding\TEAM FLEX\dit355\middleware\Server\obj\Debug\netcoreapp2.1\TrialServer.AssemblyInfoInputs.cache
+c:\Fake Desktop\Coding\TEAM FLEX\dit355\middleware\Server\obj\Debug\netcoreapp2.1\TrialServer.AssemblyInfo.cs
+c:\Fake Desktop\Coding\TEAM FLEX\dit355\middleware\Server\bin\Debug\netcoreapp2.1\TrialServer.deps.json
+c:\Fake Desktop\Coding\TEAM FLEX\dit355\middleware\Server\bin\Debug\netcoreapp2.1\TrialServer.runtimeconfig.json
+c:\Fake Desktop\Coding\TEAM FLEX\dit355\middleware\Server\bin\Debug\netcoreapp2.1\TrialServer.runtimeconfig.dev.json
+c:\Fake Desktop\Coding\TEAM FLEX\dit355\middleware\Server\bin\Debug\netcoreapp2.1\TrialServer.dll
+c:\Fake Desktop\Coding\TEAM FLEX\dit355\middleware\Server\bin\Debug\netcoreapp2.1\TrialServer.pdb
+c:\Fake Desktop\Coding\TEAM FLEX\dit355\middleware\Server\bin\Debug\netcoreapp2.1\Trial.dll
+c:\Fake Desktop\Coding\TEAM FLEX\dit355\middleware\Server\bin\Debug\netcoreapp2.1\Trial.pdb
+c:\Fake Desktop\Coding\TEAM FLEX\dit355\middleware\Server\obj\Debug\netcoreapp2.1\TrialServer.csproj.CopyComplete
+c:\Fake Desktop\Coding\TEAM FLEX\dit355\middleware\Server\obj\Debug\netcoreapp2.1\TrialServer.dll
+c:\Fake Desktop\Coding\TEAM FLEX\dit355\middleware\Server\obj\Debug\netcoreapp2.1\TrialServer.pdb

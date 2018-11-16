@@ -12,6 +12,6 @@ message HelloReply{
 }
 service Trial{
 
-rpc MessageExamples(HelloRequest) returns (HelloReply){};
+rpc MessageExamples(HelloRequest) returns (HelloReply){}
 
 }

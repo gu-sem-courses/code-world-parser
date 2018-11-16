@@ -1,0 +1,4 @@
+c:\Fake Desktop\Coding\TEAM FLEX\dit355\middleware\Server\obj\Debug\netcoreapp2.1\Server.csprojAssemblyReference.cache
+c:\Fake Desktop\Coding\TEAM FLEX\dit355\middleware\Server\obj\Debug\netcoreapp2.1\Server.csproj.CoreCompileInputs.cache
+c:\Fake Desktop\Coding\TEAM FLEX\dit355\middleware\Server\obj\Debug\netcoreapp2.1\Server.AssemblyInfoInputs.cache
+c:\Fake Desktop\Coding\TEAM FLEX\dit355\middleware\Server\obj\Debug\netcoreapp2.1\Server.AssemblyInfo.cs

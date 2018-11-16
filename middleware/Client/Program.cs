@@ -4,19 +4,23 @@ using System.Runtime.InteropServices;
 using System.Threading;
 using Grpc.Core;
 using Trial;
-using TrialServer;
 
 namespace TrialClient
 {
     class ClientProgram
     {
-       
         public static void Main(string[] args)
         {
             Channel channel = new Channel("127.0.0.1", 23456, ChannelCredentials.Insecure);
             var client = new Trial.Trial.TrialClient(channel);
-           
+           String user = "David";
+
+            var reply = client.MessageExamples(new HelloRequest { Name = user });
+            Console.WriteLine("Greeting: " + reply.Message);
+
             channel.ShutdownAsync().Wait();
+            Console.WriteLine("Press any key to exit...");
+            Console.ReadKey();
         }
     }
 }
