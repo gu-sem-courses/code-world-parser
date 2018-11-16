@@ -12,15 +12,15 @@ namespace Trial {
   {
     static readonly string __ServiceName = "trial.Trial";
 
-    static readonly grpc::Marshaller<global::Trial.chatArgs> __Marshaller_trial_chatArgs = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Trial.chatArgs.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Trial.chatRep> __Marshaller_trial_chatRep = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Trial.chatRep.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Trial.HelloRequest> __Marshaller_trial_HelloRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Trial.HelloRequest.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Trial.HelloReply> __Marshaller_trial_HelloReply = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Trial.HelloReply.Parser.ParseFrom);
 
-    static readonly grpc::Method<global::Trial.chatArgs, global::Trial.chatRep> __Method_MessageExamples = new grpc::Method<global::Trial.chatArgs, global::Trial.chatRep>(
+    static readonly grpc::Method<global::Trial.HelloRequest, global::Trial.HelloReply> __Method_MessageExamples = new grpc::Method<global::Trial.HelloRequest, global::Trial.HelloReply>(
         grpc::MethodType.Unary,
         __ServiceName,
         "MessageExamples",
-        __Marshaller_trial_chatArgs,
-        __Marshaller_trial_chatRep);
+        __Marshaller_trial_HelloRequest,
+        __Marshaller_trial_HelloReply);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -31,7 +31,7 @@ namespace Trial {
     /// <summary>Base class for server-side implementations of Trial</summary>
     public abstract partial class TrialBase
     {
-      public virtual global::System.Threading.Tasks.Task<global::Trial.chatRep> MessageExamples(global::Trial.chatArgs request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Trial.HelloReply> MessageExamples(global::Trial.HelloRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -61,19 +61,19 @@ namespace Trial {
       {
       }
 
-      public virtual global::Trial.chatRep MessageExamples(global::Trial.chatArgs request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::Trial.HelloReply MessageExamples(global::Trial.HelloRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return MessageExamples(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::Trial.chatRep MessageExamples(global::Trial.chatArgs request, grpc::CallOptions options)
+      public virtual global::Trial.HelloReply MessageExamples(global::Trial.HelloRequest request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_MessageExamples, null, options, request);
       }
-      public virtual grpc::AsyncUnaryCall<global::Trial.chatRep> MessageExamplesAsync(global::Trial.chatArgs request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::Trial.HelloReply> MessageExamplesAsync(global::Trial.HelloRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return MessageExamplesAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual grpc::AsyncUnaryCall<global::Trial.chatRep> MessageExamplesAsync(global::Trial.chatArgs request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::Trial.HelloReply> MessageExamplesAsync(global::Trial.HelloRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_MessageExamples, null, options, request);
       }

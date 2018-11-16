@@ -3,15 +3,15 @@ syntax = "proto3";
 
 package trial;
 
-message chatArgs{
-    string agree = 1; 
+message HelloRequest{
+    string name = 1; 
 }
 
-message chatRep{
-    string retail = 1;
+message HelloReply{
+    string message = 1;
 }
 service Trial{
 
-rpc MessageExamples(chatArgs) returns (chatRep);
+rpc MessageExamples(HelloRequest) returns (HelloReply){};
 
 }

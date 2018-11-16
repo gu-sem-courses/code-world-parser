@@ -3,22 +3,18 @@ using System;
 using System.Runtime.InteropServices;
 using System.Threading;
 using Grpc.Core;
+using Trial;
+using TrialServer;
 
-namespace Trial
+namespace TrialClient
 {
     class ClientProgram
     {
-        private Channel channel;
-
-        public ClientProgram(Channel channel)
-        {
-            this.channel = channel;
-        }
-
+       
         public static void Main(string[] args)
         {
-            var channel = new Channel("127.0.0.1", 23456, ChannelCredentials.Insecure);
-            Trial.ClientProgram client = new Trial.ClientProgram(channel);
+            Channel channel = new Channel("127.0.0.1", 23456, ChannelCredentials.Insecure);
+            var client = new Trial.Trial.TrialClient(channel);
            
             channel.ShutdownAsync().Wait();
         }

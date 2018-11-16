@@ -1,16 +1,20 @@
 ﻿using System;
+using Trial;
+using TrialClient;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
 using Grpc.Core;
 using Grpc.Core.Utils;
 
-namespace Trial
+namespace TrialServer
 {
 
-class ServiceImpl : Trial.TrialBase{
-
-
+class ServiceImpl : Trial.Trial.TrialBase{
+ public override Task<HelloReply> MessageExamples(HelloRequest request, ServerCallContext context)
+        {
+            return Task.FromResult(new HelloReply { Message = "Hello " + request.Name });
+        }
 }
 
     class ServerProgram
@@ -21,7 +25,7 @@ class ServiceImpl : Trial.TrialBase{
         {
              Server server = new Server
             {
-                Services = { Trial.BindService(new Trial.Service())},
+                Services = { Trial.Trial.BindService(new ServiceImpl())},
                 Ports = { { Host, Port, ServerCredentials.Insecure } }
             };
             server.Start();

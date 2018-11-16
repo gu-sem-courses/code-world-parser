@@ -24,26 +24,26 @@ namespace Trial {
     static TrialReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Cgt0cmlhbC5wcm90bxIFdHJpYWwiGQoIY2hhdEFyZ3MSDQoFYWdyZWUYASAB",
-            "KAkiGQoHY2hhdFJlcBIOCgZyZXRhaWwYASABKAkyOwoFVHJpYWwSMgoPTWVz",
-            "c2FnZUV4YW1wbGVzEg8udHJpYWwuY2hhdEFyZ3MaDi50cmlhbC5jaGF0UmVw",
-            "YgZwcm90bzM="));
+            "Cgt0cmlhbC5wcm90bxIFdHJpYWwiHAoMSGVsbG9SZXF1ZXN0EgwKBG5hbWUY",
+            "ASABKAkiHQoKSGVsbG9SZXBseRIPCgdtZXNzYWdlGAEgASgJMkQKBVRyaWFs",
+            "EjsKD01lc3NhZ2VFeGFtcGxlcxITLnRyaWFsLkhlbGxvUmVxdWVzdBoRLnRy",
+            "aWFsLkhlbGxvUmVwbHkiAGIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Trial.chatArgs), global::Trial.chatArgs.Parser, new[]{ "Agree" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Trial.chatRep), global::Trial.chatRep.Parser, new[]{ "Retail" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Trial.HelloRequest), global::Trial.HelloRequest.Parser, new[]{ "Name" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Trial.HelloReply), global::Trial.HelloReply.Parser, new[]{ "Message" }, null, null, null)
           }));
     }
     #endregion
 
   }
   #region Messages
-  public sealed partial class chatArgs : pb::IMessage<chatArgs> {
-    private static readonly pb::MessageParser<chatArgs> _parser = new pb::MessageParser<chatArgs>(() => new chatArgs());
+  public sealed partial class HelloRequest : pb::IMessage<HelloRequest> {
+    private static readonly pb::MessageParser<HelloRequest> _parser = new pb::MessageParser<HelloRequest>(() => new HelloRequest());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<chatArgs> Parser { get { return _parser; } }
+    public static pb::MessageParser<HelloRequest> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -56,55 +56,55 @@ namespace Trial {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public chatArgs() {
+    public HelloRequest() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public chatArgs(chatArgs other) : this() {
-      agree_ = other.agree_;
+    public HelloRequest(HelloRequest other) : this() {
+      name_ = other.name_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public chatArgs Clone() {
-      return new chatArgs(this);
+    public HelloRequest Clone() {
+      return new HelloRequest(this);
     }
 
-    /// <summary>Field number for the "agree" field.</summary>
-    public const int AgreeFieldNumber = 1;
-    private string agree_ = "";
+    /// <summary>Field number for the "name" field.</summary>
+    public const int NameFieldNumber = 1;
+    private string name_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Agree {
-      get { return agree_; }
+    public string Name {
+      get { return name_; }
       set {
-        agree_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as chatArgs);
+      return Equals(other as HelloRequest);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(chatArgs other) {
+    public bool Equals(HelloRequest other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Agree != other.Agree) return false;
+      if (Name != other.Name) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (Agree.Length != 0) hash ^= Agree.GetHashCode();
+      if (Name.Length != 0) hash ^= Name.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -118,9 +118,9 @@ namespace Trial {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (Agree.Length != 0) {
+      if (Name.Length != 0) {
         output.WriteRawTag(10);
-        output.WriteString(Agree);
+        output.WriteString(Name);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -130,8 +130,8 @@ namespace Trial {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (Agree.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Agree);
+      if (Name.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -140,12 +140,12 @@ namespace Trial {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(chatArgs other) {
+    public void MergeFrom(HelloRequest other) {
       if (other == null) {
         return;
       }
-      if (other.Agree.Length != 0) {
-        Agree = other.Agree;
+      if (other.Name.Length != 0) {
+        Name = other.Name;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -159,7 +159,7 @@ namespace Trial {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            Agree = input.ReadString();
+            Name = input.ReadString();
             break;
           }
         }
@@ -168,11 +168,11 @@ namespace Trial {
 
   }
 
-  public sealed partial class chatRep : pb::IMessage<chatRep> {
-    private static readonly pb::MessageParser<chatRep> _parser = new pb::MessageParser<chatRep>(() => new chatRep());
+  public sealed partial class HelloReply : pb::IMessage<HelloReply> {
+    private static readonly pb::MessageParser<HelloReply> _parser = new pb::MessageParser<HelloReply>(() => new HelloReply());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<chatRep> Parser { get { return _parser; } }
+    public static pb::MessageParser<HelloReply> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -185,55 +185,55 @@ namespace Trial {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public chatRep() {
+    public HelloReply() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public chatRep(chatRep other) : this() {
-      retail_ = other.retail_;
+    public HelloReply(HelloReply other) : this() {
+      message_ = other.message_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public chatRep Clone() {
-      return new chatRep(this);
+    public HelloReply Clone() {
+      return new HelloReply(this);
     }
 
-    /// <summary>Field number for the "retail" field.</summary>
-    public const int RetailFieldNumber = 1;
-    private string retail_ = "";
+    /// <summary>Field number for the "message" field.</summary>
+    public const int MessageFieldNumber = 1;
+    private string message_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Retail {
-      get { return retail_; }
+    public string Message {
+      get { return message_; }
       set {
-        retail_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        message_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as chatRep);
+      return Equals(other as HelloReply);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(chatRep other) {
+    public bool Equals(HelloReply other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Retail != other.Retail) return false;
+      if (Message != other.Message) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (Retail.Length != 0) hash ^= Retail.GetHashCode();
+      if (Message.Length != 0) hash ^= Message.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -247,9 +247,9 @@ namespace Trial {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (Retail.Length != 0) {
+      if (Message.Length != 0) {
         output.WriteRawTag(10);
-        output.WriteString(Retail);
+        output.WriteString(Message);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -259,8 +259,8 @@ namespace Trial {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (Retail.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Retail);
+      if (Message.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Message);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -269,12 +269,12 @@ namespace Trial {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(chatRep other) {
+    public void MergeFrom(HelloReply other) {
       if (other == null) {
         return;
       }
-      if (other.Retail.Length != 0) {
-        Retail = other.Retail;
+      if (other.Message.Length != 0) {
+        Message = other.Message;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -288,7 +288,7 @@ namespace Trial {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            Retail = input.ReadString();
+            Message = input.ReadString();
             break;
           }
         }
