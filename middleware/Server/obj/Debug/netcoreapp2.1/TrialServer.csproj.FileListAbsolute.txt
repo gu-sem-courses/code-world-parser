@@ -12,3 +12,17 @@ c:\Fake Desktop\Coding\TEAM FLEX\dit355\middleware\Server\bin\Debug\netcoreapp2.
 c:\Fake Desktop\Coding\TEAM FLEX\dit355\middleware\Server\obj\Debug\netcoreapp2.1\TrialServer.csproj.CopyComplete
 c:\Fake Desktop\Coding\TEAM FLEX\dit355\middleware\Server\obj\Debug\netcoreapp2.1\TrialServer.dll
 c:\Fake Desktop\Coding\TEAM FLEX\dit355\middleware\Server\obj\Debug\netcoreapp2.1\TrialServer.pdb
+C:\Projects\DIT355DistributedSystems\middleware\Server\bin\Debug\netcoreapp2.1\TrialServer.deps.json
+C:\Projects\DIT355DistributedSystems\middleware\Server\bin\Debug\netcoreapp2.1\TrialServer.runtimeconfig.json
+C:\Projects\DIT355DistributedSystems\middleware\Server\bin\Debug\netcoreapp2.1\TrialServer.runtimeconfig.dev.json
+C:\Projects\DIT355DistributedSystems\middleware\Server\bin\Debug\netcoreapp2.1\TrialServer.dll
+C:\Projects\DIT355DistributedSystems\middleware\Server\bin\Debug\netcoreapp2.1\TrialServer.pdb
+C:\Projects\DIT355DistributedSystems\middleware\Server\bin\Debug\netcoreapp2.1\Trial.dll
+C:\Projects\DIT355DistributedSystems\middleware\Server\bin\Debug\netcoreapp2.1\Trial.pdb
+C:\Projects\DIT355DistributedSystems\middleware\Server\obj\Debug\netcoreapp2.1\TrialServer.csprojAssemblyReference.cache
+C:\Projects\DIT355DistributedSystems\middleware\Server\obj\Debug\netcoreapp2.1\TrialServer.csproj.CoreCompileInputs.cache
+C:\Projects\DIT355DistributedSystems\middleware\Server\obj\Debug\netcoreapp2.1\TrialServer.AssemblyInfoInputs.cache
+C:\Projects\DIT355DistributedSystems\middleware\Server\obj\Debug\netcoreapp2.1\TrialServer.AssemblyInfo.cs
+C:\Projects\DIT355DistributedSystems\middleware\Server\obj\Debug\netcoreapp2.1\TrialServer.csproj.CopyComplete
+C:\Projects\DIT355DistributedSystems\middleware\Server\obj\Debug\netcoreapp2.1\TrialServer.dll
+C:\Projects\DIT355DistributedSystems\middleware\Server\obj\Debug\netcoreapp2.1\TrialServer.pdb

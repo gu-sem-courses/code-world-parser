@@ -12,13 +12,18 @@ message HelloReply{
     string message = 1;
 }
 
-message JsonReply{
-    byte json = 1;
+message ParsingRequest{
+    string address = 1;
 }
+
+message JsonReply{
+    string file = 1;
+}
+
+
 service Trial{
 
 rpc MessageExamples(HelloRequest) returns (HelloReply){}
-
-rpc SendJson() returns(){}
+rpc MainInteraction(ParsingRequest) returns (JsonReply){}
 
 }

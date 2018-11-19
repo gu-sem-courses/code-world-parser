@@ -5977,11 +5977,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Fake Desktop\\Coding\\TEAM FLEX\\dit355\\middleware\\Server\\TrialServer.csproj",
+      "projectUniqueName": "c:\\Fake Desktop\\Coding\\TEAM FLEX\\dit355\\middleware\\Server\\TrialServer.csproj",
       "projectName": "TrialServer",
-      "projectPath": "C:\\Fake Desktop\\Coding\\TEAM FLEX\\dit355\\middleware\\Server\\TrialServer.csproj",
+      "projectPath": "c:\\Fake Desktop\\Coding\\TEAM FLEX\\dit355\\middleware\\Server\\TrialServer.csproj",
       "packagesPath": "C:\\Users\\Hakim\\.nuget\\packages\\",
-      "outputPath": "C:\\Fake Desktop\\Coding\\TEAM FLEX\\dit355\\middleware\\Server\\obj\\",
+      "outputPath": "c:\\Fake Desktop\\Coding\\TEAM FLEX\\dit355\\middleware\\Server\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -5998,8 +5998,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Fake Desktop\\Coding\\TEAM FLEX\\dit355\\middleware\\Services\\Trial.csproj": {
-              "projectPath": "C:\\Fake Desktop\\Coding\\TEAM FLEX\\dit355\\middleware\\Services\\Trial.csproj"
+            "c:\\Fake Desktop\\Coding\\TEAM FLEX\\dit355\\middleware\\Services\\Trial.csproj": {
+              "projectPath": "c:\\Fake Desktop\\Coding\\TEAM FLEX\\dit355\\middleware\\Services\\Trial.csproj"
             }
           }
         }

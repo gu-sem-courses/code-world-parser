@@ -14,6 +14,8 @@ namespace Trial {
 
     static readonly grpc::Marshaller<global::Trial.HelloRequest> __Marshaller_trial_HelloRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Trial.HelloRequest.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::Trial.HelloReply> __Marshaller_trial_HelloReply = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Trial.HelloReply.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Trial.ParsingRequest> __Marshaller_trial_ParsingRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Trial.ParsingRequest.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Trial.JsonReply> __Marshaller_trial_JsonReply = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Trial.JsonReply.Parser.ParseFrom);
 
     static readonly grpc::Method<global::Trial.HelloRequest, global::Trial.HelloReply> __Method_MessageExamples = new grpc::Method<global::Trial.HelloRequest, global::Trial.HelloReply>(
         grpc::MethodType.Unary,
@@ -21,6 +23,13 @@ namespace Trial {
         "MessageExamples",
         __Marshaller_trial_HelloRequest,
         __Marshaller_trial_HelloReply);
+
+    static readonly grpc::Method<global::Trial.ParsingRequest, global::Trial.JsonReply> __Method_MainInteraction = new grpc::Method<global::Trial.ParsingRequest, global::Trial.JsonReply>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "MainInteraction",
+        __Marshaller_trial_ParsingRequest,
+        __Marshaller_trial_JsonReply);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -32,6 +41,11 @@ namespace Trial {
     public abstract partial class TrialBase
     {
       public virtual global::System.Threading.Tasks.Task<global::Trial.HelloReply> MessageExamples(global::Trial.HelloRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task<global::Trial.JsonReply> MainInteraction(global::Trial.ParsingRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -77,6 +91,22 @@ namespace Trial {
       {
         return CallInvoker.AsyncUnaryCall(__Method_MessageExamples, null, options, request);
       }
+      public virtual global::Trial.JsonReply MainInteraction(global::Trial.ParsingRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return MainInteraction(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual global::Trial.JsonReply MainInteraction(global::Trial.ParsingRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_MainInteraction, null, options, request);
+      }
+      public virtual grpc::AsyncUnaryCall<global::Trial.JsonReply> MainInteractionAsync(global::Trial.ParsingRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return MainInteractionAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncUnaryCall<global::Trial.JsonReply> MainInteractionAsync(global::Trial.ParsingRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_MainInteraction, null, options, request);
+      }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       protected override TrialClient NewInstance(ClientBaseConfiguration configuration)
       {
@@ -89,7 +119,8 @@ namespace Trial {
     public static grpc::ServerServiceDefinition BindService(TrialBase serviceImpl)
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
-          .AddMethod(__Method_MessageExamples, serviceImpl.MessageExamples).Build();
+          .AddMethod(__Method_MessageExamples, serviceImpl.MessageExamples)
+          .AddMethod(__Method_MainInteraction, serviceImpl.MainInteraction).Build();
     }
 
   }

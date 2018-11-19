@@ -11,12 +11,15 @@ namespace TrialClient
     {
         public static void Main(string[] args) 
         {
-            Channel channel = new Channel("10.0.97.223", 23456, ChannelCredentials.Insecure);
+            Testing();
+        }
+        private static void Testing(){
+            string filepath = "../json2.json";
+            Channel channel = new Channel("127.0.0.1", 23456, ChannelCredentials.Insecure);
             var client = new Trial.Trial.TrialClient(channel);
-            String user = "David";
-
-            var reply = client.MessageExamples(new HelloRequest { Name = user });
-            Console.WriteLine("Greeting: " + reply.Message);
+           
+            var json = client.MainInteraction(new ParsingRequest {Address ="Pancake"});
+            System.IO.File.WriteAllText(filepath, json.File);
 
             channel.ShutdownAsync().Wait();
             Console.WriteLine("Press any key to exit...");

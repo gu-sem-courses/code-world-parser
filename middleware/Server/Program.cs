@@ -1,10 +1,12 @@
 ﻿using System;
+using System.IO;
 using Trial;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
 using Grpc.Core;
 using Grpc.Core.Utils;
+using Newtonsoft.Json.Linq;
 
 namespace TrialServer
 {
@@ -14,6 +16,23 @@ public class ServiceImpl : Trial.Trial.TrialBase{
         {
             return Task.FromResult(new HelloReply { Message = "Hello Darkness My old friend " + request.Name });
         }
+
+ public override Task<JsonReply> MainInteraction(ParsingRequest request, ServerCallContext context)
+ {
+     string filepath = "../json1.json";
+            string result = string.Empty;
+            using (StreamReader r = new StreamReader(filepath))
+            {
+                var json = r.ReadToEnd();
+                var jobj = JObject.Parse(json);       
+                result = jobj.ToString();
+                Console.WriteLine(result);    
+                }        
+
+
+     return Task.FromResult(new JsonReply{File = result});
+ }   
+
 }
 
     public class ServerProgram
