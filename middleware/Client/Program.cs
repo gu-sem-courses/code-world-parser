@@ -9,11 +9,11 @@ namespace TrialClient
 {
     class ClientProgram
     {
-        public static void Main(string[] args)
+        public static void Main(string[] args) 
         {
-            Channel channel = new Channel("127.0.0.1", 23456, ChannelCredentials.Insecure);
+            Channel channel = new Channel("10.0.97.223", 23456, ChannelCredentials.Insecure);
             var client = new Trial.Trial.TrialClient(channel);
-           String user = "David";
+            String user = "David";
 
             var reply = client.MessageExamples(new HelloRequest { Name = user });
             Console.WriteLine("Greeting: " + reply.Message);

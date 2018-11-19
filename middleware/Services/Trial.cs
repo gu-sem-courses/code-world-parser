@@ -24,14 +24,14 @@ namespace Trial {
     static TrialReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Cgt0cmlhbC5wcm90bxIFdHJpYWwiHAoMSGVsbG9SZXF1ZXN0EgwKBG5hbWUY",
-            "ASABKAkiHQoKSGVsbG9SZXBseRIPCgdtZXNzYWdlGAEgASgJMkQKBVRyaWFs",
-            "EjsKD01lc3NhZ2VFeGFtcGxlcxITLnRyaWFsLkhlbGxvUmVxdWVzdBoRLnRy",
-            "aWFsLkhlbGxvUmVwbHkiAGIGcHJvdG8z"));
+            "Cgt0cmlhbC5wcm90bxIFdHJpYWwiLgoMSGVsbG9SZXF1ZXN0EgwKBG5hbWUY",
+            "ASABKAkSEAoIbGFzdG5hbWUYAiABKAkiHQoKSGVsbG9SZXBseRIPCgdtZXNz",
+            "YWdlGAEgASgJMkQKBVRyaWFsEjsKD01lc3NhZ2VFeGFtcGxlcxITLnRyaWFs",
+            "LkhlbGxvUmVxdWVzdBoRLnRyaWFsLkhlbGxvUmVwbHkiAGIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Trial.HelloRequest), global::Trial.HelloRequest.Parser, new[]{ "Name" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Trial.HelloRequest), global::Trial.HelloRequest.Parser, new[]{ "Name", "Lastname" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Trial.HelloReply), global::Trial.HelloReply.Parser, new[]{ "Message" }, null, null, null)
           }));
     }
@@ -65,6 +65,7 @@ namespace Trial {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public HelloRequest(HelloRequest other) : this() {
       name_ = other.name_;
+      lastname_ = other.lastname_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -84,6 +85,17 @@ namespace Trial {
       }
     }
 
+    /// <summary>Field number for the "lastname" field.</summary>
+    public const int LastnameFieldNumber = 2;
+    private string lastname_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Lastname {
+      get { return lastname_; }
+      set {
+        lastname_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as HelloRequest);
@@ -98,6 +110,7 @@ namespace Trial {
         return true;
       }
       if (Name != other.Name) return false;
+      if (Lastname != other.Lastname) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -105,6 +118,7 @@ namespace Trial {
     public override int GetHashCode() {
       int hash = 1;
       if (Name.Length != 0) hash ^= Name.GetHashCode();
+      if (Lastname.Length != 0) hash ^= Lastname.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -122,6 +136,10 @@ namespace Trial {
         output.WriteRawTag(10);
         output.WriteString(Name);
       }
+      if (Lastname.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(Lastname);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -132,6 +150,9 @@ namespace Trial {
       int size = 0;
       if (Name.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
+      }
+      if (Lastname.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Lastname);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -147,6 +168,9 @@ namespace Trial {
       if (other.Name.Length != 0) {
         Name = other.Name;
       }
+      if (other.Lastname.Length != 0) {
+        Lastname = other.Lastname;
+      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -160,6 +184,10 @@ namespace Trial {
             break;
           case 10: {
             Name = input.ReadString();
+            break;
+          }
+          case 18: {
+            Lastname = input.ReadString();
             break;
           }
         }
