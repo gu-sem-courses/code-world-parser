@@ -10,8 +10,19 @@ message HelloRequest{
 message HelloReply{
     string message = 1;
 }
+
+message ParsingRequest{
+    String address = 1;
+}
+
+message JsonReply{
+    //Todo
+}
+
+
 service Trial{
 
 rpc MessageExamples(HelloRequest) returns (HelloReply){}
+rpc MainInteraction(ParsingRequest) returns(JsonReply){}
 
 }

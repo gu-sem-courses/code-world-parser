@@ -5948,29 +5948,34 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Hakim\\.nuget\\packages\\": {},
+    "C:\\Users\\David Lindgren\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Fake Desktop\\Coding\\TEAM FLEX\\dit355\\middleware\\Services\\Trial.csproj",
+      "projectUniqueName": "c:\\Projects\\DIT355DistributedSystems\\middleware\\Services\\Trial.csproj",
       "projectName": "Trial",
-      "projectPath": "c:\\Fake Desktop\\Coding\\TEAM FLEX\\dit355\\middleware\\Services\\Trial.csproj",
-      "packagesPath": "C:\\Users\\Hakim\\.nuget\\packages\\",
-      "outputPath": "c:\\Fake Desktop\\Coding\\TEAM FLEX\\dit355\\middleware\\Services\\obj\\",
+      "projectPath": "c:\\Projects\\DIT355DistributedSystems\\middleware\\Services\\Trial.csproj",
+      "packagesPath": "C:\\Users\\David Lindgren\\.nuget\\packages\\",
+      "outputPath": "c:\\Projects\\DIT355DistributedSystems\\middleware\\Services\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Hakim\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\David Lindgren\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.1"
       ],
       "sources": {
-        "https://api.nuget.org/v3/index.json": {}
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://www.nuget.org/api/v2": {}
       },
       "frameworks": {
         "netcoreapp2.1": {
