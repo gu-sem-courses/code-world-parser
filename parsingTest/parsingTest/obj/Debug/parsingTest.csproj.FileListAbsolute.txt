@@ -9,3 +9,13 @@ C:\Users\LOrdBenche\source\repos\parsingTest\parsingTest\obj\Debug\parsingTest.e
 C:\Users\LOrdBenche\source\repos\parsingTest\parsingTest\obj\Debug\parsingTest.pdb
 C:\Users\LOrdBenche\source\repos\parsingTest\parsingTest\bin\Debug\parsingTest.exe.CodeAnalysisLog.xml
 C:\Users\LOrdBenche\source\repos\parsingTest\parsingTest\bin\Debug\parsingTest.exe.lastcodeanalysissucceeded
+C:\DistributedSystemProject\dit355\parsingTest\parsingTest\bin\Debug\parsingTest.exe.config
+C:\DistributedSystemProject\dit355\parsingTest\parsingTest\bin\Debug\parsingTest.exe
+C:\DistributedSystemProject\dit355\parsingTest\parsingTest\bin\Debug\parsingTest.pdb
+C:\DistributedSystemProject\dit355\parsingTest\parsingTest\bin\Debug\Newtonsoft.Json.dll
+C:\DistributedSystemProject\dit355\parsingTest\parsingTest\bin\Debug\Newtonsoft.Json.xml
+C:\DistributedSystemProject\dit355\parsingTest\parsingTest\obj\Debug\parsingTest.csprojAssemblyReference.cache
+C:\DistributedSystemProject\dit355\parsingTest\parsingTest\obj\Debug\parsingTest.csproj.CoreCompileInputs.cache
+C:\DistributedSystemProject\dit355\parsingTest\parsingTest\obj\Debug\parsingTest.csproj.CopyComplete
+C:\DistributedSystemProject\dit355\parsingTest\parsingTest\obj\Debug\parsingTest.exe
+C:\DistributedSystemProject\dit355\parsingTest\parsingTest\obj\Debug\parsingTest.pdb
