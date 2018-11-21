@@ -24,9 +24,8 @@ public class ServiceImpl : Trial.Trial.TrialBase{
             using (StreamReader r = new StreamReader(filepath))
             {
                 var json = r.ReadToEnd();
-                var jobj = JObject.Parse(json);       
-                result = jobj.ToString();
-                Console.WriteLine(result);    
+                var jsonobj = JObject.Parse(json);       
+                result = jsonobj.ToString();
                 }        
 
 
