@@ -1,0 +1,11 @@
+C:\Users\LOrdBenche\source\repos\parsingTest\parsingTest\bin\Debug\parsingTest.exe.config
+C:\Users\LOrdBenche\source\repos\parsingTest\parsingTest\bin\Debug\parsingTest.exe
+C:\Users\LOrdBenche\source\repos\parsingTest\parsingTest\bin\Debug\parsingTest.pdb
+C:\Users\LOrdBenche\source\repos\parsingTest\parsingTest\bin\Debug\Newtonsoft.Json.dll
+C:\Users\LOrdBenche\source\repos\parsingTest\parsingTest\bin\Debug\Newtonsoft.Json.xml
+C:\Users\LOrdBenche\source\repos\parsingTest\parsingTest\obj\Debug\parsingTest.csproj.CoreCompileInputs.cache
+C:\Users\LOrdBenche\source\repos\parsingTest\parsingTest\obj\Debug\parsingTest.csproj.CopyComplete
+C:\Users\LOrdBenche\source\repos\parsingTest\parsingTest\obj\Debug\parsingTest.exe
+C:\Users\LOrdBenche\source\repos\parsingTest\parsingTest\obj\Debug\parsingTest.pdb
+C:\Users\LOrdBenche\source\repos\parsingTest\parsingTest\bin\Debug\parsingTest.exe.CodeAnalysisLog.xml
+C:\Users\LOrdBenche\source\repos\parsingTest\parsingTest\bin\Debug\parsingTest.exe.lastcodeanalysissucceeded
