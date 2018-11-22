@@ -33,7 +33,7 @@ class Parsing
         try
         {
            //String path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "producedJSON/test2.json");
-            String path = "../../producedJSON/test2.json";
+            String path = "producedJSON/test2.json";
             // serialize JSON to a string and then write string to a file
             File.WriteAllText(path, JsonConvert.SerializeObject(movie));
             // serialize JSON directly to a file
