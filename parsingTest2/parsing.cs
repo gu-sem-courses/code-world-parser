@@ -51,3 +51,47 @@ class Parsing
 
         }
     }
+
+
+/* 
+// This is how the parsing would look like 
+//This is an example. I was too lazy to save the website so I just put em here
+string xml = @"<?xml version='1.0' standalone='no'?>
+<root>
+  <person id='1'>
+  <name>Alan</name>
+  <url>http://www.google.com</url>
+  </person>
+  <person id='2'>
+  <name>Louis</name>
+  <url>http://www.yahoo.com</url>
+  </person>
+</root>";
+
+XmlDocument doc = new XmlDocument();
+doc.LoadXml(xml);
+
+string json = JsonConvert.SerializeXmlNode(doc);
+
+Console.WriteLine(json);
+// {
+//   "?xml": {
+//     "@version": "1.0",
+//     "@standalone": "no"
+//   },
+//   "root": {
+//     "person": [
+//       {
+//         "@id": "1",
+//         "name": "Alan",
+//         "url": "http://www.google.com"
+//       },
+//       {
+//         "@id": "2",
+//         "name": "Louis",
+//         "url": "http://www.yahoo.com"
+//       }
+//     ]
+//   }
+// }
+*/
