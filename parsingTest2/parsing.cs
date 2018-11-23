@@ -19,10 +19,9 @@ class Parsing
     static void Main(string[] args)
         {
 
-
-            //FileIOPermission f = new FileIOPermission(FileIOPermissionAccess.Read, "C:\\Users\\LOrdBenche\\source\\repos\\parsingTest\\parsingTest\\producedJSON");
-           // f.AddPathList(FileIOPermissionAccess.Write | FileIOPermissionAccess.Read, "C:\\Users\\LOrdBenche\\source\\repos\\parsingTest\\parsingTest\\producedJSON");
-
+             string xmlString =  System.IO.File.ReadAllText(fileName);  //fix the file name and see what to put instead 
+            /* check this website for converting an XML file into a type string
+            https://stackoverflow.com/questions/15895670/converting-an-xml-file-to-string-type*/
 
         Movie movie = new Movie
             {
@@ -95,3 +94,4 @@ Console.WriteLine(json);
 //   }
 // }
 */
+
