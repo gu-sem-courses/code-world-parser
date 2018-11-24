@@ -1,0 +1,15 @@
+﻿<Properties StartupConfiguration="{4A532A64-2EA3-4562-9160-610073D291B4}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="parsing/Program.cs">
+    <Files>
+      <File FileName="../../parsingTest2/Program.csproj" Line="94" Column="1" />
+      <File FileName="parsing/Program.cs" Line="9" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.parsing FirstBuild="True" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
