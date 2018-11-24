@@ -10,14 +10,9 @@ using System.Xml.Linq;
 
 class Program
 {
-    //private const string directoryPath = @"\producedJSON\test2.json";
     static void Main(string[] args)
     {
-
-        // string xmlString =  System.IO.File.ReadAllText(fileName);  //fix the file name and see what to put instead 
-        /* check this website for converting an XML file into a type string
-        https://stackoverflow.com/questions/15895670/converting-an-xml-file-to-string-type*/
-
+        //Read the XML file which is called parsing
         XmlReader r = XmlReader.Create("parsing.xml");
         while (r.NodeType != XmlNodeType.Element)
             r.Read();
