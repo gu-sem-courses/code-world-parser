@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Project xmlns="http://schemas.microsoft.com/project">
+<Name/>
+<StartDate>2009-03-10</StartDate>
+<Author>Angus King</Author>
+<Tasks>
+<Task>
+<UID>0</UID>
+<Name>SampleProject Using XML export feature of Freemind v9</Name>
+<Notes>
+    
+      This is a simple sample of using Freemind to create a MS-Project project. See "C:\Program Files\Freemind\accessories\mm2msp_utf8_TEMPLATE.mm" for a more expansive sample. Process is:
+    
+    
+      
+        Create the project plan using Freemind features. Use link arrows to create predecedence. Default is all start on project start date
+      
+      
+        Add an attribute (Alt-F9) to each low level task to specify the duration. Attribute is tsk-Duration value is either in standard MS (PTnHnMnS) format, allowing specifying hours, minutes and seconds or if you use AKs XSLT you can enter (whole) months, days or hours by suffixing the value with  m, d or h respectively (eg. 2d for 2 days)
+      
+      
+        Export the file as XSLT - File-&gt;Export-&gt;Using XLST ... You identify the XSLT translator (either the standard "C:\Program Files\Freemind\accessories\mm2msp_utf8.xsl" or "..\mm2msp_utf8_ak.xsl" to use the alternative duration formats. Remember to save the exported file with xml file type
+      
+      
+        Open MS Project and import the file - Open-&gt;Files of Type-&gt;xml. First time import as a new file
+      
+      
+        To load durations you actually need to open the file again and Merge it into the existing project (if you specify Start and Finish dates then the durations will be included on first import)
+      
+      
+        See Angus for help
+      
+    
+    
+    
+  </Notes>
+<OutlineLevel>0</OutlineLevel>
+<FixedCostAccrual>1</FixedCostAccrual>
+</Task>
+
+
+
+
+
+<Task>
+<UID>1</UID>
+<Name>Sample Task 1</Name>
+<Notes>
+    
+      Doesn't need a duration as this will come from sub tasks.
+    
+  </Notes>
+<OutlineLevel>1</OutlineLevel>
+<FixedCostAccrual>1</FixedCostAccrual>
+</Task>
+
+
+
+<Task>
+<UID>2</UID>
+<Name>Sub Task 1.1</Name>
+<Notes>
+    
+      Task is 2 days long
+    
+  </Notes>
+<OutlineLevel>2</OutlineLevel>
+<FixedCostAccrual>1</FixedCostAccrual>
+<Duration>PT16H0M0S</Duration>
+</Task>
+
+
+
+
+
+<Task>
+<UID>3</UID>
+<Name>Sub Task 1.2</Name>
+<Notes>
+    
+      Task is 2 months long. Sub Task 1.1 is a Predecessor
+    
+  </Notes>
+<OutlineLevel>2</OutlineLevel>
+<FixedCostAccrual>1</FixedCostAccrual>
+<Duration>PT320H0M0S</Duration>
+<PredecessorLink>
+<PredecessorUID>2</PredecessorUID>
+<Type>1</Type>
+</PredecessorLink>
+</Task>
+
+
+
+
+
+<Task>
+<UID>4</UID>
+<Name>Sample Task 2</Name>
+<OutlineLevel>1</OutlineLevel>
+<FixedCostAccrual>1</FixedCostAccrual>
+<PredecessorLink>
+<PredecessorUID>1</PredecessorUID>
+<Type>1</Type>
+</PredecessorLink>
+</Task>
+<Task>
+<UID>5</UID>
+<Name>Sub Task 2.1</Name>
+<Notes>
+    
+      Task is 48 hours, or 6 days long (MS Project format). Sample Task 1 is a Predecessor
+    
+  </Notes>
+<OutlineLevel>2</OutlineLevel>
+<FixedCostAccrual>1</FixedCostAccrual>
+<Duration>PT48H0M0S</Duration>
+</Task>
+
+
+
+
+</Tasks>
+</Project>

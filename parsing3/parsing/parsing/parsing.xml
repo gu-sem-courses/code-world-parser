@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<unit xmlns="http://www.srcML.org/srcML/src" xmlns:cpp="http://www.srcML.org/srcML/cpp" revision="0.9.5" language="C#" filename="parsing.cs"><using>using <name><name>Newtonsoft</name><operator>.</operator><name>Json</name></name>;</using>
+<using>using <name>System</name>;</using>
+<using>using <name><name>System</name><operator>.</operator><name>IO</name></name>;</using>
+<using>using <name><name>System</name><operator>.</operator><name>Security</name><operator>.</operator><name>Permissions</name></name>;</using>
+
+<class><attribute>[<expr><name>Serializable</name></expr>]</attribute>
+
+<specifier>public</specifier> class <name>Movie</name>
+<block>{
+    <property><specifier>public</specifier> <type><name>string</name></type> <name>Name</name> <block>{ <function_decl><name>get</name>;</function_decl> <function_decl><name>set</name>;</function_decl> }</block></property>
+    <property><specifier>public</specifier> <type><name>int</name></type> <name>Year</name> <block>{ <function_decl><name>get</name>;</function_decl> <function_decl><name>set</name>;</function_decl> }</block></property>
+}</block></class>
+
+<class>class <name>Parsing</name>
+    <block>{
+    <comment type="line">//private const string directoryPath = @"\producedJSON\test2.json";</comment>
+
+  
+    <function><specifier>static</specifier> <type><name>void</name></type> <name>Main</name><parameter_list>(<parameter><decl><type><name><name>string</name><index>[]</index></name></type> <name>args</name></decl></parameter>)</parameter_list>
+        <block>{
+
+
+            <comment type="line">//FileIOPermission f = new FileIOPermission(FileIOPermissionAccess.Read, "C:\\Users\\LOrdBenche\\source\\repos\\parsingTest\\parsingTest\\producedJSON");</comment>
+           <comment type="line">// f.AddPathList(FileIOPermissionAccess.Write | FileIOPermissionAccess.Read, "C:\\Users\\LOrdBenche\\source\\repos\\parsingTest\\parsingTest\\producedJSON");</comment>
+
+
+        <decl_stmt><decl><type><name>Movie</name></type> <name>movie</name> <init>= <expr><operator>new</operator> <name>Movie</name>
+            <block>{
+                <expr><name>Name</name> <operator>=</operator> <literal type="string">"Bad Boys"</literal></expr>,
+                <expr><name>Year</name> <operator>=</operator> <literal type="number">1995</literal></expr>
+            }</block></expr></init></decl>;</decl_stmt>
+
+        <try>try
+        <block>{
+           <comment type="line">//String path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "producedJSON/test2.json");</comment>
+            <decl_stmt><decl><type><name>String</name></type> <name>path</name> <init>= <expr><literal type="string">"producedJSON/test2.json"</literal></expr></init></decl>;</decl_stmt>
+            <comment type="line">// serialize JSON to a string and then write string to a file</comment>
+            <expr_stmt><expr><call><name><name>File</name><operator>.</operator><name>WriteAllText</name></name><argument_list>(<argument><expr><name>path</name></expr></argument>, <argument><expr><call><name><name>JsonConvert</name><operator>.</operator><name>SerializeObject</name></name><argument_list>(<argument><expr><name>movie</name></expr></argument>)</argument_list></call></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+            <comment type="line">// serialize JSON directly to a file</comment>
+            <using_stmt>using <init>(<decl><type><name>StreamWriter</name></type> <name>file</name> <init>= <expr><call><name><name>File</name><operator>.</operator><name>CreateText</name></name><argument_list>(<argument><expr><name>path</name></expr></argument>)</argument_list></call></expr></init></decl>)</init>
+            <block>{
+                <decl_stmt><decl><type><name>JsonSerializer</name></type> <name>serializer</name> <init>= <expr><operator>new</operator> <call><name>JsonSerializer</name><argument_list>()</argument_list></call></expr></init></decl>;</decl_stmt>
+                <expr_stmt><expr><call><name><name>serializer</name><operator>.</operator><name>Serialize</name></name><argument_list>(<argument><expr><name>file</name></expr></argument>, <argument><expr><name>movie</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+            }</block></using_stmt>
+        }</block>
+
+        <catch>catch <parameter_list>(<parameter><decl><type><name>Exception</name></type> <name>e</name></decl></parameter>)</parameter_list>
+        <block>{
+            <expr_stmt><expr><call><name><name>Console</name><operator>.</operator><name>WriteLine</name></name><argument_list>(<argument><expr><call><name><name>e</name><operator>.</operator><name>ToString</name></name><argument_list>()</argument_list></call></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+        }</block></catch></try>
+
+        }</block></function>
+    }</block></class>
+</unit>
