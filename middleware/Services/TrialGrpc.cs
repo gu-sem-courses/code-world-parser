@@ -7,116 +7,116 @@
 
 using grpc = global::Grpc.Core;
 
-namespace Trial {
-  public static partial class Trial
+namespace Services {
+  public static partial class GameLog
   {
-    static readonly string __ServiceName = "trial.Trial";
+    static readonly string __ServiceName = "services.GameLog";
 
-    static readonly grpc::Marshaller<global::Trial.HelloRequest> __Marshaller_trial_HelloRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Trial.HelloRequest.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Trial.HelloReply> __Marshaller_trial_HelloReply = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Trial.HelloReply.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Trial.ParsingRequest> __Marshaller_trial_ParsingRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Trial.ParsingRequest.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::Trial.JsonReply> __Marshaller_trial_JsonReply = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Trial.JsonReply.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Services.HelloRequest> __Marshaller_services_HelloRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Services.HelloRequest.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Services.HelloReply> __Marshaller_services_HelloReply = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Services.HelloReply.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Services.ParsingRequest> __Marshaller_services_ParsingRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Services.ParsingRequest.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::Services.JsonReply> __Marshaller_services_JsonReply = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::Services.JsonReply.Parser.ParseFrom);
 
-    static readonly grpc::Method<global::Trial.HelloRequest, global::Trial.HelloReply> __Method_MessageExamples = new grpc::Method<global::Trial.HelloRequest, global::Trial.HelloReply>(
+    static readonly grpc::Method<global::Services.HelloRequest, global::Services.HelloReply> __Method_MessageExamples = new grpc::Method<global::Services.HelloRequest, global::Services.HelloReply>(
         grpc::MethodType.Unary,
         __ServiceName,
         "MessageExamples",
-        __Marshaller_trial_HelloRequest,
-        __Marshaller_trial_HelloReply);
+        __Marshaller_services_HelloRequest,
+        __Marshaller_services_HelloReply);
 
-    static readonly grpc::Method<global::Trial.ParsingRequest, global::Trial.JsonReply> __Method_MainInteraction = new grpc::Method<global::Trial.ParsingRequest, global::Trial.JsonReply>(
+    static readonly grpc::Method<global::Services.ParsingRequest, global::Services.JsonReply> __Method_MainInteraction = new grpc::Method<global::Services.ParsingRequest, global::Services.JsonReply>(
         grpc::MethodType.Unary,
         __ServiceName,
         "MainInteraction",
-        __Marshaller_trial_ParsingRequest,
-        __Marshaller_trial_JsonReply);
+        __Marshaller_services_ParsingRequest,
+        __Marshaller_services_JsonReply);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
     {
-      get { return global::Trial.TrialReflection.Descriptor.Services[0]; }
+      get { return global::Services.TrialReflection.Descriptor.Services[0]; }
     }
 
-    /// <summary>Base class for server-side implementations of Trial</summary>
-    public abstract partial class TrialBase
+    /// <summary>Base class for server-side implementations of GameLog</summary>
+    public abstract partial class GameLogBase
     {
-      public virtual global::System.Threading.Tasks.Task<global::Trial.HelloReply> MessageExamples(global::Trial.HelloRequest request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Services.HelloReply> MessageExamples(global::Services.HelloRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Trial.JsonReply> MainInteraction(global::Trial.ParsingRequest request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Services.JsonReply> MainInteraction(global::Services.ParsingRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
     }
 
-    /// <summary>Client for Trial</summary>
-    public partial class TrialClient : grpc::ClientBase<TrialClient>
+    /// <summary>Client for GameLog</summary>
+    public partial class GameLogClient : grpc::ClientBase<GameLogClient>
     {
-      /// <summary>Creates a new client for Trial</summary>
+      /// <summary>Creates a new client for GameLog</summary>
       /// <param name="channel">The channel to use to make remote calls.</param>
-      public TrialClient(grpc::Channel channel) : base(channel)
+      public GameLogClient(grpc::Channel channel) : base(channel)
       {
       }
-      /// <summary>Creates a new client for Trial that uses a custom <c>CallInvoker</c>.</summary>
+      /// <summary>Creates a new client for GameLog that uses a custom <c>CallInvoker</c>.</summary>
       /// <param name="callInvoker">The callInvoker to use to make remote calls.</param>
-      public TrialClient(grpc::CallInvoker callInvoker) : base(callInvoker)
+      public GameLogClient(grpc::CallInvoker callInvoker) : base(callInvoker)
       {
       }
       /// <summary>Protected parameterless constructor to allow creation of test doubles.</summary>
-      protected TrialClient() : base()
+      protected GameLogClient() : base()
       {
       }
       /// <summary>Protected constructor to allow creation of configured clients.</summary>
       /// <param name="configuration">The client configuration.</param>
-      protected TrialClient(ClientBaseConfiguration configuration) : base(configuration)
+      protected GameLogClient(ClientBaseConfiguration configuration) : base(configuration)
       {
       }
 
-      public virtual global::Trial.HelloReply MessageExamples(global::Trial.HelloRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::Services.HelloReply MessageExamples(global::Services.HelloRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return MessageExamples(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::Trial.HelloReply MessageExamples(global::Trial.HelloRequest request, grpc::CallOptions options)
+      public virtual global::Services.HelloReply MessageExamples(global::Services.HelloRequest request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_MessageExamples, null, options, request);
       }
-      public virtual grpc::AsyncUnaryCall<global::Trial.HelloReply> MessageExamplesAsync(global::Trial.HelloRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::Services.HelloReply> MessageExamplesAsync(global::Services.HelloRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return MessageExamplesAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual grpc::AsyncUnaryCall<global::Trial.HelloReply> MessageExamplesAsync(global::Trial.HelloRequest request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::Services.HelloReply> MessageExamplesAsync(global::Services.HelloRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_MessageExamples, null, options, request);
       }
-      public virtual global::Trial.JsonReply MainInteraction(global::Trial.ParsingRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::Services.JsonReply MainInteraction(global::Services.ParsingRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return MainInteraction(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::Trial.JsonReply MainInteraction(global::Trial.ParsingRequest request, grpc::CallOptions options)
+      public virtual global::Services.JsonReply MainInteraction(global::Services.ParsingRequest request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_MainInteraction, null, options, request);
       }
-      public virtual grpc::AsyncUnaryCall<global::Trial.JsonReply> MainInteractionAsync(global::Trial.ParsingRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::Services.JsonReply> MainInteractionAsync(global::Services.ParsingRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return MainInteractionAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual grpc::AsyncUnaryCall<global::Trial.JsonReply> MainInteractionAsync(global::Trial.ParsingRequest request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::Services.JsonReply> MainInteractionAsync(global::Services.ParsingRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_MainInteraction, null, options, request);
       }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
-      protected override TrialClient NewInstance(ClientBaseConfiguration configuration)
+      protected override GameLogClient NewInstance(ClientBaseConfiguration configuration)
       {
-        return new TrialClient(configuration);
+        return new GameLogClient(configuration);
       }
     }
 
     /// <summary>Creates service definition that can be registered with a server</summary>
     /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
-    public static grpc::ServerServiceDefinition BindService(TrialBase serviceImpl)
+    public static grpc::ServerServiceDefinition BindService(GameLogBase serviceImpl)
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
           .AddMethod(__Method_MessageExamples, serviceImpl.MessageExamples)

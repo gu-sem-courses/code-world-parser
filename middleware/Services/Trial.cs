@@ -9,7 +9,7 @@ using pb = global::Google.Protobuf;
 using pbc = global::Google.Protobuf.Collections;
 using pbr = global::Google.Protobuf.Reflection;
 using scg = global::System.Collections.Generic;
-namespace Trial {
+namespace Services {
 
   /// <summary>Holder for reflection information generated from trial.proto</summary>
   public static partial class TrialReflection {
@@ -24,20 +24,21 @@ namespace Trial {
     static TrialReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "Cgt0cmlhbC5wcm90bxIFdHJpYWwiLgoMSGVsbG9SZXF1ZXN0EgwKBG5hbWUY",
-            "ASABKAkSEAoIbGFzdG5hbWUYAiABKAkiHQoKSGVsbG9SZXBseRIPCgdtZXNz",
-            "YWdlGAEgASgJIiEKDlBhcnNpbmdSZXF1ZXN0Eg8KB2FkZHJlc3MYASABKAki",
-            "GQoJSnNvblJlcGx5EgwKBGZpbGUYASABKAkyggEKBVRyaWFsEjsKD01lc3Nh",
-            "Z2VFeGFtcGxlcxITLnRyaWFsLkhlbGxvUmVxdWVzdBoRLnRyaWFsLkhlbGxv",
-            "UmVwbHkiABI8Cg9NYWluSW50ZXJhY3Rpb24SFS50cmlhbC5QYXJzaW5nUmVx",
-            "dWVzdBoQLnRyaWFsLkpzb25SZXBseSIAYgZwcm90bzM="));
+            "Cgt0cmlhbC5wcm90bxIIc2VydmljZXMiLgoMSGVsbG9SZXF1ZXN0EgwKBG5h",
+            "bWUYASABKAkSEAoIbGFzdG5hbWUYAiABKAkiHQoKSGVsbG9SZXBseRIPCgdt",
+            "ZXNzYWdlGAEgASgJIiEKDlBhcnNpbmdSZXF1ZXN0Eg8KB2FkZHJlc3MYASAB",
+            "KAkiGQoJSnNvblJlcGx5EgwKBGZpbGUYASABKAkykAEKB0dhbWVMb2cSQQoP",
+            "TWVzc2FnZUV4YW1wbGVzEhYuc2VydmljZXMuSGVsbG9SZXF1ZXN0GhQuc2Vy",
+            "dmljZXMuSGVsbG9SZXBseSIAEkIKD01haW5JbnRlcmFjdGlvbhIYLnNlcnZp",
+            "Y2VzLlBhcnNpbmdSZXF1ZXN0GhMuc2VydmljZXMuSnNvblJlcGx5IgBiBnBy",
+            "b3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Trial.HelloRequest), global::Trial.HelloRequest.Parser, new[]{ "Name", "Lastname" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Trial.HelloReply), global::Trial.HelloReply.Parser, new[]{ "Message" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Trial.ParsingRequest), global::Trial.ParsingRequest.Parser, new[]{ "Address" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Trial.JsonReply), global::Trial.JsonReply.Parser, new[]{ "File" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Services.HelloRequest), global::Services.HelloRequest.Parser, new[]{ "Name", "Lastname" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Services.HelloReply), global::Services.HelloReply.Parser, new[]{ "Message" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Services.ParsingRequest), global::Services.ParsingRequest.Parser, new[]{ "Address" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Services.JsonReply), global::Services.JsonReply.Parser, new[]{ "File" }, null, null, null)
           }));
     }
     #endregion
@@ -52,7 +53,7 @@ namespace Trial {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Trial.TrialReflection.Descriptor.MessageTypes[0]; }
+      get { return global::Services.TrialReflection.Descriptor.MessageTypes[0]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -209,7 +210,7 @@ namespace Trial {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Trial.TrialReflection.Descriptor.MessageTypes[1]; }
+      get { return global::Services.TrialReflection.Descriptor.MessageTypes[1]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -338,7 +339,7 @@ namespace Trial {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Trial.TrialReflection.Descriptor.MessageTypes[2]; }
+      get { return global::Services.TrialReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -467,7 +468,7 @@ namespace Trial {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Trial.TrialReflection.Descriptor.MessageTypes[3]; }
+      get { return global::Services.TrialReflection.Descriptor.MessageTypes[3]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

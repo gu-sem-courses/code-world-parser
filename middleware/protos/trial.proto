@@ -1,7 +1,7 @@
 
 syntax = "proto3";
 
-package trial;
+package services;
 
 message HelloRequest{
     string name = 1; 
@@ -21,7 +21,7 @@ message JsonReply{
 }
 
 
-service Trial{
+service GameLog{
 
 rpc MessageExamples(HelloRequest) returns (HelloReply){}
 rpc MainInteraction(ParsingRequest) returns (JsonReply){}
