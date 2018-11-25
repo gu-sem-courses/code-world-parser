@@ -1,4 +1,4 @@
-# OS generated files
+parsingTest/*# OS generated files
 .DS_Store
 .DS_Store?
 ._*
@@ -13,3 +13,4 @@ Thumbs.db
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+parsingTest/*
