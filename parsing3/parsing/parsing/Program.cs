@@ -12,15 +12,35 @@ class Program
 {
     static void Main(string[] args)
     {
-        //Read the XML file which is called parsing
+        /* //Read the XML file. 
+         XmlReader r = XmlReader.Create("parsing.xml");
+         while (r.NodeType != XmlNodeType.Element)
+             r.Read();
+         XElement er = XElement.Load(r);
+         Console.WriteLine(er);
+         */
+
         XmlReader r = XmlReader.Create("parsing.xml");
-        while (r.NodeType != XmlNodeType.Element)
-            r.Read();
-        XElement er = XElement.Load(r);
-        Console.WriteLine(er);
+            while (r.Read())
+         {
+            if (r.NodeType == XmlNodeType.Element)
+         {
+             Console.WriteLine(r.LocalName);
+            }
+        }
 
 
+      /*  XmlDocument doc = new XmlDocument();
+        doc.Load("parsing.xml");
+        XmlElement root = doc.DocumentElement;
+        XmlNodeList nodes = root.SelectNodes("some_node"); // You can also use XPath here
+        foreach (XmlNode node in nodes)
+        {
+            // use node variable here for your beeds
+        }
 
+        Console.WriteLine(nodes);
+        */
 
 
         try
