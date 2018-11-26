@@ -46,10 +46,12 @@ class Program
             }
         }*/
 
-
-
         /* XmlDocument xd = new XmlDocument();
          xd.Load("parsing.xml");*/
+
+        //--------------------------------------------------------------------------------------------
+        //READ FROM HERE GUYS, SORRY FOR THE TOKYO DRIFT HAPPENING ABOVE
+
         var xd = XDocument.Load("parsing.xml");
         Type type = xd.GetType();
         SpanXDocument(xd.Root);
@@ -57,7 +59,7 @@ class Program
         
 
 
-        //get the class name and print it out
+        //get the class name, the attribute name and print it out
         void SpanXDocument(XElement elements)
         {
             NodeTypes nodeType;
@@ -81,11 +83,6 @@ class Program
                 }
                 switch (nodeType)
                 {
-                    case NodeTypes.HasChildren:
-                        Console.WriteLine("Has Children Name : {0}",
-                           element.Name.LocalName);
-                        SpanXDocument(element);
-                        break;
                     case NodeTypes.IsNode:
                         Console.WriteLine("Node Name : {0}",
                            element.Name.LocalName);
@@ -94,6 +91,11 @@ class Program
                             Console.WriteLine("Node Attribute Name : {0} Value : {1}",
                                elementNode.Name.LocalName, elementNode.Value);
                         }
+                        break;
+                    case NodeTypes.HasChildren:
+                        Console.WriteLine("Has Children Name : {0}",
+                           element.Name.LocalName);
+                        SpanXDocument(element);
                         break;
                     case NodeTypes.IsAttribute:
                         Console.WriteLine("Attribute Name : {0} Value : {1}",
@@ -183,6 +185,8 @@ class Program
 }
 
 
+
+//Lmao this doesn't work fuck me 
 /* 
 // This is how the parsing would look like 
 //This is an example. I was too lazy to save the website so I just put em here
