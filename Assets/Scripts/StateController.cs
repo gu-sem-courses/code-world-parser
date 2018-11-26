@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Project{
 	/// <summary>
@@ -14,13 +15,17 @@ namespace Project{
 		/// Reference to First Person Camera gameobject
 		/// Found from the player object
 		/// </value>
-		private GameObject FPCamera;
+		private GameObject _FPCamera;
 
 		//Reference to birdsEye camera
 		public GameObject BECamera;
 
 		/// References to UI canvases
 		public GameObject firstPersonUI;
+		public GameObject birdsEyeUI;
+
+		/// Reference to image that represents the player in the BirdsEyeView
+		public Image birdsEyeSprite;
 
 
 		/// <value>
@@ -35,12 +40,11 @@ namespace Project{
 
 		// Use this for initialization
 		void Start () {
-            FPCamera = gameObject.transform.GetChild(0).gameObject;
+            _FPCamera = gameObject.transform.GetChild(0).gameObject;
 		}
 		
 		// Update is called once per frame
 		void Update () {
-			
 		}
 
 		/// <summary>
@@ -54,16 +58,18 @@ namespace Project{
 				//TODO: Future behavior that will depend on changed states
 				case State.BirdsEye:
 					firstPersonUI.SetActive(false);
+					birdsEyeUI.SetActive(true);
 				break;
 
 				case State.FirstPerson:
 					firstPersonUI.SetActive(true);
+					birdsEyeUI.SetActive(false);
 				break;
 
 				default:
 				break;
 			}
-			FPCamera.SetActive(!FPCamera.activeSelf);
+			_FPCamera.SetActive(!_FPCamera.activeSelf);
 			BECamera.SetActive(!BECamera.activeSelf);
 		}
 
@@ -73,7 +79,7 @@ namespace Project{
 		/// <returns>The current state.</returns>
 		public State GetState()
 		{
-			if(FPCamera.activeSelf)
+			if(_FPCamera.activeSelf)
 			{
 				return State.FirstPerson;
 			}
@@ -88,6 +94,7 @@ namespace Project{
 				return State.FirstPerson;	
 			}
 		}
+
 	}
 }
 
