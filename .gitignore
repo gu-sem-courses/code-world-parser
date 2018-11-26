@@ -13,4 +13,8 @@ Thumbs.db
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
-parsingTest/*
+
+# generated files
+parsingTest/parsingTest/obj/*
+parsingTest/parsingTest/bin/*
+parsingTest/.vs/*
