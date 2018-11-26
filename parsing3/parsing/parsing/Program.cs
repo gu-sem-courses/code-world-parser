@@ -4,6 +4,13 @@ using System.IO;
 using System.Security.Permissions;
 using System.Xml;
 using System.Xml.Linq;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Xml;
+using System.Xml.Linq;
+
 
 
 [Serializable]
@@ -11,6 +18,14 @@ using System.Xml.Linq;
 
 class Program
 {
+
+    enum NodeTypes
+    {
+        HasChildren,
+        IsNode,
+        IsAttribute
+    }
+
     protected static void Main(string[] args)
     {
         /* //Read the XML file. This get me the entire XML file.
@@ -31,46 +46,107 @@ class Program
             }
         }*/
 
+        /* XmlDocument xd = new XmlDocument();
+         xd.Load("parsing.xml");*/
+
+        //--------------------------------------------------------------------------------------------
+        //READ FROM HERE GUYS, SORRY FOR THE TOKYO DRIFT HAPPENING ABOVE
+
+        var xd = XDocument.Load("parsing.xml");
+        Type type = xd.GetType();
+        SpanXDocument(xd.Root);
+
+        
 
 
-        XmlDocument xd = new XmlDocument();
-        xd.Load("parsing.xml");
-        //XmlNodeList nl = xd.SelectNodes("parsing.xml");
-        //XmlNode root = nl[0];
-
-        for (int i = 0; i < xd.ChildNodes.Count; i++)
+        //get the class name, the attribute name and print it out
+        void SpanXDocument(XElement elements)
         {
+            NodeTypes nodeType;
 
-            string name = xd.Name;
-            Console.WriteLine("SWAG.----------------1111");
-            Console.WriteLine(name);
-
-
-        }
-
-        for (int j = 0; j < xd.ChildNodes.Count; j++)
-        {
-            //EITHER TRY TO FIX THIS OR USE THIS 
-            //https://support.microsoft.com/en-ca/help/307548/how-to-read-xml-from-a-file-by-using-visual-c
-
-            if (xd.HasAttribute("name"))
+            foreach (XElement element in elements.Elements())
             {
-                String name = xd.GetAttribute("name");
-                Console.WriteLine(name);
+                if (element.Descendants().Count() > 0)
+                {
+                    if (element.Descendants().Descendants().Count() > 0)
+                    {
+                        nodeType = NodeTypes.HasChildren;
+                    }
+                    else
+                    {
+                        nodeType = NodeTypes.IsNode;
+                    }
+                }
+                else
+                {
+                    nodeType = NodeTypes.IsAttribute;
+                }
+                switch (nodeType)
+                {
+
+                    case NodeTypes.HasChildren:
+                        Console.WriteLine("Has Children Name : {0}",
+                           element.Name.LocalName);
+                        SpanXDocument(element);
+                        break;
+                    case NodeTypes.IsNode:
+                        Console.WriteLine("Node Name : {0}",
+                           element.Name.LocalName);
+                        foreach (XElement elementNode in element.Elements())
+                        {
+                            Console.WriteLine("Node Attribute Name : {0} Value : {1}",
+                               elementNode.Name.LocalName, elementNode.Value);
+                        }
+                        break;
+                    case NodeTypes.IsAttribute:
+                        Console.WriteLine("Attribute Name : {0} Value : {1}",
+                           element.Name.LocalName, element.Value);
+                        break;
+                }
+
+
+               // Console.WriteLine("SWAG.----------------1111");
             }
 
         }
 
-        for (int k = 0; k < xd.ChildNodes.Count; k++)
-        {
-             if (xd.ChildNodes[k].HasChildNodes)
-             {
-                    Console.WriteLine("SWAG.---------------3333");
-                    Console.WriteLine(xd.ChildNodes[k].InnerXml);
+        // Code = (string)data.Attribute("name"),
 
-             }
+
+
+
+
+        void test()
+        {
+            Console.WriteLine("LMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAO");
+
+            //get the attributes name and type
+            var distinctResults = xd.Descendants("result")
+                                         .Select(element => element.Attribute("value").Value)
+                                         .Distinct();
+
+            foreach (var result in distinctResults)
+            {
+                Console.WriteLine(result);
+                Console.WriteLine("IT IS NOT PRINITING FUCK");
+            }
         }
-            //Console.WriteLine(xd.Chil);
+
+
+
+     //KEEP IT UP GUYS, IT WILL END SOON...
+
+
+        //for (int k = 0; k < xd.ChildNodes.Count; k++)
+        //{
+        //     if (xd.ChildNodes[k].HasChildNodes)
+        //     {
+        //            Console.WriteLine("SWAG.---------------3333");
+        //            Console.WriteLine(xd.ChildNodes[k].InnerXml);
+
+        //     }
+        //}
+        ////Console.WriteLine(xd.Chil);
 
 
 
@@ -111,6 +187,8 @@ class Program
 }
 
 
+
+//Lmao this doesn't work fuck me 
 /* 
 // This is how the parsing would look like 
 //This is an example. I was too lazy to save the website so I just put em here
