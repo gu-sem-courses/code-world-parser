@@ -83,6 +83,12 @@ class Program
                 }
                 switch (nodeType)
                 {
+
+                    case NodeTypes.HasChildren:
+                        Console.WriteLine("Has Children Name : {0}",
+                           element.Name.LocalName);
+                        SpanXDocument(element);
+                        break;
                     case NodeTypes.IsNode:
                         Console.WriteLine("Node Name : {0}",
                            element.Name.LocalName);
@@ -92,15 +98,10 @@ class Program
                                elementNode.Name.LocalName, elementNode.Value);
                         }
                         break;
-                    case NodeTypes.HasChildren:
-                        Console.WriteLine("Has Children Name : {0}",
-                           element.Name.LocalName);
-                        SpanXDocument(element);
-                        break;
                     case NodeTypes.IsAttribute:
                         Console.WriteLine("Attribute Name : {0} Value : {1}",
                            element.Name.LocalName, element.Value);
-                        return;
+                        break;
                 }
 
 
@@ -133,6 +134,7 @@ class Program
 
 
 
+     //KEEP IT UP GUYS, IT WILL END SOON...
 
 
         //for (int k = 0; k < xd.ChildNodes.Count; k++)
