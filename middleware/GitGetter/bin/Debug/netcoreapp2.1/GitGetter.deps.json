@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.1",
-    "signature": "5707210de0e87ed90255ab38d87cf16330001bdf"
+    "signature": "af8d5e3e21afaa6bdacc653afb205fc33b9bf1e2"
   },
   "compilationOptions": {},
   "targets": {
@@ -10,6 +10,7 @@
         "dependencies": {
           "Microsoft.CodeAnalysis": "2.10.0",
           "Microsoft.Net.Compilers": "2.10.0",
+          "Newtonsoft.Json": "11.0.2",
           "System.Net.Http": "4.3.4"
         },
         "runtime": {
@@ -383,6 +384,14 @@
         }
       },
       "Microsoft.Net.Compilers/2.10.0": {},
+      "Newtonsoft.Json/11.0.2": {
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "assemblyVersion": "11.0.0.0",
+            "fileVersion": "11.0.2.21924"
+          }
+        }
+      },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.2": {
         "runtimeTargets": {
           "runtime/debian.8-x64/native/_._": {
@@ -1390,6 +1399,13 @@
       "sha512": "sha512-tu2gfcdPGaOLj5rUhOawEMF8yerbN76nElJ/cm8XrgNJ0uSba3KPRtFslZLHbUq/k/y766sZSmhhOkTMKpG+nA==",
       "path": "microsoft.net.compilers/2.10.0",
       "hashPath": "microsoft.net.compilers.2.10.0.nupkg.sha512"
+    },
+    "Newtonsoft.Json/11.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-znZGbws7E4BA9jxNZ7FuiIRI3C9hrgatVQSTKhIYZYNOud4M5VfGlTYi6RdYO5sQrebFuF/g9UEV3hOxDMXF6Q==",
+      "path": "newtonsoft.json/11.0.2",
+      "hashPath": "newtonsoft.json.11.0.2.nupkg.sha512"
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.2": {
       "type": "package",

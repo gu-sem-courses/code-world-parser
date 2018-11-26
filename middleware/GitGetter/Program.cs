@@ -1,8 +1,12 @@
 using System;
+using System.Web;
 using System.IO;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using GitGetter_classes;
 
 namespace GitFetcher{
 
@@ -10,61 +14,67 @@ namespace GitFetcher{
             private static readonly HttpClient client = new HttpClient();
 
             public static void Main(){
-                //gitTreeRetriever("");
+                //client.DefaultRequestHeaders.Add("PRIVATE-TOKEN" ,"ZqpfJzg-n9-qQNv2z1N2");
+
                 String url = "dit341/express-template";
-                String filelocation = "package.json";
+                gitTreeRetriever(url);
                 
             }
 
-             public static String gitFileRetriever( String projectId_repository , String filepath){ // This method is meant to take the id/filepath of a single file. 
-             String address = "https://gitlab.com/"+ projectId_repository +"/raw/master/"+filepath;
+             public static bool gitFileRetriever( String projectId , String filepath, String name){ // This method is meant to take the id/filepath of a single file. 
+             //String address = "https://gitlab.com/"+ projectId +"/raw/master/"+filepath;
+             String address = "https://gitlab.com/api/v4/projects/"+ HttpUtility.UrlEncode(projectId)+"/repository/files/"+ HttpUtility.UrlEncode(filepath)+ "/raw?ref=master";
              Console.WriteLine(address);
-
-            // String address = "https://gitlab.com/dit341/express-template/raw/master/package.json"; Example address
             
             // The part where the request is actually made
             try{
                 Console.WriteLine("Sending request");
             Task<String> responseTask = client.GetStringAsync(address);
-            while(responseTask.IsCompleted!=true){
-
+            while(responseTask.IsCompleted == false){
             }
-            String responseString = responseTask.Result;
-            //Testing code
-            Console.WriteLine("Here is the response: " +responseString);
-            //Console.WriteLine(count);
-            //End of testing code
+            Console.WriteLine("Request done");
+            String responseString = "";
             try{
-                File.WriteAllText("FileStorer\\tempfile.txt",responseString);
+                responseString = responseTask.Result;
+                Console.WriteLine("Response string has been made");
+
+            }catch(AggregateException e){
+                Console.WriteLine(e.Message);
+            };
+
+            try{
+                File.WriteAllText("FileStorer\\"+ name, responseString);
             }catch(Exception e){
                 Console.WriteLine("Making file went wrong"); Console.WriteLine(e);
+                return false;
             }
 
             }catch(Exception e){
                 Console.WriteLine("Something went wrong with HTTP request :Defaultdance");
                 Console.WriteLine(e);
+                return false;
                 //Write stuff incase the git repository was not found. 
             }
 
-            return "GitGetter\\FileStorer\\tempfile.txt";
+            return true;
         }
              private static void gitTreeRetriever(String projectId){
-                 // String address = "https://gitlab.com/api/v4/projects/" +"projectId" + "/repository/tree"
-                 String address = "https://gitlab.com/api/v4/projects/dit341%2Fexpress-template/repository/tree";  //"https://gitlab.com/dit341/express-template/tree/master";
+                  //urlEncoder(projectId);
+                  String address = "https://gitlab.com/api/v4/projects/" + urlEncoder(projectId) + "/repository/tree";
+                  Console.WriteLine(address);
+                 // String address = "https://gitlab.com/api/v4/projects/dit341%2Fexpress-template/repository/tree";
                 // The part where the request is actually made
                 try{
                     Console.WriteLine("Sending request");
                     Task<String> responseTask = client.GetStringAsync(address);
-                    while(responseTask.IsCompleted!=true){}
+                    while(responseTask.IsCompleted != true){}
 
                 String responseString = responseTask.Result;
-                //Testing code
-                Console.WriteLine("Here is the response: " +responseString);
-                //End of testing code
-                try{
-                    File.WriteAllText("FileStorer\\tempfile.txt",responseString);
-                }catch(Exception e){
-                    Console.WriteLine("Making file went wrong"); Console.WriteLine(e);
+                
+                List<TreeObject> noPathFolder = makeTreeList(responseString);
+
+                foreach(TreeObject tree in noPathFolder){
+                    TreeNavigator(projectId, tree);
                 }
 
                 }catch(Exception e){
@@ -73,6 +83,55 @@ namespace GitFetcher{
                     //Write stuff incase the git repository was not found. 
                 }
              }
+            
+            private static bool gitTreeRetriever(String projectId, String filepath){ // intended to be used recursivly to get the things in all the folders
+                  String address = "https://gitlab.com/api/v4/projects/" + urlEncoder(projectId) + "/repository/tree?path=" + HttpUtility.UrlEncode(filepath);
+                  Console.WriteLine(address);
+                 // String address = "https://gitlab.com/api/v4/projects/dit341%2Fexpress-template/repository/tree";
+                // The part where the request is actually made
+                try{
+                    Console.WriteLine("Sending request");
+                    Task<String> responseTask = client.GetStringAsync(address);
+                    while(responseTask.IsCompleted != true){}
+
+                String responseString = responseTask.Result;
+
+                List<TreeObject> noPathFolder = makeTreeList(responseString);
+
+                foreach(TreeObject tree in noPathFolder){
+                    TreeNavigator(projectId, tree);
+                }
+                }catch(Exception e){
+                    Console.WriteLine("Something went wrong with HTTP request :Defaultdance");
+                    Console.WriteLine(e);
+                    return false;
+                    //Write stuff incase the git repository was not found. 
+                }
+                return true;
+             } 
+             private static bool TreeNavigator(String projectId ,TreeObject map){ // Checks if the tree object is a file or folder and calls the appropriate method. 
+                 
+                 
+                 if(map.type == "tree"){
+                     return gitTreeRetriever(projectId, map.path);
+                 }
+                 else if(map.type == "blob"&& map.name.Contains(".java")){
+                     return gitFileRetriever(projectId, map.path, map.name);
+                 }
+                 else{
+                     return false;
+                 }
+             }
+            private static List<TreeObject> makeTreeList(String populationMaker){
+                String populationString = populationMaker ;
+                //Console.WriteLine(populationString);
+
+                List<TreeObject> tempTreeObject = new List<TreeObject>();
+
+                JsonConvert.PopulateObject(populationString, tempTreeObject);
+
+                return tempTreeObject;            
+            }
              public static String urlEncoder(String url){
                  String encoded_url = "";
 
@@ -98,6 +157,7 @@ namespace GitFetcher{
 
                  return encoded_url;
              }
+
         }
 }
         
