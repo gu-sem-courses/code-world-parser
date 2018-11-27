@@ -15,7 +15,5 @@ Thumbs.db
 !.vscode/extensions.json
 
 # generated files
-parsingTest/parsingTest/obj/
-parsingTest/.vs/
-parsing3/parsing/.vs/
-parsing3/parsing/parsing/obj/
+parser/parser/parser/obj/
+parser/parser/.vs/
