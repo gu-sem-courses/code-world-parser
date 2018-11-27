@@ -37,3 +37,42 @@
 /Users/humblebee/Documents/distributedSystems/dit355/parsing3/parsing/parsing/obj/x86/Debug/parsing.csproj.CopyComplete
 /Users/humblebee/Documents/distributedSystems/dit355/parsing3/parsing/parsing/obj/x86/Debug/parsing.exe
 /Users/humblebee/Documents/distributedSystems/dit355/parsing3/parsing/parsing/obj/x86/Debug/parsing.pdb
+/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parsing3/parsing/parsing/bin/Debug/parsing.exe
+/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parsing3/parsing/parsing/bin/Debug/parsing.pdb
+/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parsing3/parsing/parsing/bin/Debug/DocumentFormat.OpenXml.dll
+/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parsing3/parsing/parsing/bin/Debug/Microsoft.Win32.Primitives.dll
+/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parsing3/parsing/parsing/bin/Debug/Newtonsoft.Json.dll
+/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parsing3/parsing/parsing/bin/Debug/System.AppContext.dll
+/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parsing3/parsing/parsing/bin/Debug/System.Console.dll
+/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parsing3/parsing/parsing/bin/Debug/System.Diagnostics.DiagnosticSource.dll
+/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parsing3/parsing/parsing/bin/Debug/System.Diagnostics.Tracing.dll
+/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parsing3/parsing/parsing/bin/Debug/System.Globalization.Calendars.dll
+/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parsing3/parsing/parsing/bin/Debug/System.IO.Compression.dll
+/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parsing3/parsing/parsing/bin/Debug/System.IO.Compression.ZipFile.dll
+/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parsing3/parsing/parsing/bin/Debug/System.IO.dll
+/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parsing3/parsing/parsing/bin/Debug/System.IO.FileSystem.dll
+/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parsing3/parsing/parsing/bin/Debug/System.IO.FileSystem.Primitives.dll
+/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parsing3/parsing/parsing/bin/Debug/System.IO.Packaging.dll
+/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parsing3/parsing/parsing/bin/Debug/System.Linq.dll
+/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parsing3/parsing/parsing/bin/Debug/System.Linq.Expressions.dll
+/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parsing3/parsing/parsing/bin/Debug/System.Net.Http.dll
+/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parsing3/parsing/parsing/bin/Debug/System.Net.Sockets.dll
+/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parsing3/parsing/parsing/bin/Debug/System.Reflection.dll
+/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parsing3/parsing/parsing/bin/Debug/System.Runtime.dll
+/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parsing3/parsing/parsing/bin/Debug/System.Runtime.Extensions.dll
+/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parsing3/parsing/parsing/bin/Debug/System.Runtime.InteropServices.dll
+/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parsing3/parsing/parsing/bin/Debug/System.Runtime.InteropServices.RuntimeInformation.dll
+/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parsing3/parsing/parsing/bin/Debug/System.Security.Cryptography.Algorithms.dll
+/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parsing3/parsing/parsing/bin/Debug/System.Security.Cryptography.Encoding.dll
+/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parsing3/parsing/parsing/bin/Debug/System.Security.Cryptography.Primitives.dll
+/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parsing3/parsing/parsing/bin/Debug/System.Security.Cryptography.X509Certificates.dll
+/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parsing3/parsing/parsing/bin/Debug/System.Text.RegularExpressions.dll
+/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parsing3/parsing/parsing/bin/Debug/System.Xml.ReaderWriter.dll
+/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parsing3/parsing/parsing/bin/Debug/Newtonsoft.Json.xml
+/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parsing3/parsing/parsing/bin/Debug/System.Diagnostics.DiagnosticSource.xml
+/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parsing3/parsing/parsing/bin/Debug/DocumentFormat.OpenXml.xml
+/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parsing3/parsing/parsing/obj/x86/Debug/parsing.csprojAssemblyReference.cache
+/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parsing3/parsing/parsing/obj/x86/Debug/parsing.csproj.CoreCompileInputs.cache
+/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parsing3/parsing/parsing/obj/x86/Debug/parsing.csproj.CopyComplete
+/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parsing3/parsing/parsing/obj/x86/Debug/parsing.exe
+/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parsing3/parsing/parsing/obj/x86/Debug/parsing.pdb
