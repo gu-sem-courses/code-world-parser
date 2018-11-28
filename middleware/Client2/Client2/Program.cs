@@ -33,7 +33,7 @@ namespace Client2
                 //repository = Console.ReadLine();
 
                 var json = client.MainInteraction(new ParsingRequest { Address = repository });
-                System.IO.File.WriteAllText(filepath, json.File);
+                System.IO.File.WriteAllText("Meatballs", json.File);
 
                 channel.ShutdownAsync().Wait();
                 

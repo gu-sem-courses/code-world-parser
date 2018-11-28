@@ -17,7 +17,7 @@ namespace Server2
         public override Task<JsonReply> MainInteraction(ParsingRequest request, ServerCallContext context)
         {
 
-            GetProject(request.ToString());
+            GetProject(request);
             string filepath = "../../../json1.json";
             string result = string.Empty;
             using (StreamReader r = new StreamReader(filepath))
@@ -29,14 +29,16 @@ namespace Server2
             return Task.FromResult(new JsonReply { File = result });
         }
 
-        public void GetProject(string req)
+        public void GetProject(ParsingRequest req)
         {
-            string PathP = System.AppDomain.CurrentDomain.BaseDirectory;
+            string PathP = System.AppDomain.CurrentDomain.BaseDirectory + "../../../../GitGetter2/GitGetter2/bin/Debug/Gitgetter2.exe";
+            Console.WriteLine(PathP);
+            Console.WriteLine(req);
             Process Project = new Process();
             try
             {
                 Project.StartInfo.FileName = PathP;
-                Project.StartInfo.Arguments = req;
+                Project.StartInfo.Arguments = req.Address.ToString();
                 Project.Start();
             }
             catch (Exception e)
