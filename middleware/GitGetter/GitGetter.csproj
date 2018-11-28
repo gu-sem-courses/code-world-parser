@@ -3,11 +3,12 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
-  <ItemGroup>&#xD;
+  <ItemGroup>&#xD;&#xD;
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2"/>
     <PackageReference Include="Microsoft.Net.Compilers" Version="2.10.0"/>
     <PackageReference Include="Microsoft.CodeAnalysis" Version="2.10.0"/>
+    <PackageReference Include="System.Net.Http" Version="4.3.4"/>
   </ItemGroup>
 </Project>
