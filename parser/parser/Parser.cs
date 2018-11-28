@@ -16,7 +16,8 @@ class Program
     {
         HasChildren,
         IsNode,
-        IsAttribute
+        IsAttribute,
+        IsMethod
     }
 
     protected static void Main(string[] args)
@@ -29,12 +30,11 @@ class Program
         void SpanXDocument(XElement elements)
         {
             NodeTypes nodeType;
-
             foreach (XElement element in elements.Elements())
             {
                 if (element.Descendants().Count() > 0)
                 {
-                    if (element.Descendants().Descendants().Count() > 0)
+                    if(element.Descendants().Descendants().Count() > 0)
                     {
                         nodeType = NodeTypes.HasChildren;
                     }
