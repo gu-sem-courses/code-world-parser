@@ -7,9 +7,16 @@ TagManager:
   - Interactable
   - Building
   - FrontDoorEntry
+<<<<<<< HEAD
   - BackDoorEntry
   - LeftDoorEntry
   - RightDoorEntry
+=======
+  - LeftDoorEntry
+  - BackDoorEntry
+  - RightDoorEntry
+  - PortalCam
+>>>>>>> portals
   layers:
   - Default
   - TransparentFX

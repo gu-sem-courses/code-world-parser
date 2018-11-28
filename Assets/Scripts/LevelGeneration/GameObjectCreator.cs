@@ -1,22 +1,21 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class GameObjectCreator : ScriptableObject
 {
     private RoomCreator _roomCreator;
     private ConnectionGenerator _connectionGenerator;
 
-    public GameObjectCreator()
+    public void OnEnable()
     {
-        _roomCreator = ScriptableObject.CreateInstance("RoomCreator") as RoomCreator;
-        _connectionGenerator = ScriptableObject.CreateInstance("ConnectionGenerator") as ConnectionGenerator ;
+        _roomCreator = CreateInstance("RoomCreator") as RoomCreator;
+        _connectionGenerator = CreateInstance("ConnectionGenerator") as ConnectionGenerator;
     }
 
     public void Compose (ClassObject classObject)
     {
-        Room room = _roomCreator.CreateRoom(classObject);
-        _connectionGenerator.CreateConnections(room);
-
-        Instantiate(room.RoomGO);
+        List<GameObject> items = _roomCreator.CreateRoomAndExtensions(classObject);
+        _connectionGenerator.CreateConnections(items);
     }
 
     //Count number of relationships a class has

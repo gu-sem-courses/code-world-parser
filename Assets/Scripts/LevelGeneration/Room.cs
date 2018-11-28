@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class Room
 {
@@ -11,15 +13,16 @@ public class Room
     {
         this._entryCounter = 0;
         this.RoomGO = roomGO;
-        this.Info= classObject;
+        this.Info = classObject;
 
-        this.RoomGO.transform.position = new Vector3(0,0,0);
+        this.RoomGO.transform.position = new Vector3(0, 0, 0);
         this.RoomGO.name = Info.name;
         int rels = GameObjectCreator.CountRels(classObject);
         _doorsNum = rels > 4 ? 4 : rels;
     }
 
-    public GameObject GetNextEntryPoint()
+    //TODO: Probably better to have an enum for the tag names but meh
+    private GameObject GetNextDoor()
     {
         string targetTag = "DoorEntry";
 
@@ -39,11 +42,6 @@ public class Room
                 break;
         }
 
-        if (/*morethanthat*/false)
-        {
-            //do smth
-        }
-        
         for (int i = 0; i < RoomGO.transform.childCount; i++)
         {
             var child = RoomGO.transform.GetChild(i);
@@ -59,6 +57,6 @@ public class Room
                 }
             }
         }
-        return new GameObject();
+        return new GameObject(); //Never reached in reality, just here to ensure compilation
     }
 }
