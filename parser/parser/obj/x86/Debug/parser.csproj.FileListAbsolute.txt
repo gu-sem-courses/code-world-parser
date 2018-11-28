@@ -1,0 +1,9 @@
+/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/parser/parser/obj/x86/Debug/parser.csproj.CoreCompileInputs.cache
+/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/parser/parser/obj/x86/Debug/parser.csprojAssemblyReference.cache
+/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/parser/parser/bin/Debug/parser.exe
+/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/parser/parser/bin/Debug/parser.pdb
+/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/parser/parser/bin/Debug/Newtonsoft.Json.dll
+/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/parser/parser/bin/Debug/Newtonsoft.Json.xml
+/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/parser/parser/obj/x86/Debug/parser.csproj.CopyComplete
+/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/parser/parser/obj/x86/Debug/parser.exe
+/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/parser/parser/obj/x86/Debug/parser.pdb

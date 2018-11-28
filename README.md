@@ -1,5 +1,9 @@
-# dit355
+# assets
+this is where we store the files that need to be accessed by other components
+(e.g. this is where the xml to json file will be stored for the visualization)
 
-DIT355 H18 Mini Project: Distributed Systems Development
+# middleware
+?? this is where the middleware does its thang
 
-Team Flex
+# tests
+this is where we store 'mock' files to test services
