@@ -7,6 +7,7 @@ using Services;
 using System.IO;
 using Grpc.Core;
 using Newtonsoft.Json.Linq;
+using System.Diagnostics;
 
 namespace Server2
 {
@@ -15,6 +16,8 @@ namespace Server2
 
         public override Task<JsonReply> MainInteraction(ParsingRequest request, ServerCallContext context)
         {
+
+            GetProject(request.ToString());
             string filepath = "../../../json1.json";
             string result = string.Empty;
             using (StreamReader r = new StreamReader(filepath))
@@ -26,7 +29,27 @@ namespace Server2
             return Task.FromResult(new JsonReply { File = result });
         }
 
+        public void GetProject(string req)
+        {
+            string PathP = System.AppDomain.CurrentDomain.BaseDirectory;
+            Process Project = new Process();
+            try
+            {
+                Project.StartInfo.FileName = PathP;
+                Project.StartInfo.Arguments = req;
+                Project.Start();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+
+        }
+
     }
+
+   
     public class ServerProgram
     {
         const string Host = "0.0.0.0";
@@ -48,5 +71,7 @@ namespace Server2
             Console.ReadKey();
             server.ShutdownAsync().Wait();
         }
+
+
     }
 }

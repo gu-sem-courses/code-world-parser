@@ -10,14 +10,23 @@ namespace Client2
 {
     class Program
     {
-            public static void Main(string[] args)
+        public static void Main(string[] args)
+        {
+            Testing(args);
+        }
+        private static void Testing(string[] args)
             {
-                Testing();
+
+            string repository = "";
+            if (args.Length >= 1)
+            {
+                repository = args[0];
             }
-            private static void Testing()
+            else
             {
-                string repository = "";
-                string filepath = "../../../json2.json";
+                repository = "Meatballs";
+            }
+                string filepath = System.AppDomain.CurrentDomain.BaseDirectory + "../../../"+repository+".json";
                 Channel channel = new Channel("127.0.0.1", 23456, ChannelCredentials.Insecure);
                 var client = new Services.GameLog.GameLogClient(channel);
                 //Console.WriteLine("Type in the Repository name, its key sensative");
@@ -27,8 +36,10 @@ namespace Client2
                 System.IO.File.WriteAllText(filepath, json.File);
 
                 channel.ShutdownAsync().Wait();
-               // Console.WriteLine("Press any key to exit...");
-               // Console.ReadKey();
+                
+            
+               Console.WriteLine(filepath);
+               Console.ReadKey();
             }
         }
 
