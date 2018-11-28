@@ -11,14 +11,17 @@ using GitGetter_classes;
 namespace GitFetcher{
 
     public class GitGetter{
+
+            private static String fileType;
             private static readonly HttpClient client = new HttpClient();
 
-            public static void Main(){
-                //client.DefaultRequestHeaders.Add("PRIVATE-TOKEN" ,"ZqpfJzg-n9-qQNv2z1N2");
+            
 
-                String url = "dit341/express-template";
-                gitTreeRetriever(url);
-                
+            public static void Main(String projectId){
+                //client.DefaultRequestHeaders.Add("PRIVATE-TOKEN" ,"ZqpfJzg-n9-qQNv2z1N2");
+                fileType = ".java"; // controlls what type of files it will get.
+                // String url = "dit341/express-template"; //Used for testing
+                gitTreeRetriever(projectId);
             }
 
              public static bool gitFileRetriever( String projectId , String filepath, String name){ // This method is meant to take the id/filepath of a single file. 
@@ -115,7 +118,7 @@ namespace GitFetcher{
                  if(map.type == "tree"){
                      return gitTreeRetriever(projectId, map.path);
                  }
-                 else if(map.type == "blob"&& map.name.Contains(".java")){
+                 else if(map.type == "blob"&& map.name.Contains(fileType)){
                      return gitFileRetriever(projectId, map.path, map.name);
                  }
                  else{
