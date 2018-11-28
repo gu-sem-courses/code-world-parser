@@ -10,7 +10,7 @@ namespace Project
 		// Use this for initialization
 		void Start () {
 			//DEBUG STATEMENTS
-			NPCObject testInfo = new NPCObject(NPCObject.npcType.Integer, "Bitch", "2" );
+			NPCObject testInfo = new NPCObject(NPCObject.npcType.Integer, "ExampleName", "2" );
 			Populate(testInfo);
 		}
 		
