@@ -17,3 +17,4 @@ Thumbs.db
 # generated files
 parser/parser/parser/obj/
 parser/parser/.vs/
+assets/*.json
