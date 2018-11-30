@@ -32,7 +32,7 @@ namespace Server2
         public void GetProject(ParsingRequest req)
         {
             string PathP = System.AppDomain.CurrentDomain.BaseDirectory + "../../../../GitGetter2/GitGetter2/bin/Debug/Gitgetter2.exe";
-            Console.WriteLine(PathP);
+            Console.WriteLine("cd "+PathP);
             Console.WriteLine(req);
             Process Project = new Process();
             try
