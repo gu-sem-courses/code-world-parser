@@ -12,6 +12,8 @@ using System.Xml.Linq;
 
 class Program
 {
+
+    //Enumeration is used to create 3 types. It is also used to create the Case Statement
     enum NodeTypes
     {
         HasChildren,
@@ -22,11 +24,13 @@ class Program
 
     protected static void Main(string[] args)
     {
+        //Load the XML file with the name specified. 
         var xmlFile = XDocument.Load("singleClass.xml");
-        Type type = xmlFile.GetType();
+        //Type type = xmlFile.GetType();
         SpanXDocument(xmlFile.Root);
 
-        //get the class name, the attribute name and print it out
+        //Xml data is put into a tree. Each level of the tree is a node with its key and a value.
+        //get the class name, the attribute names and type and the methods.
         void SpanXDocument(XElement elements)
         {
             NodeTypes nodeType;
@@ -34,7 +38,7 @@ class Program
             {
                 if (element.Descendants().Count() > 0)
                 {
-                    if(element.Descendants().Descendants().Count() > 0)
+                    if (element.Descendants().Descendants().Count() > 0)
                     {
                         nodeType = NodeTypes.HasChildren;
                     }
@@ -49,11 +53,13 @@ class Program
                 }
                 switch (nodeType)
                 {
+                    //Nodes with multiple Descendants
                     case NodeTypes.HasChildren:
                         Console.WriteLine("Has Children Name : {0}",
                            element.Name.LocalName);
                         SpanXDocument(element);
                         break;
+                    //Nodes with one level of Decendants
                     case NodeTypes.IsNode:
                         Console.WriteLine("Node Name : {0}",
                            element.Name.LocalName);
@@ -63,6 +69,7 @@ class Program
                                elementNode.Name.LocalName, elementNode.Value);
                         }
                         break;
+                    //Nodes with no Descendants
                     case NodeTypes.IsAttribute:
                         Console.WriteLine("Attribute Name : {0} Value : {1}",
                            element.Name.LocalName, element.Value);
@@ -73,7 +80,6 @@ class Program
 
         try
         {
-            //String path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "producedJSON/test2.json");
             String path = "../../../../assets/xml2json.json";
             // serialize JSON to a string and then write string to a file
             File.WriteAllText(path, JsonConvert.SerializeObject(xmlFile));
