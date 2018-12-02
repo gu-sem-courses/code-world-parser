@@ -120,10 +120,10 @@ class Program
             String type, name;
             //retrive the nodes we need and store their value
             type = node.SelectSingleNode("./src:type", nsm).InnerText;
+
+            //if there is a final in a type string, remove it
             if(type.Length > 5 && type.Substring(0,5).Equals("final")){
-                //the six is there because the lenght is not index 
-                //based hence i have to move the extra 1 to the other side
-                type = type.Substring(5, (type.Length-6)); 
+                type = type.Substring(5, (type.Length-5)); 
             }
 
             name = node.SelectSingleNode("./src:name", nsm).InnerText;
