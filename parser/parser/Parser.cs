@@ -9,39 +9,75 @@ class Program
 {
     protected static void Main(string[] args)
     {
+        XmlDocument xmlBefore, xmlAfter;
+        //XmlNodeList attr, meth;
+        XmlNode name, attributes, methods; // superClasses, subClasses, components, associations; //<-- these are our constraints
+
         //Create an xml doc for existing file
-        XmlDocument originalXmlFile = new XmlDocument();
+        xmlBefore = new XmlDocument();
         //load project
-        originalXmlFile.Load("singleClass.xml");
-        XmlNode root = originalXmlFile.DocumentElement;
+        xmlBefore.Load("singleClass.xml");
+        XmlNode root = xmlBefore.DocumentElement;
 
-        //create xml doc for the filtered xml file
-        XmlDocument doc = new XmlDocument();
-        XmlNode data = doc.CreateElement("data");
+        //this is needed to make xpath queries
+        XmlNamespaceManager namespaceManager = new XmlNamespaceManager(xmlBefore.NameTable);
+        namespaceManager.AddNamespace("src", "http://www.srcML.org/srcML/src");
 
-        //retrive the specific xml tags from old xml doc
-        XmlNodeList attrs = originalXmlFile.GetElementsByTagName("decl_stmt");
-        XmlNodeList meths = originalXmlFile.GetElementsByTagName("function"); 
+        name = GetClassName(xmlBefore, namespaceManager);
+        attributes = GetAttributes(xmlBefore, namespaceManager);
+        methods = GetMethods(xmlBefore, namespaceManager);
 
-        //import elements to new xml doc
-        XmlNode attributes = doc.CreateElement("attributes");
-        XmlNode methods = doc.CreateElement("methods"); 
+        xmlAfter = new XmlDocument();
+        XmlNode data, className, classAttributes, classMethods;
 
-        attributes.AppendChild(importNodes(attrs, originalXmlFile, doc));
-        methods.AppendChild(importNodes(meths, originalXmlFile, doc));
+        className = ImportNode(name, xmlBefore, xmlAfter);
+        classAttributes = ImportNode(attributes, xmlBefore, xmlAfter);
+        classMethods = ImportNode(methods, xmlBefore, xmlAfter);
 
-        //append elements to the new xml document
-        data.AppendChild(attributes);
-        data.AppendChild(methods);
+        data = xmlAfter.CreateElement("data");
+        data.AppendChild(className);
+        data.AppendChild(classAttributes);
+        data.AppendChild(classMethods);
 
-        XmlNode superclasses, subclasses, components, associations;
+        xmlAfter.AppendChild(data);
+        Console.WriteLine(xmlAfter.InnerXml);
 
-        Console.WriteLine(data.InnerText);
+        /***** Will use later *****/
+        try
+        {
+            //String path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "producedJSON/test2.json");
+            String path = "../../../../assets/xml2json.json";
+            // serialize JSON to a string and then write string to a file
+            File.WriteAllText(path, JsonConvert.SerializeObject(xmlAfter));
+            // serialize JSON directly to a file
+            using (StreamWriter file = File.CreateText(path))
+            {
+                JsonSerializer serializer = new JsonSerializer();
+                serializer.Serialize(file, xmlAfter);
+            }
+        }
+
+        catch (Exception u)
+        {
+            Console.WriteLine(u.ToString());
+        }
+
     }
 
 
     //----------------------------------------------------------------------------------------------------------------
-    public static XmlNode importNodes(XmlNodeList list, XmlDocument originDoc, XmlDocument destinationDoc){
+    //
+    //Methods 
+    //
+    //----------------------------------------------------------------------------------------------------------------
+
+    public static String XmlToJson(XmlDocument xmlFile)
+    {
+        return JsonConvert.SerializeXmlNode(xmlFile);
+    }
+
+    /*Imports nodes in a list from one document to another */
+    public static XmlNode ImportNodes(XmlNodeList list, XmlDocument originDoc, XmlDocument destinationDoc){
         //you cant really just reference a node from one doc to another so you need to import them first
 
         //create a export node that stores import
@@ -53,35 +89,100 @@ class Program
         return exportNode;
     }
 
-    //WARNING
+    public static XmlNode ImportNode(XmlNode node, XmlDocument originDoc, XmlDocument destinationDoc)
+    {
+        //you cant really just reference a node from one doc to another so you need to import them first
+
+        return destinationDoc.ImportNode(node, true);
+    }
+
+    //----------------------------------------------------------------------------------------------------------------
+    //
+    //WARNING: hard coded teritorry yeeehhaaww
     //the methods below are only reusable for OUR GROUP PROJECT (DIT3**)
+    //
+    //----------------------------------------------------------------------------------------------------------------
 
-    public static XmlNode getAttributes(XmlNodeList list)
+    public static XmlNode GetClassName(XmlDocument xDoc, XmlNamespaceManager nsm)
+    {
+        XmlNode classNameNode = xDoc.CreateElement("name");
+        classNameNode = xDoc.DocumentElement.SelectSingleNode("/src:unit/src:class/src:name", nsm);
+        return classNameNode;
+    }
+
+    public static XmlNode GetAttributes(XmlDocument xDoc, XmlNamespaceManager nsm)
+    {
+        XmlNodeList attributeList = xDoc.DocumentElement.SelectNodes("/src:unit/src:class//src:decl_stmt//src:decl", nsm);
+        XmlNode attributeNode = xDoc.CreateElement("attributes");
+
+        //we only need type, name;
+        foreach (XmlNode node in attributeList)
+        {
+            String type, name;
+            //retrive the nodes we need and store their value
+            type = node.SelectSingleNode("./src:type", nsm).InnerText;
+            name = node.SelectSingleNode("./src:name", nsm).InnerText;
+
+            //create a new element
+            XmlElement attribute, typeElement, nameElement;
+            typeElement = xDoc.CreateElement("type");
+            typeElement.InnerText = type;
+
+            nameElement = xDoc.CreateElement("name");
+            nameElement.InnerText = name;
+
+            attribute = xDoc.CreateElement("attribute");
+            attribute.AppendChild(nameElement);
+            attribute.AppendChild(typeElement);
+
+            //append the child to the original node
+            attributeNode.AppendChild(attribute);
+           
+        }
+        return attributeNode;
+    }
+
+    public static XmlNode GetMethods(XmlDocument xDoc, XmlNamespaceManager nsm)
+    {
+        XmlNodeList methodList = xDoc.DocumentElement.SelectNodes("/src:unit/src:class//src:function", nsm);
+        XmlNode methodNode = xDoc.CreateElement("methods");
+
+        //we only need type, name
+        foreach(XmlNode node in methodList){
+            String type, name;
+            //retrive the nodes we need and store their value
+            type = node.SelectSingleNode("./src:type/src:name", nsm).InnerText;
+            name = node.SelectSingleNode("./src:name", nsm).InnerText;
+
+            //create elements
+            XmlElement method, methodName, methodType;
+            methodName = xDoc.CreateElement("name");
+            methodName.InnerText = name;
+
+            methodType = xDoc.CreateElement("type");
+            methodType.InnerText = type;
+
+            method = xDoc.CreateElement("method");
+            method.AppendChild(methodName);
+            method.AppendChild(methodType);
+
+            //append results
+            methodNode.AppendChild(method);
+        }
+        return methodNode;
+    }
+
+    public static XmlNode GetSubClasses(XmlNodeList list, XmlDocument originDoc, XmlDocument destinationDoc)
     {
         return null;
     }
 
-    public static XmlNode getMethods(XmlNodeList list)
+    public static XmlNode GetSuperClasses(XmlNodeList list, XmlDocument originDoc, XmlDocument destinationDoc)
     {
         return null;
     }
 
-    public static XmlNode getSubClasses(XmlNodeList list, XmlDocument originDoc, XmlDocument destinationDoc)
-    {
-        return null;
-    }
-
-    public static XmlNode getSuperClasses(XmlNodeList list, XmlDocument originDoc, XmlDocument destinationDoc)
-    {
-        return null;
-    }
-
-    public static XmlNode getComponents(XmlNodeList list, XmlDocument originDoc, XmlDocument destinationDoc)
-    {
-        return null;
-    }
-
-    public static XmlNode getAttributes(XmlNodeList list, XmlDocument originDoc, XmlDocument destinationDoc)
+    public static XmlNode GetComponents(XmlNodeList list, XmlDocument originDoc, XmlDocument destinationDoc)
     {
         return null;
     }
