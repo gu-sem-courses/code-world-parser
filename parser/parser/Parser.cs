@@ -16,7 +16,7 @@ class Program
         //Create an xml doc for existing file
         xmlBefore = new XmlDocument();
         //load project
-        xmlBefore.Load("singleClass.xml");
+        xmlBefore.Load("../../../../assets/tests/sample/singleClass.xml");
         XmlNode root = xmlBefore.DocumentElement;
 
         //this is needed to make xpath queries
