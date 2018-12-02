@@ -39,12 +39,11 @@ class Program
         data.AppendChild(classAttributes);
         data.AppendChild(classMethods);
 
-        xmlAfter.AppendChild(data);Console.WriteLine(xmlAfter.InnerXml);
+        xmlAfter.AppendChild(data); Console.WriteLine(xmlAfter.InnerXml);
 
         /***** Will use later *****/
         try
         {
-            //String path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "producedJSON/test2.json");
             String path = "../../../../assets/xml2json.json";
             // serialize JSON to a string and then write string to a file
             File.WriteAllText(path, JsonConvert.SerializeObject(xmlAfter));
@@ -63,7 +62,6 @@ class Program
 
     }
 
-
     //----------------------------------------------------------------------------------------------------------------
     //
     //Methods 
@@ -76,14 +74,16 @@ class Program
     }
 
     /*Imports nodes in a list from one document to another */
-    public static XmlNode ImportNodes(XmlNodeList list, XmlDocument originDoc, XmlDocument destinationDoc){
+    public static XmlNode ImportNodes(XmlNodeList list, XmlDocument originDoc, XmlDocument destinationDoc)
+    {
         //you cant really just reference a node from one doc to another so you need to import them first
 
         //create a export node that stores import
         XmlNode exportNode = destinationDoc.CreateElement("exportNode");
 
-        foreach(XmlNode node in list){
-            exportNode.AppendChild(destinationDoc.ImportNode(node,true));
+        foreach (XmlNode node in list)
+        {
+            exportNode.AppendChild(destinationDoc.ImportNode(node, true));
         }
         return exportNode;
     }
@@ -122,8 +122,9 @@ class Program
             type = node.SelectSingleNode("./src:type", nsm).InnerText;
 
             //if there is a final in a type string, remove it
-            if(type.Length > 5 && type.Substring(0,5).Equals("final")){
-                type = type.Substring(5, (type.Length-5)); 
+            if (type.Length > 5 && type.Substring(0, 5).Equals("final"))
+            {
+                type = type.Substring(5, (type.Length - 5));
             }
 
             name = node.SelectSingleNode("./src:name", nsm).InnerText;
@@ -142,7 +143,7 @@ class Program
 
             //append the child to the original node
             attributeNode.AppendChild(attribute);
-           
+
         }
         return attributeNode;
     }
@@ -153,7 +154,8 @@ class Program
         XmlNode methodNode = xDoc.CreateElement("methods");
 
         //we only need type, name
-        foreach(XmlNode node in methodList){
+        foreach (XmlNode node in methodList)
+        {
             String type, name;
             //retrive the nodes we need and store their value
             type = node.SelectSingleNode("./src:type/src:name", nsm).InnerText;
