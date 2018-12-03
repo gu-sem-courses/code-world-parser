@@ -22,7 +22,7 @@ namespace GitGetter2
         public static void Main(string[] projectId)
         {
             //client.DefaultRequestHeaders.Add("PRIVATE-TOKEN" ,"ZqpfJzg-n9-qQNv2z1N2");
-            fileType = ".java"; // controlls what type of files it will get.
+            fileType = ".js"; // controlls what type of files it will get.
                               // String url = "dit341/express-template"; //Used for testing
             Console.WriteLine(projectId[0].ToString());
             gitTreeRetriever(projectId[0].ToString());

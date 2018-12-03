@@ -32,8 +32,8 @@ Assets/AssetStoreTools*
 ExportedObj/
 .consulo/
 *.csproj
-*.unityproj
 *.sln
+*.unityproj
 *.suo
 *.tmp
 *.user
