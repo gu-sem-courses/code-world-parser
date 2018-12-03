@@ -22,6 +22,7 @@ public class PortalCamera : MonoBehaviour
     public Transform playerCamera;
     public Transform portal;
     private Material mat;
+    private Transform _otherPortal;
     private Camera cam;
 
     private void Awake()
@@ -30,14 +31,15 @@ public class PortalCamera : MonoBehaviour
      
         var shader = Shader.Find("Unlit/ScreenCutoutShader");
 
-        if (cam.targetTexture != null)
+           if (cam.targetTexture != null)
         {
             cam.targetTexture.Release();
         }
         cam.targetTexture = new RenderTexture(Screen.width, Screen.height, 24);
         mat = new Material(shader);
         mat.mainTexture = cam.targetTexture;
-        playerCamera = GameObject.FindWithTag("Player").transform.GetChild(0);
+        playerCamera = GameObject.FindWithTag("Player").transform;
+        
     }
 
     private void Start()
@@ -51,14 +53,13 @@ public class PortalCamera : MonoBehaviour
         cam.targetTexture = new RenderTexture(Screen.width, Screen.height, 24);
         mat = new Material(shader);
         mat.mainTexture = cam.targetTexture;
-        _otherPortal.GetComponent<MeshRenderer>().material = mat;
+            _otherPortal.GetComponent<MeshRenderer>().material = mat;
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        if(OtherPortal != null){
             Vector3 offset = playerCamera.position - OtherPortal.position;
 			transform.position = TranslatePosition(portal.position - offset);
 
@@ -66,10 +67,8 @@ public class PortalCamera : MonoBehaviour
 
             Quaternion portalRotationDiff = Quaternion.AngleAxis(angularDiffInPortalRotations, Vector3.up);
             Vector3 newCameraDir = (portalRotationDiff * playerCamera.forward);
-
-			var defaultRotation = Quaternion.LookRotation (newCameraDir, Vector3.up);
-			transform.rotation = TranslateRotation(defaultRotation);
-        }
+            transform.rotation = Quaternion.LookRotation(newCameraDir, Vector3.up);
+            transform.rotation *= Quaternion.Euler(0,-Quaternion.Angle(OtherPortal.localRotation, OtherPortal.parent.parent.localRotation),0);
     }
 
 	//Align PortalCamera movement with player movement with regards to rotation of the OtherPortal's gateway object
