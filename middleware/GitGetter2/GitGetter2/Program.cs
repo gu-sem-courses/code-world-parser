@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Net;
+using System.Diagnostics;
 
 namespace GitGetter2
 {
@@ -26,7 +27,7 @@ namespace GitGetter2
                               // String url = "dit341/express-template"; //Used for testing
             Console.WriteLine(projectId[0].ToString());
             gitTreeRetriever(projectId[0].ToString());
-            Console.ReadKey();
+            activateParser();
         }
 
         public static bool gitFileRetriever(String projectId, String filepath, String name)
@@ -195,6 +196,34 @@ namespace GitGetter2
             encoded_url = new string(letters);
 
             return encoded_url;
+        }
+
+        private static void activateParser(){
+        {
+
+             string PathP = System.AppDomain.CurrentDomain.BaseDirectory + "../../../../../parser/parser/obj/x86/Debug/Parser.exe";
+
+             // Part that activates srcml
+
+
+             //End of srcml part. 
+
+            // This part should start the parser but I'm too lazy to test it right now. 
+            Process Project = new Process();
+            try
+            {
+                //so it know where to find the file it should use to start the proccess
+                //if no actuall file is specified it will just open the specified folder
+                Project.StartInfo.FileName = PathP;
+                // What arguments the file will take when it starts
+                Project.Start();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
+
         }
 
     }
