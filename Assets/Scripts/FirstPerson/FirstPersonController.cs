@@ -66,7 +66,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
         // Update is called once per frame
         private void Update()
         {
-<<<<<<< HEAD:Assets/Scripts/FirstPerson/FirstPersonController.cs
             //LMAO RIP PERFORMANCE
             //TODO: make this more optimized
             //i will never do it btw
@@ -79,36 +78,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 this.transform.rotation = new Quaternion(0, 0, 0, 0);
             }
             m_MoveDir.y = 0f;
-=======
-            RotateView();
-            // the jump state needs to read here to make sure it is not missed
-            if (!m_Jump)
-            {
-                m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
-            }
-
-            if (!m_PreviouslyGrounded && m_CharacterController.isGrounded)
-            {
-                StartCoroutine(m_JumpBob.DoBobCycle());
-                PlayLandingSound();
-                m_MoveDir.y = 0f;
-                m_Jumping = false;
-            }
-            if (!m_CharacterController.isGrounded && !m_Jumping && m_PreviouslyGrounded)
-            {
-                m_MoveDir.y = 0f;
-            }
-
-            m_PreviouslyGrounded = m_CharacterController.isGrounded;
-        }
-
-
-        private void PlayLandingSound()
-        {
-            m_AudioSource.clip = m_LandSound;
-            m_AudioSource.Play();
-            m_NextStep = m_StepCycle + .5f;
->>>>>>> portals:Assets/Standard Assets/Characters/FirstPersonCharacter/Scripts/FirstPersonController.cs
         }
 
 
