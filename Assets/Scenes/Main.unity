@@ -574,16 +574,7 @@ Transform:
   m_LocalPosition: {x: 90, y: 6.5, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children: []
-  m_Father: {fileID: 0}
-<<<<<<< HEAD
-<<<<<<< HEAD
-  m_RootOrder: 4
-=======
-  m_RootOrder: 3
->>>>>>> portals
-=======
   m_RootOrder: 5
->>>>>>> levelgeneration
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1828736070
 MonoBehaviour:
@@ -633,11 +624,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4975505419976196, guid: ac48901ab3d39c1488b9bf782fa8a658, type: 2}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
-      value: 3
-=======
       value: 4
->>>>>>> portals
       objectReference: {fileID: 0}
     - target: {fileID: 114748686918273114, guid: ac48901ab3d39c1488b9bf782fa8a658,
         type: 2}
@@ -648,58 +635,12 @@ Prefab:
         type: 2}
       propertyPath: firstPersonUI
       value: 
-<<<<<<< HEAD
-      objectReference: {fileID: 358178476}
-    - target: {fileID: 114748686918273114, guid: ac48901ab3d39c1488b9bf782fa8a658,
-        type: 2}
-      propertyPath: FPCamera
-      value: 
-      objectReference: {fileID: 1467696093}
-=======
       objectReference: {fileID: 1625683943}
->>>>>>> portals
     - target: {fileID: 114771831096849270, guid: ac48901ab3d39c1488b9bf782fa8a658,
         type: 2}
       propertyPath: fpText
       value: 
-<<<<<<< HEAD
-      objectReference: {fileID: 1467696097}
-    - target: {fileID: 114748686918273114, guid: ac48901ab3d39c1488b9bf782fa8a658,
-        type: 2}
-      propertyPath: birdsEyeUI
-      value: 
-      objectReference: {fileID: 933575195}
-    - target: {fileID: 114748686918273114, guid: ac48901ab3d39c1488b9bf782fa8a658,
-        type: 2}
-      propertyPath: nameLabel
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114748686918273114, guid: ac48901ab3d39c1488b9bf782fa8a658,
-        type: 2}
-      propertyPath: birdsEyeSprite
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114021553747873680, guid: ac48901ab3d39c1488b9bf782fa8a658,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114748686918273114, guid: ac48901ab3d39c1488b9bf782fa8a658,
-        type: 2}
-      propertyPath: testText
-      value: 
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: ac48901ab3d39c1488b9bf782fa8a658, type: 2}
-  m_IsPrefabAsset: 0
---- !u!1 &2066339596 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1042288364039238, guid: ac48901ab3d39c1488b9bf782fa8a658,
-    type: 2}
-  m_PrefabInternal: {fileID: 1885499686}
-=======
       objectReference: {fileID: 361396096}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac48901ab3d39c1488b9bf782fa8a658, type: 2}
   m_IsPrefabAsset: 0
->>>>>>> portals
