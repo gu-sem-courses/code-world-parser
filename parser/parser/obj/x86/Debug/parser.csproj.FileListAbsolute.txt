@@ -8,3 +8,13 @@
 /Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parser/parser/obj/x86/Debug/parser.csproj.CopyComplete
 /Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parser/parser/obj/x86/Debug/parser.exe
 /Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parser/parser/obj/x86/Debug/parser.pdb
+C:\Projects\DIT355DistributedSystems\parser\parser\bin\Debug\parser.exe
+C:\Projects\DIT355DistributedSystems\parser\parser\bin\Debug\parser.pdb
+C:\Projects\DIT355DistributedSystems\parser\parser\bin\Debug\Newtonsoft.Json.dll
+C:\Projects\DIT355DistributedSystems\parser\parser\bin\Debug\Newtonsoft.Json.pdb
+C:\Projects\DIT355DistributedSystems\parser\parser\bin\Debug\Newtonsoft.Json.xml
+C:\Projects\DIT355DistributedSystems\parser\parser\obj\x86\Debug\parser.csprojResolveAssemblyReference.cache
+C:\Projects\DIT355DistributedSystems\parser\parser\obj\x86\Debug\parser.csproj.CoreCompileInputs.cache
+C:\Projects\DIT355DistributedSystems\parser\parser\obj\x86\Debug\parser.csproj.CopyComplete
+C:\Projects\DIT355DistributedSystems\parser\parser\obj\x86\Debug\parser.exe
+C:\Projects\DIT355DistributedSystems\parser\parser\obj\x86\Debug\parser.pdb

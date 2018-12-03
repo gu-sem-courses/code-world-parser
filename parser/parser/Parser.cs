@@ -84,11 +84,11 @@ class Program
                 serializer.Serialize(file, xmlFile);
             }
         }
-
         catch (Exception u)
         {
             Console.WriteLine(u.ToString());
         }
+        Console.ReadKey();
 
     }
 }
