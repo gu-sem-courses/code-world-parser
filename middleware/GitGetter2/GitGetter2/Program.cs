@@ -23,11 +23,11 @@ namespace GitGetter2
         public static void Main(string[] projectId)
         {
             //client.DefaultRequestHeaders.Add("PRIVATE-TOKEN" ,"ZqpfJzg-n9-qQNv2z1N2");
-            fileType = ".js"; // controlls what type of files it will get.
+            fileType = ".java"; // controlls what type of files it will get.
                               // String url = "dit341/express-template"; //Used for testing
             Console.WriteLine(projectId[0].ToString());
-            gitTreeRetriever(projectId[0].ToString());
-            activateParser();
+            String dirPath = gitTreeRetriever(projectId[0].ToString());
+            activateParser(projectId[0].ToString());
         }
 
         public static bool gitFileRetriever(String projectId, String filepath, String name)
@@ -59,7 +59,8 @@ namespace GitGetter2
 
                 try
                 {
-                    File.WriteAllText("../../../../GitGetter2/FileStorer/" + name, responseString);
+                    String dirPath = "../../../../GitGetter2/FileStorer/" + projectId;
+                    File.WriteAllText(dirPath+"/"+ name, responseString);
                 }
                 catch (Exception e)
                 {
@@ -78,7 +79,7 @@ namespace GitGetter2
 
             return true;
         }
-        private static void gitTreeRetriever(String projectId)
+        private static String gitTreeRetriever(String projectId)
         {
             //urlEncoder(projectId);
             String address = "https://gitlab.com/api/v4/projects/" + urlEncoder(projectId) + "/repository/tree";
@@ -95,10 +96,16 @@ namespace GitGetter2
 
                 List<TreeObject> noPathFolder = makeTreeList(responseString);
 
+                //Makes a directory for this project
+                String dirPath = "../../../../GitGetter2/FileStorer/" + projectId;
+                System.IO.Directory.CreateDirectory(dirPath);
+                System.IO.Directory.CreateDirectory(dirPath+ "_srcml");
+
                 foreach (TreeObject tree in noPathFolder)
                 {
                     TreeNavigator(projectId, tree);
                 }
+                return dirPath;
 
             }
             catch (Exception e)
@@ -106,6 +113,7 @@ namespace GitGetter2
                 Console.WriteLine("Something went wrong with HTTP request :Defaultdance");
                 Console.WriteLine(e);
                 //Write stuff incase the git repository was not found. 
+                return "ERROR";
             }
         }
 
@@ -149,7 +157,8 @@ namespace GitGetter2
             }
             else if (map.type == "blob" && map.name.Contains(fileType))
             {
-                return gitFileRetriever(projectId, map.path, map.name);
+                //return gitFileRetriever(projectId, map.path, map.name);
+                return true; //Added for the testing of enumerator. Remember to uncomment gitFileRetriever and remove this. 
             }
             else
             {
@@ -198,30 +207,77 @@ namespace GitGetter2
             return encoded_url;
         }
 
-        private static void activateParser(){
+        private static void activateParser(String projectId){
         {
 
              string PathP = System.AppDomain.CurrentDomain.BaseDirectory + "../../../../../parser/parser/obj/x86/Debug/Parser.exe";
 
-             // Part that activates srcml
+                
+
+                String dirPath = "../../../../GitGetter2/FileStorer/" + projectId+ "/";
+
+                Console.WriteLine("Enumerator and srcml beginning");
+                // Part that activates srcml
+                Console.WriteLine("Before enum");
+                IEnumerator<String> enumerator = System.IO.Directory.EnumerateFiles(dirPath).GetEnumerator();
+                Console.WriteLine("after enum");
+                do
+                {
+                    try
+                    {
+                        Console.WriteLine("Current enum location: "+enumerator.Current);
+                        Process srcml = new Process();
+                        //This is intended to start sourceml and then do the thing on each file in the folder.
+                        //String batAddress = "../../../../GitGetter2/FileStorer/.SrcmlStarter.bat"; Not working right now
+                        String batAddress = "../../../../GitGetter2/FileStorer/SrcmlStarter.bat";
+
+                        char[] charArray = enumerator.Current.ToCharArray();
+                        
+                        String fileName = "";
+                        for (int i = charArray.Length - 1; i > 0; i--)
+                        {
+                            if (charArray[i] == '/')
+                            {
+                                break;
+                            }
+                            fileName += charArray[i];
+                        }
+                        char[] charArray2 = fileName.ToCharArray();
+                        Array.Reverse(charArray);
+                        fileName = charArray2.ToString();
+                        Console.WriteLine("Before srcml calls");
+
+                        srcml.StartInfo.FileName = batAddress;
+                        // srcml.StartInfo.Arguments = enumerator.Current+" "+dirPath+ "_srcml/"+ fileName;
+                        srcml.StartInfo.Arguments = projectId + " " + projectId + "_srcml/" + fileName;
+                        // What arguments the file will take when it starts
+                        srcml.Start();
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e.Message);
+                    }
 
 
+                } while (enumerator.MoveNext() == true);
              //End of srcml part. 
 
-            // This part should start the parser but I'm too lazy to test it right now. 
-            Process Project = new Process();
-            try
-            {
-                //so it know where to find the file it should use to start the proccess
-                //if no actuall file is specified it will just open the specified folder
-                Project.StartInfo.FileName = PathP;
-                // What arguments the file will take when it starts
-                Project.Start();
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
+
+                // This part should start the parser but I'm too lazy to test it right now. 
+                /* Process Project = new Process();
+                 try
+                 {
+                     //so it know where to find the file it should use to start the proccess
+                     //if no actual file is specified it will just open the specified folder
+                     Project.StartInfo.FileName = PathP;
+                     Project.StartInfo.Arguments = dirPath;
+                     // What arguments the file will take when it starts
+                     Project.Start();
+                 }
+                 catch (Exception e)
+                 {
+                     Console.WriteLine(e.Message);
+                 }*/
         }
 
         }
