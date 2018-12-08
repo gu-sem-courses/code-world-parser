@@ -18,3 +18,14 @@
 /Users/humblebee/Documents/dit355/parser/parser/obj/x86/Debug/parser.csproj.CopyComplete
 /Users/humblebee/Documents/dit355/parser/parser/obj/x86/Debug/parser.exe
 /Users/humblebee/Documents/dit355/parser/parser/obj/x86/Debug/parser.pdb
+C:\University\DistributedSystemsProject\dit355\parser\parser\bin\Debug\parser.exe.config
+C:\University\DistributedSystemsProject\dit355\parser\parser\bin\Debug\parser.exe
+C:\University\DistributedSystemsProject\dit355\parser\parser\bin\Debug\parser.pdb
+C:\University\DistributedSystemsProject\dit355\parser\parser\bin\Debug\Newtonsoft.Json.dll
+C:\University\DistributedSystemsProject\dit355\parser\parser\bin\Debug\Newtonsoft.Json.pdb
+C:\University\DistributedSystemsProject\dit355\parser\parser\bin\Debug\Newtonsoft.Json.xml
+C:\University\DistributedSystemsProject\dit355\parser\parser\obj\x86\Debug\parser.csprojAssemblyReference.cache
+C:\University\DistributedSystemsProject\dit355\parser\parser\obj\x86\Debug\parser.csproj.CoreCompileInputs.cache
+C:\University\DistributedSystemsProject\dit355\parser\parser\obj\x86\Debug\parser.csproj.CopyComplete
+C:\University\DistributedSystemsProject\dit355\parser\parser\obj\x86\Debug\parser.exe
+C:\University\DistributedSystemsProject\dit355\parser\parser\obj\x86\Debug\parser.pdb
