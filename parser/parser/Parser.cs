@@ -11,7 +11,7 @@ class Program
     {
         XmlDocument xmlBefore, xmlAfter;
         //XmlNodeList attr, meth;
-        XmlNode name, attributes, methods; // superClasses, subClasses, components, associations; //<-- these are our constraints
+        XmlNode name, attributes, methods; // subClasses, components, associations; //<-- these are our constraints
 
         //Create an xml doc for existing file
         xmlBefore = new XmlDocument();
