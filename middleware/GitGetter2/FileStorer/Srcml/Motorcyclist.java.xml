@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<unit xmlns="http://www.srcML.org/srcML/src" revision="0.9.5" language="Java" filename="E:\Programmering\DIT355_Project\middleware/GitGetter2/FileStorer/you.incredibly.close/javaprojects/Motorcyclist.java"><package>package <name><name>by</name><operator>.</operator><name>softclub</name><operator>.</operator><name>hometask1</name><operator>.</operator><name>motorcyclist</name></name>;</package>
+
+<import>import <name><name>by</name><operator>.</operator><name>softclub</name><operator>.</operator><name>hometask1</name><operator>.</operator><name>ammunition</name><operator>.</operator><name>Ammunition</name></name>;</import>
+
+<import>import <name><name>java</name><operator>.</operator><name>util</name><operator>.</operator><name>ArrayList</name></name>;</import>
+<import>import <name><name>java</name><operator>.</operator><name>util</name><operator>.</operator><name>Collections</name></name>;</import>
+<import>import <name><name>java</name><operator>.</operator><name>util</name><operator>.</operator><name>Comparator</name></name>;</import>
+
+<class><specifier>public</specifier> class <name>Motorcyclist</name> <super><extends>extends <name>Human</name></extends></super> <block>{
+
+    <decl_stmt><decl><specifier>private</specifier> <type><name><name>ArrayList</name><argument_list type="generic">&lt;<argument><name>Ammunition</name></argument>&gt;</argument_list></name></type> <name>ammunitions</name></decl>;</decl_stmt>
+
+    <constructor><specifier>public</specifier> <name>Motorcyclist</name><parameter_list>(<parameter><decl><type><name>String</name></type> <name>name</name></decl></parameter>, <parameter><decl><type><name>String</name></type> <name>surname</name></decl></parameter>, <parameter><decl><type><name>int</name></type> <name>age</name></decl></parameter>, <parameter><decl><type><name><name>ArrayList</name><argument_list type="generic">&lt;<argument><name>Ammunition</name></argument>&gt;</argument_list></name></type> <name>ammunitions</name></decl></parameter>)</parameter_list> <block>{
+        <expr_stmt><expr><call><name>super</name><argument_list>(<argument><expr><name>name</name></expr></argument>, <argument><expr><name>surname</name></expr></argument>, <argument><expr><name>age</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+        <expr_stmt><expr><name><name>this</name><operator>.</operator><name>ammunitions</name></name> <operator>=</operator> <name>ammunitions</name></expr>;</expr_stmt>
+    }</block></constructor>
+
+    <function><specifier>public</specifier> <type><name><name>ArrayList</name><argument_list type="generic">&lt;<argument><name>Ammunition</name></argument>&gt;</argument_list></name></type> <name>getAmmunitions</name><parameter_list>()</parameter_list> <block>{
+        <return>return <expr><name>ammunitions</name></expr>;</return>
+    }</block></function>
+
+    <function><specifier>public</specifier> <type><name>void</name></type> <name>setAmmunitions</name><parameter_list>(<parameter><decl><type><name><name>ArrayList</name><argument_list type="generic">&lt;<argument><name>Ammunition</name></argument>&gt;</argument_list></name></type> <name>ammunitions</name></decl></parameter>)</parameter_list> <block>{
+        <expr_stmt><expr><name><name>this</name><operator>.</operator><name>ammunitions</name></name> <operator>=</operator> <name>ammunitions</name></expr>;</expr_stmt>
+    }</block></function>
+
+    <function><annotation>@<name>Override</name></annotation>
+    <specifier>public</specifier> <type><name>String</name></type> <name>toString</name><parameter_list>()</parameter_list> <block>{
+        <decl_stmt><decl><type><name>StringBuilder</name></type> <name>description</name> <init>= <expr><operator>new</operator> <call><name>StringBuilder</name><argument_list>(<argument><expr><call><name><name>super</name><operator>.</operator><name>toString</name></name><argument_list>()</argument_list></call></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+        <if>if <condition>(<expr><operator>!</operator><call><name><name>ammunitions</name><operator>.</operator><name>isEmpty</name></name><argument_list>()</argument_list></call></expr>)</condition><then> <block>{
+            <expr_stmt><expr><call><name><name>description</name><operator>.</operator><name>append</name></name><argument_list>(<argument><expr><literal type="string">"\n"</literal> <operator>+</operator> <literal type="string">"----------AMMUNITIONS----------\n"</literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+            <for>for <control>(<init><decl><type><name>Ammunition</name></type> <name>ammunition</name> <range>: <expr><name>ammunitions</name></expr></range></decl></init>)</control> <block>{
+                <expr_stmt><expr><call><name><name>description</name><operator>.</operator><name>append</name></name><argument_list>(<argument><expr><operator>new</operator> <call><name>StringBuilder</name><argument_list>(<argument><expr><call><name><name>ammunition</name><operator>.</operator><name>toString</name></name><argument_list>()</argument_list></call></expr></argument>)</argument_list></call></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+            }</block></for>
+        }</block></then></if>
+        <return>return <expr><operator>new</operator> <call><name>String</name><argument_list>(<argument><expr><name>description</name></expr></argument>)</argument_list></call></expr>;</return>
+    }</block></function>
+}</block></class>
+</unit>

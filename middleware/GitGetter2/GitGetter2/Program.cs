@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net;
 using System.Diagnostics;
+using System.Reflection;
 
 namespace GitGetter2
 {
@@ -28,6 +29,8 @@ namespace GitGetter2
             Console.WriteLine(projectId[0].ToString());
             String dirPath = gitTreeRetriever(projectId[0].ToString());
             activateParser(projectId[0].ToString());
+
+
         }
 
         public static bool gitFileRetriever(String projectId, String filepath, String name)
@@ -157,8 +160,8 @@ namespace GitGetter2
             }
             else if (map.type == "blob" && map.name.Contains(fileType))
             {
-                //return gitFileRetriever(projectId, map.path, map.name);
-                return true; //Added for the testing of enumerator. Remember to uncomment gitFileRetriever and remove this. 
+                return gitFileRetriever(projectId, map.path, map.name);
+                //return true; //Added for the testing of enumerator. Remember to uncomment gitFileRetriever and remove this. 
             }
             else
             {
@@ -214,7 +217,10 @@ namespace GitGetter2
 
                 
 
-                String dirPath = "../../../../GitGetter2/FileStorer/" + projectId+ "/";
+                String dirPath = globalFolderGetter(4) +"/GitGetter2/FileStorer/" + projectId+ "/";
+                String batAddress = ".SrcmlStarter.bat";
+                String storageAddress = globalFolderGetter(4) + "/GitGetter2/FileStorer/";
+                storageAddress = storageAddress.Replace( "/" ,"\\ ");
 
                 Console.WriteLine("Enumerator and srcml beginning");
                 // Part that activates srcml
@@ -229,7 +235,8 @@ namespace GitGetter2
                         Process srcml = new Process();
                         //This is intended to start sourceml and then do the thing on each file in the folder.
                         //String batAddress = "../../../../GitGetter2/FileStorer/.SrcmlStarter.bat"; Not working right now
-                        String batAddress = "../../../../GitGetter2/FileStorer/SrcmlStarter.bat";
+
+                        
 
                         char[] charArray = enumerator.Current.ToCharArray();
                         
@@ -243,13 +250,21 @@ namespace GitGetter2
                             fileName += charArray[i];
                         }
                         char[] charArray2 = fileName.ToCharArray();
-                        Array.Reverse(charArray);
-                        fileName = charArray2.ToString();
-                        Console.WriteLine("Before srcml calls");
 
-                        srcml.StartInfo.FileName = batAddress;
+                        fileName = "";
+
+                        for (int i = charArray2.Length-1; i>=0; i--)
+                        {
+                            fileName += charArray2[i];
+                        }
+
+                        Console.WriteLine("Before srcml calls");
+                        Console.WriteLine(storageAddress + "Srcml/SrcmlTextDoc.xml");
+
+                        srcml.StartInfo.FileName = batAddress; // IF YOU WANT TO CHANGE WHERE THE OUTPUT FILES GOES THEN CHANGE IT IN THE BAT FILE
+
                         // srcml.StartInfo.Arguments = enumerator.Current+" "+dirPath+ "_srcml/"+ fileName;
-                        srcml.StartInfo.Arguments = projectId + " " + projectId + "_srcml/" + fileName;
+                        srcml.StartInfo.Arguments = enumerator.Current+ " "+ fileName;
                         // What arguments the file will take when it starts
                         srcml.Start();
                     }
@@ -280,6 +295,20 @@ namespace GitGetter2
                  }*/
         }
 
+        }
+        private static String globalFolderGetter(int backwardsSteps) { // Used to move backwards in the folders
+            
+            String endlocation = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+            //Console.WriteLine("This is the exelocation = "+ endlocation);
+            for (int i = 0; i<backwardsSteps; i++)
+            {
+                endlocation = Path.GetDirectoryName(endlocation);
+                //Console.WriteLine("This is the endlocation = " + endlocation);
+                //Console.WriteLine("Current iteration: " + i);
+            }
+
+
+            return endlocation;
         }
 
     }
