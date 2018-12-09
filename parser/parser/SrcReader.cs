@@ -5,12 +5,12 @@ namespace parser
 {
     public class SrcReader
     {
-        public XmlNode GetClasses(XmlDocument xDoc, XmlNamespaceManager nsm)
+        public XmlElement GetClasses(XmlDocument xDoc, XmlNamespaceManager nsm)
         {
             XmlNodeList classList = xDoc.DocumentElement.SelectNodes("//src:class[src:specifier[.!='abstract']]", nsm);
             Console.WriteLine("number of classes = " + classList.Count);
 
-            XmlNode result = xDoc.CreateElement("classes");
+            XmlElement result = xDoc.CreateElement("classes");
 
             foreach (XmlNode xClass in classList)
             {
@@ -23,16 +23,24 @@ namespace parser
                 - methods
                 - */
 
-                XmlElement name, attributes, methods, superClass, subClass;
+                Console.WriteLine("****************");
+                XmlElement name, attributes, methods, superClass, subClass, javaClass;
                 name = GetClassName(xClass, xDoc, nsm);
-                Console.WriteLine(name.InnerText);
-                Console.WriteLine("********");
-                //attributes = GetAttributes(xClass, xDoc, nsm);
-                //methods = GetMethods(xClass, xDoc, nsm);
-                //superClass = GetSuperClass(xClass, xDoc, nsm);
+                attributes = GetAttributes(xClass, xDoc, nsm);
+                methods = GetMethods(xClass, xDoc, nsm);
+                superClass = GetSuperClass(xClass, xDoc, nsm);
                 subClass = GetSubclasses(xClass, xDoc, nsm);
 
-                //break;
+                javaClass = xDoc.CreateElement("class");
+                javaClass.AppendChild(name);
+                javaClass.AppendChild(attributes);
+                javaClass.AppendChild(methods);
+                javaClass.AppendChild(superClass);
+                javaClass.AppendChild(subClass);
+                Console.WriteLine(javaClass.InnerXml);
+                Console.WriteLine("****************");
+
+                result.AppendChild(javaClass);
             }
 
             return result;
@@ -42,6 +50,7 @@ namespace parser
         {
             XmlElement className = xDoc.CreateElement("name");
             className.InnerText = classNode.SelectSingleNode("src:name[1]", nsm).InnerText;
+            Console.WriteLine("class: "+className.InnerText);
             return className;
         }
 
@@ -56,38 +65,47 @@ namespace parser
             {
                 //retrive the nodes we need and store their value
                 String type, name, accessModifier;
-                if(attr.SelectSingleNode("./src:specifier[1]", nsm) != null) {
-                    accessModifier = attr.SelectSingleNode("./src:specifier[1]", nsm).InnerText;
+                XmlNode access, attrType;
+                access = attr.SelectSingleNode("./src:specifier[1]", nsm);
+                attrType = attr.SelectSingleNode("./src:type/src:name", nsm);
+                if (access != null) {
+                    accessModifier = access.InnerText;
                 }
                 else { accessModifier = "public"; //if there is no access modifier then its default = public
                 }
-                type = attr.SelectSingleNode("./src:type/src:name[1]", nsm).InnerText; 
+                if(attrType != null) {
+                    type = attrType.InnerText;
+                }
+                else {
+                    type = "n/a";
+                }
+
                 name = attr.SelectSingleNode("./src:name", nsm).InnerText;
 
-                //create a new element
+                /*create a new element*/
                 XmlElement attribute, accessModifierElement, typeElement, nameElement;
 
-                //accessmodifier
+                /*accessmodifier*/
                 accessModifierElement = xDoc.CreateElement("accessModifier");
                 accessModifierElement.InnerText = accessModifier;
 
-                //type
+                /*type*/
                 typeElement = xDoc.CreateElement("type");
                 typeElement.InnerText = type;
 
-                //name
+                /*name*/
                 nameElement = xDoc.CreateElement("name");
                 nameElement.InnerText = name;
 
-                //attribute
+                /*attribute*/
                 attribute = xDoc.CreateElement("attribute");
                 attribute.AppendChild(accessModifierElement);
                 attribute.AppendChild(typeElement);
                 attribute.AppendChild(nameElement);
 
-                //append the child to the original node
+                /*append results*/
                 result.AppendChild(attribute);
-                Console.WriteLine(attribute.InnerText);
+                //Console.WriteLine(attribute.InnerText);
             }
             return result;
         }
@@ -130,9 +148,9 @@ namespace parser
                 method.AppendChild(methodType);
                 method.AppendChild(methodName);
 
-                //append results
+                /*append results*/
                 result.AppendChild(method);
-                Console.WriteLine(method.InnerText);
+                //Console.WriteLine(method.InnerText);
             }
             return result;
         }
@@ -146,7 +164,8 @@ namespace parser
             else {
                 result.InnerText = "none";
             }
-            Console.WriteLine(result.InnerText);
+
+            //Console.WriteLine(result.InnerText);
             return result;
         }
 
@@ -162,10 +181,13 @@ namespace parser
             foreach (XmlNode sub in subs) {
                 XmlElement subClass = xDoc.CreateElement("subClass");
                 subClass.InnerText = GetClassName(sub, xDoc, nsm).InnerText;
+
+                /*append results*/
                 result.AppendChild(subClass);
                 Console.WriteLine(subClass.InnerText);
             }
             return result;
         }
+
     }
 }
