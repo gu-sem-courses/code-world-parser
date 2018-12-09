@@ -38,8 +38,8 @@ class Program
 
 
         /*send data to outbox*/
-        Boolean result = exportJson(gameObjects);
-        Console.WriteLine(yay(result));
+        Boolean result = ExportJson(gameObjects);
+        Console.WriteLine(Yay(result));
     }
 
     //----------------------------------------------------------------------------------------------------------------
@@ -60,7 +60,7 @@ class Program
         return JsonConvert.SerializeXmlNode(xmlFile);
     }
 
-    public static Boolean exportJson(XmlDocument result) {
+    public static Boolean ExportJson(XmlDocument result) {
         try
         {
             String path = "../../../../globalAssets/outbox/xml2json.json";
@@ -82,7 +82,7 @@ class Program
         return true;
     }
 
-    public static String yay(Boolean reality)
+    public static String Yay(Boolean reality)
     {
         String res;
         if (reality) {

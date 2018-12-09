@@ -57,9 +57,11 @@ namespace parser
         public XmlElement GetAttributes(XmlNode classNode, XmlDocument xDoc, XmlNamespaceManager nsm)
         {
             //XmlNodeList attributeList = classNode.SelectNodes("./src:block//src:decl_stmt/src:decl[src:type/src:name [. = 'int']]", nsm);
-            XmlNodeList attributeList = classNode.SelectNodes("./src:block//src:decl_stmt/src:decl", nsm);
+            XmlNodeList declarations = classNode.SelectNodes("./src:block//src:decl_stmt", nsm);
+            XmlNodeList attributeList = classNode.SelectNodes("./src:block//src:decl_stmt//src:decl", nsm);
             XmlElement result = xDoc.CreateElement("attributes");
-            Console.WriteLine("num of attributes = " + attributeList.Count);
+            Console.WriteLine("num of delarations = " + declarations.Count);
+            Console.WriteLine("num of attributes= " + attributeList.Count);
             //we only need type, name;
             foreach (XmlNode attr in attributeList)
             {
@@ -68,16 +70,24 @@ namespace parser
                 XmlNode access, attrType;
                 access = attr.SelectSingleNode("./src:specifier[1]", nsm);
                 attrType = attr.SelectSingleNode("./src:type/src:name", nsm);
+
                 if (access != null) {
                     accessModifier = access.InnerText;
                 }
                 else { accessModifier = "public"; //if there is no access modifier then its default = public
                 }
+
                 if(attrType != null) {
                     type = attrType.InnerText;
                 }
-                else {
-                    type = "n/a";
+                else {//if there is no type then check the previous node because it implies that there were a group of nodes declared at the same time
+                    String reference = attr.SelectSingleNode("./src:type/@ref", nsm).InnerText;
+                    if(reference == "prev") {
+                        type = result.LastChild.SelectSingleNode("./type").InnerText;
+                    }
+                    else {
+                        type = "n/a";
+                    }
                 }
 
                 name = attr.SelectSingleNode("./src:name", nsm).InnerText;
