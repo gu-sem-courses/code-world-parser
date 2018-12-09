@@ -37,7 +37,6 @@ namespace parser
                 javaClass.AppendChild(methods);
                 javaClass.AppendChild(superClass);
                 javaClass.AppendChild(subClass);
-                Console.WriteLine(javaClass.InnerXml);
                 Console.WriteLine("****************");
 
                 result.AppendChild(javaClass);
@@ -115,7 +114,6 @@ namespace parser
 
                 /*append results*/
                 result.AppendChild(attribute);
-                //Console.WriteLine(attribute.InnerText);
             }
             return result;
         }
@@ -160,7 +158,6 @@ namespace parser
 
                 /*append results*/
                 result.AppendChild(method);
-                //Console.WriteLine(method.InnerText);
             }
             return result;
         }
@@ -174,8 +171,6 @@ namespace parser
             else {
                 result.InnerText = "none";
             }
-
-            //Console.WriteLine(result.InnerText);
             return result;
         }
 
@@ -186,7 +181,6 @@ namespace parser
             XmlNodeList subs = classNode.SelectNodes("//src:class[./src:super/src:extends/src:name [.='" + className + "']]", nsm);
 
             Console.WriteLine("num of subclasses = " + subs.Count);
-            Console.WriteLine("current Class = " + className);
 
             foreach (XmlNode sub in subs) {
                 XmlElement subClass = xDoc.CreateElement("subClass");
@@ -194,7 +188,6 @@ namespace parser
 
                 /*append results*/
                 result.AppendChild(subClass);
-                Console.WriteLine(subClass.InnerText);
             }
             return result;
         }

@@ -9,23 +9,7 @@ class Program
 {
     protected static void Main(string[] args)
     {
-<<<<<<< HEAD
         XmlDocument javaProject, gameObjects;
-=======
-        XmlDocument xmlBefore, xmlAfter;
-        //XmlNodeList attr, meth;
-        XmlNode name, attributes, methods; // subClasses, components, associations; //<-- these are our constraints
-
-        //Create an xml doc for existing file
-        xmlBefore = new XmlDocument();
-        //load project
-        xmlBefore.Load("../../../../assets/tests/sample/singleClass.xml");
-        XmlNode root = xmlBefore.DocumentElement;
-
-        //this is needed to make xpath queries
-        XmlNamespaceManager namespaceManager = new XmlNamespaceManager(xmlBefore.NameTable);
-        namespaceManager.AddNamespace("src", "http://www.srcML.org/srcML/src");
->>>>>>> parser
 
         /*Create an xml doc for existing file*/
         javaProject = new XmlDocument();
