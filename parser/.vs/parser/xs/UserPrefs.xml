@@ -1,15 +1,9 @@
 ﻿<Properties StartupConfiguration="{A28B6A98-27B3-45B6-8D1A-AF858301489F}|Default">
-<<<<<<< HEAD
   <MonoDevelop.Ide.ItemProperties.parser PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="parser/Parser.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="parser/SrcReader.cs">
     <Files>
-      <File FileName="parser/Parser.cs" Line="34" Column="32" />
-=======
-  <MonoDevelop.Ide.ItemProperties.parser FirstBuild="True" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="parser/Parser.cs">
-    <Files>
-      <File FileName="parser/Parser.cs" Line="7" Column="19" />
->>>>>>> parser
+      <File FileName="parser/Parser.cs" Line="2" Column="1" />
+      <File FileName="parser/SrcReader.cs" Line="158" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
