@@ -22,6 +22,7 @@ public class MiddlewareInterface : MonoBehaviour {
     public void SetProj(Text name)
     {
         project = name;
+        
     }
     
     // This function is the first chain in the process to get the neccesarry JSON to the computer
