@@ -16,6 +16,8 @@ Thumbs.db
 
 # generated files
 parser/parser/parser/obj/*
+parser/parser/obj/x86/Debug/parser.csproj.CoreCompileInputs.cache
+parser/parser/obj/x86/Debug/parser.csprojAssemblyReference.cache
 parser/parser/parser/bin/*
 parser/parser/.vs/*
 parser/.vs/*
