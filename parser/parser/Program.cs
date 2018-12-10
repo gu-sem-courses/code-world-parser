@@ -73,7 +73,6 @@ class Program
                 serializer.Serialize(file, result);
             }
         }
-
         catch (Exception u)
         {
             Console.WriteLine(u.ToString());
