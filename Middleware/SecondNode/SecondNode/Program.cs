@@ -9,7 +9,7 @@ using Grpc.Core;
 using Newtonsoft.Json.Linq;
 using System.Diagnostics;
 
-namespace Server2
+namespace SecondNode
 {
     //Wierd name, but the class it extends from is a class generted by the proto file/files
     public class ServiceImpl : Services.GameLog.GameLogBase
@@ -48,6 +48,7 @@ namespace Server2
                 // What arguments the file will take when it starts
                 Project.StartInfo.Arguments = req.Address.ToString();
                 Project.Start();
+                Project.WaitForExit();
             }
             catch (Exception e)
             {

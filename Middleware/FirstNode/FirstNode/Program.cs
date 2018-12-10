@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Client2
+namespace FirstNode
 {
     class Program
     {
@@ -55,10 +55,8 @@ namespace Client2
             filepath = System.AppDomain.CurrentDomain.BaseDirectory + "../../../" + ProjectName + filetype;
             //This will write the 
             System.IO.File.WriteAllText(filepath, json.File);
-
-               channel.ShutdownAsync().Wait();
-               Console.WriteLine(filepath);
-               Console.ReadKey();
+            channel.ShutdownAsync().Wait();
+              
             }
         }
 

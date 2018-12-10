@@ -17,8 +17,8 @@ public class MiddlewareInterface : MonoBehaviour {
     }
 
     // A workaround function so I can have the text objects of both inputfields
-    // sense unity doesnt allow functions that are called from the engine to have 
-    // more than one simple parameter
+    // since unity doesnt allow functions that are called from the engine to have 
+    // more than one simple parameter (by unity standard)
     public void SetProj(Text name)
     {
         project = name;
@@ -28,19 +28,20 @@ public class MiddlewareInterface : MonoBehaviour {
     public void GetJson (Text name) {
 
         // Defining some variables
-        string PathV = UnityEngine.Application.dataPath + "/../middleware/Client2/Client2/bin/Debug/Client2.exe";
+        string NodePath = UnityEngine.Application.dataPath + "/../middleware/Client2/Client2/bin/Debug/Client2.exe";
         var User = name.text.ToString();
         var Repository = project.text.ToString();
         
         // Making a Proccess that will call on a file and also pass along arguments to that file.
-        Process Client = new Process();
+        Process FirstNode = new Process();
         try
         {
             // Declares where to find the .exe file
-            Client.StartInfo.FileName = PathV;
+            FirstNode.StartInfo.FileName = NodePath;
             // Declares the argument the .exe file will take 
-            Client.StartInfo.Arguments = User +" "+ Repository;
-            Client.Start();
+            FirstNode.StartInfo.Arguments = User +" "+ Repository;
+            FirstNode.Start();
+            FirstNode.WaitForExit();
         }
         catch (Exception e)
         {
