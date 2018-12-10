@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<unit xmlns="http://www.srcML.org/srcML/src" revision="0.9.5" language="Java" filename="E:\Programmering\DIT355_Project\middleware/GitGetter2/FileStorer/you.incredibly.close/javaprojects/AmmunitionAction.java"><package>package <name><name>by</name><operator>.</operator><name>softclub</name><operator>.</operator><name>hometask1</name></name>;</package>
+
+<import>import <name><name>by</name><operator>.</operator><name>softclub</name><operator>.</operator><name>hometask1</name><operator>.</operator><name>ammunition</name><operator>.</operator><name>Ammunition</name></name>;</import>
+<import>import <name><name>by</name><operator>.</operator><name>softclub</name><operator>.</operator><name>hometask1</name><operator>.</operator><name>ammunition</name><operator>.</operator><name>Gloves</name></name>;</import>
+<import>import <name><name>by</name><operator>.</operator><name>softclub</name><operator>.</operator><name>hometask1</name><operator>.</operator><name>ammunition</name><operator>.</operator><name>Helmet</name></name>;</import>
+<import>import <name><name>by</name><operator>.</operator><name>softclub</name><operator>.</operator><name>hometask1</name><operator>.</operator><name>ammunition</name><operator>.</operator><name>Jacket</name></name>;</import>
+
+<import>import <name><name>java</name><operator>.</operator><name>util</name><operator>.</operator><name>ArrayList</name></name>;</import>
+<import>import <name><name>java</name><operator>.</operator><name>util</name><operator>.</operator><name>Collections</name></name>;</import>
+<import>import <name><name>java</name><operator>.</operator><name>util</name><operator>.</operator><name>Comparator</name></name>;</import>
+
+<class><specifier>public</specifier> class <name>AmmunitionAction</name> <block>{
+
+    <function><specifier>public</specifier> <type><name>void</name></type> <name>buyAmmunition</name><parameter_list>(<parameter><decl><type><name><name>ArrayList</name><argument_list type="generic">&lt;<argument><name>Ammunition</name></argument>&gt;</argument_list></name></type> <name>ammunitionToBuyArrList</name></decl></parameter>, <parameter><decl><type><name>String</name><modifier>...</modifier></type> <name>ammun</name></decl></parameter>)</parameter_list> <block>{
+        <decl_stmt><decl><type><name>Ammunition</name></type> <name>tempAmmun</name></decl>;</decl_stmt>
+        <for>for <control>(<init><decl><type><name>int</name></type> <name>i</name> <init>= <expr><literal type="number">0</literal></expr></init></decl>;</init> <condition><expr><name>i</name> <operator>&lt;</operator> <name><name>ammun</name><operator>.</operator><name>length</name></name></expr>;</condition> <incr><expr><name>i</name><operator>++</operator></expr></incr>)</control> <block>{
+            <expr_stmt><expr><name>tempAmmun</name> <operator>=</operator> <call><name>defineAmmunition</name><argument_list>(<argument><expr><name><name>ammun</name><index>[<expr><name>i</name></expr>]</index></name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+            <if>if <condition>(<expr><name>tempAmmun</name> <operator>!=</operator> <literal type="null">null</literal></expr>)</condition><then> <block>{
+                <expr_stmt><expr><call><name><name>ammunitionToBuyArrList</name><operator>.</operator><name>add</name></name><argument_list>(<argument><expr><name>tempAmmun</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+            }</block></then></if>
+        }</block></for>
+    }</block></function>
+
+    <function><specifier>private</specifier> <type><name>Ammunition</name></type> <name>defineAmmunition</name><parameter_list>(<parameter><decl><type><name>String</name></type> <name>type</name></decl></parameter>)</parameter_list> <block>{
+        <switch>switch <condition>(<expr><name>type</name></expr>)</condition> <block>{
+            <case>case <expr><literal type="string">"Gloves"</literal></expr>:</case>
+                <return>return <expr><operator>new</operator> <call><name>Gloves</name><argument_list>(<argument><expr><literal type="string">"Glove's Firm"</literal></expr></argument>, <argument><expr><literal type="number">1</literal></expr></argument>, <argument><expr><literal type="number">150</literal></expr></argument>, <argument><expr><literal type="number">200</literal></expr></argument>, <argument><expr><literal type="string">"leather"</literal></expr></argument>)</argument_list></call></expr>;</return>
+            <case>case <expr><literal type="string">"Helmet"</literal></expr>:</case>
+                <return>return <expr><operator>new</operator> <call><name>Helmet</name><argument_list>(<argument><expr><literal type="string">"Helmet's Firm"</literal></expr></argument>, <argument><expr><literal type="number">10</literal></expr></argument>, <argument><expr><literal type="number">152</literal></expr></argument>, <argument><expr><literal type="number">955</literal></expr></argument>, <argument><expr><literal type="string">"red"</literal></expr></argument>)</argument_list></call></expr>;</return>
+            <case>case <expr><literal type="string">"Jacket"</literal></expr>:</case>
+                <return>return <expr><operator>new</operator> <call><name>Jacket</name><argument_list>(<argument><expr><literal type="string">"Jacket's Firm"</literal></expr></argument>, <argument><expr><literal type="number">46</literal></expr></argument>, <argument><expr><literal type="number">560</literal></expr></argument>, <argument><expr><literal type="number">1005</literal></expr></argument>, <argument><expr><literal type="string">"leather"</literal></expr></argument>, <argument><expr><literal type="string">"black"</literal></expr></argument>)</argument_list></call></expr>;</return>
+            <default>default:</default>
+                <expr_stmt><expr><call><name><name>System</name><operator>.</operator><name>out</name><operator>.</operator><name>println</name></name><argument_list>(<argument><expr><literal type="string">"Sir, I haven`t "</literal> <operator>+</operator> <name>type</name> <operator>+</operator> <literal type="string">"."</literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+                <return>return <expr><literal type="null">null</literal></expr>;</return>
+        }</block></switch>
+    }</block></function>
+
+    <function><specifier>public</specifier> <type><name>void</name></type> <name>sortAmmunitionByCost</name><parameter_list>(<parameter><decl><type><name><name>ArrayList</name><argument_list type="generic">&lt;<argument><name>Ammunition</name></argument>&gt;</argument_list></name></type> <name>ammunitionArrayList</name></decl></parameter>)</parameter_list> <block>{
+        <expr_stmt><expr><call><name><name>Collections</name><operator>.</operator><name>sort</name></name><argument_list>(<argument><expr><name>ammunitionArrayList</name></expr></argument>, <argument><expr><operator>new</operator> <class><super><name>Comparator</name></super><argument_list>()</argument_list> <block>{
+            <function><annotation>@<name>Override</name></annotation>
+            <specifier>public</specifier> <type><name>int</name></type> <name>compare</name><parameter_list>(<parameter><decl><type><name>Object</name></type> <name>o1</name></decl></parameter>, <parameter><decl><type><name>Object</name></type> <name>o2</name></decl></parameter>)</parameter_list> <block>{
+                <decl_stmt><decl><type><name>Ammunition</name></type> <name>a1</name> <init>= <expr><operator>(</operator><name>Ammunition</name><operator>)</operator> <name>o1</name></expr></init></decl>;</decl_stmt>
+                <decl_stmt><decl><type><name>Ammunition</name></type> <name>a2</name> <init>= <expr><operator>(</operator><name>Ammunition</name><operator>)</operator> <name>o2</name></expr></init></decl>;</decl_stmt>
+                <if>if <condition>(<expr><call><name><name>a1</name><operator>.</operator><name>getCost</name></name><argument_list>()</argument_list></call> <operator>&gt;</operator> <call><name><name>a2</name><operator>.</operator><name>getCost</name></name><argument_list>()</argument_list></call></expr>)</condition><then> <block>{
+                    <return>return <expr><literal type="number">1</literal></expr>;</return>
+                }</block></then></if>
+                <if>if <condition>(<expr><call><name><name>a2</name><operator>.</operator><name>getCost</name></name><argument_list>()</argument_list></call> <operator>&gt;</operator> <call><name><name>a1</name><operator>.</operator><name>getCost</name></name><argument_list>()</argument_list></call></expr>)</condition><then> <block>{
+                    <return>return <expr><operator>-</operator><literal type="number">1</literal></expr>;</return>
+                }</block></then></if>
+                <return>return <expr><literal type="number">0</literal></expr>;</return>
+            }</block></function>
+        }</block></class></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+    }</block></function>
+
+    <function><specifier>public</specifier> <type><name>void</name></type> <name>sortAmmunitionsByWeight</name><parameter_list>(<parameter><decl><type><name><name>ArrayList</name><argument_list type="generic">&lt;<argument><name>Ammunition</name></argument>&gt;</argument_list></name></type> <name>ammunitionArrayList</name></decl></parameter>)</parameter_list> <block>{
+        <expr_stmt><expr><call><name><name>Collections</name><operator>.</operator><name>sort</name></name><argument_list>(<argument><expr><name>ammunitionArrayList</name></expr></argument>, <argument><expr><operator>new</operator> <class><super><name>Comparator</name></super><argument_list>()</argument_list> <block>{
+            <function><annotation>@<name>Override</name></annotation>
+            <specifier>public</specifier> <type><name>int</name></type> <name>compare</name><parameter_list>(<parameter><decl><type><name>Object</name></type> <name>o1</name></decl></parameter>, <parameter><decl><type><name>Object</name></type> <name>o2</name></decl></parameter>)</parameter_list> <block>{
+                <decl_stmt><decl><type><name>Ammunition</name></type> <name>a1</name> <init>= <expr><operator>(</operator><name>Ammunition</name><operator>)</operator> <name>o1</name></expr></init></decl>;</decl_stmt>
+                <decl_stmt><decl><type><name>Ammunition</name></type> <name>a2</name> <init>= <expr><operator>(</operator><name>Ammunition</name><operator>)</operator> <name>o2</name></expr></init></decl>;</decl_stmt>
+                <if>if <condition>(<expr><call><name><name>a1</name><operator>.</operator><name>getWeight</name></name><argument_list>()</argument_list></call> <operator>&gt;</operator> <call><name><name>a2</name><operator>.</operator><name>getWeight</name></name><argument_list>()</argument_list></call></expr>)</condition><then> <block>{
+                    <return>return <expr><literal type="number">1</literal></expr>;</return>
+                }</block></then></if>
+                <if>if <condition>(<expr><call><name><name>a2</name><operator>.</operator><name>getWeight</name></name><argument_list>()</argument_list></call> <operator>&gt;</operator> <call><name><name>a1</name><operator>.</operator><name>getWeight</name></name><argument_list>()</argument_list></call></expr>)</condition><then> <block>{
+                    <return>return <expr><operator>-</operator><literal type="number">1</literal></expr>;</return>
+                }</block></then></if>
+                <return>return <expr><literal type="number">0</literal></expr>;</return>
+            }</block></function>
+        }</block></class></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+    }</block></function>
+
+    <function><specifier>public</specifier> <type><name><name>ArrayList</name><argument_list type="generic">&lt;<argument><name>Ammunition</name></argument>&gt;</argument_list></name></type> <name>findAmmunitionsByCost</name><parameter_list>(<parameter><decl><type><name><name>ArrayList</name><argument_list type="generic">&lt;<argument><name>Ammunition</name></argument>&gt;</argument_list></name></type> <name>ammunitionArrayList</name></decl></parameter>, <parameter><decl><type><name>int</name></type> <name>lLim</name></decl></parameter>, <parameter><decl><type><name>int</name></type> <name>rLim</name></decl></parameter>)</parameter_list> <block>{
+        <decl_stmt><decl><type><name><name>ArrayList</name><argument_list type="generic">&lt;<argument><name>Ammunition</name></argument>&gt;</argument_list></name></type> <name>foundAmmunArrList</name> <init>= <expr><operator>new</operator> <call><name><name>ArrayList</name><argument_list type="generic">&lt;&gt;</argument_list></name><argument_list>()</argument_list></call></expr></init></decl>;</decl_stmt>
+        <expr_stmt><expr><call><name>sortAmmunitionByCost</name><argument_list>(<argument><expr><name>ammunitionArrayList</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+        <decl_stmt><decl><type><name>int</name></type> <name>lIndex</name> <init>= <expr><call><name>bSearch</name><argument_list>(<argument><expr><name>ammunitionArrayList</name></expr></argument>, <argument><expr><name>lLim</name></expr></argument>, <argument><expr><literal type="number">0</literal></expr></argument>, <argument><expr><call><name><name>ammunitionArrayList</name><operator>.</operator><name>size</name></name><argument_list>()</argument_list></call></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+        <decl_stmt><decl><type><name>int</name></type> <name>rIndex</name> <init>= <expr><call><name>bSearch</name><argument_list>(<argument><expr><name>ammunitionArrayList</name></expr></argument>, <argument><expr><name>rLim</name></expr></argument>, <argument><expr><literal type="number">0</literal></expr></argument>, <argument><expr><call><name><name>ammunitionArrayList</name><operator>.</operator><name>size</name></name><argument_list>()</argument_list></call></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+        <if>if <condition>(<expr><name>lIndex</name> <operator>&lt;</operator> <literal type="number">0</literal></expr>)</condition><then> <block>{
+            <expr_stmt><expr><name>lIndex</name> <operator>=</operator> <operator>-</operator><literal type="number">1</literal> <operator>*</operator> <operator>(</operator><name>lIndex</name> <operator>+</operator> <literal type="number">1</literal><operator>)</operator></expr>;</expr_stmt>
+        }</block></then></if>
+        <if>if <condition>(<expr><name>rIndex</name> <operator>&lt;</operator> <literal type="number">0</literal></expr>)</condition><then> <block>{
+            <expr_stmt><expr><name>rIndex</name> <operator>=</operator> <operator>-</operator><literal type="number">1</literal> <operator>*</operator> <operator>(</operator><name>rIndex</name> <operator>+</operator> <literal type="number">1</literal><operator>)</operator></expr>;</expr_stmt>
+        }</block></then></if>
+        <for>for <control>(<init><decl><type><name>int</name></type> <name>i</name> <init>= <expr><literal type="number">0</literal></expr></init></decl>;</init> <condition><expr><name>i</name> <operator>&lt;</operator> <call><name><name>ammunitionArrayList</name><operator>.</operator><name>size</name></name><argument_list>()</argument_list></call></expr>;</condition> <incr><expr><name>i</name><operator>++</operator></expr></incr>)</control> <block>{
+            <if>if <condition>(<expr><name>i</name> <operator>&gt;=</operator> <name>lIndex</name> <operator>&amp;&amp;</operator> <name>i</name> <operator>&lt;</operator> <name>rIndex</name></expr>)</condition><then> <block>{
+                <expr_stmt><expr><call><name><name>foundAmmunArrList</name><operator>.</operator><name>add</name></name><argument_list>(<argument><expr><call><name><name>ammunitionArrayList</name><operator>.</operator><name>get</name></name><argument_list>(<argument><expr><name>i</name></expr></argument>)</argument_list></call></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+            }</block></then></if>
+        }</block></for>
+        <return>return <expr><name>foundAmmunArrList</name></expr>;</return>
+    }</block></function>
+
+    <function><specifier>private</specifier> <specifier>static</specifier> <type><name>int</name></type> <name>bSearch</name><parameter_list>(<parameter><decl><type><name><name>ArrayList</name><argument_list type="generic">&lt;<argument><name>Ammunition</name></argument>&gt;</argument_list></name></type> <name>list</name></decl></parameter>, <parameter><decl><type><name>Integer</name></type> <name>key</name></decl></parameter>,
+                               <parameter><decl><type><name>int</name></type> <name>left</name></decl></parameter>, <parameter><decl><type><name>int</name></type> <name>right</name></decl></parameter>)</parameter_list> <block>{
+
+        <if>if <condition>(<expr><name>left</name> <operator>&gt;=</operator> <name>right</name></expr>)</condition><then> <block>{
+            <return>return <expr><operator>-</operator><operator>(</operator><name>left</name> <operator>+</operator> <literal type="number">1</literal><operator>)</operator></expr>;</return>
+        }</block></then> <else>else <block>{
+            <decl_stmt><decl><type><name>int</name></type> <name>mid</name> <init>= <expr><operator>(</operator><name>left</name> <operator>+</operator> <name>right</name><operator>)</operator> <operator>/</operator> <literal type="number">2</literal></expr></init></decl>;</decl_stmt>
+            <if>if <condition>(<expr><call><name><name>list</name><operator>.</operator><name>get</name></name><argument_list>(<argument><expr><name>mid</name></expr></argument>)</argument_list></call><operator>.</operator><call><name>getCost</name><argument_list>()</argument_list></call> <operator>==</operator> <name>key</name></expr>)</condition><then> <block>{
+                <decl_stmt><decl><type><name>int</name></type> <name>i</name> <init>= <expr><literal type="number">1</literal></expr></init></decl>;</decl_stmt>
+                <while>while <condition>(<expr><literal type="boolean">true</literal></expr>)</condition> <block>{
+                    <if>if <condition>(<expr><name>mid</name> <operator>-</operator> <name>i</name> <operator>&gt;=</operator> <literal type="number">0</literal></expr>)</condition><then> <block>{
+                        <if>if <condition>(<expr><call><name><name>list</name><operator>.</operator><name>get</name></name><argument_list>(<argument><expr><name>mid</name> <operator>-</operator> <name>i</name></expr></argument>)</argument_list></call><operator>.</operator><call><name>getCost</name><argument_list>()</argument_list></call> <operator>==</operator> <name>key</name></expr>)</condition><then> <block>{
+                            <expr_stmt><expr><name>mid</name><operator>--</operator></expr>;</expr_stmt>
+                        }</block></then> <else>else <block>{
+                            <return>return <expr><name>mid</name></expr>;</return>
+                        }</block></else></if>
+                    }</block></then> <else>else <block>{
+                        <return>return <expr><name>mid</name></expr>;</return>
+                    }</block></else></if>
+                }</block></while>
+
+            }</block></then></if>
+            <if>if <condition>(<expr><call><name><name>list</name><operator>.</operator><name>get</name></name><argument_list>(<argument><expr><name>mid</name></expr></argument>)</argument_list></call><operator>.</operator><call><name>getCost</name><argument_list>()</argument_list></call> <operator>&gt;</operator> <name>key</name></expr>)</condition><then> <block>{
+                <expr_stmt><expr><name>right</name> <operator>=</operator> <name>mid</name></expr>;</expr_stmt>
+            }</block></then> <else>else <block>{
+                <expr_stmt><expr><name>left</name> <operator>=</operator> <name>mid</name> <operator>+</operator> <literal type="number">1</literal></expr>;</expr_stmt>
+            }</block></else></if>
+            <return>return <expr><call><name>bSearch</name><argument_list>(<argument><expr><name>list</name></expr></argument>, <argument><expr><name>key</name></expr></argument>, <argument><expr><name>left</name></expr></argument>, <argument><expr><name>right</name></expr></argument>)</argument_list></call></expr>;</return>
+        }</block></else></if>
+    }</block></function>
+}</block></class>
+</unit>
