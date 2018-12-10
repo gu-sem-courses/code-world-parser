@@ -14,8 +14,6 @@ namespace GitGetter2
 {
     class Program
     {
-    
-      
         private static String fileType;
         private static readonly HttpClient client = new HttpClient();
 
@@ -63,7 +61,8 @@ namespace GitGetter2
                 try
                 {
                     String dirPath = "../../../../GitGetter2/FileStorer/" + projectId;
-                    File.WriteAllText(dirPath+"/"+ name, responseString);
+                    //File.WriteAllText(dirPath+"/"+ name, responseString); // Creates a seperate file for each code
+                    File.AppendAllText(dirPath+fileType, responseString+" ");  // Should create a single file with the contents of all the code files.
                 }
                 catch (Exception e)
                 {
@@ -217,14 +216,23 @@ namespace GitGetter2
 
                 
 
-                String dirPath = globalFolderGetter(4) +"/GitGetter2/FileStorer/" + projectId+ "/";
+                
                 String batAddress = ".SrcmlStarter.bat";
                 String storageAddress = globalFolderGetter(4) + "/GitGetter2/FileStorer/";
                 storageAddress = storageAddress.Replace( "/" ,"\\ ");
 
                 Console.WriteLine("Enumerator and srcml beginning");
                 // Part that activates srcml
-                Console.WriteLine("Before enum");
+
+                // Single code file Srcml call
+                String dirPath = globalFolderGetter(4) + "/GitGetter2/FileStorer/" + projectId + fileType; // Change for other code files.
+                Console.WriteLine("Here is the dirpath: "+dirPath);
+                singleFileSrcmlCall(dirPath,projectId,batAddress);
+                
+                //This part is for multiple code files.
+                /* Console.WriteLine("Before enum");
+                String dirPath = globalFolderGetter(4) +"/GitGetter2/FileStorer/" + projectId+ "/";
+
                 IEnumerator<String> enumerator = System.IO.Directory.EnumerateFiles(dirPath).GetEnumerator();
                 Console.WriteLine("after enum");
                 do
@@ -234,9 +242,6 @@ namespace GitGetter2
                         Console.WriteLine("Current enum location: "+enumerator.Current);
                         Process srcml = new Process();
                         //This is intended to start sourceml and then do the thing on each file in the folder.
-                        //String batAddress = "../../../../GitGetter2/FileStorer/.SrcmlStarter.bat"; Not working right now
-
-                        
 
                         char[] charArray = enumerator.Current.ToCharArray();
                         
@@ -275,11 +280,11 @@ namespace GitGetter2
 
 
                 } while (enumerator.MoveNext() == true);
-             //End of srcml part. 
+             //End of srcml part. */
 
 
                 // This part should start the parser but I'm too lazy to test it right now. 
-                /* Process Project = new Process();
+                Process Project = new Process();
                  try
                  {
                      //so it know where to find the file it should use to start the proccess
@@ -292,7 +297,7 @@ namespace GitGetter2
                  catch (Exception e)
                  {
                      Console.WriteLine(e.Message);
-                 }*/
+                 }
         }
 
         }
@@ -309,6 +314,39 @@ namespace GitGetter2
 
 
             return endlocation;
+        }
+        private static void singleFileSrcmlCall(String dirpath, String projectId, String batAddress)
+        {
+
+            Char[] charArray = projectId.ToCharArray();
+
+            String fileName = "";
+            for (int i = charArray.Length - 1; i > 0; i--)
+            {
+                if (charArray[i] == '/')
+                {
+                    break;
+                }
+                fileName += charArray[i];
+            }
+            char[] charArray2 = fileName.ToCharArray();
+
+            fileName = "";
+
+            for (int i = charArray2.Length - 1; i >= 0; i--)
+            {
+                fileName += charArray2[i];
+            }
+
+
+
+            Process srcml = new Process();
+            srcml.StartInfo.FileName = batAddress; // IF YOU WANT TO CHANGE WHERE THE OUTPUT FILES GOES THEN CHANGE IT IN THE BAT FILE
+
+            // srcml.StartInfo.Arguments = enumerator.Current+" "+dirPath+ "_srcml/"+ fileName;
+            srcml.StartInfo.Arguments = dirpath + " " + fileName;
+            // What arguments the file will take when it starts
+            srcml.Start();
         }
 
     }
