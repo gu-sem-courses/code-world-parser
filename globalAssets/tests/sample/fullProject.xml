@@ -1,0 +1,869 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<unit xmlns="http://www.srcML.org/srcML/src" revision="0.9.5">
+
+<unit revision="0.9.5" language="Java" filename="Users/mohammadzreik/Desktop/assign3_Khojah_Zreik/assignment3/Intern.java" hash="c4ab7db54216dc31d898bad49351fa6eb14edd6d"><package>package <name>assignment3</name>;</package>
+
+<class><specifier>public</specifier> class <name>Intern</name> <super><extends>extends <name>Employee</name></extends></super> <block>{
+
+	<decl_stmt><decl><specifier>private</specifier> <type><name>int</name></type> <name>gpa</name></decl>;</decl_stmt>
+	<decl_stmt><decl><specifier>private</specifier>  <type><specifier>final</specifier> <name>int</name></type> <name>NO_SALARY</name> <init>= <expr><literal type="number">0</literal></expr></init></decl>;</decl_stmt>
+	<decl_stmt><decl><specifier>private</specifier>  <type><specifier>final</specifier> <name>int</name></type> <name>BENEFIT</name> <init>= <expr><literal type="number">1000</literal></expr></init></decl>;</decl_stmt>
+	<decl_stmt><decl><specifier>private</specifier> <type><specifier>final</specifier> <name>int</name></type> <name>GPA_LOW</name><init>= <expr><literal type="number">5</literal></expr></init></decl>;</decl_stmt>
+	<decl_stmt><decl><specifier>private</specifier> <type><specifier>final</specifier> <name>int</name></type> <name>GPA_HIGH</name> <init>= <expr><literal type="number">8</literal></expr></init></decl>;</decl_stmt>
+	<decl_stmt><decl><specifier>private</specifier>  <type><specifier>final</specifier> <name>int</name></type> <name>MAX_GPA</name> <init>= <expr><literal type="number">10</literal></expr></init></decl>;</decl_stmt>
+
+
+
+	<constructor><specifier>public</specifier> <name>Intern</name><parameter_list>(<parameter><decl><type><name>String</name></type> <name>name</name></decl></parameter>, <parameter><decl><type><name>String</name></type> <name>id</name></decl></parameter>, <parameter><decl><type><name>double</name></type> <name>grossSalary</name></decl></parameter>, <parameter><decl><type><name>int</name></type> <name>gpa</name></decl></parameter>)</parameter_list> <block>{
+		<expr_stmt><expr><call><name>super</name><argument_list>(<argument><expr><name>name</name></expr></argument>,<argument><expr><name>id</name></expr></argument>,<argument><expr><name>grossSalary</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+		<expr_stmt><expr><name><name>this</name><operator>.</operator><name>gpa</name></name><operator>=</operator><name>gpa</name></expr>;</expr_stmt>
+	}</block></constructor>
+
+
+	<function><annotation>@<name>Override</name></annotation>
+	<specifier>public</specifier> <type><name>double</name></type> <name>calculateSalary</name><parameter_list>()</parameter_list> <block>{
+		<decl_stmt><decl><type><name>double</name></type> <name>total</name> <init>= <expr><name>NO_SALARY</name></expr></init></decl>;</decl_stmt>
+		<if>if <condition>(<expr><call><name><name>this</name><operator>.</operator><name>getGpa</name></name><argument_list>()</argument_list></call> <operator>&lt;=</operator> <name>GPA_LOW</name></expr>)</condition><then> <block>{
+			<expr_stmt><expr><name>total</name> <operator>=</operator> <name>NO_SALARY</name></expr>;</expr_stmt>
+		}</block></then>
+		<elseif>else <if>if <condition>(<expr><call><name><name>this</name><operator>.</operator><name>getGpa</name></name><argument_list>()</argument_list></call> <operator>&gt;</operator> <name>GPA_LOW</name> <operator>&amp;&amp;</operator> <call><name><name>this</name><operator>.</operator><name>getGpa</name></name><argument_list>()</argument_list></call> <operator>&lt;=</operator> <name>GPA_HIGH</name></expr>)</condition><then> <block>{
+			<expr_stmt><expr><name>total</name> <operator>=</operator> <call><name><name>super</name><operator>.</operator><name>getGrossSalary</name></name><argument_list>()</argument_list></call></expr>;</expr_stmt>
+		}</block></then></if></elseif>
+		<elseif>else <if>if <condition>(<expr><call><name><name>this</name><operator>.</operator><name>getGpa</name></name><argument_list>()</argument_list></call><operator>&lt;=</operator> <name>MAX_GPA</name></expr>)</condition><then><block>{
+			<expr_stmt><expr><name>total</name><operator>=</operator> <call><name><name>super</name><operator>.</operator><name>getGrossSalary</name></name><argument_list>()</argument_list></call> <operator>+</operator> <name>BENEFIT</name></expr>;</expr_stmt>
+		}</block></then></if></elseif>
+		<else>else <block>{
+			<expr_stmt><expr><call><name><name>System</name><operator>.</operator><name>out</name><operator>.</operator><name>println</name></name><argument_list>(<argument><expr><literal type="string">"ERROR! GPA can't be greater than 10 or less than 0."</literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+			<expr_stmt><expr><name>total</name> <operator>=</operator> <call><name><name>super</name><operator>.</operator><name>getGrossSalary</name></name><argument_list>()</argument_list></call></expr>;</expr_stmt>
+		}</block></else></if>
+
+		<return>return <expr><name>total</name></expr>;</return>
+	}</block></function>
+
+
+	<function><annotation>@<name>Override</name></annotation>
+	<specifier>public</specifier> <type><name>double</name></type> <name>getNetSalary</name><parameter_list>()</parameter_list> <block>{
+		<return>return <expr><call><name><name>this</name><operator>.</operator><name>calculateSalary</name></name><argument_list>()</argument_list></call></expr>;</return>
+	}</block></function>
+
+	<function><specifier>public</specifier> <type><name>int</name></type> <name>getGpa</name><parameter_list>()</parameter_list> <block>{
+		<return>return <expr><name>gpa</name></expr>;</return>
+	}</block></function>
+
+	<function><specifier>public</specifier> <type><name>void</name></type> <name>setGpa</name><parameter_list>(<parameter><decl><type><name>int</name></type> <name>gpa</name></decl></parameter>)</parameter_list> <block>{
+		<expr_stmt><expr><name><name>this</name><operator>.</operator><name>gpa</name></name> <operator>=</operator> <name>gpa</name></expr>;</expr_stmt>
+	}</block></function>
+
+
+	<function><annotation>@<name>Override</name></annotation>
+	<specifier>public</specifier> <type><name>String</name></type> <name>toString</name><parameter_list>()</parameter_list> <block>{
+		<return>return <expr><call><name><name>super</name><operator>.</operator><name>getName</name></name><argument_list>()</argument_list></call><operator>+</operator><literal type="string">" has a gross Salary of "</literal><operator>+</operator> <call><name><name>this</name><operator>.</operator><name>calculateSalary</name></name><argument_list>()</argument_list></call><operator>+</operator><literal type="string">" SEK per month. with "</literal> <operator>+</operator> <call><name><name>this</name><operator>.</operator><name>getGpa</name></name><argument_list>()</argument_list></call> <operator>+</operator> <literal type="string">" GPA."</literal></expr>;</return>
+
+	}</block></function>
+
+
+	}</block></class>
+</unit>
+
+<unit revision="0.9.5" language="Java" filename="Users/mohammadzreik/Desktop/assign3_Khojah_Zreik/assignment3/Director.java" hash="374fc90de579fc2c434062dc35995c54b33b0145"><package>package <name>assignment3</name>;</package>
+
+<class><specifier>public</specifier> class <name>Director</name> <super><extends>extends <name>Manager</name></extends></super> <block>{
+
+	<decl_stmt><decl><specifier>private</specifier> <type><name>String</name></type> <name>department</name></decl>;</decl_stmt>
+	<decl_stmt><decl><specifier>static</specifier> <type><name>double</name></type> <name>benefit</name> <init>= <expr><literal type="number">5000</literal></expr></init></decl>;</decl_stmt>
+	<decl_stmt><decl><specifier>private</specifier> <type><specifier>final</specifier> <name>double</name></type> <name>TAX_LOW</name><init>= <expr><literal type="number">0.1</literal></expr></init></decl>;</decl_stmt>
+	<decl_stmt><decl><specifier>private</specifier> <type><specifier>final</specifier> <name>double</name></type> <name>TAX_BETWEEN</name> <init>= <expr><literal type="number">0.2</literal></expr></init></decl>;</decl_stmt>
+	<decl_stmt><decl><specifier>private</specifier> <type><specifier>final</specifier> <name>double</name></type> <name>TAX_HIGH</name> <init>= <expr><literal type="number">0.4</literal></expr></init></decl>;</decl_stmt>
+	<decl_stmt><decl><specifier>private</specifier> <type><specifier>final</specifier> <name>int</name></type> <name>LOW_INCOME</name> <init>= <expr><literal type="number">30000</literal></expr></init></decl>;</decl_stmt>
+	<decl_stmt><decl><specifier>private</specifier> <type><specifier>final</specifier> <name>int</name></type> <name>HIGHT_INCOME</name> <init>= <expr><literal type="number">50000</literal></expr></init></decl>;</decl_stmt>
+
+
+
+		<constructor><name>Director</name><parameter_list>(<parameter><decl><type><name>String</name></type> <name>name</name></decl></parameter>, <parameter><decl><type><name>String</name></type> <name>id</name></decl></parameter>, <parameter><decl><type><name>double</name></type> <name>grossSalary</name></decl></parameter>, <parameter><decl><type><name>String</name></type> <name>degree</name></decl></parameter>, <parameter><decl><type><name>String</name></type> <name>department</name></decl></parameter>)</parameter_list><block>{
+			<expr_stmt><expr><call><name>super</name><argument_list>(<argument><expr><name>name</name></expr></argument>, <argument><expr><name>id</name></expr></argument>, <argument><expr><name>grossSalary</name></expr></argument>, <argument><expr><name>degree</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+			<expr_stmt><expr><name><name>this</name><operator>.</operator><name>department</name></name><operator>=</operator><name>department</name></expr>;</expr_stmt>
+		}</block></constructor>
+
+
+	<function><annotation>@<name>Override</name></annotation>
+	<specifier>public</specifier> <type><name>double</name></type> <name>calculateSalary</name><parameter_list>()</parameter_list> <block>{
+
+			<return>return <expr><call><name><name>super</name><operator>.</operator><name>getGrossSalary</name></name><argument_list>()</argument_list></call> <operator>+</operator> <name>benefit</name></expr> ;</return>
+
+	}</block></function>
+
+	<function><annotation>@<name>Override</name></annotation>
+	<specifier>public</specifier> <type><name>double</name></type> <name>getNetSalary</name><parameter_list>()</parameter_list> <block>{
+		<decl_stmt><decl><type><name>double</name></type> <name>total</name> <init>= <expr><literal type="number">0</literal></expr></init></decl>;</decl_stmt>
+		<if>if <condition>(<expr><call><name><name>this</name><operator>.</operator><name>calculateSalary</name></name><argument_list>()</argument_list></call> <operator>&lt;</operator> <name>LOW_INCOME</name></expr>)</condition><then> <block>{
+			<expr_stmt><expr><name>total</name> <operator>=</operator> <call><name><name>this</name><operator>.</operator><name>calculateSalary</name></name><argument_list>()</argument_list></call> <operator>-</operator> <operator>(</operator><name>TAX_LOW</name> <operator>*</operator> <call><name><name>this</name><operator>.</operator><name>calculateSalary</name></name><argument_list>()</argument_list></call> <operator>)</operator></expr>;</expr_stmt>
+		}</block></then>
+		<elseif>else <if>if <condition>(<expr><call><name><name>this</name><operator>.</operator><name>calculateSalary</name></name><argument_list>()</argument_list></call> <operator>&gt;=</operator> <name>LOW_INCOME</name> <operator>&amp;&amp;</operator> <call><name><name>this</name><operator>.</operator><name>calculateSalary</name></name><argument_list>()</argument_list></call> <operator>&lt;=</operator> <name>HIGHT_INCOME</name></expr>)</condition><then> <block>{
+			<expr_stmt><expr><name>total</name> <operator>=</operator> <call><name><name>this</name><operator>.</operator><name>calculateSalary</name></name><argument_list>()</argument_list></call> <operator>-</operator> <operator>(</operator><name>TAX_BETWEEN</name> <operator>*</operator> <call><name><name>this</name><operator>.</operator><name>calculateSalary</name></name><argument_list>()</argument_list></call> <operator>)</operator></expr>;</expr_stmt>
+		}</block></then></if></elseif>
+		<else>else <block>{
+			<decl_stmt><decl><type><name>double</name></type> <name>total1</name> <init>= <expr><call><name><name>this</name><operator>.</operator><name>calculateSalary</name></name><argument_list>()</argument_list></call> <operator>-</operator> <name>LOW_INCOME</name></expr></init></decl>;</decl_stmt>
+			<decl_stmt><decl><type><name>double</name></type> <name>total2</name> <init>= <expr><call><name><name>this</name><operator>.</operator><name>calculateSalary</name></name><argument_list>()</argument_list></call> <operator>-</operator> <operator>(</operator><name>LOW_INCOME</name><operator>*</operator><name>TAX_BETWEEN</name><operator>)</operator> <operator>-</operator><operator>(</operator><name>total1</name> <operator>*</operator>  <name>TAX_HIGH</name><operator>)</operator></expr></init></decl>;</decl_stmt>
+			<expr_stmt><expr><name>total</name> <operator>=</operator> <name>total2</name></expr>;</expr_stmt>
+		}</block></else></if>
+
+		<return>return <expr><name>total</name></expr>;</return>
+	}</block></function>
+
+	<function><specifier>public</specifier> <type><name>String</name></type> <name>getDepartment</name><parameter_list>()</parameter_list> <block>{
+		<return>return <expr><name>department</name></expr>;</return>
+	}</block></function>
+	<function><specifier>public</specifier> <type><name>void</name></type> <name>setDepartment</name><parameter_list>(<parameter><decl><type><name>String</name></type> <name>department</name></decl></parameter>)</parameter_list> <block>{
+		<expr_stmt><expr><name><name>this</name><operator>.</operator><name>department</name></name> <operator>=</operator> <name>department</name></expr>;</expr_stmt>
+	}</block></function>
+
+
+	<function><specifier>public</specifier> <type><name>double</name></type> <name>getBenefit</name><parameter_list>()</parameter_list> <block>{
+		<return>return <expr><name>benefit</name></expr>;</return>
+	}</block></function>
+	<function><specifier>public</specifier> <type><name>void</name></type> <name>setBenefit</name><parameter_list>(<parameter><decl><type><name>double</name></type> <name>benefit</name></decl></parameter>)</parameter_list> <block>{
+		 <expr_stmt><expr><name><name>Director</name><operator>.</operator><name>benefit</name></name> <operator>=</operator> <name>benefit</name></expr>;</expr_stmt>
+	}</block></function>
+
+	<function><annotation>@<name>Override</name></annotation>
+	<specifier>public</specifier> <type><name>String</name></type> <name>toString</name><parameter_list>()</parameter_list> <block>{
+		<return>return <expr><call><name><name>super</name><operator>.</operator><name>getName</name></name><argument_list>()</argument_list></call><operator>+</operator><literal type="string">" has a gross Salary of "</literal><operator>+</operator> <call><name><name>this</name><operator>.</operator><name>calculateSalary</name></name><argument_list>()</argument_list></call><operator>+</operator><literal type="string">" SEK per month. with a "</literal> <operator>+</operator> <call><name><name>super</name><operator>.</operator><name>getDegree</name></name><argument_list>()</argument_list></call><operator>+</operator><literal type="string">" and leads "</literal><operator>+</operator><call><name><name>this</name><operator>.</operator><name>getDepartment</name></name><argument_list>()</argument_list></call><operator>+</operator><literal type="string">" department."</literal></expr>;</return>
+
+	}</block></function>
+
+
+	}</block></class>
+</unit>
+
+<unit revision="0.9.5" language="Java" filename="Users/mohammadzreik/Desktop/assign3_Khojah_Zreik/assignment3/Manager.java" hash="1dd13c83aeb15289489a3b0ff993b005b1e395a2"><package>package <name>assignment3</name>;</package>
+
+<class><specifier>public</specifier> class <name>Manager</name> <super><extends>extends <name>Employee</name></extends></super> <block>{
+
+	<decl_stmt><decl><specifier>private</specifier> <type><name>String</name></type> <name>degree</name></decl>;</decl_stmt>
+	<decl_stmt><decl><specifier>private</specifier> <type><specifier>final</specifier> <name>double</name></type> <name>TAX</name> <init>= <expr><literal type="number">0.1</literal></expr></init></decl>;</decl_stmt>
+	<decl_stmt><decl><specifier>private</specifier> <type><specifier>final</specifier> <name>double</name></type> <name>BONUS_BSC</name> <init>= <expr><literal type="number">0.1</literal></expr></init></decl>;</decl_stmt>
+	<decl_stmt><decl><specifier>private</specifier> <type><specifier>final</specifier> <name>double</name></type> <name>BONUS_MSC</name> <init>= <expr><literal type="number">0.2</literal></expr></init></decl>;</decl_stmt>
+	<decl_stmt><decl><specifier>private</specifier> <type><specifier>final</specifier> <name>double</name></type> <name>BONUS_PHD</name> <init>= <expr><literal type="number">0.35</literal></expr></init></decl>;</decl_stmt>
+
+
+
+	<constructor><specifier>public</specifier> <name>Manager</name><parameter_list>(<parameter><decl><type><name>String</name></type> <name>name</name></decl></parameter>, <parameter><decl><type><name>String</name></type> <name>id</name></decl></parameter>, <parameter><decl><type><name>double</name></type> <name>grossSalary</name></decl></parameter>, <parameter><decl><type><name>String</name></type> <name>degree</name></decl></parameter>)</parameter_list><block>{
+		<expr_stmt><expr><call><name>super</name><argument_list>(<argument><expr><name>name</name></expr></argument>,<argument><expr><name>id</name></expr></argument>,<argument><expr><name>grossSalary</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+		<expr_stmt><expr><name><name>this</name><operator>.</operator><name>degree</name></name><operator>=</operator><name>degree</name></expr>;</expr_stmt>
+	}</block></constructor>
+
+
+	<function><annotation>@<name>Override</name></annotation>
+	<specifier>public</specifier> <type><name>double</name></type> <name>calculateSalary</name><parameter_list>()</parameter_list> <block>{
+		<if>if <condition>(<expr><call><name><name>this</name><operator>.</operator><name>degree</name><operator>.</operator><name>equalsIgnoreCase</name></name><argument_list>(<argument><expr><literal type="string">"BSc"</literal></expr></argument>)</argument_list></call></expr>)</condition><then> <block>{
+			<return>return <expr><call><name><name>super</name><operator>.</operator><name>calculateSalary</name></name><argument_list>()</argument_list></call><operator>+</operator> <operator>(</operator><name>BONUS_BSC</name><operator>*</operator><call><name><name>super</name><operator>.</operator><name>calculateSalary</name></name><argument_list>()</argument_list></call><operator>)</operator></expr>;</return>
+		}</block></then>
+		<elseif>else <if>if<condition>(<expr><call><name><name>this</name><operator>.</operator><name>degree</name><operator>.</operator><name>equalsIgnoreCase</name></name><argument_list>(<argument><expr><literal type="string">"MSc"</literal></expr></argument>)</argument_list></call></expr>)</condition><then> <block>{
+			<return>return <expr><call><name><name>super</name><operator>.</operator><name>calculateSalary</name></name><argument_list>()</argument_list></call><operator>+</operator> <operator>(</operator><name>BONUS_MSC</name><operator>*</operator><call><name><name>super</name><operator>.</operator><name>calculateSalary</name></name><argument_list>()</argument_list></call><operator>)</operator></expr>;</return>
+		}</block></then></if></elseif>
+		<elseif>else <if>if<condition>(<expr><call><name><name>this</name><operator>.</operator><name>degree</name><operator>.</operator><name>equalsIgnoreCase</name></name><argument_list>(<argument><expr><literal type="string">"PhD"</literal></expr></argument>)</argument_list></call></expr>)</condition><then> <block>{
+			<return>return <expr><call><name><name>super</name><operator>.</operator><name>calculateSalary</name></name><argument_list>()</argument_list></call><operator>+</operator> <operator>(</operator><name>BONUS_PHD</name><operator>*</operator><call><name><name>super</name><operator>.</operator><name>calculateSalary</name></name><argument_list>()</argument_list></call><operator>)</operator></expr>;</return>
+		}</block></then></if></elseif></if>
+		<return>return <expr><literal type="number">0</literal></expr>;</return>
+	}</block></function>
+
+
+	<function><annotation>@<name>Override</name></annotation>
+	<specifier>public</specifier> <type><name>double</name></type> <name>getNetSalary</name><parameter_list>()</parameter_list> <block>{
+		<return>return <expr><call><name><name>this</name><operator>.</operator><name>calculateSalary</name></name><argument_list>()</argument_list></call><operator>-</operator> <operator>(</operator><call><name><name>this</name><operator>.</operator><name>calculateSalary</name></name><argument_list>()</argument_list></call><operator>*</operator><name>TAX</name><operator>)</operator></expr>;</return>
+	}</block></function>
+
+
+	<function><specifier>public</specifier> <type><name>String</name></type> <name>getDegree</name><parameter_list>()</parameter_list> <block>{
+		<return>return <expr><name>degree</name></expr>;</return>
+	}</block></function>
+
+	<function><specifier>public</specifier> <type><name>void</name></type> <name>setDegree</name><parameter_list>(<parameter><decl><type><name>String</name></type> <name>degree</name></decl></parameter>)</parameter_list> <block>{
+		<expr_stmt><expr><name><name>this</name><operator>.</operator><name>degree</name></name> <operator>=</operator> <name>degree</name></expr>;</expr_stmt>
+	}</block></function>
+
+
+
+	<function><annotation>@<name>Override</name></annotation>
+	<specifier>public</specifier> <type><name>String</name></type> <name>toString</name><parameter_list>()</parameter_list> <block>{
+		<return>return <expr><call><name><name>super</name><operator>.</operator><name>getName</name></name><argument_list>()</argument_list></call><operator>+</operator><literal type="string">" has a gross Salary of "</literal><operator>+</operator> <call><name><name>this</name><operator>.</operator><name>calculateSalary</name></name><argument_list>()</argument_list></call><operator>+</operator><literal type="string">" SEK per month. with a "</literal> <operator>+</operator> <call><name><name>this</name><operator>.</operator><name>getDegree</name></name><argument_list>()</argument_list></call><operator>+</operator><literal type="string">"."</literal></expr>;</return>
+
+	}</block></function>
+
+
+
+
+
+
+
+}</block></class>
+</unit>
+
+<unit revision="0.9.5" language="Java" filename="Users/mohammadzreik/Desktop/assign3_Khojah_Zreik/assignment3/Employee.java" hash="46f9d4fa66129d74e35aee049fecc193a7660494"><package>package <name>assignment3</name>;</package>
+
+<class><specifier>public</specifier> class <name>Employee</name> <super><implements>implements <name><name>Comparable</name><argument_list type="generic">&lt;<argument><name>Employee</name></argument>&gt;</argument_list></name></implements></super><block>{
+
+	<decl_stmt><decl><specifier>private</specifier> <type><specifier>final</specifier> <name>int</name></type> <name>EQUAL_RESULT</name> <init>= <expr><literal type="number">0</literal></expr></init></decl>;</decl_stmt>
+	<decl_stmt><decl><specifier>private</specifier> <type><specifier>final</specifier> <name>int</name></type> <name>INVERSE</name> <init>= <expr><operator>-</operator><literal type="number">1</literal></expr></init></decl>;</decl_stmt>
+	<decl_stmt><decl><specifier>private</specifier> <type><name>String</name></type> <name>name</name></decl>;</decl_stmt>
+	<decl_stmt><decl><specifier>private</specifier> <type><name>String</name></type> <name>id</name></decl>;</decl_stmt>
+	<decl_stmt><decl><specifier>private</specifier> <type><name>double</name></type> <name>grossSalary</name></decl>;</decl_stmt>
+	<decl_stmt><decl><specifier>private</specifier> <type><specifier>final</specifier> <name>double</name></type> <name>TAX</name> <init>= <expr><literal type="number">0.1</literal></expr></init></decl>;</decl_stmt>
+	<decl_stmt><decl><specifier>public</specifier> <specifier>static</specifier> <type><name>String</name></type> <name>choose</name></decl>;</decl_stmt>
+	<decl_stmt><decl><specifier>public</specifier> <specifier>static</specifier> <type><name>String</name></type> <name>orderBy</name></decl>;</decl_stmt>
+
+
+
+	<constructor><specifier>public</specifier> <name>Employee</name><parameter_list>(<parameter><decl><type><name>String</name></type> <name>name</name></decl></parameter>, <parameter><decl><type><name>String</name></type> <name>id</name></decl></parameter>, <parameter><decl><type><name>double</name></type> <name>grossSalary</name></decl></parameter>)</parameter_list> <block>{
+		<expr_stmt><expr><name><name>this</name><operator>.</operator><name>name</name></name><operator>=</operator><name>name</name></expr>;</expr_stmt>
+		<expr_stmt><expr><name><name>this</name><operator>.</operator><name>id</name></name><operator>=</operator><name>id</name></expr>;</expr_stmt>
+		<expr_stmt><expr><name><name>this</name><operator>.</operator><name>grossSalary</name></name><operator>=</operator> <name>grossSalary</name></expr>;</expr_stmt>
+	}</block></constructor>
+
+	<comment type="block">/*
+	 * this method is to keep the getGrossSalary() from changing,
+	 * so all the changes will affect calculateSalary() not getGrossSalary().
+	 */</comment>
+	<function><specifier>public</specifier> <type><name>double</name></type> <name>calculateSalary</name><parameter_list>()</parameter_list> <block>{
+		<return>return <expr><name><name>this</name><operator>.</operator><name>grossSalary</name></name></expr>;</return>
+	}</block></function>
+
+	<function><specifier>public</specifier> <type><name>double</name></type> <name>getNetSalary</name><parameter_list>()</parameter_list> <block>{
+		<return>return <expr><name><name>this</name><operator>.</operator><name>grossSalary</name></name><operator>-</operator> <operator>(</operator><name><name>this</name><operator>.</operator><name>grossSalary</name></name><operator>*</operator><name>TAX</name><operator>)</operator></expr>;</return>
+	}</block></function>
+
+
+	<function><annotation>@<name>Override</name></annotation>
+	<specifier>public</specifier> <type><name>int</name></type> <name>compareTo</name><parameter_list>(<parameter><decl><type><name>Employee</name></type> <name>newEmployee</name></decl></parameter>)</parameter_list> <block>{
+		<decl_stmt><decl><type><name>int</name></type> <name>result</name> <init>= <expr><call><name><name>this</name><operator>.</operator><name>getName</name></name><argument_list>()</argument_list></call><operator>.</operator><call><name>compareToIgnoreCase</name><argument_list>(<argument><expr><call><name><name>newEmployee</name><operator>.</operator><name>getName</name></name><argument_list>()</argument_list></call></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+		<if>if <condition>(<expr><name>result</name> <operator>==</operator> <name>EQUAL_RESULT</name></expr>)</condition><then> <block>{
+			<expr_stmt><expr><name>result</name> <operator>=</operator> <call><name><name>Double</name><operator>.</operator><name>compare</name></name><argument_list>(<argument><expr><call><name><name>this</name><operator>.</operator><name>getGrossSalary</name></name><argument_list>()</argument_list></call></expr></argument>, <argument><expr><call><name><name>newEmployee</name><operator>.</operator><name>getGrossSalary</name></name><argument_list>()</argument_list></call></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+		}</block></then></if>
+		<return>return <expr><name>result</name></expr>;</return>
+	}</block></function>
+
+
+
+		<function><specifier>public</specifier> <type><name>String</name></type> <name>getName</name><parameter_list>()</parameter_list> <block>{
+			<return>return <expr><name>name</name></expr>;</return>
+		}</block></function>
+
+		<function><specifier>public</specifier> <type><name>void</name></type> <name>setName</name><parameter_list>(<parameter><decl><type><name>String</name></type> <name>name</name></decl></parameter>)</parameter_list> <block>{
+			<expr_stmt><expr><name><name>this</name><operator>.</operator><name>name</name></name> <operator>=</operator> <name>name</name></expr>;</expr_stmt>
+		}</block></function>
+
+
+		<function><specifier>public</specifier> <type><name>String</name></type> <name>getId</name><parameter_list>()</parameter_list> <block>{
+			<return>return <expr><name>id</name></expr>;</return>
+		}</block></function>
+
+		<function><specifier>public</specifier> <type><name>double</name></type> <name>getGrossSalary</name><parameter_list>()</parameter_list> <block>{
+			<return>return <expr><name>grossSalary</name></expr>;</return>
+		}</block></function>
+
+		<function><specifier>public</specifier> <type><name>void</name></type> <name>setGrossSalary</name><parameter_list>(<parameter><decl><type><name>double</name></type> <name>grossSalary</name></decl></parameter>)</parameter_list> <block>{
+			<expr_stmt><expr><name><name>this</name><operator>.</operator><name>grossSalary</name></name><operator>=</operator><name>grossSalary</name></expr>;</expr_stmt>
+		}</block></function>
+
+	<function><specifier>public</specifier> <type><name>String</name></type> <name>toString</name><parameter_list>()</parameter_list> <block>{
+		<return>return <expr><name><name>this</name><operator>.</operator><name>name</name></name><operator>+</operator><literal type="string">"'s gross Salary is of "</literal><operator>+</operator> <name><name>this</name><operator>.</operator><name>grossSalary</name></name><operator>+</operator><literal type="string">" SEK per month. "</literal></expr>;</return>
+	}</block></function>
+	<comment type="line">// CHALLENGE 1</comment>
+		<comment type="block">/*@Override
+		public int compareTo(Employee newEmployee) {
+			if (choose.equalsIgnoreCase("Name")) {
+				return compareByName(newEmployee);
+			} else if (choose.equalsIgnoreCase("Net Salary")) {
+				return compareByNetSalary(newEmployee);
+			} else {
+				return  ( this.getName().compareToIgnoreCase(newEmployee.getName()) )  ;
+			}
+
+		}
+	/*
+	 * we have two methods that will be called in the compareTo()
+	 *  so depending on the String (choose) we will call either
+	 *  compareByName() or compareByNetSalary().
+	 *
+	 *   Regarding Challenge 1.
+	 *
+
+		public int compareByName (Employee newEmployee) {
+			int result;
+			result = this.getName().compareToIgnoreCase(newEmployee.getName());
+			if(result== EQUAL_RESULT) {
+				result= Double.compare(this.getNetSalary(), newEmployee.getNetSalary());
+
+			}
+			return result;
+		}
+
+			public int compareByNetSalary (Employee newEmployee) {
+				int result = Double.compare(this.getNetSalary(), newEmployee.getNetSalary());
+				if(result== EQUAL_RESULT) {
+					result = this.getName().compareToIgnoreCase(newEmployee.getName());
+				}
+				return result;
+			}
+  */</comment>
+
+	<comment type="block">/*	CHALLENGE 2
+		@Override
+		public int compareTo(Employee newEmployee) {
+			if (choose.equalsIgnoreCase("Name") &amp;&amp; orderBy.equalsIgnoreCase("asc")) {
+				return compareByName(newEmployee);
+			}
+			else if (choose.equalsIgnoreCase("Name") &amp;&amp; orderBy.equalsIgnoreCase("dasc")) {
+				return compareByNameDasc(newEmployee) ;
+			} else if (choose.equalsIgnoreCase("Net Salary") &amp;&amp; orderBy.equalsIgnoreCase("asc")) {
+				return compareByNetSalary(newEmployee);
+			} else if (choose.equalsIgnoreCase("Net Salary") &amp;&amp; orderBy.equalsIgnoreCase("dasc")) {
+				return compareByNetSalaryDasc(newEmployee);
+			}else {
+				return this.getName().compareToIgnoreCase(newEmployee.getName()) ;
+			}
+
+		}
+
+
+		public int compareByName(Employee newEmployee) {
+			int result;
+			result = this.getName().compareToIgnoreCase(newEmployee.getName());
+			if (result == EQUAL_RESULT) {
+				result = Double.compare(this.getNetSalary(), newEmployee.getNetSalary());
+			}
+			return result;
+		}
+
+		public int compareByNetSalary(Employee newEmployee) {
+			int result = Double.compare(this.getNetSalary(), newEmployee.getNetSalary());
+			if (result == EQUAL_RESULT) {
+				result = this.getName().compareToIgnoreCase(newEmployee.getName());
+			}
+			return result;
+		}
+
+		public int compareByNetSalaryDasc(Employee newEmployee) {
+			int result = ( Double.compare(this.getNetSalary(), newEmployee.getNetSalary()) * INVERSE );
+			if (result == EQUAL_RESULT) {
+				result = ( this.getName().compareToIgnoreCase(newEmployee.getName()) * INVERSE);
+			}
+			return result;
+		}
+
+		public int compareByNameDasc(Employee newEmployee) {
+			int result;
+			result = ( this.getName().compareToIgnoreCase(newEmployee.getName()) * INVERSE);
+			if (result == EQUAL_RESULT) {
+				result = ( Double.compare(this.getNetSalary(), newEmployee.getNetSalary()) * INVERSE );
+			}
+			return result;
+		}
+	*/</comment>
+
+}</block></class>
+</unit>
+
+<unit revision="0.9.5" language="Java" filename="Users/mohammadzreik/Desktop/assign3_Khojah_Zreik/assignment3/RegularEmployee.java" hash="b67832b68df4ac94211ef2866142283d0bf3d233"><package>package <name>assignment3</name>;</package>
+
+<class><specifier>public</specifier> class <name>RegularEmployee</name>  <super><extends>extends <name>Employee</name></extends></super><block>{
+
+	<decl_stmt><decl><specifier>private</specifier>  <type><specifier>final</specifier> <name>double</name></type> <name>TAX</name> <init>= <expr><literal type="number">0.1</literal></expr></init></decl>;</decl_stmt>
+
+	<constructor><name>RegularEmployee</name><parameter_list>(<parameter><decl><type><name>String</name></type> <name>name</name></decl></parameter>, <parameter><decl><type><name>String</name></type> <name>id</name></decl></parameter>, <parameter><decl><type><name>double</name></type> <name>grossSalary</name></decl></parameter>)</parameter_list><block>{
+		<expr_stmt><expr><call><name>super</name><argument_list>(<argument><expr><name>name</name></expr></argument>,<argument><expr><name>id</name></expr></argument>,<argument><expr><name>grossSalary</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+
+	}</block></constructor>
+	<function><annotation>@<name>Override</name></annotation>
+	<specifier>public</specifier> <type><name>double</name></type> <name>getNetSalary</name><parameter_list>()</parameter_list> <block>{
+		<decl_stmt><decl><type><name>double</name></type> <name>netSalary</name></decl>;</decl_stmt>
+		<expr_stmt><expr><name>netSalary</name> <operator>=</operator> <call><name><name>super</name><operator>.</operator><name>getGrossSalary</name></name><argument_list>()</argument_list></call><operator>-</operator> <operator>(</operator><call><name><name>super</name><operator>.</operator><name>getGrossSalary</name></name><argument_list>()</argument_list></call><operator>*</operator><name>TAX</name><operator>)</operator></expr>;</expr_stmt>
+		<return>return <expr><name>netSalary</name></expr>;</return>
+	}</block></function>
+	<function><specifier>public</specifier> <type><name>String</name></type> <name>toString</name><parameter_list>()</parameter_list> <block>{
+		<return>return <expr><call><name><name>super</name><operator>.</operator><name>getName</name></name><argument_list>()</argument_list></call><operator>+</operator><literal type="string">"'s gross Salary is of "</literal><operator>+</operator> <call><name><name>super</name><operator>.</operator><name>getGrossSalary</name></name><argument_list>()</argument_list></call><operator>+</operator><literal type="string">" SEK per month. "</literal></expr>;</return>
+	}</block></function>
+}</block></class>
+</unit>
+
+<unit revision="0.9.5" language="Java" filename="Users/mohammadzreik/Desktop/assign3_Khojah_Zreik/assignment3/Test.java" hash="9e02ff0e47b113e5384f932433508e86cd72e1ca"><package>package <name>assignment3</name>;</package>
+
+<import>import <name><name>java</name><operator>.</operator><name>util</name><operator>.</operator><name>Collections</name></name>;</import>
+
+<class><specifier>public</specifier> class <name>Test</name> <block>{
+	<function><specifier>public</specifier> <specifier>static</specifier> <type><name>void</name></type> <name>main</name><parameter_list>(<parameter><decl><type><name><name>String</name><index>[]</index></name></type> <name>args</name></decl></parameter>)</parameter_list> <block>{
+		<decl_stmt><decl><type><name>ReusaxCorp</name></type> <name>company</name> <init>= <expr><operator>new</operator> <call><name>ReusaxCorp</name><argument_list>()</argument_list></call></expr></init></decl>;</decl_stmt>
+
+        <decl_stmt><decl><type><name>Employee</name></type> <name>emp1</name> <init>= <expr><operator>new</operator> <call><name>RegularEmployee</name><argument_list>( <argument><expr><literal type="string">"Ranim"</literal></expr></argument>,<argument><expr><literal type="string">"ID1"</literal></expr></argument>, <argument><expr><literal type="number">6408</literal></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+        <decl_stmt><decl><type><name>Employee</name></type> <name>emp2</name> <init>= <expr><operator>new</operator> <call><name>Manager</name> <argument_list>( <argument><expr><literal type="string">"Majed"</literal></expr></argument>,<argument><expr><literal type="string">"ID2"</literal></expr></argument>,<argument><expr><literal type="number">10000</literal></expr></argument>,<argument><expr><literal type="string">"bsc"</literal></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+        <decl_stmt><decl><type><name>Employee</name></type> <name>emp3</name> <init>= <expr><operator>new</operator> <call><name>Director</name> <argument_list>(<argument><expr><literal type="string">"Nazeeh"</literal></expr></argument>,<argument><expr><literal type="string">"ID3"</literal></expr></argument>, <argument><expr><literal type="number">62000</literal></expr></argument>,<argument><expr><literal type="string">"msc"</literal></expr></argument>,<argument><expr><literal type="string">"Human"</literal></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+        <decl_stmt><decl><type><name>Employee</name></type> <name>emp4</name> <init>= <expr><operator>new</operator> <call><name>RegularEmployee</name><argument_list>( <argument><expr><literal type="string">"Ranim"</literal></expr></argument>,<argument><expr><literal type="string">"ID4"</literal></expr></argument>, <argument><expr><literal type="number">100</literal></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+        <decl_stmt><decl><type><name>Employee</name></type> <name>emp5</name> <init>= <expr><operator>new</operator> <call><name>Intern</name> <argument_list>(<argument><expr><literal type="string">"Jawad"</literal></expr></argument>,<argument><expr><literal type="string">"ID5"</literal></expr></argument>,<argument><expr><literal type="number">500</literal></expr></argument>, <argument><expr><literal type="number">6</literal></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+        <decl_stmt><decl><type><name>Employee</name></type> <name>emp6</name> <init>= <expr><operator>new</operator> <call><name>Intern</name> <argument_list>(<argument><expr><literal type="string">"Omar"</literal></expr></argument>,<argument><expr><literal type="string">"ID5"</literal></expr></argument>,<argument><expr><literal type="number">23000</literal></expr></argument>,<argument><expr><literal type="number">7</literal></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+
+        <expr_stmt><expr><call><name><name>company</name><operator>.</operator><name>add</name></name><argument_list>(<argument><expr><name>emp1</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+        <expr_stmt><expr><call><name><name>company</name><operator>.</operator><name>add</name></name><argument_list>(<argument><expr><name>emp2</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+        <expr_stmt><expr><call><name><name>company</name><operator>.</operator><name>add</name></name><argument_list>(<argument><expr><name>emp3</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+        <expr_stmt><expr><call><name><name>company</name><operator>.</operator><name>add</name></name><argument_list>(<argument><expr><name>emp4</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+        <expr_stmt><expr><call><name><name>company</name><operator>.</operator><name>add</name></name><argument_list>(<argument><expr><name>emp5</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+
+        <comment type="block">/*
+        * Adding an employee with an existing ID
+        * company.add(emp6);
+        */</comment>
+        <expr_stmt><expr><call><name><name>System</name><operator>.</operator><name>out</name><operator>.</operator><name>println</name></name><argument_list>(<argument><expr><name><name>company</name><operator>.</operator><name>employees</name></name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+
+        <comment type="line">// Test Delete </comment>
+
+        <comment type="block">/*
+         company.remove("ID5");
+        System.out.println(company.employees);
+        */</comment>
+
+        <comment type="block">/*2
+         * company.remove("ID5");
+        System.out.println(company.employees);
+        */</comment>
+
+        <comment type="line">// Test Update</comment>
+        <comment type="block">/*1
+         * company.updateName("ID1", "Ellen");
+        System.out.println(emp1);
+        */</comment>
+
+        <comment type="block">/*2
+        company.updateName("ID0", "Heba");
+        */</comment>
+
+        <comment type="block">/*3
+         * company.updateGrossSalary("ID2",5000);
+        System.out.println(emp2);
+        */</comment>
+
+
+        <comment type="block">/*4
+         *   company.updateGrossSalary("ID0", 2000);
+        */</comment>
+
+        <comment type="block">/*5
+         * company.find("ID1");
+        */</comment>
+
+        <comment type="block">/*6
+         * company.find("ID0");
+        */</comment>
+
+        <comment type="block">/* The number of employees in ReusaxCorp Company
+         * company.getEmployeesNumber();
+        */</comment>
+
+        <comment type="block">/*company.getTotalNetSalaries();
+        company.getTotalGrossSalaries();
+        */</comment>
+
+        <comment type="block">/*company.updateDegree("ID2", "msc");
+        System.out.println(company.employees.get(1));
+        */</comment>
+
+        <comment type="block">/*company.updateBenefit(10000);
+        System.out.println(company.employees);
+        */</comment>
+
+        <comment type="block">/*company.updateDirector("ID3", "phd", "Human");
+        System.out.println(company.employees);
+        */</comment>
+
+        <comment type="line">//System.out.println(company.employees);//error</comment>
+        <comment type="block">/*
+        company.updateGPA("ID5", 9);
+        System.out.println(company.employees.get(4).calculateSalary());
+        */</comment>
+        <comment type="block">/*
+        company.createRegularEmployee( "Alex","ID6", 6408);
+        company.createDirector( "Hp","ID7", 100, "bsc", "Human");
+        company.createManager( "Samsung","ID8",10,"phd");
+        company.createIntern("LG","ID9", 2,2);
+        System.out.println(company.employees);
+        */</comment>
+
+
+        <comment type="block">/*company.sortBy();
+        */</comment>
+
+        <comment type="block">/*company.promoteToDirector("ID1", "bsc", "Human");
+        company.promoteToIntern("ID2", 4);
+        company.promoteToManager("ID4", "bsc");
+        company.promoteToRegularEmployee("ID5");*/</comment>
+
+        <comment type="block">/*Challenge 1® ©
+         * company.sortBy("NamE");
+        company.sortBy("NeT SaLaRy");*/</comment>
+
+        <comment type="block">/*Challenge 2® ©
+        company.sortBy("NaMe","aSc");
+        company.sortBy("NaMe","DaSc");
+        company.sortBy("NeT SaLaRy","aSc");
+        company.sortBy("NeT SaLaRy","DaSc");
+
+        */</comment>
+    }</block></function>
+}</block></class></unit>
+
+<unit revision="0.9.5" language="Java" filename="Users/mohammadzreik/Desktop/assign3_Khojah_Zreik/assignment3/ReusaxCorp.java" hash="bfcb1e2a3ec6338719f0ad9693e62b3d0591facf"><package>package <name>assignment3</name>;</package>
+
+
+<import>import <name><name>java</name><operator>.</operator><name>util</name><operator>.</operator><name>ArrayList</name></name>;</import>
+<import>import <name><name>java</name><operator>.</operator><name>util</name><operator>.</operator><name>Collections</name></name>;</import>
+
+<import>import <name><name>javax</name><operator>.</operator><name>swing</name><operator>.</operator><name>JOptionPane</name></name>;</import>
+
+<import>import <name><name>assignment2</name><operator>.</operator><name>Country</name></name>;</import>
+
+<class><specifier>public</specifier> class <name>ReusaxCorp</name> <block>{
+
+	<decl_stmt><decl><specifier>private</specifier> <type><name>Employee</name></type> <name>employee</name></decl>;</decl_stmt>
+	<decl_stmt><decl><type><name><name>ArrayList</name><argument_list type="generic">&lt;<argument><name>Employee</name></argument>&gt;</argument_list></name></type> <name>employees</name></decl>;</decl_stmt>
+	<decl_stmt><decl><specifier>private</specifier>  <type><specifier>final</specifier> <name>int</name></type> <name>NOT_FOUND_IN_LIST</name> <init>= <expr><operator>-</operator><literal type="number">1</literal></expr></init></decl>;</decl_stmt>
+
+
+
+	<constructor><specifier>public</specifier> <name>ReusaxCorp</name><parameter_list>()</parameter_list> <block>{
+		<expr_stmt><expr><name><name>this</name><operator>.</operator><name>employees</name></name> <operator>=</operator> <operator>new</operator> <call><name><name>ArrayList</name><argument_list type="generic">&lt;<argument><name>Employee</name></argument>&gt;</argument_list></name><argument_list>()</argument_list></call></expr>;</expr_stmt>
+	}</block></constructor>
+
+
+
+	<function><specifier>public</specifier> <type><name>void</name></type> <name>remove</name><parameter_list>(<parameter><decl><type><name>String</name></type> <name>id</name></decl></parameter>)</parameter_list> <block>{
+        <decl_stmt><decl><type><name>Employee</name></type> <name>temp</name> <init>= <expr><call><name>checkID</name><argument_list>(<argument><expr><name>id</name></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+		<if>if <condition>(<expr><name>temp</name><operator>!=</operator><literal type="null">null</literal></expr>)</condition><then> <block>{
+			<expr_stmt><expr><call><name><name>this</name><operator>.</operator><name>employees</name><operator>.</operator><name>remove</name></name><argument_list>(<argument><expr><name>temp</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+		}</block></then>
+		<else>else <block>{
+			<expr_stmt><expr><call><name><name>System</name><operator>.</operator><name>out</name><operator>.</operator><name>println</name></name><argument_list>(<argument><expr><literal type="string">"An employee of ID ("</literal><operator>+</operator><name>id</name><operator>+</operator><literal type="string">") is not registered in the system."</literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+		}</block></else></if>
+	}</block></function>
+	<comment type="block">/*
+	 * This method checks if an Employee with a specific ID exists in the ArrayList
+	 * and it returns the checked Employee if it exists in the ArrayList. if not, it will return null.
+	 */</comment>
+
+
+	<function><specifier>public</specifier> <type><name>Employee</name></type> <name>checkID</name><parameter_list>(<parameter><decl><type><name>String</name></type> <name>id</name></decl></parameter>)</parameter_list> <block>{
+		<for>for <control>(<init><decl><type><name>int</name></type> <name>i</name> <init>= <expr><literal type="number">0</literal></expr></init></decl>;</init> <condition><expr><name>i</name> <operator>&lt;</operator> <call><name><name>this</name><operator>.</operator><name>employees</name><operator>.</operator><name>size</name></name><argument_list>()</argument_list></call></expr>;</condition> <incr><expr><name>i</name><operator>++</operator></expr></incr>)</control> <block>{
+		<if>if <condition>(<expr><call><name><name>this</name><operator>.</operator><name>employees</name><operator>.</operator><name>get</name></name><argument_list>(<argument><expr><name>i</name></expr></argument>)</argument_list></call><operator>.</operator><call><name>getId</name><argument_list>()</argument_list></call><operator>.</operator><call><name>equalsIgnoreCase</name><argument_list>(<argument><expr><name>id</name></expr></argument>)</argument_list></call></expr>)</condition><then> <block>{
+			<return>return <expr><call><name><name>this</name><operator>.</operator><name>employees</name><operator>.</operator><name>get</name></name><argument_list>(<argument><expr><name>i</name></expr></argument>)</argument_list></call></expr> ;</return>
+		}</block></then></if>
+	}</block></for>
+		<return>return <expr><literal type="null">null</literal></expr>;</return>
+	}</block></function>
+
+
+
+	<function><specifier>public</specifier> <type><name>void</name></type> <name>add</name><parameter_list>(<parameter><decl><type><name>Employee</name></type> <name>employee</name></decl></parameter>)</parameter_list> <block>{
+		<decl_stmt><decl><type><name>Employee</name></type> <name>temp</name> <init>= <expr><call><name>checkID</name><argument_list>(<argument><expr><call><name><name>employee</name><operator>.</operator><name>getId</name></name><argument_list>()</argument_list></call></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+		<if>if <condition>(<expr><name>temp</name><operator>!=</operator><literal type="null">null</literal></expr>)</condition><then> <block>{
+			<expr_stmt><expr><call><name><name>System</name><operator>.</operator><name>out</name><operator>.</operator><name>println</name></name><argument_list>(<argument><expr><literal type="string">"Error! This ID ("</literal><operator>+</operator> <call><name><name>employee</name><operator>.</operator><name>getId</name></name><argument_list>()</argument_list></call><operator>+</operator><literal type="string">") exists."</literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+		}</block></then>
+		<else>else <block>{
+			<expr_stmt><expr><call><name><name>this</name><operator>.</operator><name>employees</name><operator>.</operator><name>add</name></name><argument_list>(<argument><expr><name>employee</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+		}</block></else></if>
+		}</block></function>
+
+	<comment type="block">/*
+	 * The two methods will pass throw every element in the ArrayList and store every net salary/ gross salary in the double sum
+	 * then add all of the net salaries/ gross salaries together.
+	 */</comment>
+
+	<function><specifier>public</specifier> <type><name>void</name></type>  <name>getTotalNetSalaries</name><parameter_list>()</parameter_list> <block>{
+		<decl_stmt><decl><type><name>double</name></type> <name>sum</name><init>=<expr><literal type="number">0</literal></expr></init></decl>;</decl_stmt>
+		<for>for <control>(<init><decl><type><name>int</name></type> <name>i</name> <init>= <expr><literal type="number">0</literal></expr></init></decl>;</init> <condition><expr><name>i</name> <operator>&lt;</operator> <call><name><name>this</name><operator>.</operator><name>employees</name><operator>.</operator><name>size</name></name><argument_list>()</argument_list></call></expr>;</condition> <incr><expr><name>i</name><operator>++</operator></expr></incr>)</control> <block>{
+			<expr_stmt><expr><name>sum</name><operator>+=</operator> <call><name><name>this</name><operator>.</operator><name>employees</name><operator>.</operator><name>get</name></name><argument_list>(<argument><expr><name>i</name></expr></argument>)</argument_list></call><operator>.</operator><call><name>getNetSalary</name><argument_list>()</argument_list></call></expr>;</expr_stmt>
+		}</block></for>
+<expr_stmt><expr><call><name><name>System</name><operator>.</operator><name>out</name><operator>.</operator><name>println</name></name><argument_list>(<argument><expr><literal type="string">"The total net salaries in ReuaxCorp company is: "</literal> <operator>+</operator><name>sum</name><operator>+</operator><literal type="string">" SEK."</literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+	}</block></function>
+
+
+
+	<function><specifier>public</specifier> <type><name>void</name></type> <name>getTotalGrossSalaries</name><parameter_list>()</parameter_list> <block>{
+		<decl_stmt><decl><type><name>double</name></type> <name>sum</name><init>=<expr><literal type="number">0</literal></expr></init></decl>;</decl_stmt>
+		<for>for <control>(<init><decl><type><name>int</name></type> <name>i</name> <init>= <expr><literal type="number">0</literal></expr></init></decl>;</init> <condition><expr><name>i</name> <operator>&lt;</operator> <call><name><name>this</name><operator>.</operator><name>employees</name><operator>.</operator><name>size</name></name><argument_list>()</argument_list></call></expr>;</condition> <incr><expr><name>i</name><operator>++</operator></expr></incr>)</control> <block>{
+			<expr_stmt><expr><name>sum</name><operator>+=</operator> <call><name><name>employees</name><operator>.</operator><name>get</name></name><argument_list>(<argument><expr><name>i</name></expr></argument>)</argument_list></call><operator>.</operator><call><name>calculateSalary</name><argument_list>()</argument_list></call></expr>;</expr_stmt>
+		}</block></for>
+		<expr_stmt><expr><call><name><name>System</name><operator>.</operator><name>out</name><operator>.</operator><name>println</name></name><argument_list>(<argument><expr><literal type="string">"The total gross salaries in ReuaxCorp company is: "</literal> <operator>+</operator><name>sum</name><operator>+</operator><literal type="string">" SEK."</literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+	}</block></function>
+
+
+
+	<function><specifier>public</specifier> <type><name>void</name></type> <name>getEmployeesNumber</name><parameter_list>()</parameter_list> <block>{
+		<decl_stmt><decl><type><name>int</name></type> <name>result</name> <init>= <expr><call><name><name>employees</name><operator>.</operator><name>size</name></name><argument_list>()</argument_list></call></expr></init></decl>;</decl_stmt>
+		<expr_stmt><expr><call><name><name>System</name><operator>.</operator><name>out</name><operator>.</operator><name>println</name></name><argument_list>(<argument><expr><literal type="string">"The number of employees in the ReusaxCorp is: "</literal><operator>+</operator><name>result</name> <operator>+</operator> <literal type="string">" employee(s). "</literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+	}</block></function>
+
+
+	<function><specifier>public</specifier> <type><name>void</name></type> <name>find</name><parameter_list>(<parameter><decl><type><name>String</name></type> <name>id</name></decl></parameter>)</parameter_list> <block>{
+		<decl_stmt><decl><type><name>Employee</name></type> <name>temp</name><init>= <expr><call><name>checkID</name><argument_list>(<argument><expr><name>id</name></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+		<if>if <condition>(<expr><name>temp</name><operator>!=</operator> <literal type="null">null</literal></expr>)</condition><then> <block>{
+			<expr_stmt><expr><call><name><name>System</name><operator>.</operator><name>out</name><operator>.</operator><name>println</name></name><argument_list>(<argument><expr><name>temp</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+		}</block></then> <else>else <block>{
+			<expr_stmt><expr><call><name><name>System</name><operator>.</operator><name>out</name><operator>.</operator><name>println</name></name><argument_list>(<argument><expr><literal type="string">"An employee of ID ("</literal><operator>+</operator><name>id</name><operator>+</operator><literal type="string">") is not registered in the system."</literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+		}</block></else></if>
+	}</block></function>
+
+
+
+	<function><specifier>public</specifier> <type><name>void</name></type> <name>updateName</name><parameter_list>(<parameter><decl><type><name>String</name></type> <name>id</name></decl></parameter>, <parameter><decl><type><name>String</name></type> <name>name</name></decl></parameter> )</parameter_list> <block>{
+	<decl_stmt><decl><type><name>Employee</name></type> <name>temp</name> <init>= <expr><call><name>checkID</name><argument_list>(<argument><expr><name>id</name></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+	<if>if <condition>(<expr><name>temp</name><operator>!=</operator> <literal type="null">null</literal></expr>)</condition><then> <block>{
+		<expr_stmt><expr><call><name><name>temp</name><operator>.</operator><name>setName</name></name><argument_list>(<argument><expr><name>name</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+	}</block></then>
+			 <else>else <block>{
+				<expr_stmt><expr><call><name><name>System</name><operator>.</operator><name>out</name><operator>.</operator><name>println</name></name><argument_list>(<argument><expr><literal type="string">"An employee of ID ("</literal><operator>+</operator><name>id</name><operator>+</operator><literal type="string">") is not registered in the system."</literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+			}</block></else></if>
+		}</block></function>
+
+
+	<function><specifier>public</specifier> <type><name>void</name></type> <name>updateGrossSalary</name><parameter_list>(<parameter><decl><type><name>String</name></type> <name>id</name></decl></parameter>, <parameter><decl><type><name>double</name></type> <name>grossSalary</name></decl></parameter>)</parameter_list> <block>{
+	<decl_stmt><decl><type><name>Employee</name></type> <name>temp</name> <init>= <expr><call><name>checkID</name><argument_list>(<argument><expr><name>id</name></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+	<if>if <condition>(<expr><name>temp</name><operator>!=</operator> <literal type="null">null</literal></expr>)</condition><then> <block>{
+		<expr_stmt><expr><call><name><name>temp</name><operator>.</operator><name>setGrossSalary</name></name><argument_list>(<argument><expr><name>grossSalary</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+	}</block></then>
+			 <else>else <block>{
+				<expr_stmt><expr><call><name><name>System</name><operator>.</operator><name>out</name><operator>.</operator><name>println</name></name><argument_list>(<argument><expr><literal type="string">"An employee of ID ("</literal><operator>+</operator><name>id</name><operator>+</operator><literal type="string">") is not registered in the system."</literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+			}</block></else></if>
+
+	}</block></function>
+
+	<comment type="block">/*
+	 * This method will return the position of the element in the ArrayList
+	 * that contains the String id in the method's signature.
+	 */</comment>
+
+	<function><type><name>int</name></type> <name>getPosition</name> <parameter_list>(<parameter><decl><type><name>String</name></type> <name>id</name></decl></parameter>)</parameter_list> <block>{
+
+		<for>for <control>(<init><decl><type><name>int</name></type> <name>i</name> <init>= <expr><literal type="number">0</literal></expr></init></decl>;</init> <condition><expr><name>i</name> <operator>&lt;</operator> <call><name><name>this</name><operator>.</operator><name>employees</name><operator>.</operator><name>size</name></name><argument_list>()</argument_list></call></expr>;</condition> <incr><expr><name>i</name><operator>++</operator></expr></incr>)</control> <block>{
+		<if>if <condition>(<expr><call><name><name>this</name><operator>.</operator><name>employees</name><operator>.</operator><name>get</name></name><argument_list>(<argument><expr><name>i</name></expr></argument>)</argument_list></call><operator>.</operator><call><name>getId</name><argument_list>()</argument_list></call><operator>.</operator><call><name>equalsIgnoreCase</name><argument_list>(<argument><expr><name>id</name></expr></argument>)</argument_list></call></expr>)</condition><then> <block>{
+			<return>return <expr><name>i</name></expr> ;</return>
+		}</block></then></if>
+	}</block></for>
+		<return>return <expr><name>NOT_FOUND_IN_LIST</name></expr>;</return>}</block></function>
+
+
+	<function><specifier>public</specifier> <type><name>void</name></type> <name>updateDegree</name> <parameter_list>(<parameter><decl><type><name>String</name></type> <name>id</name></decl></parameter>,<parameter><decl><type><name>String</name></type> <name>degree</name></decl></parameter>)</parameter_list> <block>{
+		<try>try <block>{
+			<decl_stmt><decl><type><name>int</name></type> <name>position</name> <init>= <expr><call><name>getPosition</name><argument_list>(<argument><expr><name>id</name></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+			<if>if <condition>(<expr><name>position</name><operator>!=</operator> <name>NOT_FOUND_IN_LIST</name></expr>)</condition><then> <block>{
+				<decl_stmt><decl><type><name>Employee</name></type> <name>temp</name> <init>= <expr><call><name><name>employees</name><operator>.</operator><name>get</name></name><argument_list>(<argument><expr><name>position</name></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt><comment type="line">// Pick up the element in the position that you find it</comment>
+				<expr_stmt><expr><call><name><name>employees</name><operator>.</operator><name>remove</name></name><argument_list>(<argument><expr><name>id</name></expr></argument>)</argument_list></call></expr>;</expr_stmt> <comment type="line">// Delete a reference by it's ID</comment>
+				<expr_stmt><expr><call><name><name>employees</name><operator>.</operator><name>set</name></name><argument_list>(<argument><expr><name>position</name></expr></argument>, <argument><expr><operator>new</operator> <call><name>Manager</name><argument_list>(<argument><expr><call><name><name>temp</name><operator>.</operator><name>getName</name></name><argument_list>()</argument_list></call></expr></argument>, <argument><expr><call><name><name>temp</name><operator>.</operator><name>getId</name></name><argument_list>()</argument_list></call></expr></argument>, <argument><expr><call><name><name>temp</name><operator>.</operator><name>getGrossSalary</name></name><argument_list>()</argument_list></call></expr></argument>, <argument><expr><name>degree</name></expr></argument>)</argument_list></call></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+		        <comment type="line">// Create new reference with a new degree and department in the same position.</comment>
+
+			}</block></then>
+			<else>else <block>{<expr_stmt><expr><call><name><name>System</name><operator>.</operator><name>out</name><operator>.</operator><name>println</name></name><argument_list>(<argument><expr><literal type="string">"A manager of ID ("</literal><operator>+</operator> <name>id</name> <operator>+</operator><literal type="string">") is not registered in the system."</literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>}</block></else></if>
+		}</block> <catch>catch <parameter_list>(<parameter><decl><type><name>Exception</name></type> <name>e</name></decl></parameter>)</parameter_list> <block>{
+			<expr_stmt><expr><call><name><name>System</name><operator>.</operator><name>out</name><operator>.</operator><name>println</name></name><argument_list>(<argument><expr><literal type="string">"A manager of ID ("</literal><operator>+</operator> <name>id</name> <operator>+</operator><literal type="string">") is not registered in the system."</literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+		}</block></catch></try>
+
+	}</block></function>
+
+
+	<function><type><name>void</name></type> <name>updateDirector</name> <parameter_list>(<parameter><decl><type><name>String</name></type> <name>id</name></decl></parameter>, <parameter><decl><type><name>String</name></type> <name>degree</name></decl></parameter>,<parameter><decl><type><name>String</name></type> <name>department</name></decl></parameter>)</parameter_list> <block>{
+        <try>try <block>{
+            <decl_stmt><decl><type><name>int</name></type> <name>position</name> <init>= <expr><call><name>getPosition</name><argument_list>(<argument><expr><name>id</name></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+            <if>if <condition>(<expr><name>position</name> <operator>!=</operator> <name>NOT_FOUND_IN_LIST</name></expr>)</condition><then> <block>{
+                <decl_stmt><decl><type><name>Employee</name></type> <name>temp</name> <init>= <expr><call><name><name>employees</name><operator>.</operator><name>get</name></name><argument_list>(<argument><expr><name>position</name></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+                <expr_stmt><expr><call><name><name>employees</name><operator>.</operator><name>remove</name></name><argument_list>(<argument><expr><name>id</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+                <expr_stmt><expr><call><name><name>employees</name><operator>.</operator><name>set</name></name><argument_list>(<argument><expr><name>position</name></expr></argument>, <argument><expr><operator>new</operator> <call><name>Director</name><argument_list>( <argument><expr><call><name><name>temp</name><operator>.</operator><name>getName</name></name><argument_list>()</argument_list></call></expr></argument>,<argument><expr><call><name><name>temp</name><operator>.</operator><name>getId</name></name><argument_list>()</argument_list></call></expr></argument>, <argument><expr><call><name><name>temp</name><operator>.</operator><name>calculateSalary</name></name><argument_list>()</argument_list></call></expr></argument>, <argument><expr><name>degree</name></expr></argument>,<argument><expr><name>department</name></expr></argument> )</argument_list></call></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+
+            }</block></then> <else>else <block>{
+                <expr_stmt><expr><call><name><name>System</name><operator>.</operator><name>out</name><operator>.</operator><name>println</name></name><argument_list>(<argument><expr><literal type="string">"A Manager of ID "</literal> <operator>+</operator> <name>id</name> <operator>+</operator> <literal type="string">" is not registered in the system"</literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+            }</block></else></if>
+        }</block> <catch>catch <parameter_list>(<parameter><decl><type><name>Exception</name></type> <name>e</name></decl></parameter>)</parameter_list> <block>{
+            <expr_stmt><expr><call><name><name>System</name><operator>.</operator><name>out</name><operator>.</operator><name>println</name></name><argument_list>(<argument><expr><literal type="string">"A Manager of ID "</literal> <operator>+</operator> <name>id</name> <operator>+</operator> <literal type="string">" is not registered in the system"</literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+        }</block></catch></try>
+    }</block></function>
+
+
+
+	<function><specifier>public</specifier> <type><name>void</name></type> <name>updateBenefit</name><parameter_list>(<parameter><decl><type><name>double</name></type> <name>benefit</name></decl></parameter>)</parameter_list> <block>{
+        <expr_stmt><expr><name><name>Director</name><operator>.</operator><name>benefit</name></name><operator>=</operator> <name>benefit</name></expr>;</expr_stmt> <comment type="line">//all the directors' benefits will change since benefit is static.</comment>
+
+	}</block></function>
+
+
+	<function><specifier>public</specifier> <type><name>void</name></type> <name>updateGPA</name> <parameter_list>(<parameter><decl><type><name>String</name></type> <name>id</name></decl></parameter>,<parameter><decl><type><name>int</name></type> <name>gpa</name></decl></parameter>)</parameter_list> <block>{
+		<try>try <block>{
+
+			<decl_stmt><decl><type><name>int</name></type> <name>position</name> <init>= <expr><call><name>getPosition</name><argument_list>(<argument><expr><name>id</name></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+			<if>if <condition>(<expr><name>position</name><operator>!=</operator> <name>NOT_FOUND_IN_LIST</name></expr>)</condition><then> <block>{
+				<decl_stmt><decl><type><name>Employee</name></type> <name>temp</name> <init>= <expr><call><name><name>employees</name><operator>.</operator><name>get</name></name><argument_list>(<argument><expr><name>position</name></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+				<expr_stmt><expr><call><name><name>employees</name><operator>.</operator><name>remove</name></name><argument_list>(<argument><expr><name>id</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+				<expr_stmt><expr><call><name><name>employees</name><operator>.</operator><name>set</name></name><argument_list>(<argument><expr><name>position</name></expr></argument>, <argument><expr><operator>new</operator> <call><name>Intern</name><argument_list>(<argument><expr><call><name><name>temp</name><operator>.</operator><name>getName</name></name><argument_list>()</argument_list></call></expr></argument>, <argument><expr><call><name><name>temp</name><operator>.</operator><name>getId</name></name><argument_list>()</argument_list></call></expr></argument>, <argument><expr><call><name><name>temp</name><operator>.</operator><name>getGrossSalary</name></name><argument_list>()</argument_list></call></expr></argument>, <argument><expr><name>gpa</name></expr></argument>)</argument_list></call></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+
+		<expr_stmt><expr><call><name><name>System</name><operator>.</operator><name>out</name><operator>.</operator><name>println</name></name><argument_list>(<argument><expr><call><name><name>employees</name><operator>.</operator><name>set</name></name><argument_list>(<argument><expr><name>position</name></expr></argument>, <argument><expr><operator>new</operator> <call><name>Intern</name><argument_list>(<argument><expr><call><name><name>temp</name><operator>.</operator><name>getName</name></name><argument_list>()</argument_list></call></expr></argument>, <argument><expr><call><name><name>temp</name><operator>.</operator><name>getId</name></name><argument_list>()</argument_list></call></expr></argument>, <argument><expr><call><name><name>temp</name><operator>.</operator><name>getGrossSalary</name></name><argument_list>()</argument_list></call></expr></argument>, <argument><expr><name>gpa</name></expr></argument>)</argument_list></call></expr></argument>)</argument_list></call></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+
+
+			}</block></then>
+			<else>else <block>{<expr_stmt><expr><call><name><name>System</name><operator>.</operator><name>out</name><operator>.</operator><name>println</name></name><argument_list>(<argument><expr><literal type="string">"A manager of ID ("</literal><operator>+</operator> <name>id</name> <operator>+</operator><literal type="string">") is not registered in the system."</literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>}</block></else></if>
+		}</block> <catch>catch <parameter_list>(<parameter><decl><type><name>Exception</name></type> <name>e</name></decl></parameter>)</parameter_list> <block>{
+			<expr_stmt><expr><call><name><name>System</name><operator>.</operator><name>out</name><operator>.</operator><name>println</name></name><argument_list>(<argument><expr><literal type="string">"A manager of ID ("</literal><operator>+</operator> <name>id</name> <operator>+</operator><literal type="string">") is not registered in the system."</literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+		}</block></catch></try>
+
+	}</block></function>
+
+		<function><specifier>public</specifier> <type><name>void</name></type> <name>createRegularEmployee</name><parameter_list>(<parameter><decl><type><name>String</name></type> <name>name</name></decl></parameter>, <parameter><decl><type><name>String</name></type> <name>id</name></decl></parameter>, <parameter><decl><type><name>double</name></type> <name>grossSalary</name></decl></parameter>)</parameter_list> <block>{
+				<if>if <condition>(<expr><call><name>checkID</name><argument_list>(<argument><expr><name>id</name></expr></argument>)</argument_list></call><operator>!=</operator><literal type="null">null</literal></expr>)</condition><then> <block>{
+					<expr_stmt><expr><call><name><name>System</name><operator>.</operator><name>out</name><operator>.</operator><name>println</name></name><argument_list>(<argument><expr><literal type="string">"Error! This ID ("</literal><operator>+</operator> <name>id</name><operator>+</operator><literal type="string">") exists."</literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+				}</block></then>
+				<else>else <block>{
+					<decl_stmt><decl><type><name>Employee</name></type> <name>newRegularEmployee</name> <init>= <expr><operator>new</operator> <call><name>RegularEmployee</name> <argument_list>(<argument><expr><name>name</name></expr></argument>, <argument><expr><name>id</name></expr></argument> , <argument><expr><name>grossSalary</name></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+					<expr_stmt><expr><call><name>add</name><argument_list>(<argument><expr><name>newRegularEmployee</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+				}</block></else></if>
+				}</block></function>
+
+		<function><specifier>public</specifier> <type><name>void</name></type> <name>createManager</name><parameter_list>(<parameter><decl><type><name>String</name></type> <name>name</name></decl></parameter>, <parameter><decl><type><name>String</name></type> <name>id</name></decl></parameter>, <parameter><decl><type><name>double</name></type> <name>grossSalary</name></decl></parameter>, <parameter><decl><type><name>String</name></type> <name>degree</name></decl></parameter>)</parameter_list> <block>{
+				<if>if <condition>(<expr><call><name>checkID</name><argument_list>(<argument><expr><name>id</name></expr></argument>)</argument_list></call><operator>!=</operator><literal type="null">null</literal></expr>)</condition><then> <block>{
+						<expr_stmt><expr><call><name><name>System</name><operator>.</operator><name>out</name><operator>.</operator><name>println</name></name><argument_list>(<argument><expr><literal type="string">"Error! This ID ("</literal><operator>+</operator> <name>id</name><operator>+</operator><literal type="string">") exists."</literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+				}</block></then>
+				<else>else <block>{
+					<decl_stmt><decl><type><name>Employee</name></type> <name>newManager</name> <init>= <expr><operator>new</operator> <call><name>Manager</name> <argument_list>(<argument><expr><name>name</name></expr></argument>, <argument><expr><name>id</name></expr></argument> , <argument><expr><name>grossSalary</name></expr></argument>, <argument><expr><name>degree</name></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+					<expr_stmt><expr><call><name>add</name><argument_list>(<argument><expr><name>newManager</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+				}</block></else></if>
+				}</block></function>
+
+			<function><specifier>public</specifier> <type><name>void</name></type> <name>createDirector</name><parameter_list>(<parameter><decl><type><name>String</name></type> <name>name</name></decl></parameter>, <parameter><decl><type><name>String</name></type> <name>id</name></decl></parameter>, <parameter><decl><type><name>double</name></type> <name>grossSalary</name></decl></parameter>, <parameter><decl><type><name>String</name></type> <name>degree</name></decl></parameter>, <parameter><decl><type><name>String</name></type> <name>department</name></decl></parameter>)</parameter_list> <block>{
+					<if>if <condition>(<expr><call><name>checkID</name><argument_list>(<argument><expr><name>id</name></expr></argument>)</argument_list></call><operator>!=</operator><literal type="null">null</literal></expr>)</condition><then> <block>{
+						<expr_stmt><expr><call><name><name>System</name><operator>.</operator><name>out</name><operator>.</operator><name>println</name></name><argument_list>(<argument><expr><literal type="string">"Error! This ID ("</literal><operator>+</operator> <name>id</name><operator>+</operator><literal type="string">") exists."</literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+					}</block></then>
+						<else>else <block>{
+							<decl_stmt><decl><type><name>Employee</name></type> <name>newDirector</name> <init>= <expr><operator>new</operator> <call><name>Director</name> <argument_list>(<argument><expr><name>name</name></expr></argument>, <argument><expr><name>id</name></expr></argument> , <argument><expr><name>grossSalary</name></expr></argument>,<argument><expr><name>degree</name></expr></argument>, <argument><expr><name>department</name></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+							<expr_stmt><expr><call><name>add</name><argument_list>(<argument><expr><name>newDirector</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+						}</block></else></if>
+						}</block></function>
+
+			<function><specifier>public</specifier> <type><name>void</name></type> <name>createIntern</name><parameter_list>(<parameter><decl><type><name>String</name></type> <name>name</name></decl></parameter>, <parameter><decl><type><name>String</name></type> <name>id</name></decl></parameter>, <parameter><decl><type><name>double</name></type> <name>grossSalary</name></decl></parameter>, <parameter><decl><type><name>int</name></type> <name>gpa</name></decl></parameter>)</parameter_list> <block>{
+					<if>if <condition>(<expr><call><name>checkID</name><argument_list>(<argument><expr><name>id</name></expr></argument>)</argument_list></call><operator>!=</operator><literal type="null">null</literal></expr>)</condition><then> <block>{
+						<expr_stmt><expr><call><name><name>System</name><operator>.</operator><name>out</name><operator>.</operator><name>println</name></name><argument_list>(<argument><expr><literal type="string">"Error! This ID ("</literal><operator>+</operator> <name>id</name><operator>+</operator><literal type="string">") exists."</literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+					}</block></then>
+						<else>else <block>{
+							<decl_stmt><decl><type><name>Employee</name></type> <name>newIntern</name> <init>= <expr><operator>new</operator> <call><name>Intern</name> <argument_list>(<argument><expr><name>name</name></expr></argument>, <argument><expr><name>id</name></expr></argument> , <argument><expr><name>grossSalary</name></expr></argument>,<argument><expr><name>gpa</name></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+							<expr_stmt><expr><call><name>add</name><argument_list>(<argument><expr><name>newIntern</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+						}</block></else></if>
+						}</block></function>
+
+			  <comment type="block">/*
+		     * Another idea® ©
+		     * BAD
+		     * DOWNCASTING !!!!!!!!!!!!!
+		     * REASON: Each Director is an Employee, but not every Employee is a Director ;) .
+		     * Employee temp = checkID(ID);
+		     * Director temp2 = (Director) temp;
+		     * for (int i = 0; i &lt; employees.size(); i++) {
+		     * if (employees.get(i) instanceof Director)® © {
+		     * ((Director) employees.get(i)).setBenefit(benefit);
+		     * }
+		     * You have to put benefit as private and insert getter and setter for it.
+		     *
+		     * }
+		     */</comment>
+
+		    <comment type="block">/*
+		     *
+		     * GOOD
+		     * NO DOWNCASTING!
+		     * REASON: There is no casting in those methods, but we create new references of type Employees
+		     * in the same position of old employee type , but with new object of type employee
+		     * LOOK AT THE COMMENTS DOWN
+		     */</comment>
+
+	       <function><specifier>public</specifier> <type><name>void</name></type> <name>promoteToRegularEmployee</name><parameter_list>(<parameter><decl><type><name>String</name></type> <name>id</name></decl></parameter>)</parameter_list> <block>{
+	   		<try>try <block>{
+				<decl_stmt><decl><type><name>int</name></type> <name>position</name> <init>= <expr><call><name>getPosition</name><argument_list>(<argument><expr><name>id</name></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+				<if>if <condition>(<expr><name>position</name><operator>!=</operator> <name>NOT_FOUND_IN_LIST</name></expr>)</condition><then> <block>{
+					<decl_stmt><decl><type><name>Employee</name></type> <name>temp</name> <init>= <expr><call><name><name>employees</name><operator>.</operator><name>get</name></name><argument_list>(<argument><expr><name>position</name></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+					<expr_stmt><expr><call><name><name>employees</name><operator>.</operator><name>remove</name></name><argument_list>(<argument><expr><name>id</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+					<expr_stmt><expr><call><name><name>employees</name><operator>.</operator><name>set</name></name><argument_list>(<argument><expr><name>position</name></expr></argument>, <argument><expr><operator>new</operator> <call><name>RegularEmployee</name><argument_list>(<argument><expr><call><name><name>temp</name><operator>.</operator><name>getName</name></name><argument_list>()</argument_list></call></expr></argument>, <argument><expr><call><name><name>temp</name><operator>.</operator><name>getId</name></name><argument_list>()</argument_list></call></expr></argument>, <argument><expr><call><name><name>temp</name><operator>.</operator><name>getGrossSalary</name></name><argument_list>()</argument_list></call></expr></argument>)</argument_list></call></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+
+				}</block></then>
+				<else>else <block>{<expr_stmt><expr><call><name><name>System</name><operator>.</operator><name>out</name><operator>.</operator><name>println</name></name><argument_list>(<argument><expr><literal type="string">"A Regular Employee of ID ("</literal><operator>+</operator> <name>id</name> <operator>+</operator><literal type="string">") is not registered in the system."</literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>}</block></else></if>
+			}</block> <catch>catch <parameter_list>(<parameter><decl><type><name>Exception</name></type> <name>e</name></decl></parameter>)</parameter_list> <block>{
+				<expr_stmt><expr><call><name><name>System</name><operator>.</operator><name>out</name><operator>.</operator><name>println</name></name><argument_list>(<argument><expr><literal type="string">"A Regular Employee of ID ("</literal><operator>+</operator> <name>id</name> <operator>+</operator><literal type="string">") is not registered in the system."</literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+			}</block></catch></try>
+
+	       }</block></function>
+
+	       <function><specifier>public</specifier> <type><name>void</name></type> <name>promoteToManager</name><parameter_list>(<parameter><decl><type><name>String</name></type> <name>id</name></decl></parameter>, <parameter><decl><type><name>String</name></type> <name>degree</name></decl></parameter>)</parameter_list> <block>{
+	   		<try>try <block>{
+				<decl_stmt><decl><type><name>int</name></type> <name>position</name> <init>= <expr><call><name>getPosition</name><argument_list>(<argument><expr><name>id</name></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+				<if>if <condition>(<expr><name>position</name><operator>!=</operator> <name>NOT_FOUND_IN_LIST</name></expr>)</condition><then> <block>{
+					<decl_stmt><decl><type><name>Employee</name></type> <name>temp</name> <init>= <expr><call><name><name>employees</name><operator>.</operator><name>get</name></name><argument_list>(<argument><expr><name>position</name></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+					<expr_stmt><expr><call><name><name>employees</name><operator>.</operator><name>remove</name></name><argument_list>(<argument><expr><name>id</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+					<expr_stmt><expr><call><name><name>employees</name><operator>.</operator><name>set</name></name><argument_list>(<argument><expr><name>position</name></expr></argument>, <argument><expr><operator>new</operator> <call><name>Manager</name><argument_list>(<argument><expr><call><name><name>temp</name><operator>.</operator><name>getName</name></name><argument_list>()</argument_list></call></expr></argument>, <argument><expr><call><name><name>temp</name><operator>.</operator><name>getId</name></name><argument_list>()</argument_list></call></expr></argument>, <argument><expr><call><name><name>temp</name><operator>.</operator><name>getGrossSalary</name></name><argument_list>()</argument_list></call></expr></argument>, <argument><expr><name>degree</name></expr></argument>)</argument_list></call></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+
+				}</block></then>
+				<else>else <block>{<expr_stmt><expr><call><name><name>System</name><operator>.</operator><name>out</name><operator>.</operator><name>println</name></name><argument_list>(<argument><expr><literal type="string">"A manager of ID ("</literal><operator>+</operator> <name>id</name> <operator>+</operator><literal type="string">") is not registered in the system."</literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>}</block></else></if>
+			}</block> <catch>catch <parameter_list>(<parameter><decl><type><name>Exception</name></type> <name>e</name></decl></parameter>)</parameter_list> <block>{
+				<expr_stmt><expr><call><name><name>System</name><operator>.</operator><name>out</name><operator>.</operator><name>println</name></name><argument_list>(<argument><expr><literal type="string">"A manager of ID ("</literal><operator>+</operator> <name>id</name> <operator>+</operator><literal type="string">") is not registered in the system."</literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+			}</block></catch></try>
+
+	       }</block></function>
+
+	       <function><specifier>public</specifier> <type><name>void</name></type> <name>promoteToDirector</name><parameter_list>(<parameter><decl><type><name>String</name></type> <name>id</name></decl></parameter>, <parameter><decl><type><name>String</name></type> <name>degree</name></decl></parameter>, <parameter><decl><type><name>String</name></type> <name>department</name></decl></parameter>)</parameter_list> <block>{
+	   		<try>try <block>{
+				<decl_stmt><decl><type><name>int</name></type> <name>position</name> <init>= <expr><call><name>getPosition</name><argument_list>(<argument><expr><name>id</name></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+				<if>if <condition>(<expr><name>position</name><operator>!=</operator> <name>NOT_FOUND_IN_LIST</name></expr>)</condition><then> <block>{
+					<decl_stmt><decl><type><name>Employee</name></type> <name>temp</name> <init>= <expr><call><name><name>employees</name><operator>.</operator><name>get</name></name><argument_list>(<argument><expr><name>position</name></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+					<expr_stmt><expr><call><name><name>employees</name><operator>.</operator><name>remove</name></name><argument_list>(<argument><expr><name>id</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+					<expr_stmt><expr><call><name><name>employees</name><operator>.</operator><name>set</name></name><argument_list>(<argument><expr><name>position</name></expr></argument>, <argument><expr><operator>new</operator> <call><name>Director</name><argument_list>(<argument><expr><call><name><name>temp</name><operator>.</operator><name>getName</name></name><argument_list>()</argument_list></call></expr></argument>, <argument><expr><call><name><name>temp</name><operator>.</operator><name>getId</name></name><argument_list>()</argument_list></call></expr></argument>, <argument><expr><call><name><name>temp</name><operator>.</operator><name>getGrossSalary</name></name><argument_list>()</argument_list></call></expr></argument>, <argument><expr><name>degree</name></expr></argument>, <argument><expr><name>department</name></expr></argument>)</argument_list></call></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+
+				}</block></then>
+				<else>else <block>{<expr_stmt><expr><call><name><name>System</name><operator>.</operator><name>out</name><operator>.</operator><name>println</name></name><argument_list>(<argument><expr><literal type="string">"A director of ID ("</literal><operator>+</operator> <name>id</name> <operator>+</operator><literal type="string">") is not registered in the system."</literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>}</block></else></if>
+			}</block> <catch>catch <parameter_list>(<parameter><decl><type><name>Exception</name></type> <name>e</name></decl></parameter>)</parameter_list> <block>{
+				<expr_stmt><expr><call><name><name>System</name><operator>.</operator><name>out</name><operator>.</operator><name>println</name></name><argument_list>(<argument><expr><literal type="string">"A director of ID ("</literal><operator>+</operator> <name>id</name> <operator>+</operator><literal type="string">") is not registered in the system."</literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+			}</block></catch></try>
+
+	       }</block></function>
+
+	       <function><specifier>public</specifier> <type><name>void</name></type> <name>promoteToIntern</name><parameter_list>(<parameter><decl><type><name>String</name></type> <name>id</name></decl></parameter>, <parameter><decl><type><name>int</name></type> <name>gpa</name></decl></parameter>)</parameter_list> <block>{
+	   		<try>try <block>{
+				<decl_stmt><decl><type><name>int</name></type> <name>position</name> <init>= <expr><call><name>getPosition</name><argument_list>(<argument><expr><name>id</name></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+				<if>if <condition>(<expr><name>position</name><operator>!=</operator> <name>NOT_FOUND_IN_LIST</name></expr>)</condition><then> <block>{
+					<decl_stmt><decl><type><name>Employee</name></type> <name>temp</name> <init>= <expr><call><name><name>employees</name><operator>.</operator><name>get</name></name><argument_list>(<argument><expr><name>position</name></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+					<expr_stmt><expr><call><name><name>employees</name><operator>.</operator><name>remove</name></name><argument_list>(<argument><expr><name>id</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+					<expr_stmt><expr><call><name><name>employees</name><operator>.</operator><name>set</name></name><argument_list>(<argument><expr><name>position</name></expr></argument>, <argument><expr><operator>new</operator> <call><name>Intern</name><argument_list>(<argument><expr><call><name><name>temp</name><operator>.</operator><name>getName</name></name><argument_list>()</argument_list></call></expr></argument>, <argument><expr><call><name><name>temp</name><operator>.</operator><name>getId</name></name><argument_list>()</argument_list></call></expr></argument>, <argument><expr><call><name><name>temp</name><operator>.</operator><name>getGrossSalary</name></name><argument_list>()</argument_list></call></expr></argument>, <argument><expr><name>gpa</name></expr></argument>)</argument_list></call></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+
+				}</block></then>
+				<else>else <block>{<expr_stmt><expr><call><name><name>System</name><operator>.</operator><name>out</name><operator>.</operator><name>println</name></name><argument_list>(<argument><expr><literal type="string">"An Intern of ID ("</literal><operator>+</operator> <name>id</name> <operator>+</operator><literal type="string">") is not registered in the system."</literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>}</block></else></if>
+			}</block> <catch>catch <parameter_list>(<parameter><decl><type><name>Exception</name></type> <name>e</name></decl></parameter>)</parameter_list> <block>{
+				<expr_stmt><expr><call><name><name>System</name><operator>.</operator><name>out</name><operator>.</operator><name>println</name></name><argument_list>(<argument><expr><literal type="string">"An Intern of ID ("</literal><operator>+</operator> <name>id</name> <operator>+</operator><literal type="string">") is not registered in the system."</literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+			}</block></catch></try>
+
+	       }</block></function>
+
+	    <function><type><name>void</name></type> <name>sortBy</name><parameter_list>()</parameter_list> <block>{
+	    	<expr_stmt><expr><call><name><name>Collections</name><operator>.</operator><name>sort</name></name><argument_list>(<argument><expr><name>employees</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+	    }</block></function>
+	   	<comment type="line">// CHALLENGE 1 </comment>
+
+	      <comment type="block">/*
+	   	*  This challenge method will sort a list by specific parameter.
+	   	*
+	   	*/</comment>
+	    <function><type><name>void</name></type> <name>sortBy</name><parameter_list>(<parameter><decl><type><name>String</name></type> <name>choose</name></decl></parameter>)</parameter_list> <block>{
+            <expr_stmt><expr><name><name>Employee</name><operator>.</operator><name>choose</name></name> <operator>=</operator> <name>choose</name></expr>;</expr_stmt>
+            <expr_stmt><expr><call><name><name>Collections</name><operator>.</operator><name>sort</name></name><argument_list>(<argument><expr><name>employees</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+        }</block></function>
+
+		<comment type="line">//CHALLENGE2</comment>
+
+        <function><type><name>void</name></type> <name>sortBy</name><parameter_list>(<parameter><decl><type><name>String</name></type> <name>choose</name></decl></parameter>, <parameter><decl><type><name>String</name></type> <name>orderBy</name></decl></parameter>)</parameter_list> <block>{
+            <expr_stmt><expr><name><name>Employee</name><operator>.</operator><name>choose</name></name> <operator>=</operator> <name>choose</name></expr>;</expr_stmt>
+            <expr_stmt><expr><name><name>Employee</name><operator>.</operator><name>orderBy</name></name> <operator>=</operator> <name>orderBy</name></expr>;</expr_stmt>
+            <expr_stmt><expr><call><name><name>Collections</name><operator>.</operator><name>sort</name></name><argument_list>(<argument><expr><name>employees</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+    }</block></function>
+
+
+
+}</block></class>
+</unit>
+
+</unit>
