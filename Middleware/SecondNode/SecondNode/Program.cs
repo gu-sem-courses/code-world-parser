@@ -21,7 +21,7 @@ namespace SecondNode
         {
 
             GetProject(request);
-            string filepath = "../../../json1.json";
+            string filepath = "../../../../../globalAssest/outbox/xml2json.json";
             string result = string.Empty;
             using (StreamReader r = new StreamReader(filepath))
             {
@@ -37,7 +37,7 @@ namespace SecondNode
         // from the client proccess as a argument while starting the process
         public void GetProject(ParsingRequest req)
         {
-            string PathP = System.AppDomain.CurrentDomain.BaseDirectory + "../../../../GitGetter2/GitGetter2/bin/Debug/Gitgetter2.exe";
+            string PathP = System.AppDomain.CurrentDomain.BaseDirectory + "../../../../GitGetter/GitGetter/bin/Debug/Gitgetter2.exe";
            
             Process Project = new Process();
             try
