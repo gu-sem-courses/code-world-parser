@@ -272,6 +272,7 @@ namespace GitGetter2
                         srcml.StartInfo.Arguments = enumerator.Current+ " "+ fileName;
                         // What arguments the file will take when it starts
                         srcml.Start();
+                        scrml.WaitForExit();
                     }
                     catch (Exception e)
                     {
@@ -293,6 +294,8 @@ namespace GitGetter2
                      Project.StartInfo.Arguments = dirPath;
                      // What arguments the file will take when it starts
                      Project.Start();
+                     Project.WaitForExit();
+                     
                  }
                  catch (Exception e)
                  {
@@ -347,6 +350,8 @@ namespace GitGetter2
             srcml.StartInfo.Arguments = dirpath + " " + fileName;
             // What arguments the file will take when it starts
             srcml.Start();
+            srcml.WaitForExit();
+
         }
 
     }
