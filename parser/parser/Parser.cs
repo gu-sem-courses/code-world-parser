@@ -16,7 +16,8 @@ class Program
 
         /*load project(s)*/
         //javaProject.Load("../../../../globalAssets/tests/sample/fullProject.xml");
-        javaProject.Load("../../../../globalAssets/tests/sample2/timmarcus.xml");
+        String srcMLPath = System.AppDomain.CurrentDomain.BaseDirectory + "../../../../globalAssets/inbox/srcML.xml";
+        javaProject.Load(srcMLPath);
 
         /*this is needed to make xpath queries*/
         XmlNamespaceManager namespaceManager = new XmlNamespaceManager(javaProject.NameTable);
@@ -63,7 +64,8 @@ class Program
     public static Boolean ExportJson(XmlDocument result) {
         try
         {
-            String path = "../../../../globalAssets/outbox/xml2json.json";
+            String path = System.AppDomain.CurrentDomain.BaseDirectory + "../../../../globalAssets/outbox/xml2json.json";
+
             // serialize JSON to a string and then write string to a file
             File.WriteAllText(path, JsonConvert.SerializeObject(result));
             // serialize JSON directly to a file
