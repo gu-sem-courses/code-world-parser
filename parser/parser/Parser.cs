@@ -9,32 +9,35 @@ class Program
 {
     protected static void Main(string[] args)
     {
-        XmlDocument javaProject, gameObjects;
+        XmlDocument srcML, gameObjects;
 
         /*Create an xml doc for existing file*/
-        javaProject = new XmlDocument();
+        srcML = new XmlDocument();
 
         /*load project(s)*/
         //javaProject.Load("../../../../globalAssets/tests/sample/fullProject.xml");
         String srcMLPath = System.AppDomain.CurrentDomain.BaseDirectory + "../../../../globalAssets/inbox/srcML.xml";
-        javaProject.Load(srcMLPath);
+        srcML.Load(srcMLPath);
 
         /*this is needed to make xpath queries*/
-        XmlNamespaceManager namespaceManager = new XmlNamespaceManager(javaProject.NameTable);
+        XmlNamespaceManager namespaceManager = new XmlNamespaceManager(srcML.NameTable);
         namespaceManager.AddNamespace("src", "http://www.srcML.org/srcML/src");
 
 
         /*retrieve data*/
         parser.SrcReader reader = new parser.SrcReader(); //srcML reader class
+        XmlElement[] jClasses = reader.GetClasses(srcML, namespaceManager);
 
-        XmlNode root; //, abstractClasses, interfaces;
-        root = javaProject.CreateElement("data");
-        root.AppendChild(reader.GetClasses(javaProject, namespaceManager));
+        XmlElement classes = srcML.CreateElement("data");
+
+        foreach(XmlElement jClass in jClasses) {
+            classes.AppendChild(jClass);
+        }
 
         /*import data*/
         gameObjects = new XmlDocument();
         XmlNode data = gameObjects.CreateElement("data");
-        data = ImportNode(root, gameObjects);
+        data = ImportNode(classes, gameObjects);
         gameObjects.AppendChild(data);
 
 
