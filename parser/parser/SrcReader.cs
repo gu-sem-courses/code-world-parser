@@ -17,7 +17,7 @@ namespace parser
                 XmlNode xClass = classList.Item(i);
 
                 XmlElement javaClass, name, superClass;
-                javaClass = xDoc.CreateElement("class");
+                javaClass = xDoc.CreateElement("data");
                 //add name
                 name = GetClassName(xClass, xDoc, nsm);
                 javaClass.AppendChild(name);
@@ -105,7 +105,7 @@ namespace parser
                 nameElement.InnerText = name;
 
                 /*attribute*/
-                attribute = xDoc.CreateElement("attribute");
+                attribute = xDoc.CreateElement("attributes");
                 attribute.AppendChild(accessModifierElement);
                 attribute.AppendChild(typeElement);
                 attribute.AppendChild(nameElement);
@@ -146,7 +146,7 @@ namespace parser
                 methodName = xDoc.CreateElement("name");
                 methodName.InnerText = name;
 
-                method = xDoc.CreateElement("method");
+                method = xDoc.CreateElement("methods");
                 method.AppendChild(methodAccess);
                 method.AppendChild(methodType);
                 method.AppendChild(methodName);

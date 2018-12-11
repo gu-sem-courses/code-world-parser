@@ -28,7 +28,7 @@ class Program
         parser.SrcReader reader = new parser.SrcReader(); //srcML reader class
         XmlElement[] jClasses = reader.GetClasses(srcML, namespaceManager);
 
-        XmlElement classes = srcML.CreateElement("data");
+        XmlElement classes = srcML.CreateElement("JavaProject");
 
         foreach(XmlElement jClass in jClasses) {
             classes.AppendChild(jClass);
@@ -36,7 +36,7 @@ class Program
 
         /*import data*/
         gameObjects = new XmlDocument();
-        XmlNode data = gameObjects.CreateElement("data");
+        XmlNode data = gameObjects.CreateElement("JavaProject");
         data = ImportNode(classes, gameObjects);
         gameObjects.AppendChild(data);
 
