@@ -46,14 +46,18 @@ namespace FirstNode
             // the first value refers to the IP of the PC that is running the Server process, the second is what port to send it to
             // and the third is ChannelCredentials that have to match the one of the Server
             Channel channel = new Channel(IP, Port, ChannelCredentials.Insecure);
+
             // This makes a new client variable referencing the Trial and TrialGrpc files
             var client = new Services.GameLog.GameLogClient(channel);
+
             //This makes a new json variable and provides a request message, the return message will then be saved in the json var
             var json = client.MainInteraction(new ParsingRequest { Address = repository });
+
             //sets the variable so we always make the file in the same place no matter the PC that runs it
             //the filetype variable at the end decides what kind of file we will make.
-            filepath = System.AppDomain.CurrentDomain.BaseDirectory + "../../../" + ProjectName + filetype;
-            //This will write the 
+            filepath = System.AppDomain.CurrentDomain.BaseDirectory + "../" + ProjectName + filetype;
+
+            //This will write the file on the computer
             System.IO.File.WriteAllText(filepath, json.File);
             channel.ShutdownAsync().Wait();
               

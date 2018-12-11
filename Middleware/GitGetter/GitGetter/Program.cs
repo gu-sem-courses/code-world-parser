@@ -60,7 +60,7 @@ namespace GitGetter2
 
                 try
                 {
-                    String dirPath = "../../../../GitGetter2/FileStorer/" + projectId;
+                    String dirPath = "../../../GitGetter/FileStorer/" + projectId;
                     //File.WriteAllText(dirPath+"/"+ name, responseString); // Creates a seperate file for each code
                     File.AppendAllText(dirPath+fileType, responseString+" ");  // Should create a single file with the contents of all the code files.
                 }
@@ -99,7 +99,7 @@ namespace GitGetter2
                 List<TreeObject> noPathFolder = makeTreeList(responseString);
 
                 //Makes a directory for this project
-                String dirPath = "../../../../GitGetter2/FileStorer/" + projectId;
+                String dirPath = "../../GitGetter/FileStorer/" + projectId;
                 System.IO.Directory.CreateDirectory(dirPath);
                 System.IO.Directory.CreateDirectory(dirPath+ "_srcml");
 
@@ -217,21 +217,21 @@ namespace GitGetter2
                 
 
                 
-                String batAddress = ".SrcmlStarter.bat";
-                String storageAddress = globalFolderGetter(4) + "/GitGetter2/FileStorer/";
+                String batAddress = System.AppDomain.CurrentDomain.BaseDirectory +".SrcmlStarter.bat";
+                String storageAddress = globalFolderGetter(4) + "/GitGetter/FileStorer/";
                 storageAddress = storageAddress.Replace( "/" ,"\\ ");
 
                 Console.WriteLine("Enumerator and srcml beginning");
                 // Part that activates srcml
 
                 // Single code file Srcml call
-                String dirPath = globalFolderGetter(4) + "/GitGetter2/FileStorer/" + projectId + fileType; // Change for other code files.
+                String dirPath = globalFolderGetter(4) + "/GitGetter/FileStorer/" + projectId + fileType; // Change for other code files.
                 Console.WriteLine("Here is the dirpath: "+dirPath);
                 singleFileSrcmlCall(dirPath,projectId,batAddress);
                 
                 //This part is for multiple code files.
                 /* Console.WriteLine("Before enum");
-                String dirPath = globalFolderGetter(4) +"/GitGetter2/FileStorer/" + projectId+ "/";
+                String dirPath = globalFolderGetter(4) +"/GitGetter/FileStorer/" + projectId+ "/";
 
                 IEnumerator<String> enumerator = System.IO.Directory.EnumerateFiles(dirPath).GetEnumerator();
                 Console.WriteLine("after enum");
