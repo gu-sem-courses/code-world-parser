@@ -254,7 +254,7 @@ namespace parser
             String className = GetClassName(classNode, xDoc, nsm).InnerText;
             //XmlNodeList jClasses = xDoc.DocumentElement.SelectNodes("//src:class[.//src:decl_stmt//src:decl/src:type//src:name = \"" + className + "\" + //src:init = src:expr//src:operator[.= 'new']/src:call/src:name/src:name/src:argument_list]", nsm); 
 
-            XmlNodeList jClasses = xDoc.DocumentElement.SelectNodes("//src:class[//src:decl_stmt//src:decl//src:operator[.= 'new']]", nsm);        
+            XmlNodeList jClasses = xDoc.DocumentElement.SelectNodes("//src:class[//src:decl//src:operator[.= 'new']]", nsm);        
             foreach (XmlNode jClass in jClasses)
             {
                 
