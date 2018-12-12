@@ -33,8 +33,8 @@ namespace parser
                 //add superclasses 
                 superClass = GetSuperClass(xClass, xDoc, nsm);
                 javaClass.AppendChild(superClass);
-                //associations []
-                GetAssociations(javaClass, xClass, xDoc, nsm);
+                //components []
+                GetComponents(javaClass, xClass, xDoc, nsm);
 
 
                 //append result to an array
@@ -67,21 +67,28 @@ namespace parser
                 access = attr.SelectSingleNode("./src:specifier[1]", nsm);
                 attrType = attr.SelectSingleNode("./src:type/src:name", nsm);
 
-                if (access != null) {
+                if (access != null)
+                {
                     accessModifier = access.InnerText;
                 }
-                else { accessModifier = "public"; //if there is no access modifier then its default = public
+                else
+                {
+                    accessModifier = "public"; //if there is no access modifier then its default = public
                 }
 
-                if(attrType != null) {
+                if (attrType != null)
+                {
                     type = attrType.InnerText;
                 }
-                else {//if there is no type then check the previous node because it implies that there were a group of nodes declared at the same time
+                else
+                {//if there is no type then check the previous node because it implies that there were a group of nodes declared at the same time
                     String reference = attr.SelectSingleNode("./src:type/@ref", nsm).InnerText;
-                    if(reference == "prev") {
-                        type = declaredAttributes.Item(i-1).SelectSingleNode("./type").InnerText;
+                    if (reference == "prev")
+                    {
+                        type = declaredAttributes.Item(i - 1).SelectSingleNode("./type").InnerText;
                     }
-                    else {
+                    else
+                    {
                         type = "n/a";
                     }
                 }
@@ -140,7 +147,7 @@ namespace parser
                 methodAccess.InnerText = accessModifier;
 
                 methodType = xDoc.CreateElement("returnType");
-                methodType.InnerText = type; 
+                methodType.InnerText = type;
 
                 methodName = xDoc.CreateElement("name");
                 methodName.InnerText = name;
@@ -155,12 +162,14 @@ namespace parser
             }
         }
 
-        public void GetInterfaces(XmlNode root, XmlNode classNode, XmlDocument xDoc, XmlNamespaceManager nsm) {
+        public void GetInterfaces(XmlNode root, XmlNode classNode, XmlDocument xDoc, XmlNamespaceManager nsm)
+        {
 
             XmlNodeList jInterfaces = classNode.SelectNodes("./src:super//src:implements/src:name[last()]", nsm);
             Console.WriteLine("interfaces = " + jInterfaces.Count);
 
-            foreach(XmlNode jInterface in jInterfaces) {
+            foreach (XmlNode jInterface in jInterfaces)
+            {
 
                 XmlElement javaInterface = xDoc.CreateElement("interfaces");
                 javaInterface.InnerText = jInterface.InnerText;
@@ -177,15 +186,18 @@ namespace parser
             }
         }
 
-        public XmlElement GetSuperClass(XmlNode classNode, XmlDocument xDoc, XmlNamespaceManager nsm) {
+        public XmlElement GetSuperClass(XmlNode classNode, XmlDocument xDoc, XmlNamespaceManager nsm)
+        {
             XmlElement result = xDoc.CreateElement("superclass");
             XmlNode super = classNode.SelectSingleNode("./descendant::src:super/src:extends", nsm);
 
-            if ( super != null) {
+            if (super != null)
+            {
                 result.InnerText = super.SelectSingleNode("./src:name", nsm).InnerText;
-                }
-            else {
-                result.InnerText = "none";
+            }
+            else
+            {
+                result.InnerText = "[]";
             }
             return result;
         }
@@ -194,7 +206,7 @@ namespace parser
         {
             XmlNodeList subClasses = classNode.SelectNodes("//src:class[./src:super/src:extends/src:name [.='" + GetClassName(classNode, xDoc, nsm).InnerText + "']]", nsm);
 
-            if(subClasses.Count > 0)
+            if (subClasses.Count > 0)
             {
                 foreach (XmlNode sub in subClasses)
                 {
@@ -205,7 +217,8 @@ namespace parser
                     root.AppendChild(subClass);
                 }
             }
-            else{
+            else
+            {
                 XmlElement subClass = xDoc.CreateElement("subclasses");
                 subClass.InnerText = "[]";
 
@@ -214,19 +227,21 @@ namespace parser
             }
         }
 
-        public void GetAssociations(XmlNode root, XmlNode classNode, XmlDocument xDoc, XmlNamespaceManager nsm) {
-
+        public void GetComponents(XmlNode root, XmlNode classNode, XmlDocument xDoc, XmlNamespaceManager nsm)
+        {
             String className = GetClassName(classNode, xDoc, nsm).InnerText;
-            XmlNodeList jClasses = xDoc.DocumentElement.SelectNodes("//src:class[.//src:decl_stmt//src:decl/src:type//src:name = \""+className+"\"]", nsm);
-            foreach(XmlNode jClass in jClasses) {
-                XmlElement ass = xDoc.CreateElement("associations");
+            XmlNodeList jClasses = xDoc.DocumentElement.SelectNodes("//src:class[.//src:decl_stmt//src:decl/src:type//src:name = \"" + className + "\"]", nsm);
+            foreach (XmlNode jClass in jClasses)
+            {
+                XmlElement ass = xDoc.CreateElement("component");
                 ass.InnerText = GetClassName(jClass, xDoc, nsm).InnerText;
                 root.AppendChild(ass);
             }
-            if(jClasses.Count < 1) {
-                XmlElement ass = xDoc.CreateElement("associations");
-                ass.InnerText = "none";
-                root.AppendChild(ass);
+            if (jClasses.Count < 1)
+            {
+                XmlElement comp = xDoc.CreateElement("components");
+                comp.InnerText = "none";
+                root.AppendChild(comp);
             }
         }
     }

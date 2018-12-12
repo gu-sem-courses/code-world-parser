@@ -1,1 +1,703 @@
-{"JavaProject":{"data":[{"name":"Intern","attributes":[{"accessModifier":"private","type":"int","name":"gpa"},{"accessModifier":"private","type":"int","name":"NO_SALARY"},{"accessModifier":"private","type":"int","name":"BENEFIT"},{"accessModifier":"private","type":"int","name":"GPA_LOW"},{"accessModifier":"private","type":"int","name":"GPA_HIGH"},{"accessModifier":"private","type":"int","name":"MAX_GPA"},{"accessModifier":"public","type":"double","name":"total"}],"methods":[{"accessModifier":"public","returnType":"double","name":"calculateSalary"},{"accessModifier":"public","returnType":"double","name":"getNetSalary"},{"accessModifier":"public","returnType":"int","name":"getGpa"},{"accessModifier":"public","returnType":"void","name":"setGpa"},{"accessModifier":"public","returnType":"String","name":"toString"}],"interfaces":"none","subclasses":"[]","superclass":"Employee","associations":"none"},{"name":"Director","attributes":[{"accessModifier":"private","type":"String","name":"department"},{"accessModifier":"static","type":"double","name":"benefit"},{"accessModifier":"private","type":"double","name":"TAX_LOW"},{"accessModifier":"private","type":"double","name":"TAX_BETWEEN"},{"accessModifier":"private","type":"double","name":"TAX_HIGH"},{"accessModifier":"private","type":"int","name":"LOW_INCOME"},{"accessModifier":"private","type":"int","name":"HIGHT_INCOME"},{"accessModifier":"public","type":"double","name":"total"},{"accessModifier":"public","type":"double","name":"total1"},{"accessModifier":"public","type":"double","name":"total2"}],"methods":[{"accessModifier":"public","returnType":"double","name":"calculateSalary"},{"accessModifier":"public","returnType":"double","name":"getNetSalary"},{"accessModifier":"public","returnType":"String","name":"getDepartment"},{"accessModifier":"public","returnType":"void","name":"setDepartment"},{"accessModifier":"public","returnType":"double","name":"getBenefit"},{"accessModifier":"public","returnType":"void","name":"setBenefit"},{"accessModifier":"public","returnType":"String","name":"toString"}],"interfaces":"none","subclasses":"[]","superclass":"Manager","associations":"none"},{"name":"Manager","attributes":[{"accessModifier":"private","type":"String","name":"degree"},{"accessModifier":"private","type":"double","name":"TAX"},{"accessModifier":"private","type":"double","name":"BONUS_BSC"},{"accessModifier":"private","type":"double","name":"BONUS_MSC"},{"accessModifier":"private","type":"double","name":"BONUS_PHD"}],"methods":[{"accessModifier":"public","returnType":"double","name":"calculateSalary"},{"accessModifier":"public","returnType":"double","name":"getNetSalary"},{"accessModifier":"public","returnType":"String","name":"getDegree"},{"accessModifier":"public","returnType":"void","name":"setDegree"},{"accessModifier":"public","returnType":"String","name":"toString"}],"interfaces":"none","subclasses":"Director","superclass":"Employee","associations":"none"},{"name":"Employee","attributes":[{"accessModifier":"private","type":"int","name":"EQUAL_RESULT"},{"accessModifier":"private","type":"int","name":"INVERSE"},{"accessModifier":"private","type":"String","name":"name"},{"accessModifier":"private","type":"String","name":"id"},{"accessModifier":"private","type":"double","name":"grossSalary"},{"accessModifier":"private","type":"double","name":"TAX"},{"accessModifier":"public","type":"String","name":"choose"},{"accessModifier":"public","type":"String","name":"orderBy"},{"accessModifier":"public","type":"int","name":"result"}],"methods":[{"accessModifier":"public","returnType":"double","name":"calculateSalary"},{"accessModifier":"public","returnType":"double","name":"getNetSalary"},{"accessModifier":"public","returnType":"int","name":"compareTo"},{"accessModifier":"public","returnType":"String","name":"getName"},{"accessModifier":"public","returnType":"void","name":"setName"},{"accessModifier":"public","returnType":"String","name":"getId"},{"accessModifier":"public","returnType":"double","name":"getGrossSalary"},{"accessModifier":"public","returnType":"void","name":"setGrossSalary"},{"accessModifier":"public","returnType":"String","name":"toString"}],"interfaces":"Comparable<Employee>","subclasses":["Intern","Manager","RegularEmployee"],"superclass":"none","associations":["Test","ReusaxCorp"]},{"name":"RegularEmployee","attributes":[{"accessModifier":"private","type":"double","name":"TAX"},{"accessModifier":"public","type":"double","name":"netSalary"}],"methods":[{"accessModifier":"public","returnType":"double","name":"getNetSalary"},{"accessModifier":"public","returnType":"String","name":"toString"}],"interfaces":"none","subclasses":"[]","superclass":"Employee","associations":"none"},{"name":"Test","attributes":[{"accessModifier":"public","type":"ReusaxCorp","name":"company"},{"accessModifier":"public","type":"Employee","name":"emp1"},{"accessModifier":"public","type":"Employee","name":"emp2"},{"accessModifier":"public","type":"Employee","name":"emp3"},{"accessModifier":"public","type":"Employee","name":"emp4"},{"accessModifier":"public","type":"Employee","name":"emp5"},{"accessModifier":"public","type":"Employee","name":"emp6"}],"methods":{"accessModifier":"public","returnType":"void","name":"main"},"interfaces":"none","subclasses":"[]","superclass":"none","associations":"none"},{"name":"ReusaxCorp","attributes":[{"accessModifier":"private","type":"Employee","name":"employee"},{"accessModifier":"public","type":"ArrayList<Employee>","name":"employees"},{"accessModifier":"private","type":"int","name":"NOT_FOUND_IN_LIST"},{"accessModifier":"public","type":"Employee","name":"temp"},{"accessModifier":"public","type":"Employee","name":"temp"},{"accessModifier":"public","type":"double","name":"sum"},{"accessModifier":"public","type":"double","name":"sum"},{"accessModifier":"public","type":"int","name":"result"},{"accessModifier":"public","type":"Employee","name":"temp"},{"accessModifier":"public","type":"Employee","name":"temp"},{"accessModifier":"public","type":"Employee","name":"temp"},{"accessModifier":"public","type":"int","name":"position"},{"accessModifier":"public","type":"Employee","name":"temp"},{"accessModifier":"public","type":"int","name":"position"},{"accessModifier":"public","type":"Employee","name":"temp"},{"accessModifier":"public","type":"int","name":"position"},{"accessModifier":"public","type":"Employee","name":"temp"},{"accessModifier":"public","type":"Employee","name":"newRegularEmployee"},{"accessModifier":"public","type":"Employee","name":"newManager"},{"accessModifier":"public","type":"Employee","name":"newDirector"},{"accessModifier":"public","type":"Employee","name":"newIntern"},{"accessModifier":"public","type":"int","name":"position"},{"accessModifier":"public","type":"Employee","name":"temp"},{"accessModifier":"public","type":"int","name":"position"},{"accessModifier":"public","type":"Employee","name":"temp"},{"accessModifier":"public","type":"int","name":"position"},{"accessModifier":"public","type":"Employee","name":"temp"},{"accessModifier":"public","type":"int","name":"position"},{"accessModifier":"public","type":"Employee","name":"temp"}],"methods":[{"accessModifier":"public","returnType":"void","name":"remove"},{"accessModifier":"public","returnType":"Employee","name":"checkID"},{"accessModifier":"public","returnType":"void","name":"add"},{"accessModifier":"public","returnType":"void","name":"getTotalNetSalaries"},{"accessModifier":"public","returnType":"void","name":"getTotalGrossSalaries"},{"accessModifier":"public","returnType":"void","name":"getEmployeesNumber"},{"accessModifier":"public","returnType":"void","name":"find"},{"accessModifier":"public","returnType":"void","name":"updateName"},{"accessModifier":"public","returnType":"void","name":"updateGrossSalary"},{"accessModifier":"public","returnType":"int","name":"getPosition"},{"accessModifier":"public","returnType":"void","name":"updateDegree"},{"accessModifier":"public","returnType":"void","name":"updateDirector"},{"accessModifier":"public","returnType":"void","name":"updateBenefit"},{"accessModifier":"public","returnType":"void","name":"updateGPA"},{"accessModifier":"public","returnType":"void","name":"createRegularEmployee"},{"accessModifier":"public","returnType":"void","name":"createManager"},{"accessModifier":"public","returnType":"void","name":"createDirector"},{"accessModifier":"public","returnType":"void","name":"createIntern"},{"accessModifier":"public","returnType":"void","name":"promoteToRegularEmployee"},{"accessModifier":"public","returnType":"void","name":"promoteToManager"},{"accessModifier":"public","returnType":"void","name":"promoteToDirector"},{"accessModifier":"public","returnType":"void","name":"promoteToIntern"},{"accessModifier":"public","returnType":"void","name":"sortBy"},{"accessModifier":"public","returnType":"void","name":"sortBy"},{"accessModifier":"public","returnType":"void","name":"sortBy"}],"interfaces":"none","subclasses":"[]","superclass":"none","associations":"Test"}]}}
+{
+    "JavaProject": {
+        "data": [
+            {
+                "name": "Intern",
+                "attributes": [
+                    {
+                        "accessModifier": "private",
+                        "type": "int",
+                        "name": "gpa"
+                    },
+                    {
+                        "accessModifier": "private",
+                        "type": "int",
+                        "name": "NO_SALARY"
+                    },
+                    {
+                        "accessModifier": "private",
+                        "type": "int",
+                        "name": "BENEFIT"
+                    },
+                    {
+                        "accessModifier": "private",
+                        "type": "int",
+                        "name": "GPA_LOW"
+                    },
+                    {
+                        "accessModifier": "private",
+                        "type": "int",
+                        "name": "GPA_HIGH"
+                    },
+                    {
+                        "accessModifier": "private",
+                        "type": "int",
+                        "name": "MAX_GPA"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "type": "double",
+                        "name": "total"
+                    }
+                ],
+                "methods": [
+                    {
+                        "accessModifier": "public",
+                        "returnType": "double",
+                        "name": "calculateSalary"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "returnType": "double",
+                        "name": "getNetSalary"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "returnType": "int",
+                        "name": "getGpa"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "returnType": "void",
+                        "name": "setGpa"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "returnType": "String",
+                        "name": "toString"
+                    }
+                ],
+                "interfaces": "none",
+                "subclasses": "[]",
+                "superclass": "Employee",
+                "components": "none"
+            },
+            {
+                "name": "Director",
+                "attributes": [
+                    {
+                        "accessModifier": "private",
+                        "type": "String",
+                        "name": "department"
+                    },
+                    {
+                        "accessModifier": "static",
+                        "type": "double",
+                        "name": "benefit"
+                    },
+                    {
+                        "accessModifier": "private",
+                        "type": "double",
+                        "name": "TAX_LOW"
+                    },
+                    {
+                        "accessModifier": "private",
+                        "type": "double",
+                        "name": "TAX_BETWEEN"
+                    },
+                    {
+                        "accessModifier": "private",
+                        "type": "double",
+                        "name": "TAX_HIGH"
+                    },
+                    {
+                        "accessModifier": "private",
+                        "type": "int",
+                        "name": "LOW_INCOME"
+                    },
+                    {
+                        "accessModifier": "private",
+                        "type": "int",
+                        "name": "HIGHT_INCOME"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "type": "double",
+                        "name": "total"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "type": "double",
+                        "name": "total1"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "type": "double",
+                        "name": "total2"
+                    }
+                ],
+                "methods": [
+                    {
+                        "accessModifier": "public",
+                        "returnType": "double",
+                        "name": "calculateSalary"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "returnType": "double",
+                        "name": "getNetSalary"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "returnType": "String",
+                        "name": "getDepartment"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "returnType": "void",
+                        "name": "setDepartment"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "returnType": "double",
+                        "name": "getBenefit"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "returnType": "void",
+                        "name": "setBenefit"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "returnType": "String",
+                        "name": "toString"
+                    }
+                ],
+                "interfaces": "none",
+                "subclasses": "[]",
+                "superclass": "Manager",
+                "components": "none"
+            },
+            {
+                "name": "Manager",
+                "attributes": [
+                    {
+                        "accessModifier": "private",
+                        "type": "String",
+                        "name": "degree"
+                    },
+                    {
+                        "accessModifier": "private",
+                        "type": "double",
+                        "name": "TAX"
+                    },
+                    {
+                        "accessModifier": "private",
+                        "type": "double",
+                        "name": "BONUS_BSC"
+                    },
+                    {
+                        "accessModifier": "private",
+                        "type": "double",
+                        "name": "BONUS_MSC"
+                    },
+                    {
+                        "accessModifier": "private",
+                        "type": "double",
+                        "name": "BONUS_PHD"
+                    }
+                ],
+                "methods": [
+                    {
+                        "accessModifier": "public",
+                        "returnType": "double",
+                        "name": "calculateSalary"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "returnType": "double",
+                        "name": "getNetSalary"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "returnType": "String",
+                        "name": "getDegree"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "returnType": "void",
+                        "name": "setDegree"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "returnType": "String",
+                        "name": "toString"
+                    }
+                ],
+                "interfaces": "none",
+                "subclasses": "Director",
+                "superclass": "Employee",
+                "components": "none"
+            },
+            {
+                "name": "Employee",
+                "attributes": [
+                    {
+                        "accessModifier": "private",
+                        "type": "int",
+                        "name": "EQUAL_RESULT"
+                    },
+                    {
+                        "accessModifier": "private",
+                        "type": "int",
+                        "name": "INVERSE"
+                    },
+                    {
+                        "accessModifier": "private",
+                        "type": "String",
+                        "name": "name"
+                    },
+                    {
+                        "accessModifier": "private",
+                        "type": "String",
+                        "name": "id"
+                    },
+                    {
+                        "accessModifier": "private",
+                        "type": "double",
+                        "name": "grossSalary"
+                    },
+                    {
+                        "accessModifier": "private",
+                        "type": "double",
+                        "name": "TAX"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "type": "String",
+                        "name": "choose"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "type": "String",
+                        "name": "orderBy"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "type": "int",
+                        "name": "result"
+                    }
+                ],
+                "methods": [
+                    {
+                        "accessModifier": "public",
+                        "returnType": "double",
+                        "name": "calculateSalary"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "returnType": "double",
+                        "name": "getNetSalary"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "returnType": "int",
+                        "name": "compareTo"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "returnType": "String",
+                        "name": "getName"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "returnType": "void",
+                        "name": "setName"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "returnType": "String",
+                        "name": "getId"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "returnType": "double",
+                        "name": "getGrossSalary"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "returnType": "void",
+                        "name": "setGrossSalary"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "returnType": "String",
+                        "name": "toString"
+                    }
+                ],
+                "interfaces": "Comparable<Employee>",
+                "subclasses": [
+                    "Intern",
+                    "Manager",
+                    "RegularEmployee"
+                ],
+                "superclass": "[]",
+                "component": [
+                    "Test",
+                    "ReusaxCorp"
+                ]
+            },
+            {
+                "name": "RegularEmployee",
+                "attributes": [
+                    {
+                        "accessModifier": "private",
+                        "type": "double",
+                        "name": "TAX"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "type": "double",
+                        "name": "netSalary"
+                    }
+                ],
+                "methods": [
+                    {
+                        "accessModifier": "public",
+                        "returnType": "double",
+                        "name": "getNetSalary"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "returnType": "String",
+                        "name": "toString"
+                    }
+                ],
+                "interfaces": "none",
+                "subclasses": "[]",
+                "superclass": "Employee",
+                "components": "none"
+            },
+            {
+                "name": "Test",
+                "attributes": [
+                    {
+                        "accessModifier": "public",
+                        "type": "ReusaxCorp",
+                        "name": "company"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "type": "Employee",
+                        "name": "emp1"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "type": "Employee",
+                        "name": "emp2"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "type": "Employee",
+                        "name": "emp3"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "type": "Employee",
+                        "name": "emp4"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "type": "Employee",
+                        "name": "emp5"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "type": "Employee",
+                        "name": "emp6"
+                    }
+                ],
+                "methods": {
+                    "accessModifier": "public",
+                    "returnType": "void",
+                    "name": "main"
+                },
+                "interfaces": "none",
+                "subclasses": "[]",
+                "superclass": "[]",
+                "components": "none"
+            },
+            {
+                "name": "ReusaxCorp",
+                "attributes": [
+                    {
+                        "accessModifier": "private",
+                        "type": "Employee",
+                        "name": "employee"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "type": "ArrayList<Employee>",
+                        "name": "employees"
+                    },
+                    {
+                        "accessModifier": "private",
+                        "type": "int",
+                        "name": "NOT_FOUND_IN_LIST"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "type": "Employee",
+                        "name": "temp"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "type": "Employee",
+                        "name": "temp"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "type": "double",
+                        "name": "sum"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "type": "double",
+                        "name": "sum"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "type": "int",
+                        "name": "result"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "type": "Employee",
+                        "name": "temp"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "type": "Employee",
+                        "name": "temp"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "type": "Employee",
+                        "name": "temp"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "type": "int",
+                        "name": "position"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "type": "Employee",
+                        "name": "temp"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "type": "int",
+                        "name": "position"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "type": "Employee",
+                        "name": "temp"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "type": "int",
+                        "name": "position"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "type": "Employee",
+                        "name": "temp"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "type": "Employee",
+                        "name": "newRegularEmployee"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "type": "Employee",
+                        "name": "newManager"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "type": "Employee",
+                        "name": "newDirector"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "type": "Employee",
+                        "name": "newIntern"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "type": "int",
+                        "name": "position"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "type": "Employee",
+                        "name": "temp"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "type": "int",
+                        "name": "position"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "type": "Employee",
+                        "name": "temp"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "type": "int",
+                        "name": "position"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "type": "Employee",
+                        "name": "temp"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "type": "int",
+                        "name": "position"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "type": "Employee",
+                        "name": "temp"
+                    }
+                ],
+                "methods": [
+                    {
+                        "accessModifier": "public",
+                        "returnType": "void",
+                        "name": "remove"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "returnType": "Employee",
+                        "name": "checkID"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "returnType": "void",
+                        "name": "add"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "returnType": "void",
+                        "name": "getTotalNetSalaries"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "returnType": "void",
+                        "name": "getTotalGrossSalaries"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "returnType": "void",
+                        "name": "getEmployeesNumber"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "returnType": "void",
+                        "name": "find"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "returnType": "void",
+                        "name": "updateName"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "returnType": "void",
+                        "name": "updateGrossSalary"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "returnType": "int",
+                        "name": "getPosition"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "returnType": "void",
+                        "name": "updateDegree"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "returnType": "void",
+                        "name": "updateDirector"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "returnType": "void",
+                        "name": "updateBenefit"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "returnType": "void",
+                        "name": "updateGPA"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "returnType": "void",
+                        "name": "createRegularEmployee"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "returnType": "void",
+                        "name": "createManager"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "returnType": "void",
+                        "name": "createDirector"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "returnType": "void",
+                        "name": "createIntern"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "returnType": "void",
+                        "name": "promoteToRegularEmployee"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "returnType": "void",
+                        "name": "promoteToManager"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "returnType": "void",
+                        "name": "promoteToDirector"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "returnType": "void",
+                        "name": "promoteToIntern"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "returnType": "void",
+                        "name": "sortBy"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "returnType": "void",
+                        "name": "sortBy"
+                    },
+                    {
+                        "accessModifier": "public",
+                        "returnType": "void",
+                        "name": "sortBy"
+                    }
+                ],
+                "interfaces": "none",
+                "subclasses": "[]",
+                "superclass": "[]",
+                "component": "Test"
+            }
+        ]
+    }
+}
