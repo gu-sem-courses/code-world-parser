@@ -253,7 +253,7 @@ namespace parser
         {
             String className = GetClassName(classNode, xDoc, nsm).InnerText;
             //XmlNodeList jClasses = xDoc.DocumentElement.SelectNodes("//src:class[.//src:decl_stmt//src:decl/src:type//src:name = \"" + className + "\" + //src:init = src:expr//src:operator[.= 'new']/src:call/src:name/src:name/src:argument_list]", nsm); 
-
+            //ask oli about the query
             XmlNodeList jClasses = xDoc.DocumentElement.SelectNodes("//src:class[//src:decl//src:operator[.= 'new']]", nsm);        
             foreach (XmlNode jClass in jClasses)
             {
@@ -263,13 +263,7 @@ namespace parser
 
                 root.AppendChild(asso);
             }
-            if (jClasses.Count < 1)
-            {
-                XmlElement asso = xDoc.CreateElement("associations");
-                asso.InnerText = "[]";
-                root.AppendChild(asso);
-
-            }
+            
         }
     }
 }
