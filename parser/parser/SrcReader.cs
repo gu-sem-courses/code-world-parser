@@ -233,14 +233,14 @@ namespace parser
             XmlNodeList jClasses = xDoc.DocumentElement.SelectNodes("//src:class[.//src:decl_stmt//src:decl/src:type//src:name = \"" + className + "\"]", nsm);
             foreach (XmlNode jClass in jClasses)
             {
-                XmlElement ass = xDoc.CreateElement("component");
+                XmlElement ass = xDoc.CreateElement("components");
                 ass.InnerText = GetClassName(jClass, xDoc, nsm).InnerText;
                 root.AppendChild(ass);
             }
             if (jClasses.Count < 1)
             {
                 XmlElement comp = xDoc.CreateElement("components");
-                comp.InnerText = "none";
+                comp.InnerText = "[]";
                 root.AppendChild(comp);
             }
         }
