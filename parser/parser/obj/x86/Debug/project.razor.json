@@ -1,6 +1,14 @@
 {
-  "ProjectFilePath": "c:\\University\\DistributedSystemsProject\\dit355\\dit355\\parser\\parser\\parser.csproj",
+  "ProjectFilePath": "/Users/humblebee/Documents/University/dit355/parser/parser/parser.csproj",
   "TargetFramework": "v4.6.1",
   "TagHelpers": [],
-  "Configuration": null
+  "Configuration": {
+    "ConfigurationName": "UnsupportedRazor",
+    "LanguageVersion": "1.0",
+    "Extensions": [
+      {
+        "ExtensionName": "UnsupportedRazorExtension"
+      }
+    ]
+  }
 }

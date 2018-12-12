@@ -252,16 +252,22 @@ namespace parser
         public void GetAssociations(XmlNode root, XmlNode classNode, XmlDocument xDoc, XmlNamespaceManager nsm)
         {
             String className = GetClassName(classNode, xDoc, nsm).InnerText;
-            //XmlNodeList jClasses = xDoc.DocumentElement.SelectNodes("//src:class[.//src:decl_stmt//src:decl/src:type//src:name = \"" + className + "\" + //src:init = src:expr//src:operator[.= 'new']/src:call/src:name/src:name/src:argument_list]", nsm); 
+            //XmlNodeList jClasses = xDoc.DocumentElement.SelectNodes("//src:class[.//src:decl_stmt//src:decl/src:type//src:name //src:init = src:expr/src:operator[.= 'new']/src:call/src:name/src:name/src:argument_list[.= '()']]", nsm);
             //ask oli about the query
-            XmlNodeList jClasses = xDoc.DocumentElement.SelectNodes("//src:class[//src:decl//src:operator[.= 'new']]", nsm);        
-            foreach (XmlNode jClass in jClasses)
-            {
-                
-                XmlElement asso = xDoc.CreateElement("associations");
-                asso.InnerText = GetClassName(jClass, xDoc, nsm).InnerText;
+            // XmlNodeList jClasses = xDoc.DocumentElement.SelectNodes("//src:class[//src:decl//src:operator[.= 'new']]", nsm);  
+            // XmlNodeList jClasses = xDoc.DocumentElement.SelectNodes("//src:decl[src:type/src:name/src:argument_list]", nsm); 
+            XmlNodeList jClasses = xDoc.DocumentElement.SelectNodes("//src:class[.//src:decl_stmt//src:decl/src:type//src:name = \"" + className + "\"]", nsm);
+            XmlNode aClasses = xDoc.DocumentElement.SelectSingleNode("//src:class[.//src:decl_stmt//src:decl/src:type//src:name //src:init = src:expr/src:operator[.= 'new']/src:call/src:name/src:name/src:argument_list[.= '()']]", nsm);
 
-                root.AppendChild(asso);
+
+            foreach (XmlNode aClass in aClasses)
+            {
+            
+                    XmlElement asso = xDoc.CreateElement("associations");
+                    asso.InnerText = GetClassName(aClass, xDoc, nsm).InnerText;
+
+                    root.AppendChild(asso);
+
             }
             
         }
