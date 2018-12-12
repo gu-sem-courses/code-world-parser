@@ -5,6 +5,8 @@ namespace parser
 {
     public class SrcReader
     {
+        private string save;
+
         public XmlElement[] GetClasses(XmlDocument xDoc, XmlNamespaceManager nsm)
         {
             XmlNodeList classList = xDoc.DocumentElement.SelectNodes("//src:class[src:specifier[.!='abstract']]", nsm);
@@ -35,6 +37,8 @@ namespace parser
                 javaClass.AppendChild(superClass);
                 //components []
                 GetComponents(javaClass, xClass, xDoc, nsm);
+                //associations []
+                GetAssociations(javaClass, xClass, xDoc, nsm);
 
 
                 //append result to an array
@@ -242,6 +246,28 @@ namespace parser
                 XmlElement comp = xDoc.CreateElement("components");
                 comp.InnerText = "[]";
                 root.AppendChild(comp);
+            }
+        }
+
+        public void GetAssociations(XmlNode root, XmlNode classNode, XmlDocument xDoc, XmlNamespaceManager nsm)
+        {
+            String className = GetClassName(classNode, xDoc, nsm).InnerText;
+            XmlNodeList jClasses = xDoc.DocumentElement.SelectNodes("//src:class[.//src:decl_stmt//src:decl/src:type//src:name = \"" + className + "\" + //src:init = src:expr//src:operator[.= 'new']/src:call/src:name/src:name/src:argument_list]", nsm); 
+
+            foreach (XmlNode jClass in jClasses)
+            {
+                
+                XmlElement asso = xDoc.CreateElement("associations");
+                asso.InnerText = GetClassName(jClass, xDoc, nsm).InnerText;
+
+                root.AppendChild(asso);
+            }
+            if (jClasses.Count < 1)
+            {
+                XmlElement asso = xDoc.CreateElement("associations");
+                asso.InnerText = "[]";
+                root.AppendChild(asso);
+
             }
         }
     }

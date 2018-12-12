@@ -70,7 +70,16 @@
                 "interfaces": "none",
                 "subclasses": "[]",
                 "superclass": "Employee",
-                "components": "none"
+                "components": "[]",
+                "associations": [
+                    "Intern",
+                    "Director",
+                    "Manager",
+                    "Employee",
+                    "RegularEmployee",
+                    "Test",
+                    "ReusaxCorp"
+                ]
             },
             {
                 "name": "Director",
@@ -166,7 +175,16 @@
                 "interfaces": "none",
                 "subclasses": "[]",
                 "superclass": "Manager",
-                "components": "none"
+                "components": "[]",
+                "associations": [
+                    "Intern",
+                    "Director",
+                    "Manager",
+                    "Employee",
+                    "RegularEmployee",
+                    "Test",
+                    "ReusaxCorp"
+                ]
             },
             {
                 "name": "Manager",
@@ -227,7 +245,16 @@
                 "interfaces": "none",
                 "subclasses": "Director",
                 "superclass": "Employee",
-                "components": "none"
+                "components": "[]",
+                "associations": [
+                    "Intern",
+                    "Director",
+                    "Manager",
+                    "Employee",
+                    "RegularEmployee",
+                    "Test",
+                    "ReusaxCorp"
+                ]
             },
             {
                 "name": "Employee",
@@ -332,7 +359,16 @@
                     "RegularEmployee"
                 ],
                 "superclass": "[]",
-                "component": [
+                "components": [
+                    "Test",
+                    "ReusaxCorp"
+                ],
+                "associations": [
+                    "Intern",
+                    "Director",
+                    "Manager",
+                    "Employee",
+                    "RegularEmployee",
                     "Test",
                     "ReusaxCorp"
                 ]
@@ -366,7 +402,16 @@
                 "interfaces": "none",
                 "subclasses": "[]",
                 "superclass": "Employee",
-                "components": "none"
+                "components": "[]",
+                "associations": [
+                    "Intern",
+                    "Director",
+                    "Manager",
+                    "Employee",
+                    "RegularEmployee",
+                    "Test",
+                    "ReusaxCorp"
+                ]
             },
             {
                 "name": "Test",
@@ -415,7 +460,16 @@
                 "interfaces": "none",
                 "subclasses": "[]",
                 "superclass": "[]",
-                "components": "none"
+                "components": "[]",
+                "associations": [
+                    "Intern",
+                    "Director",
+                    "Manager",
+                    "Employee",
+                    "RegularEmployee",
+                    "Test",
+                    "ReusaxCorp"
+                ]
             },
             {
                 "name": "ReusaxCorp",
@@ -696,7 +750,16 @@
                 "interfaces": "none",
                 "subclasses": "[]",
                 "superclass": "[]",
-                "component": "Test"
+                "components": "Test",
+                "associations": [
+                    "Intern",
+                    "Director",
+                    "Manager",
+                    "Employee",
+                    "RegularEmployee",
+                    "Test",
+                    "ReusaxCorp"
+                ]
             }
         ]
     }
