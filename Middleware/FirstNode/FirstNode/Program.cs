@@ -55,7 +55,9 @@ namespace FirstNode
 
             //sets the variable so we always make the file in the same place no matter the PC that runs it
             //the filetype variable at the end decides what kind of file we will make.
-            filepath = System.AppDomain.CurrentDomain.BaseDirectory + "../" + ProjectName + filetype;
+            
+           
+            filepath = System.AppDomain.CurrentDomain.BaseDirectory + "../Project" + filetype;
 
             //This will write the file on the computer
             System.IO.File.WriteAllText(filepath, json.File);
