@@ -20,26 +20,25 @@ namespace parser
                 javaClass = xDoc.CreateElement("data");
                 //add name
                 name = GetClassName(xClass, xDoc, nsm);
+                Console.WriteLine(name.InnerText + "****************");
                 javaClass.AppendChild(name);
                 //add attributes []
                 GetAttributes(javaClass, xClass, xDoc, nsm);
                 //add methods []
                 GetMethods(javaClass, xClass, xDoc, nsm);
                 //interfaces []
-                /**** coming soon ****/
+                GetInterfaces(javaClass, xClass, xDoc, nsm);
                 //add subclasses []
                 GetSubclasses(javaClass, xClass, xDoc, nsm);
                 //add superclasses 
                 superClass = GetSuperClass(xClass, xDoc, nsm);
                 javaClass.AppendChild(superClass);
                 //associations []
-                /**** coming soon ****/
+                GetAssociations(javaClass, xClass, xDoc, nsm);
 
 
                 //append result to an array
                 result[i] = javaClass;
-
-                Console.WriteLine(name.InnerText + "****************");
             }
 
             return result;
@@ -156,6 +155,28 @@ namespace parser
             }
         }
 
+        public void GetInterfaces(XmlNode root, XmlNode classNode, XmlDocument xDoc, XmlNamespaceManager nsm) {
+
+            XmlNodeList jInterfaces = classNode.SelectNodes("./src:super//src:implements/src:name[last()]", nsm);
+            Console.WriteLine("interfaces = " + jInterfaces.Count);
+
+            foreach(XmlNode jInterface in jInterfaces) {
+
+                XmlElement javaInterface = xDoc.CreateElement("interfaces");
+                javaInterface.InnerText = jInterface.InnerText;
+
+                root.AppendChild(javaInterface);
+            }
+
+            if (jInterfaces.Count < 1)
+            {
+                XmlElement javaInterface = xDoc.CreateElement("interfaces");
+                javaInterface.InnerText = "none";
+
+                root.AppendChild(javaInterface);
+            }
+        }
+
         public XmlElement GetSuperClass(XmlNode classNode, XmlDocument xDoc, XmlNamespaceManager nsm) {
             XmlElement result = xDoc.CreateElement("superclass");
             XmlNode super = classNode.SelectSingleNode("./descendant::src:super/src:extends", nsm);
@@ -177,7 +198,7 @@ namespace parser
             {
                 foreach (XmlNode sub in subClasses)
                 {
-                    XmlElement subClass = xDoc.CreateElement("subClass");
+                    XmlElement subClass = xDoc.CreateElement("subclasses");
                     subClass.InnerText = GetClassName(sub, xDoc, nsm).InnerText;
 
                     /*append results*/
@@ -185,13 +206,28 @@ namespace parser
                 }
             }
             else{
-                XmlElement subClass = xDoc.CreateElement("subClass");
-                subClass.InnerText = "none";
+                XmlElement subClass = xDoc.CreateElement("subclasses");
+                subClass.InnerText = "[]";
 
                 /*append results*/
                 root.AppendChild(subClass);
             }
         }
 
+        public void GetAssociations(XmlNode root, XmlNode classNode, XmlDocument xDoc, XmlNamespaceManager nsm) {
+
+            String className = GetClassName(classNode, xDoc, nsm).InnerText;
+            XmlNodeList jClasses = xDoc.DocumentElement.SelectNodes("//src:class[.//src:decl_stmt//src:decl/src:type//src:name = \""+className+"\"]", nsm);
+            foreach(XmlNode jClass in jClasses) {
+                XmlElement ass = xDoc.CreateElement("associations");
+                ass.InnerText = GetClassName(jClass, xDoc, nsm).InnerText;
+                root.AppendChild(ass);
+            }
+            if(jClasses.Count < 1) {
+                XmlElement ass = xDoc.CreateElement("associations");
+                ass.InnerText = "none";
+                root.AppendChild(ass);
+            }
+        }
     }
 }

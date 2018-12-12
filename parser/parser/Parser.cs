@@ -15,7 +15,7 @@ class Program
         srcML = new XmlDocument();
 
         /*load project(s)*/
-        //javaProject.Load("../../../../globalAssets/tests/sample/fullProject.xml");
+        //srcML.Load("../../../../globalAssets/tests/sample/fullProject.xml");
         String srcMLPath = System.AppDomain.CurrentDomain.BaseDirectory + "../../../../globalAssets/inbox/srcML.xml";
         srcML.Load(srcMLPath);
 
