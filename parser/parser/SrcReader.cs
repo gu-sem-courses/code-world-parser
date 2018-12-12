@@ -20,6 +20,7 @@ namespace parser
                 javaClass = xDoc.CreateElement("data");
                 //add name
                 name = GetClassName(xClass, xDoc, nsm);
+                Console.WriteLine(name.InnerText + "****************");
                 javaClass.AppendChild(name);
                 //add attributes []
                 GetAttributes(javaClass, xClass, xDoc, nsm);
@@ -34,12 +35,11 @@ namespace parser
                 javaClass.AppendChild(superClass);
                 //associations []
                 /**** coming soon ****/
+                GetAssociations(javaClass, xClass, xDoc, nsm);
 
 
                 //append result to an array
                 result[i] = javaClass;
-
-                Console.WriteLine(name.InnerText + "****************");
             }
 
             return result;
@@ -193,5 +193,20 @@ namespace parser
             }
         }
 
+        public void GetAssociations(XmlNode root, XmlNode classNode, XmlDocument xDoc, XmlNamespaceManager nsm) {
+
+            String className = GetClassName(classNode, xDoc, nsm).InnerText;
+            XmlNodeList jClasses = xDoc.DocumentElement.SelectNodes("//src:class[.//src:decl_stmt//src:decl/src:type//src:name = \""+className+"\"]", nsm);
+            foreach(XmlNode jClass in jClasses) {
+                XmlElement ass = xDoc.CreateElement("associations");
+                ass.InnerText = GetClassName(jClass, xDoc, nsm).InnerText;
+                root.AppendChild(ass);
+            }
+            if(jClasses.Count < 1) {
+                XmlElement ass = xDoc.CreateElement("associations");
+                ass.InnerText = "none";
+                root.AppendChild(ass);
+            }
+        }
     }
 }
