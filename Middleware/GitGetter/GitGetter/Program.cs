@@ -219,7 +219,7 @@ namespace GitGetter2
         private static void activateParser(String projectId){
         {
 
-             string PathP = mainFolderGetter()+ "/parser/parser/obj/x86/Debug/Parser.exe";
+             string PathP = mainFolderGetter()+ "/parser/parser/bin/Debug/parser.exe";
 
                 
 

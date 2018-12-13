@@ -21,7 +21,6 @@ namespace SecondNode
         {
 
             GetProject(request);
-        
             string filepath = "../../../../../dit355/globalAssets/outbox/xml2json.json";
             string result = string.Empty;
             using (StreamReader r = new StreamReader(filepath))
