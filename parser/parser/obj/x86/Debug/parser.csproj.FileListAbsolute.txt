@@ -43,3 +43,14 @@ C:\Projects\DIT355DistributedSystems\parser\parser\obj\x86\Debug\parser.csproj.C
 C:\Projects\DIT355DistributedSystems\parser\parser\obj\x86\Debug\parser.exe
 C:\Projects\DIT355DistributedSystems\parser\parser\obj\x86\Debug\parser.pdb
 >>>>>>> gitgetter
+C:\FakeDesktop\Coding\TEAMFLEX\dit355\parser\parser\bin\Debug\parser.exe.config
+C:\FakeDesktop\Coding\TEAMFLEX\dit355\parser\parser\bin\Debug\parser.exe
+C:\FakeDesktop\Coding\TEAMFLEX\dit355\parser\parser\bin\Debug\parser.pdb
+C:\FakeDesktop\Coding\TEAMFLEX\dit355\parser\parser\bin\Debug\Newtonsoft.Json.dll
+C:\FakeDesktop\Coding\TEAMFLEX\dit355\parser\parser\bin\Debug\Newtonsoft.Json.pdb
+C:\FakeDesktop\Coding\TEAMFLEX\dit355\parser\parser\bin\Debug\Newtonsoft.Json.xml
+C:\FakeDesktop\Coding\TEAMFLEX\dit355\parser\parser\obj\x86\Debug\parser.csprojAssemblyReference.cache
+C:\FakeDesktop\Coding\TEAMFLEX\dit355\parser\parser\obj\x86\Debug\parser.csproj.CoreCompileInputs.cache
+C:\FakeDesktop\Coding\TEAMFLEX\dit355\parser\parser\obj\x86\Debug\parser.csproj.CopyComplete
+C:\FakeDesktop\Coding\TEAMFLEX\dit355\parser\parser\obj\x86\Debug\parser.exe
+C:\FakeDesktop\Coding\TEAMFLEX\dit355\parser\parser\obj\x86\Debug\parser.pdb

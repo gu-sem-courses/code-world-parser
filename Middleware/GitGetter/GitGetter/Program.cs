@@ -61,7 +61,7 @@ namespace GitGetter2
 
                 try
                 {
-                    String dirPath = mainFolderGetter()+"/middleware/GitGetter/FileStorer/" + projectId;
+                    String dirPath = mainFolderGetter()+"/Middleware/GitGetter/FileStorer/" + projectId;
                     //File.WriteAllText(dirPath+"/"+ name, responseString); // Creates a seperate file for each code
                     File.AppendAllText(dirPath+fileType, responseString+" ");  // Should create a single file with the contents of all the code files.
                 }
@@ -105,7 +105,7 @@ namespace GitGetter2
                 List<TreeObject> noPathFolder = makeTreeList(responseString);
 
                 //Makes a directory for this project
-                String dirPath = mainFolderGetter()+"/middleware/GitGetter/FileStorer/" + projectId;
+                String dirPath = mainFolderGetter()+"/Middleware/Gitgetter/FileStorer/" + projectId;
 
                 System.IO.Directory.CreateDirectory(dirPath);
                 System.IO.Directory.CreateDirectory(dirPath+ "_srcml");
@@ -225,8 +225,9 @@ namespace GitGetter2
 
                 
                 String batAddress = System.AppDomain.CurrentDomain.BaseDirectory +".SrcmlStarter.bat";
-                String storageAddress = mainFolderGetter() + "/middleware/GitGetter/FileStorer/";
+                String storageAddress = mainFolderGetter() + "/Middleware/Gitgetter/FileStorer/";
                 storageAddress = storageAddress.Replace( "/" ,"\\ ");
+                Console.WriteLine(storageAddress);
 
                 Console.WriteLine("Enumerator and srcml beginning");
                 // Part that activates srcml
@@ -333,13 +334,13 @@ namespace GitGetter2
         private static String mainFolderGetter()
         {
             String endlocation = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
-            //Console.WriteLine("This is the exelocation = "+ endlocation);
-            Boolean boolean = false;
-            while (endlocation.Contains("middleware"))
+            Console.WriteLine("This is the exelocation = "+ endlocation);
+            //Boolean boolean = false;
+            while (endlocation.Contains("Middleware"))
             {
                 endlocation = Path.GetDirectoryName(endlocation);
-                //Console.WriteLine("This is the endlocation = " + endlocation);
-                //Console.WriteLine("Current iteration: " + i);
+                Console.WriteLine("This is the endlocation = " + endlocation);
+                Console.WriteLine("Current iteration: " + 1);
             }
 
 
@@ -370,18 +371,26 @@ namespace GitGetter2
                 fileName += charArray2[i];
             }
 
-            String srcmlAddress = mainFolderGetter() + "/middleware/GitGetter/FileStorer/Srcml/"+ fileName+".xml";
+           // String srcmlAddress = mainFolderGetter() + "/globalAssets/inbox/"+ fileName+".xml";
+            String srcmlAddress = mainFolderGetter() + "/globalAssets/inbox/srcML.xml";
             srcmlAddress = srcmlAddress.Replace(" ", "");
 
             Process srcml = new Process();
+            //srcml.StartInfo.FileName = "cmd.exe";
+           // srcml.StartInfo.UseShellExecute = false;
+           // srcml.StartInfo.RedirectStandardInput = true;
+            //srcml.Start();
+
+            //StreamWriter srcmlText = srcml.StandardInput;
             srcml.StartInfo.FileName = batAddress; // IF YOU WANT TO CHANGE WHERE THE OUTPUT FILES GOES THEN CHANGE IT IN THE BAT FILE
 
-            // srcml.StartInfo.Arguments = enumerator.Current+" "+dirPath+ "_srcml/"+ fileName;
+            //srcml.StartInfo.Arguments = enumerator.Current+" "+dirPath+ "_srcml/"+ fileName;
             srcml.StartInfo.Arguments = dirpath + " " + srcmlAddress;
             // What arguments the file will take when it starts
+            //srcmlText.WriteLine(argu);
             srcml.Start();
             srcml.WaitForExit();
-
+           
         }
 
     }

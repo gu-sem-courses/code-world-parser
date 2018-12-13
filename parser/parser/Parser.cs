@@ -16,7 +16,7 @@ class Program
 
         /*load project(s)*/
         //srcML.Load("../../../../globalAssets/tests/sample/fullProject.xml");
-        String srcMLPath = System.AppDomain.CurrentDomain.BaseDirectory + "../../../../globalAssets/inbox/srcML.xml";
+        String srcMLPath = AppDomain.CurrentDomain.BaseDirectory + "/../../../../../../globalAssets/inbox/srcML.xml";
         srcML.Load(srcMLPath);
 
         /*this is needed to make xpath queries*/
@@ -67,7 +67,7 @@ class Program
     public static Boolean ExportJson(XmlDocument result) {
         try
         {
-            String path = System.AppDomain.CurrentDomain.BaseDirectory + "../../../../globalAssets/outbox/xml2json.json";
+            String path = System.AppDomain.CurrentDomain.BaseDirectory + "/../../../../../../globalAssets/outbox/xml2json.json";
 
             // serialize JSON to a string and then write string to a file
             File.WriteAllText(path, JsonConvert.SerializeObject(result));
