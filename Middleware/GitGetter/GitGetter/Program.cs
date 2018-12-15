@@ -28,14 +28,22 @@ namespace GitGetter2
 
             mainFolderGetter();
             Console.WriteLine(projectId[0].ToString());
-                if (gitTreeRetriever(projectId[0].ToString(), true))
+            if (false /*If it is gitlab use this code*/) {
+                if (gitTreeRetriever(projectId[0].ToString()))
                 {
                     activateParser(projectId[0].ToString());
                 }
-
+            }
+            else
+            {
+                if (GitHubGetter.getMainTree(projectId[0].ToString()))
+                {
+                    //activateParser(projectId[0].ToString());
+                }
+            }
         }
 
-        public static bool gitFileRetriever(String projectId, String filepath, String name, Boolean gitlab)
+        public static bool gitFileRetriever(String projectId, String filepath, String name)
         { // This method is meant to take the id/filepath of a single file. 
           //String address = "https://gitlab.com/"+ projectId +"/raw/master/"+filepath;
             String address = "https://gitlab.com/api/v4/projects/" + WebUtility.UrlEncode(projectId) + "/repository/files/" + WebUtility.UrlEncode(filepath) + "/raw?ref=master";
@@ -85,7 +93,7 @@ namespace GitGetter2
 
             return true;
         }
-        private static Boolean gitTreeRetriever(String projectId, Boolean isGitlab)
+        private static Boolean gitTreeRetriever(String projectId)
         {
             //urlEncoder(projectId);
             String address = "https://gitlab.com/api/v4/projects/" + urlEncoder(projectId) + "/repository/tree";
@@ -111,11 +119,10 @@ namespace GitGetter2
                 String dirPath = mainFolderGetter() + "/Middleware/Gitgetter/FileStorer/" + projectId;
 
                 System.IO.Directory.CreateDirectory(dirPath);
-                System.IO.Directory.CreateDirectory(dirPath + "_srcml");
 
                 foreach (TreeObject tree in noPathFolder)
                 {
-                    TreeNavigator(projectId, tree, true);
+                    TreeNavigator(projectId, tree);
                 }
                 return true;
 
@@ -147,7 +154,7 @@ namespace GitGetter2
 
                 foreach (TreeObject tree in noPathFolder)
                 {
-                    TreeNavigator(projectId, tree, true);
+                    TreeNavigator(projectId, tree);
                 }
             }
             catch (Exception e)
@@ -159,7 +166,7 @@ namespace GitGetter2
             }
             return true;
         }
-        private static bool TreeNavigator(String projectId, TreeObject map, Boolean isGitlab)
+        private static bool TreeNavigator(String projectId, TreeObject map)
         { // Checks if the tree object is a file or folder and calls the appropriate method. 
 
              
@@ -169,7 +176,7 @@ namespace GitGetter2
                 }
                 else if (map.type == "blob" && map.name.Contains(fileType))
                 {
-                    return gitFileRetriever(projectId, map.path, map.name, true);
+                    return gitFileRetriever(projectId, map.path, map.name);
                     //return true; //Added for the testing of enumerator. Remember to uncomment gitFileRetriever and remove this. 
                 }
                 else
@@ -189,6 +196,7 @@ namespace GitGetter2
 
             return tempTreeObject;
         }
+
         public static String urlEncoder(String url)
         {
             String encoded_url = "";
@@ -244,59 +252,8 @@ namespace GitGetter2
 
                 Console.WriteLine("Here is the dirpath: " + dirPath); ;
                 singleFileSrcmlCall(dirPath, projectId, batAddress);
-
-                //This part is for multiple code files.
-                /* Console.WriteLine("Before enum");
-                String dirPath = globalFolderGetter(4) +"/GitGetter/FileStorer/" + projectId+ "/";
-
-                IEnumerator<String> enumerator = System.IO.Directory.EnumerateFiles(dirPath).GetEnumerator();
-                Console.WriteLine("after enum");
-                do
-                {
-                    try
-                    {
-                        Console.WriteLine("Current enum location: "+enumerator.Current);
-                        Process srcml = new Process();
-                        //This is intended to start sourceml and then do the thing on each file in the folder.
-
-                        char[] charArray = enumerator.Current.ToCharArray();
-                        
-                        String fileName = "";
-                        for (int i = charArray.Length - 1; i > 0; i--)
-                        {
-                            if (charArray[i] == '/')
-                            {
-                                break;
-                            }
-                            fileName += charArray[i];
-                        }
-                        char[] charArray2 = fileName.ToCharArray();
-
-                        fileName = "";
-
-                        for (int i = charArray2.Length-1; i>=0; i--)
-                        {
-                            fileName += charArray2[i];
-                        }
-
-                        Console.WriteLine("Before srcml calls");
-                        Console.WriteLine(storageAddress + "Srcml/SrcmlTextDoc.xml");
-
-                        srcml.StartInfo.FileName = batAddress; // IF YOU WANT TO CHANGE WHERE THE OUTPUT FILES GOES THEN CHANGE IT IN THE BAT FILE
-
-                        // srcml.StartInfo.Arguments = enumerator.Current+" "+dirPath+ "_srcml/"+ fileName;
-                        srcml.StartInfo.Arguments = enumerator.Current+ " "+ fileName;
-                        // What arguments the file will take when it starts
-                        srcml.Start();
-                        scrml.WaitForExit();
-                    }
-                    catch (Exception e)
-                    {
-                        Console.WriteLine(e.Message);
-                    }
-
-
-                } while (enumerator.MoveNext() == true);
+                
+               
              //End of srcml part. */
 
 
@@ -321,7 +278,7 @@ namespace GitGetter2
             }
 
         }
-        private static String globalFolderGetter(int backwardsSteps)
+        protected static String globalFolderGetter(int backwardsSteps)
         { // Used to move backwards in the folders
 
             String endlocation = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
@@ -337,7 +294,7 @@ namespace GitGetter2
             return endlocation;
         }
 
-        private static String mainFolderGetter()
+        public static String mainFolderGetter()
         {
             if (mainFolderLocation != null)
             {
@@ -352,6 +309,7 @@ namespace GitGetter2
                 Console.WriteLine("This is the endlocation = " + endlocation);
                 Console.WriteLine("Current iteration: " + 1);
             }
+            mainFolderLocation = endlocation;
 
 
             return endlocation;
@@ -401,6 +359,11 @@ namespace GitGetter2
             srcml.Start();
             srcml.WaitForExit();
 
+        }
+
+        public static String getFiletype()
+        {
+            return fileType;
         }
 
 

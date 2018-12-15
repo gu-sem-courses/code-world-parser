@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace GitGetter2
 {
-    class Class1
+    public class HubObject
     {
+        public string name { get; set; }
+        public string type { get; set; }
+        public string url { get; set; }
+        public string download_url { get; set; }
+
+        public void Hub() { }
     }
 }
+
