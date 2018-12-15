@@ -14,13 +14,13 @@ namespace GitGetter2
     class GitHubGetter
     {
 
-        private static readonly HttpClient client = new HttpClient();
+        private static readonly HttpClient client = Program.getClient();
 
 
         public static Boolean getMainTree(String projectId)
         {
-            //urlEncoder(projectId);
-            String address = "https://api.github.com/repos/" + Program.urlEncoder(projectId) + "/contents";
+            //String address = "https://api.github.com/repos/" + Program.urlEncoder(projectId) + "/contents";
+            String address = "https://api.github.com/repos/GokuMohandas/practicalAI/contents"; // Testing address
             Console.WriteLine(address);
 
             // The part where the request is actually made
@@ -178,6 +178,7 @@ namespace GitGetter2
             return tempHubObject;
 
         }
+        
 
     }
 }

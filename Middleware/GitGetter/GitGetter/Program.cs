@@ -31,7 +31,7 @@ namespace GitGetter2
             if (false /*If it is gitlab use this code*/) {
                 if (gitTreeRetriever(projectId[0].ToString()))
                 {
-                    activateParser(projectId[0].ToString());
+                    //activateParser(projectId[0].ToString());
                 }
             }
             else
@@ -364,6 +364,11 @@ namespace GitGetter2
         public static String getFiletype()
         {
             return fileType;
+        }
+
+        public static HttpClient getClient()
+        {
+            return client;
         }
 
 
