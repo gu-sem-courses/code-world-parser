@@ -19,20 +19,21 @@ namespace GitGetter2
 
         public static Boolean getMainTree(String projectId)
         {
-            //String address = "https://api.github.com/repos/" + Program.urlEncoder(projectId) + "/contents";
-            String address = "https://api.github.com/repos/GokuMohandas/practicalAI/contents"; // Testing address
+            String address = "https://api.github.com/repos/" + projectId + "/contents";
+            //String address = "https://api.github.com/repos/GokuMohandas/practicalAI/contents"; // Testing address
             Console.WriteLine(address);
 
             // The part where the request is actually made
             try
             {
-                Console.WriteLine("Sending request");
-                Task<String> responseTask = client.GetStringAsync(address);
-                while (responseTask.IsCompleted != true) { }
+                Console.WriteLine("Sending request. V2");
+                client.DefaultRequestHeaders.Add("User-Agent", "C# App");
 
+                HttpResponseMessage response = client.GetAsync(address).GetAwaiter().GetResult() ;
+                
                 Console.WriteLine("response has not been made");
                 String responseString;
-                if (responseTask.IsCompleted == true) { responseString = responseTask.Result; }
+                if (response!=null) { responseString = response.Content.ReadAsStringAsync().GetAwaiter().GetResult(); }
                 else { return false; }
 
                 Console.WriteLine("ResponseString has been made");
@@ -124,6 +125,7 @@ namespace GitGetter2
                 try
                 {
                     String dirPath = Program.mainFolderGetter() + "/Middleware/GitGetter/FileStorer/" + projectId;
+                    dirPath = dirPath.Replace(" ", "");
                     //File.WriteAllText(dirPath+"/"+ name, responseString); // Creates a seperate file for each code
                     File.AppendAllText(dirPath + Program.getFiletype(), responseString + " ");  // Should create a single file with the contents of all the code files.
                 }
@@ -153,7 +155,7 @@ namespace GitGetter2
                 return getDirTree(hubObject.url, projectID);
 
             }
-            else if (hubObject.type == "file")
+            else if (hubObject.type == "file" && hubObject.name.Contains(Program.getFiletype()))
             { // If the object is a actual file
                 return getFile(hubObject.download_url, projectID);
             }
