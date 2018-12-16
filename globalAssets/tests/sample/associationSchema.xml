@@ -22,3 +22,14 @@
         <init>= <expr><operator>new</operator><call><name>ReusaxCorp</name><argument_list>()</argument_list></call></expr></init>
     </decl>;</decl_stmt>
 
+
+
+	<function>
+    <specifier>public</specifier> <type><name>void</name></type> <name>find</name><parameter_list>(<parameter><decl><type><name>String</name></type> <name>id</name></decl></parameter>)</parameter_list> <block>{
+		<decl_stmt><decl><type><name>Employee</name></type> <name>temp</name><init>= <expr><call><name>checkID</name><argument_list>(<argument><expr><name>id</name></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+		<if>if <condition>(<expr><name>temp</name><operator>!=</operator> <literal type="null">null</literal></expr>)</condition><then> <block>{
+			<expr_stmt><expr><call><name><name>System</name><operator>.</operator><name>out</name><operator>.</operator><name>println</name></name><argument_list>(<argument><expr><name>temp</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+		}</block></then> <else>else <block>{
+			<expr_stmt><expr><call><name><name>System</name><operator>.</operator><name>out</name><operator>.</operator><name>println</name></name><argument_list>(<argument><expr><literal type="string">"An employee of ID ("</literal><operator>+</operator><name>id</name><operator>+</operator><literal type="string">") is not registered in the system."</literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+		}</block></else></if>
+	</function>
