@@ -255,30 +255,27 @@ namespace parser
             //XmlNodeList jClasses = xDoc.DocumentElement.SelectNodes("//src:class[.//src:decl_stmt//src:decl/src:type//src:name //src:init = src:expr/src:operator[.= 'new']/src:call/src:name/src:name/src:argument_list[.= '()']]", nsm);
             //ask oli about the query
             // XmlNodeList jClasses = xDoc.DocumentElement.SelectNodes("//src:class[//src:decl//src:operator[.= 'new']]", nsm);  
-            // XmlNodeList jClasses = xDoc.DocumentElement.SelectNodes("//src:decl[src:type/src:name/src:argument_list]", nsm); 
-            XmlNodeList jClasses = xDoc.DocumentElement.SelectNodes("//src:class[.//src:decl_stmt//src:decl/src:type//src:name = \"" + className + "\"]", nsm);
+
+            //
+            XmlNodeList jClasses = xDoc.DocumentElement.SelectNodes("//src:function[.//src:decl_stmt//src:decl/src:type//src:name = \"" + className + "\"]", nsm); 
+            //XmlNodeList jClasses = xDoc.DocumentElement.SelectNodes("//src:class[.//src:decl_stmt//src:decl/src:type//src:name = \"" + className + "\"]", nsm);
             //XmlNode aClasses = xDoc.DocumentElement.SelectSingleNode("//src:class[.//src:decl_stmt//src:decl/src:type//src:name //src:init = src:expr/src:operator[.= 'new']/src:call/src:name/src:name/src:argument_list[.= '()']]", nsm);
+            //XmlNodeList classList = xDoc.DocumentElement.SelectNodes("//src:class[src:specifier[.!='abstract']]", nsm);
 
-            foreach (XmlNode jClass in jClasses)
+            foreach (XmlNode allClasses in jClasses)
             {
-                XmlElement ass = xDoc.CreateElement("fuck");
-                ass.InnerText = GetClassName(jClass, xDoc, nsm).InnerText;
-                root.AppendChild(ass);
+                XmlElement association = xDoc.CreateElement("associations");
+                association.InnerText = GetClassName(allClasses, xDoc, nsm).InnerText;
 
-                //Display the contents of the child nodes.
-                if (root.HasChildNodes)
-                {
-                    for (int i = 0; i < root.ChildNodes.Count; i++)
-                    {
-                        XmlElement bb = xDoc.CreateElement("fuck");
-                        bb.InnerText = GetClassName(jClass, xDoc, nsm).InnerText;
-
-                        root.AppendChild(bb);
-                      
-                    }
-                }
-
+                root.AppendChild(association);
             }
+            if (jClasses == null || jClasses.Count < 1)
+            {
+                XmlElement association = xDoc.CreateElement("associations");
+                association.InnerText = "[]";
+                root.AppendChild(association);
+            }
+
         }
     }
 }

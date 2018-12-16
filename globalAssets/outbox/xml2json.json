@@ -70,7 +70,8 @@
                 "interfaces": "none",
                 "subclasses": "[]",
                 "superclass": "Employee",
-                "components": "[]"
+                "components": "[]",
+                "associations": "[]"
             },
             {
                 "name": "Director",
@@ -166,7 +167,8 @@
                 "interfaces": "none",
                 "subclasses": "[]",
                 "superclass": "Manager",
-                "components": "[]"
+                "components": "[]",
+                "associations": "[]"
             },
             {
                 "name": "Manager",
@@ -227,7 +229,8 @@
                 "interfaces": "none",
                 "subclasses": "Director",
                 "superclass": "Employee",
-                "components": "[]"
+                "components": "[]",
+                "associations": "[]"
             },
             {
                 "name": "Employee",
@@ -336,9 +339,24 @@
                     "Test",
                     "ReusaxCorp"
                 ],
-                "fuck": [
-                    "Test",
-                    "ReusaxCorp"
+                "associations": [
+                    "main",
+                    "remove",
+                    "add",
+                    "find",
+                    "updateName",
+                    "updateGrossSalary",
+                    "updateDegree",
+                    "updateDirector",
+                    "updateGPA",
+                    "createRegularEmployee",
+                    "createManager",
+                    "createDirector",
+                    "createIntern",
+                    "promoteToRegularEmployee",
+                    "promoteToManager",
+                    "promoteToDirector",
+                    "promoteToIntern"
                 ]
             },
             {
@@ -370,7 +388,8 @@
                 "interfaces": "none",
                 "subclasses": "[]",
                 "superclass": "Employee",
-                "components": "[]"
+                "components": "[]",
+                "associations": "[]"
             },
             {
                 "name": "Test",
@@ -419,7 +438,8 @@
                 "interfaces": "none",
                 "subclasses": "[]",
                 "superclass": "[]",
-                "components": "[]"
+                "components": "[]",
+                "associations": "[]"
             },
             {
                 "name": "ReusaxCorp",
@@ -701,7 +721,7 @@
                 "subclasses": "[]",
                 "superclass": "[]",
                 "components": "Test",
-                "fuck": "Test"
+                "associations": "main"
             }
         ]
     }
