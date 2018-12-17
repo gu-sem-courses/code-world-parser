@@ -74,7 +74,7 @@ namespace GitGetter2
                 {
                     String dirPath = mainFolderGetter() + "/Middleware/GitGetter/FileStorer/" + projectId;
                     //File.WriteAllText(dirPath+"/"+ name, responseString); // Creates a seperate file for each code
-                    File.AppendAllText(dirPath + fileType, responseString + " ");  // Should create a single file with the contents of all the code files.
+                    File.AppendAllText(dirPath + fileType, responseString + Environment.NewLine);  // Should create a single file with the contents of all the code files.
                 }
                 catch (Exception e)
                 {
@@ -119,6 +119,7 @@ namespace GitGetter2
                 String dirPath = mainFolderGetter() + "/Middleware/Gitgetter/FileStorer/" + projectId;
 
                 System.IO.Directory.CreateDirectory(dirPath);
+                File.WriteAllText(dirPath + Program.getFiletype(), "");
 
                 foreach (TreeObject tree in noPathFolder)
                 {
@@ -301,13 +302,10 @@ namespace GitGetter2
                 return mainFolderLocation;
             }
             String endlocation = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
-            Console.WriteLine("This is the exelocation = " + endlocation);
             //Boolean boolean = false;
-            while (endlocation.Contains("Middleware"))
+            while (endlocation.Contains("middleware")) // Check to make sure that middleware is spelled exactly the same as the middleware folder. CHeck for capital letters etc.
             {
                 endlocation = Path.GetDirectoryName(endlocation);
-                Console.WriteLine("This is the endlocation = " + endlocation);
-                Console.WriteLine("Current iteration: " + 1);
             }
             mainFolderLocation = endlocation;
 

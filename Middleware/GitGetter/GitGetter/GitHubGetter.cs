@@ -44,6 +44,7 @@ namespace GitGetter2
                 String dirPath = Program.mainFolderGetter() + "/Middleware/Gitgetter/FileStorer/" + projectId;
 
                 System.IO.Directory.CreateDirectory(dirPath);
+                File.WriteAllText (dirPath + Program.getFiletype(), "");
 
                 foreach (HubObject tree in noPathFolder)
                 {
@@ -126,8 +127,10 @@ namespace GitGetter2
                 {
                     String dirPath = Program.mainFolderGetter() + "/Middleware/GitGetter/FileStorer/" + projectId;
                     dirPath = dirPath.Replace(" ", "");
+
+                    Console.WriteLine("Here is where the file should be: "+ dirPath);
                     //File.WriteAllText(dirPath+"/"+ name, responseString); // Creates a seperate file for each code
-                    File.AppendAllText(dirPath + Program.getFiletype(), responseString + " ");  // Should create a single file with the contents of all the code files.
+                    File.AppendAllText(dirPath + Program.getFiletype(), responseString +Environment.NewLine);  // Should create a single file with the contents of all the code files.
                 }
                 catch (Exception e)
                 {
@@ -155,7 +158,7 @@ namespace GitGetter2
                 return getDirTree(hubObject.url, projectID);
 
             }
-            else if (hubObject.type == "file" && hubObject.name.Contains(Program.getFiletype()))
+            else if (hubObject.type == "file" && hubObject.name.Contains(/*Program.getFiletype()*/ ".txt"))
             { // If the object is a actual file
                 return getFile(hubObject.download_url, projectID);
             }
@@ -180,7 +183,6 @@ namespace GitGetter2
             return tempHubObject;
 
         }
-        
 
     }
 }
