@@ -18,29 +18,36 @@ namespace FirstNode
             string UserName;
             string ProjectName;
             string filepath;
+            string page;
             string filetype = ".json";
             string IP = "127.0.0.1";
             int Port = 23456;
       
             // Checks if the we succesfully got the correct amount of arguments
             // otherwise we set it to a pre-know project
-            if (args.Length >= 2)
+            if (args.Length >= 3)
             {
-                
                 UserName = args[0];
                 ProjectName = args[1];
+                page = args[2];
+
+            }else if(args.Length == 2){
+                UserName = args[0];
+                ProjectName = args[1];
+                page = "t";
             }
             else
             {
                 // this should be changed as it reference a none java project
                 UserName = "dit341";
                 ProjectName = "express-template";
+                page = "t";
             }
 
             //This could already be done before we give the parameters 
             //but doing it this way makes it easier to name the json file based on the 
             // project that you are getting
-            repository = UserName + "/" + ProjectName;
+            repository = UserName + "/" + ProjectName+" "+page;
 
             //This will set up the channel we will use to communicate with the "Server" process
             // the first value refers to the IP of the PC that is running the Server process, the second is what port to send it to
