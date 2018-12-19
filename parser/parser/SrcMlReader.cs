@@ -1,9 +1,8 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Xml;
 namespace parser
 {
-    public class SrcReader
+    public class SrcMLReader
     {
         public XmlElement[] GetClasses(XmlDocument xDoc, XmlNamespaceManager nsm)
         {
