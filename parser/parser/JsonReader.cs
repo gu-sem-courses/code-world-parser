@@ -1,11 +1,12 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System.Xml;
 using System;
 namespace parser
 {
-    public class jsonReader
+    public class JsonReader
     {
-        public jsonReader()
+        public JsonReader()
         {
         }
 
@@ -33,7 +34,6 @@ namespace parser
                     resultString += jsonString[i];
                 }
             }
-
 
             //return the new string
             return resultString; 

@@ -46,14 +46,12 @@ class Program
         gameObjects.AppendChild(data);
 
         /*filter the xml in json format*/
-        parser.jsonReader jsonReader = new parser.jsonReader();
+        parser.JsonReader jsonReader = new parser.JsonReader();
         String json = jsonReader.readSrcML(gameObjects);
-        Console.WriteLine(json);
 
-
-        ///*place json into outbox*/
-        //Boolean result = ExportJson(gameObjects);
-        //Console.WriteLine(Yay(result));
+        /*place json into outbox*/
+        Boolean result = ExportJson(json);
+        Console.WriteLine(Yay(result));
 
         /*Close Benchmark*/
         benchmark.Stop();
@@ -78,19 +76,19 @@ class Program
         return JsonConvert.SerializeXmlNode(xmlFile);
     }
 
-    public static Boolean ExportJson(XmlDocument result) {
+    public static Boolean ExportJson(String jsonString) {
         try
         {
             String path = System.AppDomain.CurrentDomain.BaseDirectory + "../../../../globalAssets/outbox/xml2json.json";
 
             // serialize JSON to a string and then write string to a file
-            File.WriteAllText(path, JsonConvert.SerializeObject(result));
+            File.WriteAllText(path, jsonString);
             // serialize JSON directly to a file
-            using (StreamWriter file = File.CreateText(path))
-            {
-                JsonSerializer serializer = new JsonSerializer();
-                serializer.Serialize(file, result);
-            }
+            //using (StreamWriter file = File.CreateText(path))
+            //{
+            //    JsonSerializer serializer = new JsonSerializer();
+            //    serializer.Serialize(file, jsonString);
+            //}
         }
 
         catch (Exception u)
