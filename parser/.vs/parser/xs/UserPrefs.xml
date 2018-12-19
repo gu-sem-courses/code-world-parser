@@ -1,0 +1,16 @@
+﻿<Properties StartupConfiguration="{A28B6A98-27B3-45B6-8D1A-AF858301489F}|Default">
+  <MonoDevelop.Ide.ItemProperties.parser PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="parser/jsonReader.cs">
+    <Files>
+      <File FileName="parser/SrcMlReader.cs" Line="2" Column="1" />
+      <File FileName="parser/Parser.cs" Line="86" Column="72" />
+      <File FileName="parser/jsonReader.cs" Line="18" Column="16" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
