@@ -2,6 +2,7 @@
 using System;
 using System.Xml;
 using System.IO;
+using System.Diagnostics;
 
 [Serializable]
 
@@ -9,6 +10,10 @@ class Program
 {
     protected static void Main(string[] args)
     {
+        /*Start benchmark*/
+        Stopwatch benchmark = new Stopwatch();
+        benchmark.Start();
+
         XmlDocument srcML, gameObjects;
 
         /*Create an xml doc for existing file*/
@@ -25,7 +30,7 @@ class Program
 
 
         /*retrieve data*/
-        parser.SrcReader reader = new parser.SrcReader(); //srcML reader class
+        parser.SrcMLReader reader = new parser.SrcMLReader(); //srcML reader class
         XmlElement[] jClasses = reader.GetClasses(srcML, namespaceManager);
 
         XmlElement classes = srcML.CreateElement("JavaProject");
@@ -34,17 +39,27 @@ class Program
             classes.AppendChild(jClass);
         }
 
-        /*import data*/
+        /*import xml info*/
         gameObjects = new XmlDocument();
         XmlNode data = gameObjects.CreateElement("JavaProject");
         data = ImportNode(classes, gameObjects);
         gameObjects.AppendChild(data);
 
+        /*filter the xml in json format*/
+        parser.JsonReader jsonReader = new parser.JsonReader();
+        String json = jsonReader.readSrcML(gameObjects);
+
+        /*place json into outbox*/
+        Boolean result = ExportJson(json);
+        //Console.WriteLine(Yay(result));
 
         /*send data to outbox*/
         Boolean result = ExportJson(gameObjects);
-        Console.WriteLine(Yay(result));
         Console.ReadKey();
+        /*Close Benchmark*/
+        benchmark.Stop();
+        Console.WriteLine(Yay(result));
+        Console.WriteLine("Benchmark: " + benchmark.Elapsed);
     }
 
     //----------------------------------------------------------------------------------------------------------------
@@ -65,20 +80,20 @@ class Program
         return JsonConvert.SerializeXmlNode(xmlFile);
     }
 
-    public static Boolean ExportJson(XmlDocument result) {
+    public static Boolean ExportJson(String jsonString) {
         try
         {
             String path = System.AppDomain.CurrentDomain.BaseDirectory + "/../../../../globalAssets/outbox/xml2json.json";
             Console.WriteLine(path);
             Console.ReadKey();
             // serialize JSON to a string and then write string to a file
-            File.WriteAllText(path, JsonConvert.SerializeObject(result));
+            File.WriteAllText(path, jsonString);
             // serialize JSON directly to a file
-            using (StreamWriter file = File.CreateText(path))
-            {
-                JsonSerializer serializer = new JsonSerializer();
-                serializer.Serialize(file, result);
-            }
+            //using (StreamWriter file = File.CreateText(path))
+            //{
+            //    JsonSerializer serializer = new JsonSerializer();
+            //    serializer.Serialize(file, jsonString);
+            //}
         }
         catch (Exception u)
         {
