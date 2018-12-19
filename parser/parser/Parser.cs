@@ -2,6 +2,7 @@
 using System;
 using System.Xml;
 using System.IO;
+using System.Diagnostics;
 
 [Serializable]
 
@@ -9,6 +10,10 @@ class Program
 {
     protected static void Main(string[] args)
     {
+        /*Start benchmark*/
+        Stopwatch benchmark = new Stopwatch();
+        benchmark.Start();
+
         XmlDocument srcML, gameObjects;
 
         /*Create an xml doc for existing file*/
@@ -44,6 +49,10 @@ class Program
         /*send data to outbox*/
         Boolean result = ExportJson(gameObjects);
         Console.WriteLine(Yay(result));
+
+        /*Close Benchmark*/
+        benchmark.Stop();
+        Console.WriteLine("Benchmark: " + benchmark.Elapsed);
     }
 
     //----------------------------------------------------------------------------------------------------------------
