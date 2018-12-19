@@ -40,7 +40,8 @@
   <ItemGroup>
     <Compile Include="Parser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SrcReader.cs" />
+    <Compile Include="SrcMlReader.cs" />
+    <Compile Include="jsonReader.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

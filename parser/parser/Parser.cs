@@ -30,7 +30,7 @@ class Program
 
 
         /*retrieve data*/
-        parser.SrcReader reader = new parser.SrcReader(); //srcML reader class
+        parser.SrcMLReader reader = new parser.SrcMLReader(); //srcML reader class
         XmlElement[] jClasses = reader.GetClasses(srcML, namespaceManager);
 
         XmlElement classes = srcML.CreateElement("JavaProject");
@@ -39,16 +39,21 @@ class Program
             classes.AppendChild(jClass);
         }
 
-        /*import data*/
+        /*import xml info*/
         gameObjects = new XmlDocument();
         XmlNode data = gameObjects.CreateElement("JavaProject");
         data = ImportNode(classes, gameObjects);
         gameObjects.AppendChild(data);
 
+        /*filter the xml in json format*/
+        parser.jsonReader jsonReader = new parser.jsonReader();
+        String json = jsonReader.readSrcML(gameObjects);
+        Console.WriteLine(json);
 
-        /*send data to outbox*/
-        Boolean result = ExportJson(gameObjects);
-        Console.WriteLine(Yay(result));
+
+        ///*place json into outbox*/
+        //Boolean result = ExportJson(gameObjects);
+        //Console.WriteLine(Yay(result));
 
         /*Close Benchmark*/
         benchmark.Stop();
