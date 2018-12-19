@@ -51,7 +51,7 @@ class Program
 
         /*place json into outbox*/
         Boolean result = ExportJson(json);
-        Console.WriteLine(Yay(result));
+        //Console.WriteLine(Yay(result));
 
         /*Close Benchmark*/
         benchmark.Stop();
