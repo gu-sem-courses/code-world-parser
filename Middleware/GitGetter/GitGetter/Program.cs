@@ -312,7 +312,7 @@ namespace GitGetter2
             }
             String endlocation = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
             //Boolean boolean = false;
-            while (endlocation.Contains("middleware")) // Check to make sure that middleware is spelled exactly the same as the middleware folder. CHeck for capital letters etc.
+            while (endlocation.Contains("Middleware")) // Check to make sure that middleware is spelled exactly the same as the middleware folder. CHeck for capital letters etc.
             {
                 endlocation = Path.GetDirectoryName(endlocation);
             }
