@@ -257,18 +257,19 @@ namespace parser
             // XmlNodeList jClasses = xDoc.DocumentElement.SelectNodes("//src:class[//src:decl//src:operator[.= 'new']]", nsm);  
 
             //Dunction >> Component >> association
-            XmlNodeList jClasses = xDoc.DocumentElement.SelectNodes("//src:class//src:function//src:decl_stmt//src:decl//src:type//src:name  ", nsm); 
+            XmlNodeList jClasses = xDoc.DocumentElement.SelectNodes("//src:class//src:function//src:decl_stmt//src:decl//src:type//src:name  ", nsm);
             //XmlNodeList jClasses = xDoc.DocumentElement.SelectNodes("//src:class[.//src:decl_stmt//src:decl/src:type//src:name = \"" + className + "\"]", nsm);
             //XmlNode aClasses = xDoc.DocumentElement.SelectSingleNode("//src:class[.//src:decl_stmt//src:decl/src:type//src:name //src:init = src:expr/src:operator[.= 'new']/src:call/src:name/src:name/src:argument_list[.= '()']]", nsm);
             //XmlNodeList classList = xDoc.DocumentElement.SelectNodes("//src:class[src:specifier[.!='abstract']]", nsm);
 
-            foreach (XmlNode allClasses in jClasses)
+                foreach (XmlNode allClasses in jClasses)
             {
+
                 XmlElement association = xDoc.CreateElement("associations");
+                //association.GetAttribute("{3}").GetType();
                 //association.InnerText = allClasses.InnerText;
-                //association.GetType().Equals("int");
-                association.GetAttribute("{2}").GetType();
-                 
+                association.InnerXml = allClasses.InnerText;
+
 
                 root.AppendChild(association);
             }
@@ -283,26 +284,3 @@ namespace parser
     }
 }
 
-
-
-//lmao??
-/*public class Test 
-{
-   public static void Main() 
-   {
-      MyBaseClass myBase = new MyBaseClass();
-      MyDerivedClass myDerived = new MyDerivedClass();
-      object o = myDerived;
-      MyBaseClass b = myDerived;
-
-      Console.WriteLine("mybase: Type is {0}", myBase.GetType());
-      Console.WriteLine("myDerived: Type is {0}", myDerived.GetType());
-      Console.WriteLine("object o = myDerived: Type is {0}", o.GetType());
-      Console.WriteLine("MyBaseClass b = myDerived: Type is {0}", b.GetType());
-   }
-}
-// The example displays the following output:
-//    mybase: Type is MyBaseClass
-//    myDerived: Type is MyDerivedClass
-//    object o = myDerived: Type is MyDerivedClass
-//    MyBaseClass b = myDerived: Type is MyDerivedClass */
