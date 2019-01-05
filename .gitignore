@@ -61,3 +61,11 @@ sysinfo.txt
 
 # OS
 .DS_Store
+
+#Ignores added by david.
+# Packages Should be gotten on each computer seperatly
+Middleware/GitGetter/GitGetter/packages/
+
+# Removes 
+Middleware/GitGetter/GitGetter/bin/
+Middleware/GitGetter/FileStorer

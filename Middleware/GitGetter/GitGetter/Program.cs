@@ -38,6 +38,7 @@ namespace GitGetter2
 
             if (isGitlab)
             {
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
                 if (gitTreeRetriever(projectId[0].ToString()))
                 {
                     activateParser(projectId[0].ToString());
@@ -106,7 +107,7 @@ namespace GitGetter2
         {
             //urlEncoder(projectId);
             String address = "https://gitlab.com/api/v4/projects/" + urlEncoder(projectId) + "/repository/tree";
-            Console.WriteLine(address);
+            Console.WriteLine("Tree request: " + address);
             // String address = "https://gitlab.com/api/v4/projects/dit341%2Fexpress-template/repository/tree";
             // The part where the request is actually made
             try

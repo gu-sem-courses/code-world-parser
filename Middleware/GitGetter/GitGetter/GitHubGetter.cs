@@ -21,6 +21,8 @@ namespace GitGetter2
         {
             String address = "https://api.github.com/repos/" + projectId + "/contents";
             //String address = "https://api.github.com/repos/GokuMohandas/practicalAI/contents"; // Testing address
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
+
             Console.WriteLine(address);
 
             // The part where the request is actually made
