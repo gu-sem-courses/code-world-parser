@@ -15,6 +15,8 @@ namespace GitGetter2
     {
 
         private static readonly HttpClient client = Program.getClient();
+        private static Boolean errorHasOccured = false;
+        private static String errorSpecification = "";
 
 
         public static Boolean getMainTree(String projectId)
@@ -57,6 +59,11 @@ namespace GitGetter2
             }
             catch (Exception e)
             {
+                if (errorHasOccured == false)
+                {
+                    errorHasOccured = true;
+                    errorSpecification = "Http";
+                }
                 Console.WriteLine("Something went wrong with HTTP request :Defaultdance");
                 Console.WriteLine(e);
                 //Write stuff incase the git repository was not found. 
@@ -160,7 +167,7 @@ namespace GitGetter2
                 return getDirTree(hubObject.url, projectID);
 
             }
-            else if (hubObject.type == "file" && hubObject.name.Contains(/*Program.getFiletype()*/ ".txt"))
+            else if (hubObject.type == "file" && hubObject.name.Contains(Program.getFiletype()))
             { // If the object is a actual file
                 return getFile(hubObject.download_url, projectID);
             }

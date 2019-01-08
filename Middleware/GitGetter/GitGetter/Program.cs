@@ -18,11 +18,15 @@ namespace GitGetter2
         private static readonly HttpClient client = new HttpClient();
         private static String mainFolderLocation;
 
+        // Used to report what error has occured to the client.
+        private static Boolean errorHasOccured = false;
+        private static String errorSpecification = "";
+
 
 
         public static void Main(string[] projectId)
         {
-            //client.DefaultRequestHeaders.Add("PRIVATE-TOKEN" ,"ZqpfJzg-n9-qQNv2z1N2");
+
             fileType = ".java"; // controlls what type of files it will get.
                                 // String url = "dit341/express-template"; //Used for testing
 
@@ -63,12 +67,14 @@ namespace GitGetter2
             try
             {
                 Console.WriteLine("Sending request");
-                Task<String> responseTask = client.GetStringAsync(address);
-                while (responseTask.IsCompleted == false)
-                {
-                }
+                Task<String> responseTask;
+                responseTask = client.GetStringAsync(address);
+
+                while (responseTask.IsCompleted == false){}
+
                 Console.WriteLine("Request done");
                 String responseString = "";
+
                 try
                 {
                     responseString = responseTask.Result;
@@ -138,8 +144,12 @@ namespace GitGetter2
                 return true;
 
             }
-            catch (Exception e)
+            catch (HttpRequestException e)
             {
+                if (errorHasOccured==false) {
+                    errorHasOccured = true;
+                    errorSpecification = "Https: " + e.HResult;
+                }
                 Console.WriteLine("Something went wrong with HTTP request :Defaultdance");
                 Console.WriteLine(e);
                 //Write stuff incase the git repository was not found. 
@@ -284,6 +294,11 @@ namespace GitGetter2
                 }
                 catch (Exception e)
                 {
+                    if (errorHasOccured == false)
+                    {
+                        errorHasOccured = true;
+                        errorSpecification = "Parser";
+                    }
                     Console.WriteLine(e.Message);
                 }
             }
@@ -358,6 +373,8 @@ namespace GitGetter2
             //srcml.Start();
 
             //StreamWriter srcmlText = srcml.StandardInput;
+            try { 
+
             srcml.StartInfo.FileName = batAddress; // IF YOU WANT TO CHANGE WHERE THE OUTPUT FILES GOES THEN CHANGE IT IN THE BAT FILE
 
             //srcml.StartInfo.Arguments = enumerator.Current+" "+dirPath+ "_srcml/"+ fileName;
@@ -366,6 +383,17 @@ namespace GitGetter2
             //srcmlText.WriteLine(argu);
             srcml.Start();
             srcml.WaitForExit();
+            }
+            catch (Exception e)
+            {
+                if (errorHasOccured == false)
+                {
+                    errorHasOccured = true;
+                    errorSpecification = "Srcml";
+                }
+                Console.WriteLine(e.Message);
+
+            }
 
         }
 
@@ -379,7 +407,16 @@ namespace GitGetter2
             return client;
         }
 
+        public static Boolean getErrorBool()
+        {
+            return errorHasOccured;
+        }
 
+        public static void ErrorOccured(String error)
+        {
+            errorHasOccured = true;
+            errorSpecification = error;
+        }
 
 
     }
