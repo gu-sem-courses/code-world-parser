@@ -1,2 +1,430 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<unit xmlns="http://www.srcML.org/srcML/src" revision="0.9.5" language="Java" filename="E:\Programmering\DIT355_buildless\Middleware\Gitgetter\FileStorer\GokuMohandas/practicalAI.java"/>
+<unit xmlns="http://www.srcML.org/srcML/src" revision="0.9.5" language="Java" filename="E:\Programmering\DIT355_buildless\Middleware\Gitgetter\FileStorer\bitcoin-wallet/bitcoin-wallet.java"><comment type="block" format="javadoc">/**
+ * Copyright 2012-2014 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */</comment>
+
+<package>package <name><name>de</name><operator>.</operator><name>schildbach</name><operator>.</operator><name>wallet</name><operator>.</operator><name>integration</name><operator>.</operator><name>android</name></name>;</package>
+
+<import>import <name><name>android</name><operator>.</operator><name>app</name><operator>.</operator><name>Activity</name></name>;</import>
+<import>import <name><name>android</name><operator>.</operator><name>content</name><operator>.</operator><name>Context</name></name>;</import>
+<import>import <name><name>android</name><operator>.</operator><name>content</name><operator>.</operator><name>Intent</name></name>;</import>
+<import>import <name><name>android</name><operator>.</operator><name>content</name><operator>.</operator><name>pm</name><operator>.</operator><name>PackageManager</name></name>;</import>
+<import>import <name><name>android</name><operator>.</operator><name>net</name><operator>.</operator><name>Uri</name></name>;</import>
+<import>import <name><name>android</name><operator>.</operator><name>widget</name><operator>.</operator><name>Toast</name></name>;</import>
+
+<comment type="block" format="javadoc">/**
+ * @author Andreas Schildbach
+ */</comment>
+<class><specifier>public</specifier> <specifier>final</specifier> class <name>BitcoinIntegration</name> <block>{
+    <decl_stmt><decl><specifier>private</specifier> <specifier>static</specifier> <type><specifier>final</specifier> <name>String</name></type> <name>INTENT_EXTRA_PAYMENTREQUEST</name> <init>= <expr><literal type="string">"paymentrequest"</literal></expr></init></decl>;</decl_stmt>
+    <decl_stmt><decl><specifier>private</specifier> <specifier>static</specifier> <type><specifier>final</specifier> <name>String</name></type> <name>INTENT_EXTRA_PAYMENT</name> <init>= <expr><literal type="string">"payment"</literal></expr></init></decl>;</decl_stmt>
+    <decl_stmt><decl><specifier>private</specifier> <specifier>static</specifier> <type><specifier>final</specifier> <name>String</name></type> <name>INTENT_EXTRA_TRANSACTION_HASH</name> <init>= <expr><literal type="string">"transaction_hash"</literal></expr></init></decl>;</decl_stmt>
+
+    <decl_stmt><decl><specifier>private</specifier> <specifier>static</specifier> <type><specifier>final</specifier> <name>String</name></type> <name>MIMETYPE_PAYMENTREQUEST</name> <init>= <expr><literal type="string">"application/bitcoin-paymentrequest"</literal></expr></init></decl>;</decl_stmt> <comment type="line">// BIP 71</comment>
+
+    <comment type="block" format="javadoc">/**
+     * Request any amount of Bitcoins (probably a donation) from user, without feedback from the app.
+     * 
+     * @param context
+     *            Android context
+     * @param address
+     *            Bitcoin address
+     */</comment>
+    <function><specifier>public</specifier> <specifier>static</specifier> <type><name>void</name></type> <name>request</name><parameter_list>(<parameter><decl><type><specifier>final</specifier> <name>Context</name></type> <name>context</name></decl></parameter>, <parameter><decl><type><specifier>final</specifier> <name>String</name></type> <name>address</name></decl></parameter>)</parameter_list> <block>{
+        <decl_stmt><decl><type><specifier>final</specifier> <name>Intent</name></type> <name>intent</name> <init>= <expr><call><name>makeBitcoinUriIntent</name><argument_list>(<argument><expr><name>address</name></expr></argument>, <argument><expr><literal type="null">null</literal></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+
+        <expr_stmt><expr><call><name>start</name><argument_list>(<argument><expr><name>context</name></expr></argument>, <argument><expr><name>intent</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+    }</block></function>
+
+    <comment type="block" format="javadoc">/**
+     * Request specific amount of Bitcoins from user, without feedback from the app.
+     * 
+     * @param context
+     *            Android context
+     * @param address
+     *            Bitcoin address
+     * @param amount
+     *            Bitcoin amount in satoshis
+     */</comment>
+    <function><specifier>public</specifier> <specifier>static</specifier> <type><name>void</name></type> <name>request</name><parameter_list>(<parameter><decl><type><specifier>final</specifier> <name>Context</name></type> <name>context</name></decl></parameter>, <parameter><decl><type><specifier>final</specifier> <name>String</name></type> <name>address</name></decl></parameter>, <parameter><decl><type><specifier>final</specifier> <name>long</name></type> <name>amount</name></decl></parameter>)</parameter_list> <block>{
+        <decl_stmt><decl><type><specifier>final</specifier> <name>Intent</name></type> <name>intent</name> <init>= <expr><call><name>makeBitcoinUriIntent</name><argument_list>(<argument><expr><name>address</name></expr></argument>, <argument><expr><name>amount</name></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+
+        <expr_stmt><expr><call><name>start</name><argument_list>(<argument><expr><name>context</name></expr></argument>, <argument><expr><name>intent</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+    }</block></function>
+
+    <comment type="block" format="javadoc">/**
+     * Request payment from user, without feedback from the app.
+     * 
+     * @param context
+     *            Android context
+     * @param paymentRequest
+     *            BIP70 formatted payment request
+     */</comment>
+    <function><specifier>public</specifier> <specifier>static</specifier> <type><name>void</name></type> <name>request</name><parameter_list>(<parameter><decl><type><specifier>final</specifier> <name>Context</name></type> <name>context</name></decl></parameter>, <parameter><decl><type><specifier>final</specifier> <name><name>byte</name><index>[]</index></name></type> <name>paymentRequest</name></decl></parameter>)</parameter_list> <block>{
+        <decl_stmt><decl><type><specifier>final</specifier> <name>Intent</name></type> <name>intent</name> <init>= <expr><call><name>makePaymentRequestIntent</name><argument_list>(<argument><expr><name>paymentRequest</name></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+
+        <expr_stmt><expr><call><name>start</name><argument_list>(<argument><expr><name>context</name></expr></argument>, <argument><expr><name>intent</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+    }</block></function>
+
+    <comment type="block" format="javadoc">/**
+     * Request any amount of Bitcoins (probably a donation) from user, with feedback from the app. Result
+     * intent can be received by overriding {@link android.app.Activity#onActivityResult()}. Result indicates
+     * either {@link Activity#RESULT_OK} or {@link Activity#RESULT_CANCELED}. In the success case, use
+     * {@link #transactionHashFromResult(Intent)} to read the transaction hash from the intent.
+     * 
+     * Warning: A success indication is no guarantee! To be on the safe side, you must drive your own Bitcoin
+     * infrastructure and validate the transaction.
+     * 
+     * @param activity
+     *            Calling Android activity
+     * @param requestCode
+     *            Code identifying the call when {@link android.app.Activity#onActivityResult()} is called
+     *            back
+     * @param address
+     *            Bitcoin address
+     */</comment>
+    <function><specifier>public</specifier> <specifier>static</specifier> <type><name>void</name></type> <name>requestForResult</name><parameter_list>(<parameter><decl><type><specifier>final</specifier> <name>Activity</name></type> <name>activity</name></decl></parameter>, <parameter><decl><type><specifier>final</specifier> <name>int</name></type> <name>requestCode</name></decl></parameter>, <parameter><decl><type><specifier>final</specifier> <name>String</name></type> <name>address</name></decl></parameter>)</parameter_list> <block>{
+        <decl_stmt><decl><type><specifier>final</specifier> <name>Intent</name></type> <name>intent</name> <init>= <expr><call><name>makeBitcoinUriIntent</name><argument_list>(<argument><expr><name>address</name></expr></argument>, <argument><expr><literal type="null">null</literal></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+
+        <expr_stmt><expr><call><name>startForResult</name><argument_list>(<argument><expr><name>activity</name></expr></argument>, <argument><expr><name>requestCode</name></expr></argument>, <argument><expr><name>intent</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+    }</block></function>
+
+    <comment type="block" format="javadoc">/**
+     * Request specific amount of Bitcoins from user, with feedback from the app. Result intent can be
+     * received by overriding {@link android.app.Activity#onActivityResult()}. Result indicates either
+     * {@link Activity#RESULT_OK} or {@link Activity#RESULT_CANCELED}. In the success case, use
+     * {@link #transactionHashFromResult(Intent)} to read the transaction hash from the intent.
+     * 
+     * Warning: A success indication is no guarantee! To be on the safe side, you must drive your own Bitcoin
+     * infrastructure and validate the transaction.
+     * 
+     * @param activity
+     *            Calling Android activity
+     * @param requestCode
+     *            Code identifying the call when {@link android.app.Activity#onActivityResult()} is called
+     *            back
+     * @param address
+     *            Bitcoin address
+     */</comment>
+    <function><specifier>public</specifier> <specifier>static</specifier> <type><name>void</name></type> <name>requestForResult</name><parameter_list>(<parameter><decl><type><specifier>final</specifier> <name>Activity</name></type> <name>activity</name></decl></parameter>, <parameter><decl><type><specifier>final</specifier> <name>int</name></type> <name>requestCode</name></decl></parameter>, <parameter><decl><type><specifier>final</specifier> <name>String</name></type> <name>address</name></decl></parameter>,
+            <parameter><decl><type><specifier>final</specifier> <name>long</name></type> <name>amount</name></decl></parameter>)</parameter_list> <block>{
+        <decl_stmt><decl><type><specifier>final</specifier> <name>Intent</name></type> <name>intent</name> <init>= <expr><call><name>makeBitcoinUriIntent</name><argument_list>(<argument><expr><name>address</name></expr></argument>, <argument><expr><name>amount</name></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+
+        <expr_stmt><expr><call><name>startForResult</name><argument_list>(<argument><expr><name>activity</name></expr></argument>, <argument><expr><name>requestCode</name></expr></argument>, <argument><expr><name>intent</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+    }</block></function>
+
+    <comment type="block" format="javadoc">/**
+     * Request payment from user, with feedback from the app. Result intent can be received by overriding
+     * {@link android.app.Activity#onActivityResult()}. Result indicates either {@link Activity#RESULT_OK} or
+     * {@link Activity#RESULT_CANCELED}. In the success case, use {@link #transactionHashFromResult(Intent)}
+     * to read the transaction hash from the intent.
+     * 
+     * Warning: A success indication is no guarantee! To be on the safe side, you must drive your own Bitcoin
+     * infrastructure and validate the transaction.
+     * 
+     * @param activity
+     *            Calling Android activity
+     * @param requestCode
+     *            Code identifying the call when {@link android.app.Activity#onActivityResult()} is called
+     *            back
+     * @param paymentRequest
+     *            BIP70 formatted payment request
+     */</comment>
+    <function><specifier>public</specifier> <specifier>static</specifier> <type><name>void</name></type> <name>requestForResult</name><parameter_list>(<parameter><decl><type><specifier>final</specifier> <name>Activity</name></type> <name>activity</name></decl></parameter>, <parameter><decl><type><specifier>final</specifier> <name>int</name></type> <name>requestCode</name></decl></parameter>, <parameter><decl><type><specifier>final</specifier> <name><name>byte</name><index>[]</index></name></type> <name>paymentRequest</name></decl></parameter>)</parameter_list> <block>{
+        <decl_stmt><decl><type><specifier>final</specifier> <name>Intent</name></type> <name>intent</name> <init>= <expr><call><name>makePaymentRequestIntent</name><argument_list>(<argument><expr><name>paymentRequest</name></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+
+        <expr_stmt><expr><call><name>startForResult</name><argument_list>(<argument><expr><name>activity</name></expr></argument>, <argument><expr><name>requestCode</name></expr></argument>, <argument><expr><name>intent</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+    }</block></function>
+
+    <comment type="block" format="javadoc">/**
+     * Get payment request from intent. Meant for usage by applications accepting payment requests.
+     * 
+     * @param intent
+     *            intent
+     * @return payment request or null
+     */</comment>
+    <function><specifier>public</specifier> <specifier>static</specifier> <type><name><name>byte</name><index>[]</index></name></type> <name>paymentRequestFromIntent</name><parameter_list>(<parameter><decl><type><specifier>final</specifier> <name>Intent</name></type> <name>intent</name></decl></parameter>)</parameter_list> <block>{
+        <decl_stmt><decl><type><specifier>final</specifier> <name><name>byte</name><index>[]</index></name></type> <name>paymentRequest</name> <init>= <expr><call><name><name>intent</name><operator>.</operator><name>getByteArrayExtra</name></name><argument_list>(<argument><expr><name>INTENT_EXTRA_PAYMENTREQUEST</name></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+
+        <return>return <expr><name>paymentRequest</name></expr>;</return>
+    }</block></function>
+
+    <comment type="block" format="javadoc">/**
+     * Put BIP70 payment message into result intent. Meant for usage by Bitcoin wallet applications.
+     * 
+     * @param result
+     *            result intent
+     * @param payment
+     *            payment message
+     */</comment>
+    <function><specifier>public</specifier> <specifier>static</specifier> <type><name>void</name></type> <name>paymentToResult</name><parameter_list>(<parameter><decl><type><specifier>final</specifier> <name>Intent</name></type> <name>result</name></decl></parameter>, <parameter><decl><type><specifier>final</specifier> <name><name>byte</name><index>[]</index></name></type> <name>payment</name></decl></parameter>)</parameter_list> <block>{
+        <expr_stmt><expr><call><name><name>result</name><operator>.</operator><name>putExtra</name></name><argument_list>(<argument><expr><name>INTENT_EXTRA_PAYMENT</name></expr></argument>, <argument><expr><name>payment</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+    }</block></function>
+
+    <comment type="block" format="javadoc">/**
+     * Get BIP70 payment message from result intent. Meant for usage by applications initiating a Bitcoin
+     * payment.
+     * 
+     * You can use the transactions contained in the payment to validate the payment. For this, you need your
+     * own Bitcoin infrastructure though. There is no guarantee that the payment will ever confirm.
+     * 
+     * @param result
+     *            result intent
+     * @return payment message
+     */</comment>
+    <function><specifier>public</specifier> <specifier>static</specifier> <type><name><name>byte</name><index>[]</index></name></type> <name>paymentFromResult</name><parameter_list>(<parameter><decl><type><specifier>final</specifier> <name>Intent</name></type> <name>result</name></decl></parameter>)</parameter_list> <block>{
+        <decl_stmt><decl><type><specifier>final</specifier> <name><name>byte</name><index>[]</index></name></type> <name>payment</name> <init>= <expr><call><name><name>result</name><operator>.</operator><name>getByteArrayExtra</name></name><argument_list>(<argument><expr><name>INTENT_EXTRA_PAYMENT</name></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+
+        <return>return <expr><name>payment</name></expr>;</return>
+    }</block></function>
+
+    <comment type="block" format="javadoc">/**
+     * Put transaction hash into result intent. Meant for usage by Bitcoin wallet applications.
+     * 
+     * @param result
+     *            result intent
+     * @param txHash
+     *            transaction hash
+     */</comment>
+    <function><specifier>public</specifier> <specifier>static</specifier> <type><name>void</name></type> <name>transactionHashToResult</name><parameter_list>(<parameter><decl><type><specifier>final</specifier> <name>Intent</name></type> <name>result</name></decl></parameter>, <parameter><decl><type><specifier>final</specifier> <name>String</name></type> <name>txHash</name></decl></parameter>)</parameter_list> <block>{
+        <expr_stmt><expr><call><name><name>result</name><operator>.</operator><name>putExtra</name></name><argument_list>(<argument><expr><name>INTENT_EXTRA_TRANSACTION_HASH</name></expr></argument>, <argument><expr><name>txHash</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+    }</block></function>
+
+    <comment type="block" format="javadoc">/**
+     * Get transaction hash from result intent. Meant for usage by applications initiating a Bitcoin payment.
+     * 
+     * You can use this hash to request the transaction from the Bitcoin network, in order to validate. For
+     * this, you need your own Bitcoin infrastructure though. There is no guarantee that the transaction has
+     * ever been broadcasted to the Bitcoin network.
+     * 
+     * @param result
+     *            result intent
+     * @return transaction hash
+     */</comment>
+    <function><specifier>public</specifier> <specifier>static</specifier> <type><name>String</name></type> <name>transactionHashFromResult</name><parameter_list>(<parameter><decl><type><specifier>final</specifier> <name>Intent</name></type> <name>result</name></decl></parameter>)</parameter_list> <block>{
+        <decl_stmt><decl><type><specifier>final</specifier> <name>String</name></type> <name>txHash</name> <init>= <expr><call><name><name>result</name><operator>.</operator><name>getStringExtra</name></name><argument_list>(<argument><expr><name>INTENT_EXTRA_TRANSACTION_HASH</name></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+
+        <return>return <expr><name>txHash</name></expr>;</return>
+    }</block></function>
+
+    <decl_stmt><decl><specifier>private</specifier> <specifier>static</specifier> <type><specifier>final</specifier> <name>int</name></type> <name>SATOSHIS_PER_COIN</name> <init>= <expr><literal type="number">100000000</literal></expr></init></decl>;</decl_stmt>
+
+    <function><specifier>private</specifier> <specifier>static</specifier> <type><name>Intent</name></type> <name>makeBitcoinUriIntent</name><parameter_list>(<parameter><decl><type><specifier>final</specifier> <name>String</name></type> <name>address</name></decl></parameter>, <parameter><decl><type><specifier>final</specifier> <name>Long</name></type> <name>amount</name></decl></parameter>)</parameter_list> <block>{
+        <decl_stmt><decl><type><specifier>final</specifier> <name>StringBuilder</name></type> <name>uri</name> <init>= <expr><operator>new</operator> <call><name>StringBuilder</name><argument_list>(<argument><expr><literal type="string">"bitcoin:"</literal></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+        <if>if <condition>(<expr><name>address</name> <operator>!=</operator> <literal type="null">null</literal></expr>)</condition><then>
+            <block type="pseudo"><expr_stmt><expr><call><name><name>uri</name><operator>.</operator><name>append</name></name><argument_list>(<argument><expr><name>address</name></expr></argument>)</argument_list></call></expr>;</expr_stmt></block></then></if>
+        <if>if <condition>(<expr><name>amount</name> <operator>!=</operator> <literal type="null">null</literal></expr>)</condition><then>
+            <block type="pseudo"><expr_stmt><expr><call><name><name>uri</name><operator>.</operator><name>append</name></name><argument_list>(<argument><expr><literal type="string">"?amount="</literal></expr></argument>)</argument_list></call>
+                    <operator>.</operator><call><name>append</name><argument_list>(<argument><expr><call><name><name>String</name><operator>.</operator><name>format</name></name><argument_list>(<argument><expr><literal type="string">"%d.%08d"</literal></expr></argument>, <argument><expr><name>amount</name> <operator>/</operator> <name>SATOSHIS_PER_COIN</name></expr></argument>, <argument><expr><name>amount</name> <operator>%</operator> <name>SATOSHIS_PER_COIN</name></expr></argument>)</argument_list></call></expr></argument>)</argument_list></call></expr>;</expr_stmt></block></then></if>
+
+        <decl_stmt><decl><type><specifier>final</specifier> <name>Intent</name></type> <name>intent</name> <init>= <expr><operator>new</operator> <call><name>Intent</name><argument_list>(<argument><expr><name><name>Intent</name><operator>.</operator><name>ACTION_VIEW</name></name></expr></argument>, <argument><expr><call><name><name>Uri</name><operator>.</operator><name>parse</name></name><argument_list>(<argument><expr><call><name><name>uri</name><operator>.</operator><name>toString</name></name><argument_list>()</argument_list></call></expr></argument>)</argument_list></call></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+
+        <return>return <expr><name>intent</name></expr>;</return>
+    }</block></function>
+
+    <function><specifier>private</specifier> <specifier>static</specifier> <type><name>Intent</name></type> <name>makePaymentRequestIntent</name><parameter_list>(<parameter><decl><type><specifier>final</specifier> <name><name>byte</name><index>[]</index></name></type> <name>paymentRequest</name></decl></parameter>)</parameter_list> <block>{
+        <decl_stmt><decl><type><specifier>final</specifier> <name>Intent</name></type> <name>intent</name> <init>= <expr><operator>new</operator> <call><name>Intent</name><argument_list>(<argument><expr><name><name>Intent</name><operator>.</operator><name>ACTION_VIEW</name></name></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+        <expr_stmt><expr><call><name><name>intent</name><operator>.</operator><name>setType</name></name><argument_list>(<argument><expr><name>MIMETYPE_PAYMENTREQUEST</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+        <expr_stmt><expr><call><name><name>intent</name><operator>.</operator><name>putExtra</name></name><argument_list>(<argument><expr><name>INTENT_EXTRA_PAYMENTREQUEST</name></expr></argument>, <argument><expr><name>paymentRequest</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+
+        <return>return <expr><name>intent</name></expr>;</return>
+    }</block></function>
+
+    <function><specifier>private</specifier> <specifier>static</specifier> <type><name>void</name></type> <name>start</name><parameter_list>(<parameter><decl><type><specifier>final</specifier> <name>Context</name></type> <name>context</name></decl></parameter>, <parameter><decl><type><specifier>final</specifier> <name>Intent</name></type> <name>intent</name></decl></parameter>)</parameter_list> <block>{
+        <decl_stmt><decl><type><specifier>final</specifier> <name>PackageManager</name></type> <name>pm</name> <init>= <expr><call><name><name>context</name><operator>.</operator><name>getPackageManager</name></name><argument_list>()</argument_list></call></expr></init></decl>;</decl_stmt>
+        <if>if <condition>(<expr><call><name><name>pm</name><operator>.</operator><name>resolveActivity</name></name><argument_list>(<argument><expr><name>intent</name></expr></argument>, <argument><expr><literal type="number">0</literal></expr></argument>)</argument_list></call> <operator>!=</operator> <literal type="null">null</literal></expr>)</condition><then>
+            <block type="pseudo"><expr_stmt><expr><call><name><name>context</name><operator>.</operator><name>startActivity</name></name><argument_list>(<argument><expr><name>intent</name></expr></argument>)</argument_list></call></expr>;</expr_stmt></block></then>
+        <else>else
+            <block type="pseudo"><expr_stmt><expr><call><name>redirectToDownload</name><argument_list>(<argument><expr><name>context</name></expr></argument>)</argument_list></call></expr>;</expr_stmt></block></else></if>
+    }</block></function>
+
+    <function><specifier>private</specifier> <specifier>static</specifier> <type><name>void</name></type> <name>startForResult</name><parameter_list>(<parameter><decl><type><specifier>final</specifier> <name>Activity</name></type> <name>activity</name></decl></parameter>, <parameter><decl><type><specifier>final</specifier> <name>int</name></type> <name>requestCode</name></decl></parameter>, <parameter><decl><type><specifier>final</specifier> <name>Intent</name></type> <name>intent</name></decl></parameter>)</parameter_list> <block>{
+        <decl_stmt><decl><type><specifier>final</specifier> <name>PackageManager</name></type> <name>pm</name> <init>= <expr><call><name><name>activity</name><operator>.</operator><name>getPackageManager</name></name><argument_list>()</argument_list></call></expr></init></decl>;</decl_stmt>
+        <if>if <condition>(<expr><call><name><name>pm</name><operator>.</operator><name>resolveActivity</name></name><argument_list>(<argument><expr><name>intent</name></expr></argument>, <argument><expr><literal type="number">0</literal></expr></argument>)</argument_list></call> <operator>!=</operator> <literal type="null">null</literal></expr>)</condition><then>
+            <block type="pseudo"><expr_stmt><expr><call><name><name>activity</name><operator>.</operator><name>startActivityForResult</name></name><argument_list>(<argument><expr><name>intent</name></expr></argument>, <argument><expr><name>requestCode</name></expr></argument>)</argument_list></call></expr>;</expr_stmt></block></then>
+        <else>else
+            <block type="pseudo"><expr_stmt><expr><call><name>redirectToDownload</name><argument_list>(<argument><expr><name>activity</name></expr></argument>)</argument_list></call></expr>;</expr_stmt></block></else></if>
+    }</block></function>
+
+    <function><specifier>private</specifier> <specifier>static</specifier> <type><name>void</name></type> <name>redirectToDownload</name><parameter_list>(<parameter><decl><type><specifier>final</specifier> <name>Context</name></type> <name>context</name></decl></parameter>)</parameter_list> <block>{
+        <expr_stmt><expr><call><name><name>Toast</name><operator>.</operator><name>makeText</name></name><argument_list>(<argument><expr><name>context</name></expr></argument>, <argument><expr><literal type="string">"No Bitcoin application found.\nPlease install Bitcoin Wallet."</literal></expr></argument>, <argument><expr><name><name>Toast</name><operator>.</operator><name>LENGTH_LONG</name></name></expr></argument>)</argument_list></call>
+                <operator>.</operator><call><name>show</name><argument_list>()</argument_list></call></expr>;</expr_stmt>
+
+        <decl_stmt><decl><type><specifier>final</specifier> <name>Intent</name></type> <name>marketIntent</name> <init>= <expr><operator>new</operator> <call><name>Intent</name><argument_list>(<argument><expr><name><name>Intent</name><operator>.</operator><name>ACTION_VIEW</name></name></expr></argument>,
+                <argument><expr><call><name><name>Uri</name><operator>.</operator><name>parse</name></name><argument_list>(<argument><expr><literal type="string">"market://details?id=de.schildbach.wallet"</literal></expr></argument>)</argument_list></call></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+        <decl_stmt><decl><type><specifier>final</specifier> <name>Intent</name></type> <name>binaryIntent</name> <init>= <expr><operator>new</operator> <call><name>Intent</name><argument_list>(<argument><expr><name><name>Intent</name><operator>.</operator><name>ACTION_VIEW</name></name></expr></argument>,
+                <argument><expr><call><name><name>Uri</name><operator>.</operator><name>parse</name></name><argument_list>(<argument><expr><literal type="string">"https://github.com/bitcoin-wallet/bitcoin-wallet/releases"</literal></expr></argument>)</argument_list></call></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+
+        <decl_stmt><decl><type><specifier>final</specifier> <name>PackageManager</name></type> <name>pm</name> <init>= <expr><call><name><name>context</name><operator>.</operator><name>getPackageManager</name></name><argument_list>()</argument_list></call></expr></init></decl>;</decl_stmt>
+        <if>if <condition>(<expr><call><name><name>pm</name><operator>.</operator><name>resolveActivity</name></name><argument_list>(<argument><expr><name>marketIntent</name></expr></argument>, <argument><expr><literal type="number">0</literal></expr></argument>)</argument_list></call> <operator>!=</operator> <literal type="null">null</literal></expr>)</condition><then>
+            <block type="pseudo"><expr_stmt><expr><call><name><name>context</name><operator>.</operator><name>startActivity</name></name><argument_list>(<argument><expr><name>marketIntent</name></expr></argument>)</argument_list></call></expr>;</expr_stmt></block></then>
+        <elseif>else <if>if <condition>(<expr><call><name><name>pm</name><operator>.</operator><name>resolveActivity</name></name><argument_list>(<argument><expr><name>binaryIntent</name></expr></argument>, <argument><expr><literal type="number">0</literal></expr></argument>)</argument_list></call> <operator>!=</operator> <literal type="null">null</literal></expr>)</condition><then>
+            <block type="pseudo"><expr_stmt><expr><call><name><name>context</name><operator>.</operator><name>startActivity</name></name><argument_list>(<argument><expr><name>binaryIntent</name></expr></argument>)</argument_list></call></expr>;</expr_stmt></block></then></if></elseif></if>
+        <comment type="line">// else out of luck</comment>
+    }</block></function>
+}</block></class>
+
+<comment type="block" format="javadoc">/**
+ * Copyright 2012-2015 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */</comment>
+
+<package>package <name><name>de</name><operator>.</operator><name>schildbach</name><operator>.</operator><name>wallet</name><operator>.</operator><name>integration</name><operator>.</operator><name>sample</name></name>;</package>
+
+<import>import <name><name>org</name><operator>.</operator><name>bitcoin</name><operator>.</operator><name>protocols</name><operator>.</operator><name>payments</name><operator>.</operator><name>Protos</name></name>;</import>
+<import>import <name><name>org</name><operator>.</operator><name>bitcoinj</name><operator>.</operator><name>core</name><operator>.</operator><name>Address</name></name>;</import>
+<import>import <name><name>org</name><operator>.</operator><name>bitcoinj</name><operator>.</operator><name>core</name><operator>.</operator><name>AddressFormatException</name></name>;</import>
+<import>import <name><name>org</name><operator>.</operator><name>bitcoinj</name><operator>.</operator><name>core</name><operator>.</operator><name>NetworkParameters</name></name>;</import>
+<import>import <name><name>org</name><operator>.</operator><name>bitcoinj</name><operator>.</operator><name>script</name><operator>.</operator><name>ScriptBuilder</name></name>;</import>
+
+<import>import <name><name>android</name><operator>.</operator><name>app</name><operator>.</operator><name>Activity</name></name>;</import>
+<import>import <name><name>android</name><operator>.</operator><name>content</name><operator>.</operator><name>Intent</name></name>;</import>
+<import>import <name><name>android</name><operator>.</operator><name>os</name><operator>.</operator><name>Bundle</name></name>;</import>
+<import>import <name><name>android</name><operator>.</operator><name>text</name><operator>.</operator><name>Spannable</name></name>;</import>
+<import>import <name><name>android</name><operator>.</operator><name>text</name><operator>.</operator><name>SpannableStringBuilder</name></name>;</import>
+<import>import <name><name>android</name><operator>.</operator><name>text</name><operator>.</operator><name>style</name><operator>.</operator><name>TypefaceSpan</name></name>;</import>
+<import>import <name><name>android</name><operator>.</operator><name>view</name><operator>.</operator><name>View</name></name>;</import>
+<import>import <name><name>android</name><operator>.</operator><name>view</name><operator>.</operator><name>View</name><operator>.</operator><name>OnClickListener</name></name>;</import>
+<import>import <name><name>android</name><operator>.</operator><name>widget</name><operator>.</operator><name>Button</name></name>;</import>
+<import>import <name><name>android</name><operator>.</operator><name>widget</name><operator>.</operator><name>RadioButton</name></name>;</import>
+<import>import <name><name>android</name><operator>.</operator><name>widget</name><operator>.</operator><name>TextView</name></name>;</import>
+<import>import <name><name>android</name><operator>.</operator><name>widget</name><operator>.</operator><name>Toast</name></name>;</import>
+
+<import>import <name><name>com</name><operator>.</operator><name>google</name><operator>.</operator><name>protobuf</name><operator>.</operator><name>ByteString</name></name>;</import>
+
+<import>import <name><name>de</name><operator>.</operator><name>schildbach</name><operator>.</operator><name>wallet</name><operator>.</operator><name>integration</name><operator>.</operator><name>android</name><operator>.</operator><name>BitcoinIntegration</name></name>;</import>
+
+<comment type="block" format="javadoc">/**
+ * @author Andreas Schildbach
+ */</comment>
+<class><specifier>public</specifier> class <name>SampleActivity</name> <super><extends>extends <name>Activity</name></extends></super> <block>{
+    <decl_stmt><decl><specifier>private</specifier> <specifier>static</specifier> <type><specifier>final</specifier> <name>long</name></type> <name>AMOUNT</name> <init>= <expr><literal type="number">500000</literal></expr></init></decl>;</decl_stmt>
+    <decl_stmt><decl><specifier>private</specifier> <specifier>static</specifier> <type><specifier>final</specifier> <name><name>String</name><index>[]</index></name></type> <name>DONATION_ADDRESSES_MAINNET</name> <init>= <expr><block>{ <expr><literal type="string">"18CK5k1gajRKKSC7yVSTXT9LUzbheh1XY4"</literal></expr>,
+            <expr><literal type="string">"1PZmMahjbfsTy6DsaRyfStzoWTPppWwDnZ"</literal></expr> }</block></expr></init></decl>;</decl_stmt>
+    <decl_stmt><decl><specifier>private</specifier> <specifier>static</specifier> <type><specifier>final</specifier> <name><name>String</name><index>[]</index></name></type> <name>DONATION_ADDRESSES_TESTNET</name> <init>= <expr><block>{ <expr><literal type="string">"mkCLjaXncyw8eSWJBcBtnTgviU85z5PfwS"</literal></expr>,
+            <expr><literal type="string">"mwEacn7pYszzxfgcNaVUzYvzL6ypRJzB6A"</literal></expr> }</block></expr></init></decl>;</decl_stmt>
+    <decl_stmt><decl><specifier>private</specifier> <specifier>static</specifier> <type><specifier>final</specifier> <name>String</name></type> <name>MEMO</name> <init>= <expr><literal type="string">"Sample donation"</literal></expr></init></decl>;</decl_stmt>
+    <decl_stmt><decl><specifier>private</specifier> <specifier>static</specifier> <type><specifier>final</specifier> <name>int</name></type> <name>REQUEST_CODE</name> <init>= <expr><literal type="number">0</literal></expr></init></decl>;</decl_stmt>
+
+    <decl_stmt><decl><specifier>private</specifier> <type><name>Button</name></type> <name>donateButton</name></decl>, <decl><type ref="prev"/><name>requestButton</name></decl>;</decl_stmt>
+    <decl_stmt><decl><specifier>private</specifier> <type><name>TextView</name></type> <name>donateMessage</name></decl>;</decl_stmt>
+
+    <function><annotation>@<name>Override</name></annotation>
+    <specifier>protected</specifier> <type><name>void</name></type> <name>onCreate</name><parameter_list>(<parameter><decl><type><specifier>final</specifier> <name>Bundle</name></type> <name>savedInstanceState</name></decl></parameter>)</parameter_list> <block>{
+        <expr_stmt><expr><call><name><name>super</name><operator>.</operator><name>onCreate</name></name><argument_list>(<argument><expr><name>savedInstanceState</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+
+        <expr_stmt><expr><call><name>setContentView</name><argument_list>(<argument><expr><name><name>R</name><operator>.</operator><name>layout</name><operator>.</operator><name>sample_activity</name></name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+
+        <expr_stmt><expr><name>donateButton</name> <operator>=</operator> <operator>(</operator><name>Button</name><operator>)</operator> <call><name>findViewById</name><argument_list>(<argument><expr><name><name>R</name><operator>.</operator><name>id</name><operator>.</operator><name>sample_donate_button</name></name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+        <expr_stmt><expr><call><name><name>donateButton</name><operator>.</operator><name>setOnClickListener</name></name><argument_list>(<argument><expr><operator>new</operator> <class><super><name>OnClickListener</name></super><argument_list>()</argument_list> <block>{
+            <function><specifier>public</specifier> <type><name>void</name></type> <name>onClick</name><parameter_list>(<parameter><decl><type><specifier>final</specifier> <name>View</name></type> <name>v</name></decl></parameter>)</parameter_list> <block>{
+                <expr_stmt><expr><call><name>handleDonate</name><argument_list>()</argument_list></call></expr>;</expr_stmt>
+            }</block></function>
+        }</block></class></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+
+        <expr_stmt><expr><name>requestButton</name> <operator>=</operator> <operator>(</operator><name>Button</name><operator>)</operator> <call><name>findViewById</name><argument_list>(<argument><expr><name><name>R</name><operator>.</operator><name>id</name><operator>.</operator><name>sample_request_button</name></name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+        <expr_stmt><expr><call><name><name>requestButton</name><operator>.</operator><name>setOnClickListener</name></name><argument_list>(<argument><expr><operator>new</operator> <class><super><name>OnClickListener</name></super><argument_list>()</argument_list> <block>{
+            <function><specifier>public</specifier> <type><name>void</name></type> <name>onClick</name><parameter_list>(<parameter><decl><type><specifier>final</specifier> <name>View</name></type> <name>v</name></decl></parameter>)</parameter_list> <block>{
+                <expr_stmt><expr><call><name>handleRequest</name><argument_list>()</argument_list></call></expr>;</expr_stmt>
+            }</block></function>
+        }</block></class></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+
+        <expr_stmt><expr><name>donateMessage</name> <operator>=</operator> <operator>(</operator><name>TextView</name><operator>)</operator> <call><name>findViewById</name><argument_list>(<argument><expr><name><name>R</name><operator>.</operator><name>id</name><operator>.</operator><name>sample_donate_message</name></name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+    }</block></function>
+
+    <function><specifier>private</specifier> <type><name><name>String</name><index>[]</index></name></type> <name>donationAddresses</name><parameter_list>()</parameter_list> <block>{
+        <decl_stmt><decl><type><specifier>final</specifier> <name>boolean</name></type> <name>isMainnet</name> <init>= <expr><operator>(</operator><operator>(</operator><name>RadioButton</name><operator>)</operator> <call><name>findViewById</name><argument_list>(<argument><expr><name><name>R</name><operator>.</operator><name>id</name><operator>.</operator><name>sample_network_mainnet</name></name></expr></argument>)</argument_list></call><operator>)</operator><operator>.</operator><call><name>isChecked</name><argument_list>()</argument_list></call></expr></init></decl>;</decl_stmt>
+
+        <return>return <expr><ternary><condition><expr><name>isMainnet</name></expr> ?</condition><then> <expr><name>DONATION_ADDRESSES_MAINNET</name></expr> </then><else>: <expr><name>DONATION_ADDRESSES_TESTNET</name></expr></else></ternary></expr>;</return>
+    }</block></function>
+
+    <function><specifier>private</specifier> <type><name>void</name></type> <name>handleDonate</name><parameter_list>()</parameter_list> <block>{
+        <decl_stmt><decl><type><specifier>final</specifier> <name><name>String</name><index>[]</index></name></type> <name>addresses</name> <init>= <expr><call><name>donationAddresses</name><argument_list>()</argument_list></call></expr></init></decl>;</decl_stmt>
+
+        <expr_stmt><expr><call><name><name>BitcoinIntegration</name><operator>.</operator><name>requestForResult</name></name><argument_list>(<argument><expr><name><name>SampleActivity</name><operator>.</operator><name>this</name></name></expr></argument>, <argument><expr><name>REQUEST_CODE</name></expr></argument>, <argument><expr><name><name>addresses</name><index>[<expr><literal type="number">0</literal></expr>]</index></name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+    }</block></function>
+
+    <function><specifier>private</specifier> <type><name>void</name></type> <name>handleRequest</name><parameter_list>()</parameter_list> <block>{
+        <try>try <block>{
+            <decl_stmt><decl><type><specifier>final</specifier> <name><name>String</name><index>[]</index></name></type> <name>addresses</name> <init>= <expr><call><name>donationAddresses</name><argument_list>()</argument_list></call></expr></init></decl>;</decl_stmt>
+            <decl_stmt><decl><type><specifier>final</specifier> <name>NetworkParameters</name></type> <name>params</name> <init>= <expr><call><name><name>Address</name><operator>.</operator><name>getParametersFromAddress</name></name><argument_list>(<argument><expr><name><name>addresses</name><index>[<expr><literal type="number">0</literal></expr>]</index></name></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+
+            <decl_stmt><decl><type><specifier>final</specifier> <name><name>Protos</name><operator>.</operator><name>Output</name><operator>.</operator><name>Builder</name></name></type> <name>output1</name> <init>= <expr><call><name><name>Protos</name><operator>.</operator><name>Output</name><operator>.</operator><name>newBuilder</name></name><argument_list>()</argument_list></call></expr></init></decl>;</decl_stmt>
+            <expr_stmt><expr><call><name><name>output1</name><operator>.</operator><name>setAmount</name></name><argument_list>(<argument><expr><name>AMOUNT</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+            <expr_stmt><expr><call><name><name>output1</name><operator>.</operator><name>setScript</name></name><argument_list>(<argument><expr><call><name><name>ByteString</name>
+                    <operator>.</operator><name>copyFrom</name></name><argument_list>(<argument><expr><call><name><name>ScriptBuilder</name><operator>.</operator><name>createOutputScript</name></name><argument_list>(<argument><expr><operator>new</operator> <call><name>Address</name><argument_list>(<argument><expr><name>params</name></expr></argument>, <argument><expr><name><name>addresses</name><index>[<expr><literal type="number">0</literal></expr>]</index></name></expr></argument>)</argument_list></call></expr></argument>)</argument_list></call><operator>.</operator><call><name>getProgram</name><argument_list>()</argument_list></call></expr></argument>)</argument_list></call></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+
+            <decl_stmt><decl><type><specifier>final</specifier> <name><name>Protos</name><operator>.</operator><name>Output</name><operator>.</operator><name>Builder</name></name></type> <name>output2</name> <init>= <expr><call><name><name>Protos</name><operator>.</operator><name>Output</name><operator>.</operator><name>newBuilder</name></name><argument_list>()</argument_list></call></expr></init></decl>;</decl_stmt>
+            <expr_stmt><expr><call><name><name>output2</name><operator>.</operator><name>setAmount</name></name><argument_list>(<argument><expr><name>AMOUNT</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+            <expr_stmt><expr><call><name><name>output2</name><operator>.</operator><name>setScript</name></name><argument_list>(<argument><expr><call><name><name>ByteString</name>
+                    <operator>.</operator><name>copyFrom</name></name><argument_list>(<argument><expr><call><name><name>ScriptBuilder</name><operator>.</operator><name>createOutputScript</name></name><argument_list>(<argument><expr><operator>new</operator> <call><name>Address</name><argument_list>(<argument><expr><name>params</name></expr></argument>, <argument><expr><name><name>addresses</name><index>[<expr><literal type="number">1</literal></expr>]</index></name></expr></argument>)</argument_list></call></expr></argument>)</argument_list></call><operator>.</operator><call><name>getProgram</name><argument_list>()</argument_list></call></expr></argument>)</argument_list></call></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+
+            <decl_stmt><decl><type><specifier>final</specifier> <name><name>Protos</name><operator>.</operator><name>PaymentDetails</name><operator>.</operator><name>Builder</name></name></type> <name>paymentDetails</name> <init>= <expr><call><name><name>Protos</name><operator>.</operator><name>PaymentDetails</name><operator>.</operator><name>newBuilder</name></name><argument_list>()</argument_list></call></expr></init></decl>;</decl_stmt>
+            <expr_stmt><expr><call><name><name>paymentDetails</name><operator>.</operator><name>setNetwork</name></name><argument_list>(<argument><expr><call><name><name>params</name><operator>.</operator><name>getPaymentProtocolId</name></name><argument_list>()</argument_list></call></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+            <expr_stmt><expr><call><name><name>paymentDetails</name><operator>.</operator><name>addOutputs</name></name><argument_list>(<argument><expr><name>output1</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+            <expr_stmt><expr><call><name><name>paymentDetails</name><operator>.</operator><name>addOutputs</name></name><argument_list>(<argument><expr><name>output2</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+            <expr_stmt><expr><call><name><name>paymentDetails</name><operator>.</operator><name>setMemo</name></name><argument_list>(<argument><expr><name>MEMO</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+            <expr_stmt><expr><call><name><name>paymentDetails</name><operator>.</operator><name>setTime</name></name><argument_list>(<argument><expr><call><name><name>System</name><operator>.</operator><name>currentTimeMillis</name></name><argument_list>()</argument_list></call></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+
+            <decl_stmt><decl><type><specifier>final</specifier> <name><name>Protos</name><operator>.</operator><name>PaymentRequest</name><operator>.</operator><name>Builder</name></name></type> <name>paymentRequest</name> <init>= <expr><call><name><name>Protos</name><operator>.</operator><name>PaymentRequest</name><operator>.</operator><name>newBuilder</name></name><argument_list>()</argument_list></call></expr></init></decl>;</decl_stmt>
+            <expr_stmt><expr><call><name><name>paymentRequest</name><operator>.</operator><name>setSerializedPaymentDetails</name></name><argument_list>(<argument><expr><call><name><name>paymentDetails</name><operator>.</operator><name>build</name></name><argument_list>()</argument_list></call><operator>.</operator><call><name>toByteString</name><argument_list>()</argument_list></call></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+
+            <expr_stmt><expr><call><name><name>BitcoinIntegration</name><operator>.</operator><name>requestForResult</name></name><argument_list>(<argument><expr><name><name>SampleActivity</name><operator>.</operator><name>this</name></name></expr></argument>, <argument><expr><name>REQUEST_CODE</name></expr></argument>,
+                    <argument><expr><call><name><name>paymentRequest</name><operator>.</operator><name>build</name></name><argument_list>()</argument_list></call><operator>.</operator><call><name>toByteArray</name><argument_list>()</argument_list></call></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+        }</block> <catch>catch <parameter_list>(<parameter><decl><type><specifier>final</specifier> <name>AddressFormatException</name></type> <name>x</name></decl></parameter>)</parameter_list> <block>{
+            <throw>throw <expr><operator>new</operator> <call><name>RuntimeException</name><argument_list>(<argument><expr><name>x</name></expr></argument>)</argument_list></call></expr>;</throw>
+        }</block></catch></try>
+    }</block></function>
+
+    <function><annotation>@<name>Override</name></annotation>
+    <specifier>protected</specifier> <type><name>void</name></type> <name>onActivityResult</name><parameter_list>(<parameter><decl><type><specifier>final</specifier> <name>int</name></type> <name>requestCode</name></decl></parameter>, <parameter><decl><type><specifier>final</specifier> <name>int</name></type> <name>resultCode</name></decl></parameter>, <parameter><decl><type><specifier>final</specifier> <name>Intent</name></type> <name>data</name></decl></parameter>)</parameter_list> <block>{
+        <if>if <condition>(<expr><name>requestCode</name> <operator>==</operator> <name>REQUEST_CODE</name></expr>)</condition><then> <block>{
+            <if>if <condition>(<expr><name>resultCode</name> <operator>==</operator> <name><name>Activity</name><operator>.</operator><name>RESULT_OK</name></name></expr>)</condition><then> <block>{
+                <decl_stmt><decl><type><specifier>final</specifier> <name>String</name></type> <name>txHash</name> <init>= <expr><call><name><name>BitcoinIntegration</name><operator>.</operator><name>transactionHashFromResult</name></name><argument_list>(<argument><expr><name>data</name></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+                <if>if <condition>(<expr><name>txHash</name> <operator>!=</operator> <literal type="null">null</literal></expr>)</condition><then> <block>{
+                    <decl_stmt><decl><type><specifier>final</specifier> <name>SpannableStringBuilder</name></type> <name>messageBuilder</name> <init>= <expr><operator>new</operator> <call><name>SpannableStringBuilder</name><argument_list>(<argument><expr><literal type="string">"Transaction hash:\n"</literal></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+                    <expr_stmt><expr><call><name><name>messageBuilder</name><operator>.</operator><name>append</name></name><argument_list>(<argument><expr><name>txHash</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+                    <expr_stmt><expr><call><name><name>messageBuilder</name><operator>.</operator><name>setSpan</name></name><argument_list>(<argument><expr><operator>new</operator> <call><name>TypefaceSpan</name><argument_list>(<argument><expr><literal type="string">"monospace"</literal></expr></argument>)</argument_list></call></expr></argument>, <argument><expr><call><name><name>messageBuilder</name><operator>.</operator><name>length</name></name><argument_list>()</argument_list></call> <operator>-</operator> <call><name><name>txHash</name><operator>.</operator><name>length</name></name><argument_list>()</argument_list></call></expr></argument>,
+                            <argument><expr><call><name><name>messageBuilder</name><operator>.</operator><name>length</name></name><argument_list>()</argument_list></call></expr></argument>, <argument><expr><name><name>Spannable</name><operator>.</operator><name>SPAN_EXCLUSIVE_EXCLUSIVE</name></name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+
+                    <if>if <condition>(<expr><call><name><name>BitcoinIntegration</name><operator>.</operator><name>paymentFromResult</name></name><argument_list>(<argument><expr><name>data</name></expr></argument>)</argument_list></call> <operator>!=</operator> <literal type="null">null</literal></expr>)</condition><then>
+                        <block type="pseudo"><expr_stmt><expr><call><name><name>messageBuilder</name><operator>.</operator><name>append</name></name><argument_list>(<argument><expr><literal type="string">"\n(also a BIP70 payment message was received)"</literal></expr></argument>)</argument_list></call></expr>;</expr_stmt></block></then></if>
+
+                    <expr_stmt><expr><call><name><name>donateMessage</name><operator>.</operator><name>setText</name></name><argument_list>(<argument><expr><name>messageBuilder</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+                    <expr_stmt><expr><call><name><name>donateMessage</name><operator>.</operator><name>setVisibility</name></name><argument_list>(<argument><expr><name><name>View</name><operator>.</operator><name>VISIBLE</name></name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+                }</block></then></if>
+
+                <expr_stmt><expr><call><name><name>Toast</name><operator>.</operator><name>makeText</name></name><argument_list>(<argument><expr><name>this</name></expr></argument>, <argument><expr><literal type="string">"Thank you!"</literal></expr></argument>, <argument><expr><name><name>Toast</name><operator>.</operator><name>LENGTH_LONG</name></name></expr></argument>)</argument_list></call><operator>.</operator><call><name>show</name><argument_list>()</argument_list></call></expr>;</expr_stmt>
+            }</block></then> <elseif>else <if>if <condition>(<expr><name>resultCode</name> <operator>==</operator> <name><name>Activity</name><operator>.</operator><name>RESULT_CANCELED</name></name></expr>)</condition><then> <block>{
+                <expr_stmt><expr><call><name><name>Toast</name><operator>.</operator><name>makeText</name></name><argument_list>(<argument><expr><name>this</name></expr></argument>, <argument><expr><literal type="string">"Cancelled."</literal></expr></argument>, <argument><expr><name><name>Toast</name><operator>.</operator><name>LENGTH_LONG</name></name></expr></argument>)</argument_list></call><operator>.</operator><call><name>show</name><argument_list>()</argument_list></call></expr>;</expr_stmt>
+            }</block></then></if></elseif> <else>else <block>{
+                <expr_stmt><expr><call><name><name>Toast</name><operator>.</operator><name>makeText</name></name><argument_list>(<argument><expr><name>this</name></expr></argument>, <argument><expr><literal type="string">"Unknown result."</literal></expr></argument>, <argument><expr><name><name>Toast</name><operator>.</operator><name>LENGTH_LONG</name></name></expr></argument>)</argument_list></call><operator>.</operator><call><name>show</name><argument_list>()</argument_list></call></expr>;</expr_stmt>
+            }</block></else></if>
+        }</block></then></if>
+    }</block></function>
+}</block></class>
+
+</unit>

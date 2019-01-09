@@ -67,5 +67,4 @@ sysinfo.txt
 Middleware/GitGetter/GitGetter/packages/
 
 # Removes 
-Middleware/GitGetter/GitGetter/bin/
 Middleware/GitGetter/FileStorer

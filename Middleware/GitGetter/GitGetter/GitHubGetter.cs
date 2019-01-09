@@ -17,11 +17,15 @@ namespace GitGetter2
         private static readonly HttpClient client = Program.getClient();
         private static Boolean errorHasOccured = false;
         private static String errorSpecification = "";
+        private static String access_token = "2da97fbbb8ec6fbf17430eb2fde9c7a57d50da48";
 
 
         public static Boolean getMainTree(String projectId)
         {
             String address = "https://api.github.com/repos/" + projectId + "/contents";
+            client.DefaultRequestHeaders.Add("Authorization", access_token);
+
+
             //String address = "https://api.github.com/repos/GokuMohandas/practicalAI/contents"; // Testing address
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
 
@@ -41,7 +45,7 @@ namespace GitGetter2
                 else { return false; }
 
                 Console.WriteLine("ResponseString has been made");
-
+                Console.WriteLine("Resposne here: "+ responseString);
                 List<HubObject> noPathFolder = makeHubList(responseString);
 
                 //Makes a directory for this project
