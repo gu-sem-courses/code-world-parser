@@ -267,7 +267,6 @@ namespace GitGetter2
                 // Part that activates srcml
 
                 // Single code file Srcml call
-                //String dirPath = globalFolderGetter(4) + "/GitGetter/FileStorer/" + projectId + fileType; // Change for other code files.
                 String dirPath = storageAddress + projectId + fileType; // Change for other code files.
                 dirPath = dirPath.Replace(" ", String.Empty);
 
@@ -278,15 +277,13 @@ namespace GitGetter2
                 //End of srcml part. */
 
 
-                // This part should start the parser but I'm too lazy to test it right now. 
-
-                Process Project = new Process();
+                // Parser part. Has been moved to a different node. Kept in comments for now.
+              /*Process Project = new Process();
                 try
                 {
                     //so it know where to find the file it should use to start the proccess
                     //if no actual file is specified it will just open the specified folder
                     Project.StartInfo.FileName = PathP;
-                    Project.StartInfo.Arguments = dirPath;
                     // What arguments the file will take when it starts
                     Project.Start();
                     Project.WaitForExit();
@@ -300,7 +297,7 @@ namespace GitGetter2
                         errorSpecification = "Parser";
                     }
                     Console.WriteLine(e.Message);
-                }
+                }*/
             }
 
         }
