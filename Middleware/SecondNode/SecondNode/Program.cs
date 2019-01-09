@@ -1,13 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Services;
-using System.IO;
-using Newtonsoft.Json.Linq;
-using System.Diagnostics;
-using Middleware;
 
 namespace Middleware
 {
@@ -16,7 +7,8 @@ namespace Middleware
         static void Main(string[] args)
         {
 
-            GetterNode.ClietRequest();
+            UnityNode.Start(args);
+
             if (args.Length > 0)
             {
                 UnityNode.Start(args);

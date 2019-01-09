@@ -21,6 +21,7 @@ namespace Middleware
             //this adds the new xml file
             string result ="";
             string filepath = "../../../../../dit355/globalAssets/inbox/srcML.xml";
+            string exepath = " ../../../../parser/parser/bin/Debug/parser.exe;";
             System.IO.File.WriteAllText( filepath, request.ToString());
 
             // add or copy parsing starting logic
@@ -29,8 +30,7 @@ namespace Middleware
             {
                 //so it know where to find the file it should use to start the proccess
                 //if no actual file is specified it will just open the specified folder
-                Parsing.StartInfo.FileName = "";
-                Parsing.StartInfo.Arguments = "";
+                Parsing.StartInfo.FileName = exepath;
                 // What arguments the file will take when it starts
                 Parsing.Start();
                 Parsing.WaitForExit();
