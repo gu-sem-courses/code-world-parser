@@ -243,12 +243,8 @@ namespace GitGetter2
             {
 
                 string PathP = mainFolderGetter() + "/parser/parser/bin/Debug/parser.exe";
-
-
-
-
-                String batAddress = System.AppDomain.CurrentDomain.BaseDirectory + ".SrcmlStarter.bat";
-                String storageAddress = mainFolderGetter() + "/Middleware/Gitgetter/FileStorer/";
+                string batAddress = System.AppDomain.CurrentDomain.BaseDirectory + ".SrcmlStarter.bat";
+                string storageAddress = mainFolderGetter() + "/Middleware/Gitgetter/FileStorer/";
                 storageAddress = storageAddress.Replace("/", "\\ ");
                 Console.WriteLine(storageAddress);
 
@@ -257,8 +253,8 @@ namespace GitGetter2
 
                 // Single code file Srcml call
                 //String dirPath = globalFolderGetter(4) + "/GitGetter/FileStorer/" + projectId + fileType; // Change for other code files.
-                String dirPath = storageAddress + projectId + fileType; // Change for other code files.
-                dirPath = dirPath.Replace(" ", String.Empty);
+                string dirPath = storageAddress + projectId + fileType; // Change for other code files.
+                dirPath = dirPath.Replace(" ", string.Empty);
 
                 Console.WriteLine("Here is the dirpath: " + dirPath); ;
                 singleFileSrcmlCall(dirPath, projectId, batAddress);
@@ -288,6 +284,7 @@ namespace GitGetter2
             }
 
         }
+
         protected static String globalFolderGetter(int backwardsSteps)
         { // Used to move backwards in the folders
 

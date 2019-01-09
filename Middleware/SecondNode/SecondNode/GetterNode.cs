@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Xml.Linq;
 using System.Threading.Tasks;
 using Services;
 using System.IO;
@@ -32,20 +33,20 @@ namespace Middleware
         {
             string PathP = System.AppDomain.CurrentDomain.BaseDirectory + "../../../GitGetter/bin/Debug/Gitgetter.exe";
             Console.WriteLine(PathP);
-            Process Project = new Process();
+            Process GitGetter = new Process();
             try
             {
                 //so it know where to find the file it should use to start the proccess
                 //if no actuall file is specified it will just open the specified folder
-                Project.StartInfo.FileName = PathP;
+                GitGetter.StartInfo.FileName = PathP;
                 // What arguments the file will take when it starts
                 Console.WriteLine(req.Address.ToString());
-                Project.StartInfo.Arguments = req.Address.ToString();
-                Project.Start();
+                GitGetter.StartInfo.Arguments = req.Address.ToString();
+                GitGetter.Start();
                 Console.WriteLine("I got here!");
-                Project.WaitForExit();
-                // *****************************
-                //add client call here
+                GitGetter.WaitForExit();
+                GetterNode.ClietRequest();
+              
             }
             catch (Exception e)
             {
@@ -84,9 +85,19 @@ namespace Middleware
             server.ShutdownAsync().Wait();
         }
 
-        private void ClietRequest()
+        public static void ClietRequest()
         {
-
+            string filepathXML = "../../../../../dit355/globalAssets/inbox/srcML.xml";
+            string filepathJSON = "../../../../../dit355/globalAssets/outbox/xml2json.json";
+            string IP = "0.0.0.0";
+            int Port = 23455;
+            Channel channel = new Channel(IP, Port, ChannelCredentials.Insecure);
+            var client = new Services.GameLog.GameLogClient(channel);
+            string result = string.Empty;
+            result = XElement.Load(filepathXML,0).ToString();
+            var json = client.MainInteraction(new ParsingRequest { Address = result });
+            System.IO.File.WriteAllText(filepathJSON, json.ToString());
+            channel.ShutdownAsync().Wait();
         }
     }
 
