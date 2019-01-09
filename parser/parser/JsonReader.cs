@@ -11,6 +11,7 @@ namespace parser
         }
 
         public String readSrcML(XmlDocument xml) {
+            Console.WriteLine("json parser initiated");
             //make xml into string
             String jsonString = JsonConvert.SerializeObject(xml);
 
@@ -34,7 +35,7 @@ namespace parser
                     resultString += jsonString[i];
                 }
             }
-
+            Console.WriteLine("json parser complete");
             //return the new string
             return resultString; 
         }

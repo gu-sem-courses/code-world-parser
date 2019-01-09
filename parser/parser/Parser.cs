@@ -22,7 +22,7 @@ class Program
 
         /*projects*/
         String inbox = "/../../../../../globalAssets/inbox/srcML.xml";
-        String baby = "/../../../../../globalAssets/tests/sample/fullProject.xml.xml";
+        String baby = "/../../../../../globalAssets/tests/sample/fullProject.xml";
         String x9 = "/../../../../../globalAssets/tests/official/k9.xml";
         String bitcoin = "/../../../../../globalAssets/tests/official/bitcoin.xml";
         String project = bitcoin;
