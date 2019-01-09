@@ -8,14 +8,12 @@ using System.Diagnostics;
 
 namespace Middleware
 { //Wierd name, but the class it extends from is a class generted by the proto file/files
-    public class ServiceImpl : Services.GameLog.GameLogBase
+    public class GetterService : Services.GameLog.GameLogBase
     {
-
         //this is the function that we have the client process call, 
         //the parameters type and the name and what it returns are set in the proto generated files Trial.cs & TrialGrpc.cs
         public override Task<JsonReply> MainInteraction(ParsingRequest request, ServerCallContext context)
         {
-
             GetProject(request);
             string filepath = "../../../../../dit355/globalAssets/outbox/xml2json.json";
             string result = string.Empty;
@@ -46,13 +44,14 @@ namespace Middleware
                 Project.Start();
                 Console.WriteLine("I got here!");
                 Project.WaitForExit();
+                // *****************************
+                //add client call here
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
             }
         }
-
     }
 
     // This class contain the "Static void Main" in wich it starts the "Server" and gives it a set of services and a port to listen to.
@@ -71,7 +70,7 @@ namespace Middleware
             Server server = new Server
             {
                 //the services or functions that the Server can peform, I guess we can add more if we need to.
-                Services = { Services.GameLog.BindService(new ServiceImpl()) },
+                Services = { Services.GameLog.BindService(new GetterService()) },
                 Ports = { { new ServerPort(Host, Port, ServerCredentials.Insecure) } }
             };
 
@@ -84,5 +83,12 @@ namespace Middleware
             Console.ReadKey();
             server.ShutdownAsync().Wait();
         }
+
+        private void ClietRequest()
+        {
+
+        }
     }
+
+    
 }
