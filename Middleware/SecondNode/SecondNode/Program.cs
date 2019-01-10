@@ -6,7 +6,11 @@ namespace Middleware
     {
         static void Main(string[] args)
         {
-           
+
+            args = new string[2];
+            args[0] = "jorelsin";
+            args[1] = "rpg-game-manager";
+            UnityNode.Start(args);
             if (args.Length > 0)
             {
                 UnityNode.Start(args);

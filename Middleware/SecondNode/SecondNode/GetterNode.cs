@@ -62,7 +62,7 @@ namespace Middleware
         //not sure if you can change to another computers IP
         // The Port 23456 is the specific port the proccess will listen on for requests. 
         // the port needs to be the same on the Server and Client proccesses.
-        const string Host = "localhost";
+        const string Host = "192.168.43.56";
         const int Port = 23456;
 
         public static void Start()
