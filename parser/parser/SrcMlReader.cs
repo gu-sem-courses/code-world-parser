@@ -7,21 +7,17 @@ namespace parser
 
         public XmlElement[] GetClasses(XmlDocument xDoc, XmlNamespaceManager nsm)
         {
-            Console.WriteLine("Class fetcher initiated");
-            XmlNodeList classList = xDoc.DocumentElement.SelectNodes("//src:class[src:specifier[.!='abstract']]", nsm);
-            XmlElement[] result = new XmlElement[classList.Count];
-            Console.WriteLine("number of classes = " + classList.Count);
-            Console.WriteLine("****************");
+            XmlNodeList jClasses = xDoc.DocumentElement.SelectNodes("//src:class[src:specifier[.!='abstract']]", nsm);
+            XmlElement[] result = new XmlElement[jClasses.Count];
 
-            for (int i = 0; i < classList.Count; i++)
+            for (int i = 0; i < jClasses.Count; i++)
             {
-                XmlNode xClass = classList.Item(i);
+                XmlNode xClass = jClasses.Item(i);
 
                 XmlElement javaClass, name, superClass;
                 javaClass = xDoc.CreateElement("data");
                 //add name
                 name = GetClassName(xClass, xDoc, nsm);
-                Console.WriteLine("\n"+name.InnerText + "****************" + (i+1));
                 javaClass.AppendChild(name);
                 //add attributes []
                 GetAttributes(javaClass, xClass, xDoc, nsm);
@@ -36,11 +32,9 @@ namespace parser
                 javaClass.AppendChild(superClass);
                 //associations []
                 GetAssociations(name.InnerText, javaClass, xClass, xDoc, nsm);
-
                 //append result to an array
                 result[i] = javaClass;
             }
-            Console.WriteLine("Class fetcher complete");
             return result;
         }
 
@@ -53,16 +47,13 @@ namespace parser
 
         public void GetAttributes(XmlNode root, XmlNode classNode, XmlDocument xDoc, XmlNamespaceManager nsm)
         {
-            //XmlNodeList attributeList = classNode.SelectNodes("./src:block//src:decl_stmt/src:decl[src:type/src:name [. = 'int']]", nsm);
-            XmlNodeList declaredAttributes = classNode.SelectNodes("./src:block//src:decl_stmt//src:decl", nsm);
-            XmlElement[] processedElements = new XmlElement[declaredAttributes.Count];
+            XmlNodeList jAttributes = classNode.SelectNodes("./src:block//src:decl_stmt//src:decl", nsm);
+            XmlElement[] processedElements = new XmlElement[jAttributes.Count];
 
             //foreach (XmlNode attr in attributeList)
-            for (int i = 0; i < declaredAttributes.Count; i++)
+            for (int i = 0; i < jAttributes.Count; i++)
             {
-                XmlNode attr = declaredAttributes.Item(i);
-                //Console.WriteLine("actual attr");
-                //Console.WriteLine(attr.InnerText);
+                XmlNode attr = jAttributes.Item(i);
 
                 //retrive the nodes we need and store their value
                 String type, name, accessModifier;
@@ -91,7 +82,7 @@ namespace parser
                         }
                     }
                     else {
-                        type = "n/a";
+                        type = "null";
                     }
                 }
 
@@ -117,8 +108,6 @@ namespace parser
                 attribute.AppendChild(accessModifierElement);
                 attribute.AppendChild(typeElement);
                 attribute.AppendChild(nameElement);
-
-                Console.WriteLine("attr: "+attribute.SelectSingleNode("./name").InnerText);
                 processedElements[i] = attribute;
             }
 
@@ -126,7 +115,6 @@ namespace parser
             for(int i = 0; i < processedElements.Length; i++) {
                 root.AppendChild(processedElements[i]); 
                 }
-            Console.WriteLine("num of attr: " + declaredAttributes.Count);
         }
 
         public void GetMethods(XmlNode root, XmlNode classNode, XmlDocument xDoc, XmlNamespaceManager nsm)
@@ -168,7 +156,6 @@ namespace parser
                 /*append results*/
                 root.AppendChild(method);
             }
-            Console.WriteLine("num of methods: " + methodList.Count);
         }
 
         public void GetInterfaces(XmlNode root, XmlNode classNode, XmlDocument xDoc, XmlNamespaceManager nsm) {
@@ -190,7 +177,6 @@ namespace parser
 
                 root.AppendChild(javaInterface);
             }
-            Console.WriteLine("num of interfaces: " + jInterfaces.Count);
         }
 
         public XmlElement GetSuperClass(XmlNode classNode, XmlDocument xDoc, XmlNamespaceManager nsm) {
@@ -201,9 +187,8 @@ namespace parser
                 result.InnerText = super.SelectSingleNode("./src:name", nsm).InnerText;
                 }
             else {
-                result.InnerText = "none";
+                result.InnerText = "";
             }
-            Console.WriteLine("superclass: " + result.InnerText);
             return result;
         }
 
@@ -229,32 +214,26 @@ namespace parser
                 /*append results*/
                 root.AppendChild(subClass);
             }
-            Console.WriteLine("num of superclasses: " + subClasses.Count);
         }
 
         public void GetAssociations(String className, XmlNode root, XmlNode classNode, XmlDocument xDoc, XmlNamespaceManager nsm) {
             /*get all classes that call THIS className as a declarative statement AND where THIS class has an ancestor called unit*/
             XmlNodeList jClasses = xDoc.DocumentElement.SelectNodes("//src:class[parent::src:unit and .//src:decl_stmt//src:decl/src:type//src:name = \""+className+"\"]", nsm);
-            Console.WriteLine("num of ass: " + jClasses.Count);
 
             if (jClasses.Count < 1)
             {
                 XmlElement ass = xDoc.CreateElement("associations");
-                ass.InnerText = "none";
+                ass.InnerText = "[]";
                 root.AppendChild(ass);
             }
             else {
                 foreach (XmlNode jClass in jClasses)
                 {
-                    //XmlElement ass = xDoc.CreateElement("associations");
-                    //ass.InnerText = GetClassName(jClass, xDoc, nsm).InnerText;
-                    //root.AppendChild(ass);
                     try {
                         XmlElement ass = xDoc.CreateElement("associations");
                         ass.InnerText = GetClassName(jClass, xDoc, nsm).InnerText;
                         root.AppendChild(ass);
                     } catch {
-                        Console.WriteLine(jClass.InnerXml);
                         XmlElement ass = xDoc.CreateElement("associations");
                         ass.InnerText = "null";
                         root.AppendChild(ass);
