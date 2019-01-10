@@ -19,11 +19,12 @@ namespace Middleware
         {
 
             //this adds the new xml file
-            string result ="";
+            var result = request;
             string filepath = "../../../../../dit355/globalAssets/inbox/srcML.xml";
-            string exepath = " ../../../../parser/parser/bin/Debug/parser.exe;";
-            System.IO.File.WriteAllText( filepath, request.ToString());
-
+            string exepath = " ../../../../../parser/parser/bin/Debug/parser.exe;";
+            System.IO.File.WriteAllText( filepath, result.ToString());
+            Console.WriteLine(exepath);
+            Console.WriteLine(filepath);
             // add or copy parsing starting logic
             Process Parsing = new Process();
             try
@@ -41,7 +42,7 @@ namespace Middleware
                 Console.WriteLine(e.Message);
             }
 
-            return Task.FromResult(new JsonReply { File = result});
+            return Task.FromResult(new JsonReply { File = result.ToString()});
         }
     }
 

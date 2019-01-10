@@ -62,7 +62,7 @@ namespace Middleware
         //not sure if you can change to another computers IP
         // The Port 23456 is the specific port the proccess will listen on for requests. 
         // the port needs to be the same on the Server and Client proccesses.
-        const string Host = "0.0.0.0";
+        const string Host = "localhost";
         const int Port = 23456;
 
         public static void Start()
@@ -89,14 +89,14 @@ namespace Middleware
         {
             string filepathXML = "../../../../../dit355/globalAssets/inbox/srcML.xml";
             string filepathJSON = "../../../../../dit355/globalAssets/outbox/xml2json.json";
-            string IP = "127.0.0.1";
+            string IP = "192.168.43.56";
             int Port = 23455;
             Channel channel = new Channel(IP, Port, ChannelCredentials.Insecure);
             var client = new Services.GameLog.GameLogClient(channel);
             string result = string.Empty;
             result = XElement.Load(filepathXML,0).ToString();
             var json = client.MainInteraction(new ParsingRequest { Address = result });
-            System.IO.File.WriteAllText(filepathJSON, json.ToString());
+            System.IO.File.WriteAllText(filepathJSON, json.File);
             channel.ShutdownAsync().Wait();
         }
     }
