@@ -10,7 +10,26 @@ namespace parser
         {
         }
 
-        public String readSrcML(XmlDocument xml) {
+        public String XmlToJson(XmlDocument xml) {
+            Console.WriteLine("Parser started");
+            String json = JsonConvert.SerializeObject(xml);
+            JObject processor = JObject.Parse(json);
+            JToken data = processor.SelectToken("$.JavaProject.data");
+            string result = "{\"data\": "+data.ToString()+"}";
+            Console.WriteLine(data);
+            Console.WriteLine("Parser closed");
+            return result;
+        }
+
+        public String ParseSrcML(XmlDocument xml)
+        {
+            String xJson = JsonConvert.SerializeObject(xml);
+            JObject json = JObject.Parse(xJson);
+            JObject data = (JObject)json["data"];
+            return data.ToString();
+        }
+
+        public String ReadSrcML(XmlDocument xml) {
             Console.WriteLine("json parser initiated");
             //make xml into string
             String jsonString = JsonConvert.SerializeObject(xml);
@@ -35,7 +54,7 @@ namespace parser
                     resultString += jsonString[i];
                 }
             }
-            Console.WriteLine("json parser complete");
+            Console.WriteLine("json parser initiated");
             //return the new string
             return resultString; 
         }

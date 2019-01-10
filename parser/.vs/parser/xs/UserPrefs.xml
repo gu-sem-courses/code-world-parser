@@ -2,9 +2,9 @@
   <MonoDevelop.Ide.ItemProperties.parser PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="parser/JsonReader.cs">
     <Files>
-      <File FileName="parser/Parser.cs" Line="33" Column="9" />
-      <File FileName="parser/SrcMlReader.cs" Line="257" Column="31" />
-      <File FileName="parser/JsonReader.cs" Line="34" Column="1" />
+      <File FileName="parser/Parser.cs" Line="57" Column="44" />
+      <File FileName="parser/SrcMlReader.cs" Line="10" Column="55" />
+      <File FileName="parser/JsonReader.cs" Line="16" Column="25" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

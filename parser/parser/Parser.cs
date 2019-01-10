@@ -1,7 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Xml;
-using System.Collections;
 using System.IO;
 using System.Diagnostics;
 
@@ -46,6 +45,18 @@ class Program
             classes.AppendChild(jClass);
         }
 
+        /*pop out root node*/
+        XmlNode root, parent;
+        XmlNodeList children;
+        root = srcML.FirstChild;
+        parent = root.ParentNode;
+        children = root.ChildNodes;
+
+        foreach (XmlNode node in children)
+        {
+            parent.AppendChild(node);
+        }
+
         /*import xml info*/
         gameObjects = new XmlDocument();
         XmlNode data = gameObjects.CreateElement("JavaProject");
@@ -54,7 +65,7 @@ class Program
 
         /*filter the xml in json format*/
         parser.JsonReader jsonReader = new parser.JsonReader(); // custom parser for xml
-        String json = jsonReader.readSrcML(gameObjects); // pops root node out of xml document
+        String json = jsonReader.XmlToJson(gameObjects); // pops root node out of xml document
 
         /*place json into outbox*/
         ExportJson(json);
