@@ -89,7 +89,7 @@ namespace Middleware
         {
             string filepathXML = "../../../../../dit355/globalAssets/inbox/srcML.xml";
             string filepathJSON = "../../../../../dit355/globalAssets/outbox/xml2json.json";
-            string IP = "192.168.43.56";
+            string IP = "192.168.43.224";
             int Port = 23455;
             Channel channel = new Channel(IP, Port, ChannelCredentials.Insecure);
             var client = new Services.GameLog.GameLogClient(channel);

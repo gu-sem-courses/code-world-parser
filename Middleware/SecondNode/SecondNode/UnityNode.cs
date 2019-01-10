@@ -19,7 +19,7 @@ namespace Middleware
             string filepath;
             string page;
             string filetype = ".json";
-            string IP = "localhost";
+            string IP = "192.168.43.56";
             int Port = 23456;
 
             // Checks if the we succesfully got the correct amount of arguments
