@@ -28,6 +28,7 @@ namespace GitGetter2
 
             mainFolderGetter();
             Console.WriteLine(projectId[0].ToString());
+            Console.ReadKey();
 
             Boolean isGitlab = true;
             if (projectId[1].ToString() == "f")
@@ -102,6 +103,7 @@ namespace GitGetter2
 
             return true;
         }
+
         private static Boolean gitTreeRetriever(String projectId)
         {
             //urlEncoder(projectId);
@@ -109,6 +111,7 @@ namespace GitGetter2
             Console.WriteLine(address);
             // String address = "https://gitlab.com/api/v4/projects/dit341%2Fexpress-template/repository/tree";
             // The part where the request is actually made
+            Console.ReadKey();
             try
             {
                 Console.WriteLine("Sending request");
@@ -141,6 +144,7 @@ namespace GitGetter2
             {
                 Console.WriteLine("Something went wrong with HTTP request :Defaultdance");
                 Console.WriteLine(e);
+                Console.ReadKey();
                 //Write stuff incase the git repository was not found. 
                 return false;
             }
@@ -176,6 +180,7 @@ namespace GitGetter2
             }
             return true;
         }
+
         private static bool TreeNavigator(String projectId, TreeObject map)
         { // Checks if the tree object is a file or folder and calls the appropriate method. 
 
@@ -195,6 +200,7 @@ namespace GitGetter2
             }
 
         }
+
         private static List<TreeObject> makeTreeList(String populationMaker)
         {
             String populationString = populationMaker;
@@ -241,7 +247,7 @@ namespace GitGetter2
         private static void activateParser(String projectId)
         {
             {
-
+                Console.ReadKey();
                 string PathP = mainFolderGetter() + "/parser/parser/bin/Debug/parser.exe";
                 string batAddress = System.AppDomain.CurrentDomain.BaseDirectory + ".SrcmlStarter.bat";
                 string storageAddress = mainFolderGetter() + "/Middleware/Gitgetter/FileStorer/";
@@ -264,7 +270,7 @@ namespace GitGetter2
 
 
                 // This part should start the parser but I'm too lazy to test it right now. 
-
+                /*
                 Process Project = new Process();
                 try
                 {
@@ -280,7 +286,7 @@ namespace GitGetter2
                 catch (Exception e)
                 {
                     Console.WriteLine(e.Message);
-                }
+                }*/
             }
 
         }
@@ -322,7 +328,7 @@ namespace GitGetter2
         private static void singleFileSrcmlCall(String dirpath, String projectId, String batAddress)
         {
             Console.WriteLine("Here is the project id: " + projectId);
-
+            Console.ReadKey();
             Char[] charArray = projectId.ToCharArray();
 
             String fileName = "";
@@ -374,10 +380,7 @@ namespace GitGetter2
         {
             return client;
         }
-
-
-
-
+        
     }
 }
 

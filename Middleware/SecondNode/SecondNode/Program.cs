@@ -6,9 +6,8 @@ namespace Middleware
     {
         static void Main(string[] args)
         {
-
-            UnityNode.Start(args);
-
+            
+        
             if (args.Length > 0)
             {
                 UnityNode.Start(args);
