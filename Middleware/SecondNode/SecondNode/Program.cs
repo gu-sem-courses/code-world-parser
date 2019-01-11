@@ -6,8 +6,9 @@ namespace Middleware
     {
         static void Main(string[] args)
         {
-
-            /*args = new string[2];
+          //This part is just for testing without manualy giving arguments
+            /*
+            args = new string[2];
             args[0] = "jorelsin";
             args[1] = "rpg-game-manager";
             UnityNode.Start(args); */
@@ -34,7 +35,7 @@ namespace Middleware
                 {
 
                 }
-
+           
                 
             }
 

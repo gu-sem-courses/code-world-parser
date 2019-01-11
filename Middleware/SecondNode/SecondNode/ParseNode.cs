@@ -6,6 +6,7 @@ using System.IO;
 using Grpc.Core;
 using Newtonsoft.Json.Linq;
 using System.Diagnostics;
+using System.Net;
 
 namespace Middleware
 {
@@ -19,10 +20,15 @@ namespace Middleware
         {
 
             //this adds the new xml file
-            var result = request;
+            string result = WebUtility.HtmlDecode(request.Address.ToString());
+            XDocument file = XDocument.Parse(result);
+   
+            Console.WriteLine(result);
+            
             string filepath = "../../../../../dit355/globalAssets/inbox/srcML.xml";
-            string exepath = " ../../../../../parser/parser/bin/Debug/parser.exe;";
-            System.IO.File.WriteAllText( filepath, result.ToString());
+            string jsonPath = "../../../../../dit355/globalAssets/outbox/xml2json.json";
+            string exepath = System.AppDomain.CurrentDomain.BaseDirectory + "../../../../parser/parser/bin/Debug/parser.exe";
+            file.Save(filepath);
             Console.WriteLine(exepath);
             Console.WriteLine(filepath);
             // add or copy parsing starting logic
@@ -41,8 +47,16 @@ namespace Middleware
             {
                 Console.WriteLine(e.Message);
             }
+       
 
-            return Task.FromResult(new JsonReply { File = result.ToString()});
+            result = string.Empty;
+            using (StreamReader r = new StreamReader(jsonPath))
+            {
+                var json = r.ReadToEnd();
+                JObject jsonobj = JObject.Parse(json);
+                result = jsonobj.ToString();
+            }
+            return Task.FromResult(new JsonReply { File = result});
         }
     }
 
@@ -52,12 +66,15 @@ namespace Middleware
         //not sure if you can change to another computers IP
         // The Port 23456 is the specific port the proccess will listen on for requests. 
         // the port needs to be the same on the Server and Client proccesses.
-        const string Host = "0.0.0.0";
+        // const string Host = "192.168.43.224";
         const int Port = 23455;
         public static void Start()
-        { 
+        {
+            string Host = System.Net.NetworkInformation.IPGlobalProperties.GetIPGlobalProperties().HostName;
+
             Server server = new Server
             {
+        
                 //the services or functions that the Server can peform, I guess we can add more if we need to.
                 Services = { Services.GameLog.BindService(new ParseService()) },
                 Ports = { { new ServerPort(Host, Port, ServerCredentials.Insecure) } }

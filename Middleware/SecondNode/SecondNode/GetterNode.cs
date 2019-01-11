@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Net;
+using System.Net.NetworkInformation;
 using System.Xml.Linq;
 using System.Threading.Tasks;
 using Services;
@@ -11,6 +13,7 @@ namespace Middleware
 { //Wierd name, but the class it extends from is a class generted by the proto file/files
     public class GetterService : Services.GameLog.GameLogBase
     {
+        
         //this is the function that we have the client process call, 
         //the parameters type and the name and what it returns are set in the proto generated files Trial.cs & TrialGrpc.cs
         public override Task<JsonReply> MainInteraction(ParsingRequest request, ServerCallContext context)
@@ -62,12 +65,13 @@ namespace Middleware
         //not sure if you can change to another computers IP
         // The Port 23456 is the specific port the proccess will listen on for requests. 
         // the port needs to be the same on the Server and Client proccesses.
-        const string Host = "192.168.43.56";
+       
         const int Port = 23456;
-
+       
         public static void Start()
         {
 
+            var Host = System.Net.NetworkInformation.IPGlobalProperties.GetIPGlobalProperties().HostName;
             Server server = new Server
             {
                 //the services or functions that the Server can peform, I guess we can add more if we need to.
@@ -79,7 +83,8 @@ namespace Middleware
 
             // This is just here so the program doesnt just shutdown when it gets done, could be nice to add 
             // quality of life messages here but can´t think of any right now
-            Console.WriteLine("Server listening on port " + Port);
+            
+            Console.WriteLine("Server listening on port " + Port + " and Domain is " +  Host);
             Console.WriteLine("Press any key to stop the server...");
             Console.ReadKey();
             server.ShutdownAsync().Wait();
@@ -89,13 +94,19 @@ namespace Middleware
         {
             string filepathXML = "../../../../../dit355/globalAssets/inbox/srcML.xml";
             string filepathJSON = "../../../../../dit355/globalAssets/outbox/xml2json.json";
-            string IP = "192.168.43.224";
+            // string IP = "10.0.98.227";
+            string IP = System.Net.NetworkInformation.IPGlobalProperties.GetIPGlobalProperties().HostName;
+
+            //string IP = "192.168.43.224";
             int Port = 23455;
             Channel channel = new Channel(IP, Port, ChannelCredentials.Insecure);
             var client = new Services.GameLog.GameLogClient(channel);
             string result = string.Empty;
-            result = XElement.Load(filepathXML,0).ToString();
-            var json = client.MainInteraction(new ParsingRequest { Address = result });
+            XDocument file = XDocument.Load(filepathXML);
+            result = file.ToString();
+            Console.WriteLine(result);
+            
+            var json = client.MainInteraction(new ParsingRequest { Address = WebUtility.HtmlEncode(result)});
             System.IO.File.WriteAllText(filepathJSON, json.File);
             channel.ShutdownAsync().Wait();
         }

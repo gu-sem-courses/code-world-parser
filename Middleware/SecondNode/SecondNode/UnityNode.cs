@@ -19,7 +19,10 @@ namespace Middleware
             string filepath;
             string page;
             string filetype = ".json";
-            string IP = "192.168.43.56";
+           // string IP = "10.0.98.227";
+            string IP = System.Net.NetworkInformation.IPGlobalProperties.GetIPGlobalProperties().HostName;
+
+
             int Port = 23456;
 
             // Checks if the we succesfully got the correct amount of arguments
