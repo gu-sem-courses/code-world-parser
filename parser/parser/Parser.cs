@@ -13,29 +13,43 @@ class Program
         /*Start benchmark*/
         Stopwatch benchmark = new Stopwatch();
         benchmark.Start();
+        Console.WriteLine("started project: " + benchmark.Elapsed);
 
         XmlDocument srcML, gameObjects;
 
         /*Create an xml doc for existing file*/
         srcML = new XmlDocument();
 
+        /*projects*/
+        string[] projects = new string[5];
+        projects[0] = "/../../../../../globalAssets/tests/official/k9.xml";
+        projects[1] = "/../../../../../globalAssets/tests/official/bitcoin.xml";
+        projects[2] = "/../../../../../globalAssets/tests/sample/reuxProject.xml";
+        projects[3] = "/../../../../../globalAssets/tests/sample/omniProject.xml";
+        projects[4] = "/../../../../../globalAssets/tests/sample/databaseProjectProject.xml";
+        String inbox = "/../../../../../globalAssets/inbox/srcML.xml";
+
+        /*set the project here*/
+        String project = projects[0];
+
         /*load project(s)*/
-        //srcML.Load("../../../../globalAssets/tests/sample/fullProject.xml");
-        String srcMLPath = AppDomain.CurrentDomain.BaseDirectory + "/../../../../../globalAssets/inbox/srcML.xml";
+        String srcMLPath = AppDomain.CurrentDomain.BaseDirectory + project;
         srcML.Load(srcMLPath);
 
-        /*this is needed to make xpath queries*/
+        /*create a namspace for xpath querying*/
         XmlNamespaceManager namespaceManager = new XmlNamespaceManager(srcML.NameTable);
         namespaceManager.AddNamespace("src", "http://www.srcML.org/srcML/src");
 
-
         /*retrieve data*/
-        parser.SrcMLReader reader = new parser.SrcMLReader(); //srcML reader class
-        XmlElement[] jClasses = reader.GetClasses(srcML, namespaceManager);
-
+        parser.SrcMLReader reader = new parser.SrcMLReader(); // parser for srcMl
+        XmlElement[] jClasses = reader.GetClasses(srcML, namespaceManager); // retrieves srcML data
         XmlElement classes = srcML.CreateElement("JavaProject");
 
-        foreach(XmlElement jClass in jClasses) {
+        Console.WriteLine(project);
+        Console.WriteLine("num of classes: "+jClasses.Length);
+
+        foreach (XmlElement jClass in jClasses)
+        {
             classes.AppendChild(jClass);
         }
 
@@ -46,19 +60,14 @@ class Program
         gameObjects.AppendChild(data);
 
         /*filter the xml in json format*/
-        parser.JsonReader jsonReader = new parser.JsonReader();
-        String json = jsonReader.readSrcML(gameObjects);
+        parser.JsonReader jsonReader = new parser.JsonReader(); // custom parser for xml
+        String json = jsonReader.XmlToJson(gameObjects); // pops root node out of xml document
 
         /*place json into outbox*/
-        Boolean result = ExportJson(json);
-        //Console.WriteLine(Yay(result));
+        ExportJson(json);
 
-        /*send data to outbox*/
-        Boolean result = ExportJson(gameObjects);
-        Console.ReadKey();
         /*Close Benchmark*/
         benchmark.Stop();
-        Console.WriteLine(Yay(result));
         Console.WriteLine("Benchmark: " + benchmark.Elapsed);
     }
 
@@ -80,36 +89,33 @@ class Program
         return JsonConvert.SerializeXmlNode(xmlFile);
     }
 
-    public static Boolean ExportJson(String jsonString) {
+    public static void ExportJson(String jsonString)
+    {
+        Boolean success = false;
         try
         {
             String path = System.AppDomain.CurrentDomain.BaseDirectory + "/../../../../globalAssets/outbox/xml2json.json";
-            Console.WriteLine(path);
-            Console.ReadKey();
-            // serialize JSON to a string and then write string to a file
             File.WriteAllText(path, jsonString);
-            // serialize JSON directly to a file
-            //using (StreamWriter file = File.CreateText(path))
-            //{
-            //    JsonSerializer serializer = new JsonSerializer();
-            //    serializer.Serialize(file, jsonString);
-            //}
+            success = true;
         }
         catch (Exception u)
         {
+            Console.WriteLine("error");
             Console.WriteLine(u.ToString());
-            return false;
+            success = false;
         }
-        return true;
+        Console.WriteLine(Yay(success));
     }
 
     public static String Yay(Boolean reality)
     {
         String res;
-        if (reality) {
+        if (reality)
+        {
             res = "────────────────────────────────────────\n────────────────────────────────────────\n───────────████──███────────────────────\n──────────█████─████────────────────────\n────────███───███───████──███───────────\n────────███───███───██████████──────────\n────────███─────███───████──██──────────\n─────────████───████───███──██──────────\n──────────███─────██────██──██──────────\n──────██████████────██──██──██──────────\n─────████████████───██──██──██──────────\n────███────────███──██──██──██──────────\n────███─████───███──██──██──██──────────\n───████─█████───██──██──██──██──────────\n───██████───██──────██──────██──────────\n─████████───██──────██─────███──────────\n─██────██───██─────────────███──────────\n─██─────███─██─────────────███──────────\n─████───██████─────────────███──────────\n───██───█████──────────────███──────────\n────███──███───────────────███──────────\n────███────────────────────███──────────\n────███───────────────────███───────────\n─────████────────────────███────────────\n──────███────────────────███────────────\n────────███─────────────███─────────────\n────────████────────────██──────────────\n──────────███───────────██──────────────\n──────────████████████████──────────────\n──────────████████████████──────────────\n────────────────────────────────────────\n────────────────────────────────────────";
         }
-        else {
+        else
+        {
             res = "░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░\n░░░░░░░░░░░░░░░░▄▄███▄▄▄░▄▄██▄░░░░░░░\n░░░░░░░░░██▀███████████████▀▀▄█░░░░░░\n░░░░░░░░█▀▄▀▀▄██████████████▄░░█░░░░░\n░░░░░░░█▀▀░▄██████████████▄█▀░░▀▄░░░░\n░░░░░▄▀░░░▀▀▄████████████████▄░░░█░░░\n░░░░░▀░░░░▄███▀░░███▄████░████░░░░▀▄░\n░░░▄▀░░░░▄████░░▀▀░▀░░░░░░██░▀▄░░░░▀▄\n░▄▀░░░░░▄▀▀██▀░░░░░▄░░▀▄░░██░░░▀▄░░░░\n█░░░░░█▀░░░██▄░░░░░▀▀█▀░░░█░░░░░░█░░░\n█░░░▄▀░░░░░░██░░░░░▀██▀░░█▀▄░░░░░░▀▀▀\n▀▀▀▀░▄▄▄▄▄▄▀▀░█░░░░░░░░░▄█░░█▀▀▀▀▀█░░\n░░░░█░░░▀▀░░░░░░▀▄░░░▄▄██░░░█░░░░░▀▄░\n░░░░█░░░░░░░░░░░░█▄▀▀▀▀▀█░░░█░░░░░░█░\n░░░░▀░░░░░░░░░░░░░▀░░░░▀░░░░▀░░░░░░░░\n░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░";
         }
         return res;
