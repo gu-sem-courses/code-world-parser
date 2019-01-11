@@ -214,11 +214,13 @@ namespace parser
         public void GetAssociations(String className, XmlNode root, XmlNode classNode, XmlDocument xDoc, XmlNamespaceManager nsm) {
             /*get all classes that call THIS className as a declarative statement AND where THIS class has an ancestor called unit*/
             XmlNodeList jClasses = xDoc.DocumentElement.SelectNodes("//src:class[parent::src:unit and .//src:decl_stmt//src:decl/src:type//src:name = \""+className+"\"]", nsm);
+            char[] arr;
 
             if (jClasses.Count < 1)
             {
                 XmlElement ass = xDoc.CreateElement("associations");
-                ass.InnerText = "[]";
+                ass.InnerText = ass.InnerText;
+                arr = ass.InnerText.ToCharArray();
                 root.AppendChild(ass);
             }
             else {
