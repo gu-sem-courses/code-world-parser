@@ -46,9 +46,8 @@ namespace Middleware
                 Console.WriteLine(req.Address.ToString());
                 GitGetter.StartInfo.Arguments = req.Address.ToString();
                 GitGetter.Start();
-                Console.WriteLine("I got here!");
                 GitGetter.WaitForExit();
-                GetterNode.ClietRequest();
+                GetterNode.ClietRequest(Console.ReadLine());
               
             }
             catch (Exception e)
@@ -90,14 +89,14 @@ namespace Middleware
             server.ShutdownAsync().Wait();
         }
 
-        public static void ClietRequest()
+        public static void ClietRequest(string IP)
         {
             string filepathXML = "../../../../../dit355/globalAssets/inbox/srcML.xml";
             string filepathJSON = "../../../../../dit355/globalAssets/outbox/xml2json.json";
-            // string IP = "10.0.98.227";
-            string IP = System.Net.NetworkInformation.IPGlobalProperties.GetIPGlobalProperties().HostName;
-
-            //string IP = "192.168.43.224";
+            
+            // if you just want it to run localy on your computer comment out the line below
+            // IP = System.Net.NetworkInformation.IPGlobalProperties.GetIPGlobalProperties().HostName;
+            
             int Port = 23455;
             Channel channel = new Channel(IP, Port, ChannelCredentials.Insecure);
             var client = new Services.GameLog.GameLogClient(channel);

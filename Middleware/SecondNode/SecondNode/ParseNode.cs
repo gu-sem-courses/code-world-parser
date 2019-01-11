@@ -84,7 +84,7 @@ namespace Middleware
 
             // This is just here so the program doesnt just shutdown when it gets done, could be nice to add 
             // quality of life messages here but can´t think of any right now
-            Console.WriteLine("Server listening on port " + Port);
+            Console.WriteLine("Server listening on port " + Port + " and Domain is " + Host);
             Console.WriteLine("Press any key to stop the server...");
             Console.ReadKey();
             server.ShutdownAsync().Wait();
