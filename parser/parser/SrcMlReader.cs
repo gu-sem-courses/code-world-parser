@@ -5,7 +5,8 @@ namespace parser
     public class SrcMLReader
     {
 
-        public XmlElement[] GetClasses(XmlDocument xDoc, XmlNamespaceManager nsm)
+        //public XmlElement[] GetClasses(XmlNode target, XmlDocument xDoc, XmlNamespaceManager nsm)
+        public void GetClasses(XmlNode target, XmlDocument xDoc, XmlNamespaceManager nsm)
         {
             XmlNodeList jClasses = xDoc.DocumentElement.SelectNodes("//src:class[src:specifier[.!='abstract']]", nsm);
             XmlElement[] result = new XmlElement[jClasses.Count];
@@ -25,17 +26,17 @@ namespace parser
                 GetMethods(javaClass, xClass, xDoc, nsm);
                 //interfaces []
                 GetInterfaces(javaClass, xClass, xDoc, nsm);
-                //add subclasses []
-                GetSubclasses(javaClass, xClass, xDoc, nsm);
                 //add superclasses 
                 superClass = GetSuperClass(xClass, xDoc, nsm);
                 javaClass.AppendChild(superClass);
+                //add subclasses []
+                GetSubclasses(javaClass, xClass, xDoc, nsm);
                 //associations []
                 GetAssociations(name.InnerText, javaClass, xClass, xDoc, nsm);
                 //append result to an array
                 result[i] = javaClass;
+                target.AppendChild(javaClass);
             }
-            return result;
         }
 
         public XmlElement GetClassName(XmlNode classNode, XmlDocument xDoc, XmlNamespaceManager nsm)
@@ -61,31 +62,29 @@ namespace parser
                 access = attr.SelectSingleNode("./src:specifier[1]", nsm);
                 attrType = attr.SelectSingleNode("./src:type/src:name", nsm);
 
+                //access modifier
                 if (access != null) {
                     accessModifier = access.InnerText;
                 }
                 else { accessModifier = "public"; //if there is no access modifier then its default = public
                 }
 
+                //type
                 if(attrType != null) {
                     type = attrType.InnerText;
                 }
-                else {//if there is no type then check the previous node because it implies that there were a group of nodes declared at the same time
-                    String reference = attr.SelectSingleNode("./src:type/@ref", nsm).InnerText;
-                    if(reference == "prev") {
-                        //although i-1 is risky (out of bounds) at the beggining, this case would never happn... but lets not take risks
-                        if(i != 0) {
-                            type = processedElements[i - 1].SelectSingleNode("./type").InnerText;
-                        }
-                        else {
-                            type = "null";
-                        }
+                else {//if there is no type then check the previous node because it implies that there were a group of nodes declared 
+                    if (i != 0)
+                    {
+                        type = processedElements[i - 1].SelectSingleNode("./type").InnerText;
                     }
-                    else {
+                    else
+                    {
                         type = "null";
                     }
                 }
 
+                //name
                 name = attr.SelectSingleNode("./src:name", nsm).InnerText;
 
                 /*create a new element*/
@@ -109,20 +108,16 @@ namespace parser
                 attribute.AppendChild(typeElement);
                 attribute.AppendChild(nameElement);
                 processedElements[i] = attribute;
+                root.AppendChild(processedElements[i]);
             }
-
-            //loop through proccessed arrays and add them to root
-            for(int i = 0; i < processedElements.Length; i++) {
-                root.AppendChild(processedElements[i]); 
-                }
         }
 
         public void GetMethods(XmlNode root, XmlNode classNode, XmlDocument xDoc, XmlNamespaceManager nsm)
         {
-            XmlNodeList methodList = classNode.SelectNodes(".//src:function", nsm);
+            XmlNodeList jMethods = classNode.SelectNodes(".//src:function", nsm);
 
             //we only need type, name
-            foreach (XmlNode meth in methodList)
+            foreach (XmlNode meth in jMethods)
             {
                 String type, name, accessModifier;
                 //retrive the nodes we need and store their value
@@ -229,15 +224,9 @@ namespace parser
             else {
                 foreach (XmlNode jClass in jClasses)
                 {
-                    try {
-                        XmlElement ass = xDoc.CreateElement("associations");
-                        ass.InnerText = GetClassName(jClass, xDoc, nsm).InnerText;
-                        root.AppendChild(ass);
-                    } catch {
-                        XmlElement ass = xDoc.CreateElement("associations");
-                        ass.InnerText = "null";
-                        root.AppendChild(ass);
-                    }
+                    XmlElement ass = xDoc.CreateElement("associations");
+                    ass.InnerText = GetClassName(jClass, xDoc, nsm).InnerText;
+                    root.AppendChild(ass);
                 }
             }
         }
