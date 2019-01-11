@@ -141,8 +141,8 @@
       }
     ],
     "interfaces": "Parcelable",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "OpenPgpError",
       "OpenPgpApiManager",
@@ -291,8 +291,8 @@
       }
     ],
     "interfaces": "Parcelable",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "OpenPgpDecryptionResult",
       "MessageCryptoHelperTest",
@@ -474,8 +474,8 @@
       }
     ],
     "interfaces": "LifecycleObserver",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "OpenPgpKeyPreference",
       "RecipientPresenterTest",
@@ -625,8 +625,8 @@
       }
     ],
     "interfaces": "Parcelable",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "OpenPgpMetadata"
   },
   {
@@ -751,8 +751,8 @@
       }
     ],
     "interfaces": "Parcelable",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "AutocryptPeerUpdate",
       "AutocryptOperations"
@@ -1010,8 +1010,8 @@
       }
     ],
     "interfaces": "Parcelable",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "OpenPgpSignatureResult",
       "MessageCryptoHelperTest",
@@ -1076,8 +1076,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -1167,8 +1167,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "OpenPgpApiManager",
       "MessageCryptoHelper"
@@ -1321,8 +1321,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -1345,8 +1345,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "OpenPgpKeyPreference"
   },
   {
@@ -1616,8 +1616,8 @@
       }
     ],
     "interfaces": "OpenPgpApiManagerCallback",
-    "subclasses": "[]",
     "superclass": "Preference",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -1628,8 +1628,8 @@
       "name": "buildGlobalConfig"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "RobolectricTestRunner",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -1764,8 +1764,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "Thread",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -1798,8 +1798,8 @@
       "name": "run"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "Thread",
+    "subclasses": "[]",
     "associations": "ParcelFileDescriptorUtil"
   },
   {
@@ -1822,8 +1822,8 @@
       "name": "run"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "Thread",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -1858,8 +1858,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "Thread",
+    "subclasses": "[]",
     "associations": [
       "ParcelFileDescriptorUtil",
       "OpenPgpApi"
@@ -1890,8 +1890,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -1961,8 +1961,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -2037,8 +2037,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "MockSmtpServer",
       "MockPop3Server",
@@ -2097,8 +2097,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -2768,8 +2768,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "AsyncTask<Void, Integer, OpenPgpDataResult<T>>",
+    "subclasses": "[]",
     "associations": [
       "OpenPgpApiManager",
       "OpenPgpKeyPreference",
@@ -2823,8 +2823,8 @@
       }
     ],
     "interfaces": "CancelableBackgroundOperation",
-    "subclasses": "[]",
     "superclass": "AsyncTask<Void, Integer, OpenPgpDataResult<T>>",
+    "subclasses": "[]",
     "associations": "OpenPgpApi"
   },
   {
@@ -2842,8 +2842,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -2893,8 +2893,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "ParcelFileDescriptorUtil",
       "OpenPgpApi",
@@ -2947,8 +2947,8 @@
       }
     ],
     "interfaces": "TrustedSocketFactory",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -3008,8 +3008,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -3389,8 +3389,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "View",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -3423,8 +3423,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "Transport",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -3469,8 +3469,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "HttpEntityEnclosingRequestBase",
+    "subclasses": "[]",
     "associations": [
       "WebDavStoreTest",
       "WebDavFolder",
@@ -3519,8 +3519,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "DefaultHttpClient",
+    "subclasses": "[]",
     "associations": [
       "WebDavStoreTest",
       "WebDavFolderTest",
@@ -3536,8 +3536,8 @@
       "name": "create"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "WebDavStoreTest",
       "WebDavStore"
@@ -3915,8 +3915,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -4006,8 +4006,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "MimeMessage",
+    "subclasses": "[]",
     "associations": [
       "WebDavMessageTest",
       "WebDavFolderTest",
@@ -4061,8 +4061,8 @@
       }
     ],
     "interfaces": "LayeredSocketFactory",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -4127,8 +4127,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "ServerSettings",
+    "subclasses": "[]",
     "associations": [
       "WebDavStoreTest",
       "AccountSetupIncoming"
@@ -4781,8 +4781,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -4877,8 +4877,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -5063,8 +5063,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -5699,8 +5699,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "Folder<WebDavMessage>",
+    "subclasses": "[]",
     "associations": [
       "WebDavMessageTest",
       "WebDavMessage",
@@ -6099,8 +6099,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "Exception",
+    "subclasses": "[]",
     "associations": "SmtpTransportTest"
   },
   {
@@ -6116,8 +6116,8 @@
       "name": "getCommand"
     },
     "interfaces": "SmtpInteraction",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -6133,22 +6133,22 @@
       "name": "getResponse"
     },
     "interfaces": "SmtpInteraction",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
     "name": "CloseConnection",
     "interfaces": "SmtpInteraction",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
     "name": "UnexpectedCommandException",
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "Exception",
+    "subclasses": "[]",
     "associations": [
       "MockSmtpServer",
       "MockPop3Server",
@@ -6372,8 +6372,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "Thread",
+    "subclasses": "[]",
     "associations": [
       "MockSmtpServer",
       "MockPop3Server",
@@ -6395,8 +6395,8 @@
       }
     ],
     "interfaces": "Logger",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -6446,8 +6446,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -6527,8 +6527,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -7183,8 +7183,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "RemoteStore",
+    "subclasses": "[]",
     "associations": [
       "WebDavMessageTest",
       "WebDavTransport",
@@ -7889,8 +7889,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -8465,8 +8465,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "Transport",
+    "subclasses": "[]",
     "associations": [
       "SmtpTransportTest",
       "ImapBackend"
@@ -8487,8 +8487,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "SmtpTransport"
   },
   {
@@ -8504,8 +8504,8 @@
       "name": "toString_producesReadableOutput"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -8521,8 +8521,8 @@
       "name": "delete_setsDeletedFlag"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -8807,8 +8807,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -9033,8 +9033,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -9424,8 +9424,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "Exception",
+    "subclasses": "[]",
     "associations": "Pop3ConnectionTest"
   },
   {
@@ -9441,8 +9441,8 @@
       "name": "getCommand"
     },
     "interfaces": "ImapInteraction",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -9458,36 +9458,36 @@
       "name": "getResponse"
     },
     "interfaces": "ImapInteraction",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
     "name": "CloseConnection",
     "interfaces": "ImapInteraction",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
     "name": "EnableCompression",
     "interfaces": "ImapInteraction",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
     "name": "UpgradeToTls",
     "interfaces": "ImapInteraction",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
     "name": "UnexpectedCommandException",
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "Exception",
+    "subclasses": "[]",
     "associations": [
       "MockSmtpServer",
       "MockPop3Server",
@@ -9706,8 +9706,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "Thread",
+    "subclasses": "[]",
     "associations": [
       "MockSmtpServer",
       "MockPop3Server",
@@ -9729,8 +9729,8 @@
       }
     ],
     "interfaces": "Logger",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -9753,8 +9753,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "MimeMessage",
+    "subclasses": "[]",
     "associations": [
       "Pop3MessageTest",
       "Pop3FolderTest",
@@ -10178,8 +10178,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -10309,8 +10309,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "RemoteStore",
+    "subclasses": "[]",
     "associations": [
       "Pop3FolderTest",
       "Pop3StoreTest",
@@ -10359,8 +10359,8 @@
       }
     ],
     "interfaces": "Pop3Settings",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -10460,8 +10460,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -10536,8 +10536,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -10722,8 +10722,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -10813,8 +10813,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -10929,8 +10929,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -11335,8 +11335,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "Folder<Pop3Message>",
+    "subclasses": "[]",
     "associations": [
       "Pop3FolderTest",
       "Pop3StoreTest",
@@ -11501,8 +11501,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -11587,8 +11587,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -11638,8 +11638,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -11874,8 +11874,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "ImapPusher",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -11915,8 +11915,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "ImapPusher",
+    "subclasses": "[]",
     "associations": "ImapPusherTest"
   },
   {
@@ -12331,8 +12331,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "ImapStore",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -12372,8 +12372,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "ImapStore",
+    "subclasses": "[]",
     "associations": "ImapStoreTest"
   },
   {
@@ -12413,8 +12413,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -13049,8 +13049,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "RuntimeException",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -13110,8 +13110,8 @@
       }
     ],
     "interfaces": "ImapResponseCallback",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "ImapResponseParserTest"
   },
   {
@@ -13122,8 +13122,8 @@
       "name": "instanceNumber"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "RuntimeException",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -13139,8 +13139,8 @@
       "name": "handleAsyncUntaggedResponse"
     },
     "interfaces": "UntaggedHandler",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "ImapResponseParserTest"
   },
   {
@@ -13275,8 +13275,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -13386,8 +13386,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -13442,8 +13442,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -13603,8 +13603,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -13704,8 +13704,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -13835,8 +13835,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -13866,8 +13866,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -14082,8 +14082,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -14973,8 +14973,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -15364,8 +15364,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "Exception",
+    "subclasses": "[]",
     "associations": "ImapConnectionTest"
   },
   {
@@ -15381,8 +15381,8 @@
       "name": "getCommand"
     },
     "interfaces": "ImapInteraction",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -15398,36 +15398,36 @@
       "name": "getResponse"
     },
     "interfaces": "ImapInteraction",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
     "name": "CloseConnection",
     "interfaces": "ImapInteraction",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
     "name": "EnableCompression",
     "interfaces": "ImapInteraction",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
     "name": "UpgradeToTls",
     "interfaces": "ImapInteraction",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
     "name": "UnexpectedCommandException",
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "Exception",
+    "subclasses": "[]",
     "associations": [
       "MockSmtpServer",
       "MockPop3Server",
@@ -15646,8 +15646,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "Thread",
+    "subclasses": "[]",
     "associations": [
       "MockSmtpServer",
       "MockPop3Server",
@@ -15669,8 +15669,8 @@
       }
     ],
     "interfaces": "Logger",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -15686,8 +15686,8 @@
       "name": "getFolderServerId"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "MessagingException",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -17157,8 +17157,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -17176,8 +17176,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "IdGrouperTest",
       "ImapCommandSplitterTest",
@@ -17204,8 +17204,8 @@
       "name": "toString"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "ImapCommandSplitterTest",
       "ImapCommandSplitter",
@@ -17237,8 +17237,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "MimeMessage",
+    "subclasses": "[]",
     "associations": [
       "FetchBodyCallback",
       "ImapFolderTest",
@@ -17323,8 +17323,8 @@
       }
     ],
     "interfaces": "Pusher",
-    "subclasses": "TestImapPusher",
     "superclass": "",
+    "subclasses": "TestImapPusher",
     "associations": "[]"
   },
   {
@@ -17734,8 +17734,8 @@
       }
     ],
     "interfaces": "UntaggedHandler",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -17775,15 +17775,15 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "ImapFolderPusher"
   },
   {
     "name": "ImapResponseParserException",
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "RuntimeException",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -18153,8 +18153,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "TestImapStore",
     "superclass": "RemoteStore",
+    "subclasses": "TestImapStore",
     "associations": [
       "ImapPusherTest",
       "ImapFolderTest",
@@ -18244,8 +18244,8 @@
       }
     ],
     "interfaces": "ImapSettings",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -18290,8 +18290,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "ServerSettings",
+    "subclasses": "[]",
     "associations": [
       "ImapStoreTest",
       "AccountSetupIncoming"
@@ -18359,8 +18359,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -18510,8 +18510,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -18539,8 +18539,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -18583,8 +18583,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -18612,8 +18612,8 @@
       "name": "testFixupCharset"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -18828,8 +18828,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -19974,8 +19974,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "ImapFolderPusher",
     "superclass": "Folder<ImapMessage>",
+    "subclasses": "ImapFolderPusher",
     "associations": [
       "ImapStoreTest",
       "ImapFolderTest",
@@ -20120,8 +20120,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -20191,8 +20191,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -20337,8 +20337,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -20378,8 +20378,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -20472,8 +20472,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -20563,8 +20563,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -20614,8 +20614,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -20805,8 +20805,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -20851,8 +20851,8 @@
       }
     ],
     "interfaces": "SizeAware",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "MessageExtractorTest",
       "MessageCreationHelper",
@@ -20936,8 +20936,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -21032,8 +21032,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -21423,8 +21423,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -21469,8 +21469,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "BoundaryGeneratorTest",
       "BoundaryGenerator",
@@ -21507,8 +21507,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "CertificateException",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -21548,8 +21548,8 @@
       }
     ],
     "interfaces": "Part",
-    "subclasses": "MimeBodyPart",
     "superclass": "",
+    "subclasses": "MimeBodyPart",
     "associations": [
       "Multipart",
       "MessageExtractor",
@@ -21575,8 +21575,8 @@
       "name": "serialVersionUID"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "ArrayList<FetchProfile.Item>",
+    "subclasses": "[]",
     "associations": [
       "WebDavFolderTest",
       "Pop3FolderTest",
@@ -21619,8 +21619,8 @@
       }
     ],
     "interfaces": "BodyFactory",
-    "subclasses": "ProgressBodyFactory",
     "superclass": "",
+    "subclasses": "ProgressBodyFactory",
     "associations": "[]"
   },
   {
@@ -21685,8 +21685,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "MessagingException",
+    "subclasses": "[]",
     "associations": "MessagingController"
   },
   {
@@ -21786,8 +21786,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "DebugStatus",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -21827,8 +21827,8 @@
       }
     ],
     "interfaces": "WritableDebugStatus",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -21993,8 +21993,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -22017,6 +22017,7 @@
       "name": "isPermanentFailure"
     },
     "interfaces": "none",
+    "superclass": "Exception",
     "subclasses": [
       "NegativeSmtpReplyException",
       "Pop3ErrorResponse",
@@ -22025,7 +22026,6 @@
       "CertificateValidationException",
       "UnavailableStorageException"
     ],
-    "superclass": "Exception",
     "associations": [
       "MessageBuilder",
       "MessagingController"
@@ -22168,8 +22168,8 @@
       }
     ],
     "interfaces": "Body",
-    "subclasses": "MimeMessage",
     "superclass": "",
+    "subclasses": "MimeMessage",
     "associations": [
       "OpenPgpApi",
       "WebDavFolderTest",
@@ -22284,8 +22284,8 @@
       }
     ],
     "interfaces": "Body",
-    "subclasses": "MimeMultipart",
     "superclass": "",
+    "subclasses": "MimeMultipart",
     "associations": [
       "BodyPart",
       "MimeBodyPart",
@@ -22321,11 +22321,11 @@
       }
     ],
     "interfaces": "none",
+    "superclass": "",
     "subclasses": [
       "WebDavTransport",
       "SmtpTransport"
     ],
-    "superclass": "",
     "associations": "[]"
   },
   {
@@ -22560,8 +22560,8 @@
       }
     ],
     "interfaces": "Serializable",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "TestMessage",
       "SmtpTransport",
@@ -22687,12 +22687,12 @@
       }
     ],
     "interfaces": "none",
+    "superclass": "",
     "subclasses": [
       "WebDavStoreSettings",
       "ImapStoreSettings",
       "ImportedServerSettings"
     ],
-    "superclass": "",
     "associations": [
       "SmtpTransportUriCreatorTest",
       "SmtpTransportUriDecoderTest",
@@ -22868,8 +22868,8 @@
       }
     ],
     "interfaces": "TrustedSocketFactory",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -22929,19 +22929,19 @@
       }
     ],
     "interfaces": "none",
+    "superclass": "",
     "subclasses": [
       "WebDavStore",
       "Pop3Store",
       "ImapStore"
     ],
-    "superclass": "",
     "associations": "[]"
   },
   {
     "name": "AuthorizationException",
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "Exception",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -23046,8 +23046,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "WebDavStoreTest",
       "WebDavStore",
@@ -23102,8 +23102,8 @@
       }
     ],
     "interfaces": "X509TrustManager",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "TrustManagerFactory"
   },
   {
@@ -23136,8 +23136,8 @@
       "name": "shouldRetry"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -23148,8 +23148,8 @@
       "name": "setEncoding"
     },
     "interfaces": "Body",
-    "subclasses": "[]",
     "superclass": "BinaryTempFileBody",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -23259,8 +23259,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -23350,8 +23350,8 @@
       }
     ],
     "interfaces": "ContentHandler",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -23461,8 +23461,8 @@
       }
     ],
     "interfaces": "SizeAware",
-    "subclasses": "BinaryTempFileMessageBody",
     "superclass": "FilterInputStream",
+    "subclasses": "BinaryTempFileMessageBody",
     "associations": [
       "DefaultBodyFactory",
       "PgpMessageBuilder"
@@ -23488,8 +23488,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "DecoderUtil"
   },
   {
@@ -23579,8 +23579,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -23640,8 +23640,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -23686,8 +23686,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "MessageIdGeneratorTest",
       "MessageBuilderTest",
@@ -23808,8 +23808,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "TrustManagerFactory",
       "LocalKeyStore",
@@ -23943,8 +23943,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "LocalBodyPart",
     "superclass": "BodyPart",
+    "subclasses": "LocalBodyPart",
     "associations": [
       "TestMessageConstructionUtils",
       "ImapFolder",
@@ -24018,8 +24018,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -24264,8 +24264,8 @@
       }
     ],
     "interfaces": "Cloneable",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "MimeBodyPart",
       "MimeHeader",
@@ -24335,8 +24335,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "MimeHeader",
       "MessagingControllerTest"
@@ -24429,8 +24429,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "Multipart",
+    "subclasses": "[]",
     "associations": [
       "TestMessageConstructionUtils",
       "ImapFolder",
@@ -24584,8 +24584,8 @@
       }
     ],
     "interfaces": "SizeAware",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "TestMessageConstructionUtils",
       "TextBodyTest",
@@ -24614,8 +24614,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -24955,8 +24955,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -25516,6 +25516,7 @@
       }
     ],
     "interfaces": "none",
+    "superclass": "Message",
     "subclasses": [
       "TestMessage",
       "WebDavMessage",
@@ -25524,7 +25525,6 @@
       "LocalMimeMessage",
       "LocalMessage"
     ],
-    "superclass": "Message",
     "associations": [
       "TestMessageConstructionUtils",
       "SmtpTransportTest",
@@ -25715,8 +25715,8 @@
       }
     ],
     "interfaces": "ContentHandler",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -25749,8 +25749,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "OutputStream",
+    "subclasses": "[]",
     "associations": [
       "Message",
       "TextBody",
@@ -25821,8 +25821,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "FilterOutputStream",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -25877,8 +25877,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "FilterOutputStream",
+    "subclasses": "[]",
     "associations": [
       "WebDavFolder",
       "SmtpTransport",
@@ -25959,8 +25959,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "InputStream",
+    "subclasses": "[]",
     "associations": [
       "ImapResponseParserTest",
       "ImapResponseParser",
@@ -26009,8 +26009,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "FilterOutputStream",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -26060,8 +26060,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "FilterInputStream",
+    "subclasses": "[]",
     "associations": [
       "SmtpTransport",
       "ImapResponseHelper",
@@ -26100,8 +26100,8 @@
       "name": "write"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "FilterOutputStream",
+    "subclasses": "[]",
     "associations": "SmtpDataStuffingTest"
   },
   {
@@ -26221,8 +26221,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "FilterOutputStream",
+    "subclasses": "[]",
     "associations": "TextBody"
   },
   {
@@ -26432,8 +26432,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -26461,8 +26461,8 @@
       "name": "getRootCauseMessage"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -26500,8 +26500,8 @@
       "name": "testMessage"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -26541,8 +26541,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -26902,8 +26902,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "Exception",
+    "subclasses": "[]",
     "associations": [
       "Base64OutputStream",
       "Base64"
@@ -26917,8 +26917,8 @@
       "name": "serialVersionUID"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "Exception",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -26929,8 +26929,8 @@
       "name": "serialVersionUID"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "Exception",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -27060,8 +27060,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -27119,8 +27119,8 @@
       "name": "create"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -27380,8 +27380,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -27474,8 +27474,8 @@
       "name": "decode"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -27520,8 +27520,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -27621,8 +27621,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -27665,8 +27665,8 @@
       "name": "create"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -27754,8 +27754,8 @@
       "name": "decode"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -28040,8 +28040,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -28346,8 +28346,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -28410,8 +28410,8 @@
       "name": "create"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -28509,8 +28509,8 @@
       "name": "decode"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -28725,8 +28725,8 @@
       }
     ],
     "interfaces": "Backend",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -28742,8 +28742,8 @@
       "name": "executeOnExecutor"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "ShadowAsyncTask<Void, Integer, Intent>",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -28766,8 +28766,8 @@
       "name": "assertMessageHasAutocryptHeader"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -28932,8 +28932,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "RobolectricTest",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -29278,8 +29278,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "RobolectricTest",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -29654,8 +29654,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "RobolectricTest",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -29730,8 +29730,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "RobolectricTest",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -30081,8 +30081,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "K9RobolectricTest",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -30177,8 +30177,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "LinearLayout",
+    "subclasses": "[]",
     "associations": [
       "AccountSetupBasics",
       "AccountSetupIncoming",
@@ -30225,8 +30225,8 @@
       "name": "drawable"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "Accounts",
       "FolderList"
@@ -30319,13 +30319,13 @@
       }
     ],
     "interfaces": "none",
+    "superclass": "DialogFragment",
     "subclasses": [
       "PgpEnabledErrorDialog",
       "PgpEncryptDescriptionDialog",
       "PgpInlineDialog",
       "PgpSignOnlyDialog"
     ],
-    "superclass": "DialogFragment",
     "associations": "[]"
   },
   {
@@ -30348,8 +30348,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "K9WebViewClient",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -30377,8 +30377,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "K9WebViewClient",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -30478,8 +30478,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "ViewAnimator",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -30704,8 +30704,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "LinearLayout",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -30750,8 +30750,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "BaseSavedState",
+    "subclasses": "[]",
     "associations": [
       "FoldableLinearLayout",
       "MessageHeader",
@@ -30825,8 +30825,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "RigidWebView",
+    "subclasses": "[]",
     "associations": [
       "MessageContainerView",
       "QuotedMessageMvpView"
@@ -30949,8 +30949,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "ScrollView",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -31035,8 +31035,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "MessageWebView",
     "superclass": "WebView",
+    "subclasses": "MessageWebView",
     "associations": "[]"
   },
   {
@@ -31054,8 +31054,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "ToolableViewAnimator",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -31078,8 +31078,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -31144,11 +31144,11 @@
       }
     ],
     "interfaces": "none",
+    "superclass": "ViewAnimator",
     "subclasses": [
       "StatusIndicator",
       "LockedAttachmentView"
     ],
-    "superclass": "ViewAnimator",
     "associations": [
       "MessageTopView",
       "RecipientMvpView"
@@ -31266,8 +31266,8 @@
       }
     ],
     "interfaces": "AnimationListener",
-    "subclasses": "[]",
     "superclass": "ViewAnimator",
+    "subclasses": "[]",
     "associations": "MessageList"
   },
   {
@@ -31285,8 +31285,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "EditText",
+    "subclasses": "[]",
     "associations": [
       "QuotedMessageMvpView",
       "MessageCompose"
@@ -31824,8 +31824,8 @@
       }
     ],
     "interfaces": "OnLongClickListener",
-    "subclasses": "[]",
     "superclass": "LinearLayout",
+    "subclasses": "[]",
     "associations": [
       "MessageTopView",
       "MessageViewInfoExtractor"
@@ -31846,8 +31846,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "MessageHeader"
   },
   {
@@ -31892,8 +31892,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "BaseSavedState",
+    "subclasses": "[]",
     "associations": [
       "FoldableLinearLayout",
       "MessageHeader",
@@ -32052,8 +32052,8 @@
       }
     ],
     "interfaces": "OnClickListener",
-    "subclasses": "[]",
     "superclass": "ImageView",
+    "subclasses": "[]",
     "associations": [
       "MessageHeader",
       "MessageViewHolder",
@@ -32106,8 +32106,8 @@
       "name": "onQueryComplete"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "AsyncQueryHandler",
+    "subclasses": "[]",
     "associations": [
       "ContactBadge",
       "MessageProvider"
@@ -32735,8 +32735,8 @@
       }
     ],
     "interfaces": "AlternateRecipientListener",
-    "subclasses": "[]",
     "superclass": "TokenCompleteTextView<Recipient>",
+    "subclasses": "[]",
     "associations": "RecipientMvpView"
   },
   {
@@ -32747,8 +32747,8 @@
       "name": "view"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "TokenImageSpan",
+    "subclasses": "[]",
     "associations": "RecipientSelectView"
   },
   {
@@ -32813,8 +32813,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "RecipientSelectView"
   },
   {
@@ -32944,8 +32944,8 @@
       }
     ],
     "interfaces": "Serializable",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "RecipientLoaderTest",
       "RecipientPresenterTest",
@@ -33279,8 +33279,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "MessageList"
   },
   {
@@ -33560,8 +33560,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "AsyncTask<Void, Void, Intent>",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -33591,8 +33591,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "AttachmentController"
   },
   {
@@ -33625,8 +33625,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "AsyncTask<Void, Void, Intent>",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -33654,8 +33654,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "AsyncTask<Uri, Void, Boolean>",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -34040,8 +34040,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "FragmentActivity",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -34216,8 +34216,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "DialogFragment",
+    "subclasses": "[]",
     "associations": "OpenPgpAppSelectDialog"
   },
   {
@@ -34240,8 +34240,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "DialogFragment",
+    "subclasses": "[]",
     "associations": "OpenPgpAppSelectDialog"
   },
   {
@@ -34284,8 +34284,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "DialogFragment",
+    "subclasses": "[]",
     "associations": "OpenPgpAppSelectDialog"
   },
   {
@@ -34318,8 +34318,8 @@
       "name": "toString"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "OpenPgpAppSelectDialog"
   },
   {
@@ -34379,8 +34379,8 @@
       }
     ],
     "interfaces": "OnClickListener",
-    "subclasses": "[]",
     "superclass": "ToolableViewAnimator",
+    "subclasses": "[]",
     "associations": "MessageContainerView"
   },
   {
@@ -34490,8 +34490,8 @@
       }
     ],
     "interfaces": "OnClickListener",
-    "subclasses": "[]",
     "superclass": "FrameLayout",
+    "subclasses": "[]",
     "associations": [
       "LockedAttachmentView",
       "MessageContainerView"
@@ -34624,8 +34624,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "DialogFragment",
+    "subclasses": "[]",
     "associations": [
       "CryptoInfoDialog",
       "MessageViewFragment"
@@ -34763,8 +34763,8 @@
       }
     ],
     "interfaces": "OnCryptoClickListener",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "MessageTopView",
       "MessageViewFragment"
@@ -34817,8 +34817,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "AsyncTaskLoader<MessageViewInfo>",
+    "subclasses": "[]",
     "associations": "MessageLoaderHelper"
   },
   {
@@ -34883,8 +34883,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "AsyncTaskLoader<LocalMessage>",
+    "subclasses": "[]",
     "associations": "MessageLoaderHelper"
   },
   {
@@ -35309,8 +35309,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "LinearLayout",
+    "subclasses": "[]",
     "associations": "MessageViewFragment"
   },
   {
@@ -35355,8 +35355,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "BaseSavedState",
+    "subclasses": "[]",
     "associations": [
       "FoldableLinearLayout",
       "MessageHeader",
@@ -35371,8 +35371,8 @@
       "name": "formatSize"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -35862,8 +35862,8 @@
       }
     ],
     "interfaces": "OnCreateContextMenuListener",
-    "subclasses": "[]",
     "superclass": "LinearLayout",
+    "subclasses": "[]",
     "associations": "MessageTopView"
   },
   {
@@ -35898,8 +35898,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "AlertDialog",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -35910,8 +35910,8 @@
       "name": "createOpenPgpApi"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "MessageCryptoHelperTest",
       "MessageCryptoHelper"
@@ -36029,8 +36029,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "QuotedMessagePresenter",
       "MessageCompose"
@@ -36153,8 +36153,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "DialogFragment",
+    "subclasses": "[]",
     "associations": "AttachmentDownloadDialogFragment"
   },
   {
@@ -37009,8 +37009,8 @@
       }
     ],
     "interfaces": "OnClickShowCryptoKeyListener",
-    "subclasses": "[]",
     "superclass": "Fragment",
+    "subclasses": "[]",
     "associations": [
       "AttachmentController",
       "MessageViewFragment",
@@ -37274,8 +37274,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "MessageCompose"
   },
   {
@@ -37395,8 +37395,8 @@
       }
     ],
     "interfaces": "OnCancelListener",
-    "subclasses": "[]",
     "superclass": "DialogFragment",
+    "subclasses": "[]",
     "associations": "ConfirmationDialogFragment"
   },
   {
@@ -37514,8 +37514,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -37675,8 +37675,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -37692,8 +37692,8 @@
       "name": "compare"
     },
     "interfaces": "Comparator<T>",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -37716,8 +37716,8 @@
       "name": "compare"
     },
     "interfaces": "Comparator<T>",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -37745,8 +37745,8 @@
       "name": "compare"
     },
     "interfaces": "Comparator<Cursor>",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -37769,8 +37769,8 @@
       "name": "compare"
     },
     "interfaces": "Comparator<Cursor>",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -37793,8 +37793,8 @@
       "name": "compare"
     },
     "interfaces": "Comparator<Cursor>",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -37817,8 +37817,8 @@
       "name": "compare"
     },
     "interfaces": "Comparator<Cursor>",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -37841,8 +37841,8 @@
       "name": "compare"
     },
     "interfaces": "Comparator<Cursor>",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -37865,8 +37865,8 @@
       "name": "compare"
     },
     "interfaces": "Comparator<Cursor>",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -37889,8 +37889,8 @@
       "name": "compare"
     },
     "interfaces": "Comparator<Cursor>",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -37913,8 +37913,8 @@
       "name": "compare"
     },
     "interfaces": "Comparator<Cursor>",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -38664,8 +38664,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "MessageCryptoHelperTest",
       "MessageLoaderHelper"
@@ -38686,8 +38686,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "MessageCryptoHelper"
   },
   {
@@ -38765,8 +38765,8 @@
       "name": "onClick"
     },
     "interfaces": "View.OnClickListener",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "MessageListAdapter"
   },
   {
@@ -38941,8 +38941,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "Handler",
+    "subclasses": "[]",
     "associations": "MessageListFragment"
   },
   {
@@ -39017,8 +39017,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "DialogFragment",
+    "subclasses": "[]",
     "associations": [
       "ProgressDialogFragment",
       "MessageCompose"
@@ -39081,8 +39081,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -39402,8 +39402,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "CursorAdapter",
+    "subclasses": "[]",
     "associations": "MessageListFragment"
   },
   {
@@ -39528,11 +39528,11 @@
       }
     ],
     "interfaces": "OnItemClickListener",
+    "superclass": "K9ListActivity",
     "subclasses": [
       "ChooseAccount",
       "LauncherShortcuts"
     ],
-    "superclass": "K9ListActivity",
     "associations": "[]"
   },
   {
@@ -39762,8 +39762,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "MessageListActivityListener",
     "superclass": "SimpleMessagingListener",
+    "subclasses": "MessageListActivityListener",
     "associations": [
       "ActivityListenerTest",
       "Accounts",
@@ -39861,8 +39861,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "K9PreferenceActivity",
     "superclass": "PreferenceActivity",
+    "subclasses": "K9PreferenceActivity",
     "associations": "[]"
   },
   {
@@ -39892,8 +39892,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "AccountList",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -40148,8 +40148,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "BaseAdapter",
+    "subclasses": "[]",
     "associations": "RecipientSelectView"
   },
   {
@@ -40217,8 +40217,8 @@
       "name": "setShowAsHeader"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "AlternateRecipientAdapter",
       "RecipientAdapter"
@@ -40311,8 +40311,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "ManageIdentities",
     "superclass": "K9ListActivity",
+    "subclasses": "ManageIdentities",
     "associations": "[]"
   },
   {
@@ -40350,8 +40350,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -40766,8 +40766,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "K9ListActivity",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -40795,8 +40795,8 @@
       "name": "toString"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "ChooseFolder"
   },
   {
@@ -40906,8 +40906,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "K9Activity",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -41067,8 +41067,8 @@
       }
     ],
     "interfaces": "Comparable<FolderInfoHolder>",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "FolderList",
       "MessageListFragment"
@@ -41131,8 +41131,8 @@
       }
     ],
     "interfaces": "OnItemClickListener",
-    "subclasses": "[]",
     "superclass": "K9ListActivity",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -41222,8 +41222,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "Filter",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -41328,6 +41328,7 @@
       }
     ],
     "interfaces": "K9ActivityMagic",
+    "superclass": "AppCompatActivity",
     "subclasses": [
       "EditIdentity",
       "K9ListActivity",
@@ -41344,7 +41345,6 @@
       "AccountSetupOutgoing",
       "WelcomeMessage"
     ],
-    "superclass": "AppCompatActivity",
     "associations": "[]"
   },
   {
@@ -41429,8 +41429,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "K9Activity",
       "K9ListActivity"
@@ -41513,6 +41513,7 @@
       }
     ],
     "interfaces": "K9ActivityMagic",
+    "superclass": "K9Activity",
     "subclasses": [
       "AccountList",
       "ChooseIdentity",
@@ -41521,7 +41522,6 @@
       "Accounts",
       "FolderList"
     ],
-    "superclass": "K9Activity",
     "associations": "[]"
   },
   {
@@ -41616,11 +41616,11 @@
       }
     ],
     "interfaces": "LifecycleOwner",
+    "superclass": "AppCompatPreferenceActivity",
     "subclasses": [
       "FontSizeSettings",
       "FolderSettings"
     ],
-    "superclass": "AppCompatPreferenceActivity",
     "associations": "[]"
   },
   {
@@ -41648,8 +41648,8 @@
       "name": "onPreferenceChange"
     },
     "interfaces": "Preference.OnPreferenceChangeListener",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -41699,8 +41699,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "AccountList",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -41820,8 +41820,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "ChooseIdentity",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -43631,8 +43631,8 @@
       }
     ],
     "interfaces": "OnItemClickListener",
-    "subclasses": "[]",
     "superclass": "K9ListActivity",
+    "subclasses": "[]",
     "associations": "Accounts"
   },
   {
@@ -43817,8 +43817,8 @@
       }
     ],
     "interfaces": "TextWatcher",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "Accounts"
   },
   {
@@ -43933,8 +43933,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "ExtendedAsyncTask<Void, Void, Void>",
+    "subclasses": "[]",
     "associations": "Accounts"
   },
   {
@@ -44004,8 +44004,8 @@
       }
     ],
     "interfaces": "NonConfigurationInstance",
-    "subclasses": "AccountsImportedDialog",
     "superclass": "",
+    "subclasses": "AccountsImportedDialog",
     "associations": "Accounts"
   },
   {
@@ -44065,8 +44065,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "SimpleDialog",
+    "subclasses": "[]",
     "associations": "Accounts"
   },
   {
@@ -44206,8 +44206,8 @@
       }
     ],
     "interfaces": "NonConfigurationInstance",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "Accounts"
   },
   {
@@ -44223,8 +44223,8 @@
       "name": "onClick"
     },
     "interfaces": "OnClickListener",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -44279,8 +44279,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "ExtendedAsyncTask<Void, Void, Boolean>",
+    "subclasses": "[]",
     "associations": "Accounts"
   },
   {
@@ -44360,8 +44360,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "ExtendedAsyncTask<Void, Void, Boolean>",
+    "subclasses": "[]",
     "associations": "Accounts"
   },
   {
@@ -44421,8 +44421,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "ExtendedAsyncTask<Void, Void, Boolean>",
+    "subclasses": "[]",
     "associations": "Accounts"
   },
   {
@@ -44467,8 +44467,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "ExtendedAsyncTask<Void, Void, Void>",
+    "subclasses": "[]",
     "associations": "Accounts"
   },
   {
@@ -45463,8 +45463,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "K9ListActivity",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -45534,8 +45534,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "Filter",
+    "subclasses": "[]",
     "associations": "ChooseFolder"
   },
   {
@@ -45603,8 +45603,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "FolderList"
   },
   {
@@ -45620,8 +45620,8 @@
       "name": "onClick"
     },
     "interfaces": "OnClickListener",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -47901,8 +47901,8 @@
       }
     ],
     "interfaces": "LoaderCallbacks<Cursor>",
-    "subclasses": "[]",
     "superclass": "Fragment",
+    "subclasses": "[]",
     "associations": [
       "MessageViewHolder",
       "MessageListHandler",
@@ -47919,8 +47919,8 @@
       "name": "main"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "MessageListFragment"
   },
   {
@@ -48395,8 +48395,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "MessageViewFragment",
       "MessageCompose"
@@ -48564,8 +48564,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "Activity",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -48588,8 +48588,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "MessageList",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -48719,8 +48719,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "K9Activity",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -48875,8 +48875,8 @@
       }
     ],
     "interfaces": "OnClickListener",
-    "subclasses": "[]",
     "superclass": "K9Activity",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -49366,8 +49366,8 @@
       }
     ],
     "interfaces": "OnClientCertificateChangedListener",
-    "subclasses": "[]",
     "superclass": "K9Activity",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -49420,8 +49420,8 @@
       }
     ],
     "interfaces": "Serializable",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "AccountSetupBasics"
   },
   {
@@ -49771,8 +49771,8 @@
       }
     ],
     "interfaces": "ConfirmationDialogFragmentListener",
-    "subclasses": "[]",
     "superclass": "K9Activity",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -49872,8 +49872,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "AsyncTask<CheckDirection, Integer, Void>",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -50008,8 +50008,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "K9Activity",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -51024,8 +51024,8 @@
       }
     ],
     "interfaces": "OnSwitchCompleteListener",
-    "subclasses": "Search",
     "superclass": "K9Activity",
+    "subclasses": "Search",
     "associations": "K9Drawer"
   },
   {
@@ -51048,8 +51048,8 @@
       }
     ],
     "interfaces": "StorageManager.StorageListener",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -51184,8 +51184,8 @@
       }
     ],
     "interfaces": "OnClickListener",
-    "subclasses": "[]",
     "superclass": "K9Activity",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -51295,8 +51295,8 @@
       }
     ],
     "interfaces": "OnClickListener",
-    "subclasses": "[]",
     "superclass": "K9Activity",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -52756,8 +52756,8 @@
       }
     ],
     "interfaces": "OnOpenPgpDisableListener",
-    "subclasses": "[]",
     "superclass": "K9Activity",
+    "subclasses": "[]",
     "associations": [
       "QuotedMessagePresenter",
       "RecipientMvpView"
@@ -52830,8 +52830,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "AsyncTask<Void, Void, Void>",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -53431,8 +53431,8 @@
       }
     ],
     "interfaces": "OnClickListener",
-    "subclasses": "[]",
     "superclass": "K9Activity",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -53697,8 +53697,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "K9PreferenceActivity",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -54203,8 +54203,8 @@
       }
     ],
     "interfaces": "OnCheckedChangeListener",
-    "subclasses": "[]",
     "superclass": "K9Activity",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -54239,8 +54239,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "AccountSetupOptions",
       "SpinnerOption"
@@ -54488,8 +54488,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "K9PreferenceActivity",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -54500,8 +54500,8 @@
       "name": "getContactPictureLoader"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -54661,8 +54661,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "DialogPreference",
+    "subclasses": "[]",
     "associations": "FontSizeSettings"
   },
   {
@@ -54702,8 +54702,8 @@
       }
     ],
     "interfaces": "OnClickListener",
-    "subclasses": "[]",
     "superclass": "K9Activity",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -54753,8 +54753,8 @@
       }
     ],
     "interfaces": "NonConfigurationInstance",
-    "subclasses": "[]",
     "superclass": "AsyncTask<Params, Progress, Result>",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -54829,8 +54829,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "SimpleOnGestureListener",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -54890,8 +54890,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "AsyncTaskLoader<Attachment>",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -55021,8 +55021,8 @@
       }
     ],
     "interfaces": "com.fsck.k9.message.Attachment",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "MessageCompose",
       "AttachmentContentLoader",
@@ -55105,8 +55105,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "AsyncTaskLoader<Attachment>",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -55176,8 +55176,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "HighlightDialogFragment",
+    "subclasses": "[]",
     "associations": [
       "PgpEnabledErrorDialog",
       "RecipientMvpView"
@@ -55265,8 +55265,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -55426,8 +55426,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "BaseAdapter",
+    "subclasses": "[]",
     "associations": "MessageCompose"
   },
   {
@@ -55445,8 +55445,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "MessageCompose",
       "IdentityAdapter"
@@ -55467,8 +55467,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "IdentityAdapter"
   },
   {
@@ -55486,8 +55486,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "IdentityAdapter"
   },
   {
@@ -55537,8 +55537,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "HighlightDialogFragment",
+    "subclasses": "[]",
     "associations": [
       "PgpEncryptDescriptionDialog",
       "RecipientMvpView"
@@ -55611,8 +55611,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "HighlightDialogFragment",
+    "subclasses": "[]",
     "associations": [
       "PgpInlineDialog",
       "RecipientMvpView"
@@ -55685,8 +55685,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "HighlightDialogFragment",
+    "subclasses": "[]",
     "associations": [
       "PgpSignOnlyDialog",
       "RecipientMvpView"
@@ -56109,8 +56109,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "MessageCompose"
   },
   {
@@ -56320,8 +56320,8 @@
       }
     ],
     "interfaces": "Filterable",
-    "subclasses": "[]",
     "superclass": "BaseAdapter",
+    "subclasses": "[]",
     "associations": "RecipientSelectView"
   },
   {
@@ -56359,8 +56359,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "AlternateRecipientAdapter",
       "RecipientAdapter"
@@ -56431,8 +56431,8 @@
       "name": "doInBackground"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "AsyncTask<Void, Void, Void>",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -56497,8 +56497,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -56521,8 +56521,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -56982,8 +56982,8 @@
       }
     ],
     "interfaces": "OnClickListener",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "RecipientPresenterTest",
       "MessageCompose",
@@ -57537,8 +57537,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "AsyncTaskLoader<List<Recipient>>",
+    "subclasses": "[]",
     "associations": [
       "RecipientLoaderTest",
       "K9ChooserTargetService"
@@ -57701,8 +57701,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "RobolectricTest",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -58067,8 +58067,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "K9RobolectricTest",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -58828,8 +58828,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "RecipientPresenterTest",
       "MessageCompose",
@@ -59258,8 +59258,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "RobolectricTest",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -59699,8 +59699,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "K9RobolectricTest",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -59740,8 +59740,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -59901,8 +59901,8 @@
       }
     ],
     "interfaces": "StorageEditor",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -59920,8 +59920,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "MigrationTo60Test",
       "MigrationTo60"
@@ -60067,8 +60067,8 @@
       "name": "urlEncodeUserNameAndPassword"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -60308,8 +60308,8 @@
       }
     ],
     "interfaces": "StoragePersister",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "K9StorageEditor"
   },
   {
@@ -60349,8 +60349,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "K9StorageEditor",
       "K9StoragePersister"
@@ -60364,8 +60364,8 @@
       "name": "onGetViewFactory"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "RemoteViewsService",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -60500,8 +60500,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "AppWidgetProvider",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -60751,8 +60751,8 @@
       }
     ],
     "interfaces": "RemoteViewsService.RemoteViewsFactory",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -60812,8 +60812,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "MessageListRemoteViewFactory"
   },
   {
@@ -60878,8 +60878,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "MigrationMimeStructureStateTest",
       "MigrationTo51"
@@ -60925,8 +60925,8 @@
       "name": "receive"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "CoreReceiver",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -61101,8 +61101,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -61207,8 +61207,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "ChooserTargetService",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -61378,8 +61378,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "CoreService",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -61417,8 +61417,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -61568,15 +61568,15 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "ApplicationTestCase<K9>",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
     "name": "DummyAccount",
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "Account",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -61791,8 +61791,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "ProviderTestCase2<EmailProvider>",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -61897,8 +61897,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "ProviderTestCase2",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -62033,8 +62033,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -62134,8 +62134,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -63000,8 +63000,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "ContentProvider",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -63012,8 +63012,8 @@
       "name": "compare"
     },
     "interfaces": "Comparator<MessageInfoHolder>",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -63024,8 +63024,8 @@
       "name": "getField"
     },
     "interfaces": "FieldExtractor<MessageInfoHolder, Long>",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -63041,8 +63041,8 @@
       "name": "getField"
     },
     "interfaces": "FieldExtractor<T, Integer>",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -63053,8 +63053,8 @@
       "name": "getField"
     },
     "interfaces": "FieldExtractor<MessageInfoHolder, String>",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -63065,8 +63065,8 @@
       "name": "getField"
     },
     "interfaces": "FieldExtractor<MessageInfoHolder, Long>",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -63077,8 +63077,8 @@
       "name": "getField"
     },
     "interfaces": "FieldExtractor<MessageInfoHolder, String>",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -63089,8 +63089,8 @@
       "name": "getField"
     },
     "interfaces": "FieldExtractor<MessageInfoHolder, String>",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -63113,8 +63113,8 @@
       "name": "getField"
     },
     "interfaces": "FieldExtractor<MessageInfoHolder, String>",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -63125,8 +63125,8 @@
       "name": "getField"
     },
     "interfaces": "FieldExtractor<MessageInfoHolder, CharSequence>",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -63137,8 +63137,8 @@
       "name": "getField"
     },
     "interfaces": "FieldExtractor<MessageInfoHolder, String>",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -63149,8 +63149,8 @@
       "name": "getField"
     },
     "interfaces": "FieldExtractor<MessageInfoHolder, String>",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -63161,8 +63161,8 @@
       "name": "getField"
     },
     "interfaces": "FieldExtractor<MessageInfoHolder, Integer>",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -63173,8 +63173,8 @@
       "name": "getField"
     },
     "interfaces": "FieldExtractor<MessageInfoHolder, Integer>",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -63185,8 +63185,8 @@
       "name": "getField"
     },
     "interfaces": "FieldExtractor<MessageInfoHolder, Boolean>",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -63197,8 +63197,8 @@
       "name": "getField"
     },
     "interfaces": "FieldExtractor<MessageInfoHolder, Boolean>",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -63209,8 +63209,8 @@
       "name": "getField"
     },
     "interfaces": "FieldExtractor<MessageInfoHolder, Boolean>",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -63226,8 +63226,8 @@
       "name": "getField"
     },
     "interfaces": "FieldExtractor<MessageInfoHolder, Integer>",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -63317,8 +63317,8 @@
       }
     ],
     "interfaces": "QueryHandler",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -63358,8 +63358,8 @@
       }
     ],
     "interfaces": "QueryHandler",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -63434,8 +63434,8 @@
       }
     ],
     "interfaces": "QueryHandler",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -63690,8 +63690,8 @@
       }
     ],
     "interfaces": "CrossProcessCursor",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "MessageProvider"
   },
   {
@@ -63741,8 +63741,8 @@
       }
     ],
     "interfaces": "QueryHandler",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -63787,8 +63787,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "SimpleMessagingListener",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -63878,8 +63878,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "K9RobolectricTest",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -63944,8 +63944,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -64020,8 +64020,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -64191,8 +64191,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "RobolectricTest",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -64387,8 +64387,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "BaseNotifications",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -64404,8 +64404,8 @@
       "name": "createBigTextStyle"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "BaseNotifications",
+    "subclasses": "[]",
     "associations": "BaseNotificationsTest"
   },
   {
@@ -64675,8 +64675,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "K9RobolectricTest",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -64846,8 +64846,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "RobolectricTest",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -65067,8 +65067,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "RobolectricTest",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -65288,8 +65288,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "RobolectricTest",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -65579,8 +65579,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "RobolectricTest",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -65610,8 +65610,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "DeviceNotifications",
+    "subclasses": "[]",
     "associations": "DeviceNotificationsTest"
   },
   {
@@ -65756,8 +65756,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -66057,8 +66057,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -66688,8 +66688,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "K9RobolectricTest",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -66705,8 +66705,8 @@
       "name": "createNotificationData"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "NewMailNotifications",
+    "subclasses": "[]",
     "associations": "NewMailNotificationsTest"
   },
   {
@@ -67086,8 +67086,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "RobolectricTest",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -67277,8 +67277,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "RobolectricTest",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -67423,8 +67423,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "RobolectricTest",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -67519,8 +67519,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -68020,8 +68020,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "RobolectricTest",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -68049,8 +68049,8 @@
       "name": "matches"
     },
     "interfaces": "ArgumentMatcher<WearableExtender>",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -68066,8 +68066,8 @@
       "name": "matches"
     },
     "interfaces": "ArgumentMatcher<WearableExtender>",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -68083,8 +68083,8 @@
       "name": "createMessagingController"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "WearNotifications",
+    "subclasses": "[]",
     "associations": "WearNotificationsTest"
   },
   {
@@ -68184,8 +68184,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -68208,8 +68208,8 @@
       "name": "shouldStripSignature"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -68374,8 +68374,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "TextBodyBuilder",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -68386,8 +68386,8 @@
       "name": "textToHtmlFragment"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "TextBodyBuilder",
+    "subclasses": "[]",
     "associations": "TextBodyBuilderTest"
   },
   {
@@ -68482,8 +68482,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -68578,8 +68578,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -68590,8 +68590,8 @@
       "name": "extractText"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -68976,8 +68976,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "RobolectricTest",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -69087,8 +69087,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -69368,8 +69368,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -69699,8 +69699,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -70085,8 +70085,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -70196,8 +70196,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -70427,8 +70427,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "RobolectricTest",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -70548,8 +70548,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "RobolectricTest",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -70819,8 +70819,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "RobolectricTest",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -71135,8 +71135,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -71256,8 +71256,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -71285,8 +71285,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -71461,8 +71461,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -71502,8 +71502,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -71583,8 +71583,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -71739,8 +71739,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "RobolectricTest",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -72035,8 +72035,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "RobolectricTest",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -72156,8 +72156,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -72197,8 +72197,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -72373,8 +72373,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "RobolectricTest",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -72674,8 +72674,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -73390,8 +73390,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "K9RobolectricTest",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -73511,8 +73511,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -73882,8 +73882,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -74043,8 +74043,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "RobolectricTest",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -74619,8 +74619,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -74690,8 +74690,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -74856,8 +74856,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "RobolectricTest",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -74890,8 +74890,8 @@
       }
     ],
     "interfaces": "Serializable",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "Accounts",
       "MessageProvider",
@@ -74912,8 +74912,8 @@
       "name": "getTime"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "RigidWebView",
       "Clock",
@@ -75374,8 +75374,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "K9RobolectricTest",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -75485,8 +75485,8 @@
       }
     ],
     "interfaces": "Serializable",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "ChooseIdentity",
       "EditIdentity",
@@ -75664,8 +75664,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "DeviceNotificationsTest",
       "Account",
@@ -76094,8 +76094,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "MessageHeader",
       "MessageListAdapter",
@@ -76218,8 +76218,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "TimerTask",
+    "subclasses": "[]",
     "associations": "RigidWebView"
   },
   {
@@ -76247,8 +76247,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "TimerTask",
+    "subclasses": "[]",
     "associations": "Throttle"
   },
   {
@@ -76259,8 +76259,8 @@
       "name": "run"
     },
     "interfaces": "Runnable",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -76575,8 +76575,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "K9Drawer",
       "Accounts",
@@ -76687,8 +76687,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "RemoteControlReceiver",
     "superclass": "BroadcastReceiver",
+    "subclasses": "RemoteControlReceiver",
     "associations": "[]"
   },
   {
@@ -78048,8 +78048,8 @@
       }
     ],
     "interfaces": "StoreConfig",
-    "subclasses": "DummyAccount",
     "superclass": "",
+    "subclasses": "DummyAccount",
     "associations": [
       "ActivityListenerTest",
       "RecipientPresenterTest",
@@ -78191,8 +78191,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "CoreService",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -78203,8 +78203,8 @@
       "name": "onReceive"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "BroadcastReceiver",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -78379,8 +78379,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "Service",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -78408,8 +78408,8 @@
       "name": "onReceive"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "BroadcastReceiver",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -78629,13 +78629,13 @@
       }
     ],
     "interfaces": "none",
+    "superclass": "Service",
     "subclasses": [
       "RemoteControlService",
       "PushService",
       "SleepService",
       "NotificationActionService"
     ],
-    "superclass": "Service",
     "associations": "[]"
   },
   {
@@ -78663,8 +78663,8 @@
       "name": "onReceive"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "BroadcastReceiver",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -78809,8 +78809,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "CoreService",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -78838,8 +78838,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "SleepService"
   },
   {
@@ -78954,8 +78954,8 @@
       }
     ],
     "interfaces": "BaseAccount",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "LauncherShortcuts",
       "Accounts",
@@ -80131,8 +80131,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "HtmlConverterTest",
       "CoreService",
@@ -80152,8 +80152,8 @@
       "name": "init"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -80164,8 +80164,8 @@
       "name": "EXTRA_FROM"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -80395,8 +80395,8 @@
       }
     ],
     "interfaces": "SearchSpecification",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "Accounts",
       "FolderList",
@@ -80637,8 +80637,8 @@
       }
     ],
     "interfaces": "Parcelable",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "LocalSearch",
       "ConditionsTreeNode"
@@ -80766,8 +80766,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -80992,8 +80992,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "ContentProvider",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -81021,8 +81021,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -81232,8 +81232,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "FileProvider",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -81249,8 +81249,8 @@
       "name": "onReceive"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "BroadcastReceiver",
+    "subclasses": "[]",
     "associations": "AttachmentTempFileProvider"
   },
   {
@@ -81450,8 +81450,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "FileProvider",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -81467,8 +81467,8 @@
       "name": "onReceive"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "BroadcastReceiver",
+    "subclasses": "[]",
     "associations": "DecryptedFileProvider"
   },
   {
@@ -81683,8 +81683,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "ContentProvider",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -81707,8 +81707,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "SettingsDescription<String>",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -81741,8 +81741,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "SettingsDescription<String>",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -81957,8 +81957,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "PseudoEnumSetting<Integer>",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -82003,8 +82003,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "PseudoEnumSetting<Integer>",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -82044,8 +82044,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "PseudoEnumSetting<String>",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -82056,8 +82056,8 @@
       "name": "fromString"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "SettingsDescription<String>",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -82092,8 +82092,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "SettingsDescription<String>",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -82128,8 +82128,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "PseudoEnumSetting<Integer>",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -82159,8 +82159,8 @@
       }
     ],
     "interfaces": "SettingsUpgrader",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -82176,8 +82176,8 @@
       "name": "upgrade"
     },
     "interfaces": "SettingsUpgrader",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -82877,8 +82877,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "ContentProvider",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -82896,8 +82896,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "CursorWrapper",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -83047,8 +83047,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "CursorWrapper",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -83059,8 +83059,8 @@
       "name": "serialVersionUID"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "Exception",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -83420,8 +83420,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "Exception",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -83432,8 +83432,8 @@
       "name": "serialVersionUID"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "Exception",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -83466,11 +83466,11 @@
       }
     ],
     "interfaces": "none",
+    "superclass": "",
     "subclasses": [
       "EnumSetting<Textends Enum<T>>",
       "PseudoEnumSetting<T>"
     ],
-    "superclass": "",
     "associations": "[]"
   },
   {
@@ -83488,8 +83488,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -83507,8 +83507,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "SettingsDescription<String>",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -83519,8 +83519,8 @@
       "name": "fromString"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "SettingsDescription<Boolean>",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -83548,8 +83548,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "SettingsDescription<Integer>",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -83565,8 +83565,8 @@
       "name": "fromString"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "SettingsDescription<T>",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -83584,8 +83584,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "SettingsDescription<T>",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -83620,8 +83620,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "PseudoEnumSetting<Integer>",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -83656,8 +83656,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "PseudoEnumSetting<Integer>",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -83685,8 +83685,8 @@
       "name": "fromString"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "SettingsDescription<Integer>",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -83891,8 +83891,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "PseudoEnumSetting<String>",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -83908,8 +83908,8 @@
       "name": "upgrade"
     },
     "interfaces": "SettingsUpgrader",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -83932,8 +83932,8 @@
       "name": "upgrade"
     },
     "interfaces": "SettingsUpgrader",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -83963,8 +83963,8 @@
       }
     ],
     "interfaces": "SettingsUpgrader",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -84004,8 +84004,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "PseudoEnumSetting<String>",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -84050,8 +84050,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "SubThemeSetting",
     "superclass": "SettingsDescription<K9.Theme>",
+    "subclasses": "SubThemeSetting",
     "associations": "[]"
   },
   {
@@ -84086,8 +84086,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "ThemeSetting",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -84103,8 +84103,8 @@
       "name": "fromString"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "SettingsDescription<String>",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -84179,8 +84179,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "MigrationTo41",
       "K9StorageEditor",
@@ -84218,8 +84218,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "K9AlarmManagerTest",
       "K9AlarmManager"
@@ -84352,8 +84352,8 @@
       }
     ],
     "interfaces": "com.fsck.k9.mail.power.PowerManager",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "CoreReceiver",
       "DatabaseUpgradeService",
@@ -84444,8 +84444,8 @@
       }
     ],
     "interfaces": "com.fsck.k9.mail.power.WakeLock",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "CoreReceiver",
       "DatabaseUpgradeService",
@@ -85000,8 +85000,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -85106,8 +85106,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "MessagingControllerTest",
       "MessagingController"
@@ -85126,8 +85126,8 @@
       "name": "getGroupKey"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -85432,8 +85432,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "CoreService",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -85456,8 +85456,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "RecipientPresenterTest",
       "MessageCompose",
@@ -86376,8 +86376,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "ServerSettings",
+    "subclasses": "[]",
     "associations": "SettingsImporterTest"
   },
   {
@@ -86395,8 +86395,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "Accounts",
       "SettingsImporterTest"
@@ -86417,8 +86417,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "SettingsImporter"
   },
   {
@@ -86441,8 +86441,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "SettingsImporter"
   },
   {
@@ -86465,8 +86465,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "Accounts",
       "SettingsImporterTest"
@@ -86497,8 +86497,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "ServerSettings",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -86521,8 +86521,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "SettingsImporterTest",
       "SettingsImporter"
@@ -86536,8 +86536,8 @@
       "name": "settings"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "SettingsImporter"
   },
   {
@@ -86580,8 +86580,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "SettingsImporter"
   },
   {
@@ -86634,8 +86634,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "SettingsImporter"
   },
   {
@@ -86663,8 +86663,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "SettingsImporter"
   },
   {
@@ -86682,8 +86682,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "SettingsImporter"
   },
   {
@@ -86793,8 +86793,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "RecipientPresenterTest",
       "RecipientPresenter",
@@ -86821,8 +86821,8 @@
       "name": "hasPendingIntent"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "RecipientPresenterTest"
   },
   {
@@ -86845,8 +86845,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "RecipientPresenterTest",
       "MessageCompose",
@@ -86893,8 +86893,8 @@
       "name": "parse"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -87069,8 +87069,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -87115,8 +87115,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "MessageBuilder",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -87216,8 +87216,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -87297,8 +87297,8 @@
       }
     ],
     "interfaces": "NodeFilter",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -87314,8 +87314,8 @@
       "name": "stripSignature"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -87435,8 +87435,8 @@
       }
     ],
     "interfaces": "Serializable",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "QuotedMessagePresenter",
       "TextBodyBuilderTest",
@@ -87983,11 +87983,11 @@
       }
     ],
     "interfaces": "none",
+    "superclass": "",
     "subclasses": [
       "SimpleMessageBuilder",
       "PgpMessageBuilder"
     ],
-    "superclass": "",
     "associations": [
       "MessageCompose",
       "MessageBuilderTest"
@@ -88365,8 +88365,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "MessageBuilder",
+    "subclasses": "[]",
     "associations": "MessageCompose"
   },
   {
@@ -88546,8 +88546,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -88582,8 +88582,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "MessageViewInfoExtractorTest",
       "MessageViewInfoExtractor"
@@ -88681,8 +88681,8 @@
       }
     ],
     "interfaces": "NodeVisitor",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "HeadCleaner"
   },
   {
@@ -88772,8 +88772,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -88789,8 +88789,8 @@
       "name": "handleTag"
     },
     "interfaces": "TagHandler",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -88813,8 +88813,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "LocalStore",
       "LocalFolder"
@@ -88855,8 +88855,8 @@
       "name": "sanitize"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "HtmlSanitizerTest",
       "HtmlProcessor"
@@ -88914,8 +88914,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "LocalStore",
       "LocalFolder"
@@ -88946,8 +88946,8 @@
       "name": "getBodyTextFromMessage"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -89002,8 +89002,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "MessagePreviewCreatorTest",
       "LocalStore",
@@ -89177,8 +89177,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "AttachmentResolverTest",
       "AttachmentInfoExtractorTest",
@@ -89241,8 +89241,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "MessagePreviewCreatorTest",
       "LocalFolder"
@@ -89320,8 +89320,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "K9WebViewClient",
       "MessageContainerView",
@@ -89401,8 +89401,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "EncryptionDetectorTest",
       "EncryptionDetector",
@@ -89469,8 +89469,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "AttachmentController",
       "LockedAttachmentView",
@@ -89533,8 +89533,8 @@
       }
     ],
     "interfaces": "RawDataBody",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "MigrationTest"
   },
   {
@@ -89584,8 +89584,8 @@
       }
     ],
     "interfaces": "LocalPart",
-    "subclasses": "[]",
     "superclass": "MimeBodyPart",
+    "subclasses": "[]",
     "associations": [
       "MigrationTest",
       "AttachmentInfoExtractorTest",
@@ -89754,8 +89754,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "MessageCryptoHelperTest",
       "MessageCryptoPresenter",
@@ -89860,8 +89860,8 @@
       }
     ],
     "interfaces": "SizeAware",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "AttachmentInfoExtractorTest",
       "DeferredFileBodyTest",
@@ -89906,8 +89906,8 @@
       }
     ],
     "interfaces": "LocalPart",
-    "subclasses": "[]",
     "superclass": "MimeMessage",
+    "subclasses": "[]",
     "associations": "LocalStoreTest"
   },
   {
@@ -90172,8 +90172,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "RuntimeException",
+    "subclasses": "[]",
     "associations": [
       "StoreSchemaDefinitionTest",
       "EmailProvider",
@@ -90188,8 +90188,8 @@
       "name": "serialVersionUID"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "RuntimeException",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -90207,8 +90207,8 @@
       }
     ],
     "interfaces": "StorageManager.StorageListener",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "Accounts",
       "MessageList",
@@ -90573,8 +90573,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "MimeMessage",
+    "subclasses": "[]",
     "associations": [
       "AttachmentController",
       "LocalMessageExtractorLoader",
@@ -90636,8 +90636,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "MessageCryptoHelperTest",
       "LocalMessageExtractorLoader",
@@ -90689,8 +90689,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "MessageHeader",
       "MessageListFragment",
@@ -90784,8 +90784,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "LocalMessageExtractorLoader",
       "MessageViewFragment",
@@ -91022,8 +91022,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -91218,8 +91218,8 @@
       }
     ],
     "interfaces": "ContentHandler",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -91679,8 +91679,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "LocalMessageExtractorLoader",
       "MessageViewInfoExtractorTest"
@@ -91701,8 +91701,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "MessageViewInfoExtractorTest",
       "MessageViewInfoExtractor"
@@ -91728,8 +91728,8 @@
       }
     ],
     "interfaces": "SizeAware",
-    "subclasses": "[]",
     "superclass": "BinaryAttachmentBody",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -91740,8 +91740,8 @@
       "name": "serialVersionUID"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "MessagingException",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -92116,8 +92116,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "Accounts",
       "MessageList",
@@ -92180,8 +92180,8 @@
       }
     ],
     "interfaces": "StorageProvider",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -92246,8 +92246,8 @@
       }
     ],
     "interfaces": "StorageProvider",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -92312,8 +92312,8 @@
       }
     ],
     "interfaces": "StorageProvider",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -92341,8 +92341,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "StorageManager"
   },
   {
@@ -92402,8 +92402,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "ThresholdingOutputStream",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -92948,8 +92948,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "MlfUtils",
       "AccountSetupCheckSettings",
@@ -92992,8 +92992,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "AttachmentProvider"
   },
   {
@@ -93033,8 +93033,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "MessageHeader",
       "MessageContainerView",
@@ -93061,8 +93061,8 @@
       }
     ],
     "interfaces": "Serializable",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "EmailAddressList"
   },
   {
@@ -93078,8 +93078,8 @@
       "name": "getDomainFromEmailAddress"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -93132,8 +93132,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "AbstractCursor",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -93268,8 +93268,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -93454,8 +93454,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "MessageHeader",
       "MessageTopView",
@@ -93518,8 +93518,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "K9AlarmManagerTest"
   },
   {
@@ -93567,8 +93567,8 @@
       "name": "getRecipientIdentityFromMessage"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -93708,8 +93708,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -93779,8 +93779,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "MergeCursor",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -93990,8 +93990,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "MessageCompose",
       "MailToTest"
@@ -94017,8 +94017,8 @@
       "name": "getQueryParameters"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "MailToTest",
       "MailTo"
@@ -94071,8 +94071,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -94083,8 +94083,8 @@
       "name": "checkNotNull"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -94184,8 +94184,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "MessageHeader",
       "MessageListFragment",
@@ -94249,8 +94249,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "Fragment",
+    "subclasses": "[]",
     "associations": "RetainFragment<T>"
   },
   {
@@ -94325,8 +94325,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "RecipientPresenterTest",
       "RecipientPresenter",
@@ -94348,8 +94348,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "RecipientPresenterTest",
       "RecipientPresenter",
@@ -94678,8 +94678,8 @@
       }
     ],
     "interfaces": "Cursor",
-    "subclasses": "MergeCursorWithUniqueId",
     "superclass": "",
+    "subclasses": "MergeCursorWithUniqueId",
     "associations": "[]"
   },
   {
@@ -94702,8 +94702,8 @@
       }
     ],
     "interfaces": "TextWatcher",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -94736,8 +94736,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "MutableLiveData<T>",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -94755,8 +94755,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -94804,8 +94804,8 @@
       "name": "filter"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "HtmlSignatureRemover"
   },
   {
@@ -94828,8 +94828,8 @@
       "name": "buildUserId"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -95034,8 +95034,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -96990,8 +96990,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "Folder<LocalMessage>",
+    "subclasses": "[]",
     "associations": [
       "MlfUtils",
       "ChooseFolder",
@@ -97028,8 +97028,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "LocalFolder"
   },
   {
@@ -97072,8 +97072,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -97101,8 +97101,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -97457,8 +97457,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -97603,8 +97603,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "LocalMessageLoader",
       "MessageViewFragment",
@@ -97709,8 +97709,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "MemorizingMessagingListener"
   },
   {
@@ -97750,8 +97750,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -97856,8 +97856,8 @@
       }
     ],
     "interfaces": "PushReceiver",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -98062,8 +98062,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "PendingCommand",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -98074,6 +98074,7 @@
       "name": "databaseId"
     },
     "interfaces": "none",
+    "superclass": "",
     "subclasses": [
       "PendingMoveOrCopy",
       "PendingEmptyTrash",
@@ -98082,7 +98083,6 @@
       "PendingMarkAllAsRead",
       "PendingExpunge"
     ],
-    "superclass": "",
     "associations": [
       "MigrationTo60Test",
       "MigrationTo60",
@@ -98143,8 +98143,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "PendingCommand",
+    "subclasses": "[]",
     "associations": [
       "MigrationTo60Test",
       "PendingCommandSerializerTest"
@@ -98170,8 +98170,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "PendingCommand",
+    "subclasses": "[]",
     "associations": "PendingCommandSerializerTest"
   },
   {
@@ -98216,8 +98216,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "PendingCommand",
+    "subclasses": "[]",
     "associations": "MigrationTo60Test"
   },
   {
@@ -98252,8 +98252,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "PendingCommand",
+    "subclasses": "[]",
     "associations": [
       "MigrationTo60Test",
       "PendingCommandSerializerTest"
@@ -98284,8 +98284,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "PendingCommand",
+    "subclasses": "[]",
     "associations": "MigrationTo60Test"
   },
   {
@@ -98313,8 +98313,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "PendingCommand",
+    "subclasses": "[]",
     "associations": "MigrationTo60Test"
   },
   {
@@ -98374,8 +98374,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "MigrationTo60",
       "PendingCommandSerializerTest",
@@ -98410,8 +98410,8 @@
       }
     ],
     "interfaces": "Comparator<Message>",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "UidReverseComparatorTest"
   },
   {
@@ -98422,8 +98422,8 @@
       "name": "serialVersionUID"
     },
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "RuntimeException",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -98641,12 +98641,12 @@
       }
     ],
     "interfaces": "MessagingListener",
+    "superclass": "",
     "subclasses": [
       "ActivityListener",
       "MessageInfoHolderRetrieverListener",
       "MemorizingMessagingListener"
     ],
-    "superclass": "",
     "associations": "MessagingControllerTest"
   },
   {
@@ -98771,8 +98771,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "CursorWrapper",
+    "subclasses": "[]",
     "associations": "[]"
   },
   {
@@ -98942,8 +98942,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "EmailProviderCacheTest",
       "EmailProviderCacheCursor",
@@ -98998,8 +98998,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "PgpMessageBuilder"
   },
   {
@@ -99199,8 +99199,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "MessageCryptoHelperTest",
       "MessageCryptoHelper",
@@ -101979,8 +101979,8 @@
       }
     ],
     "interfaces": "none",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": [
       "AttachmentController",
       "LocalMessageLoader",
@@ -102039,8 +102039,8 @@
       "name": "compareTo"
     },
     "interfaces": "Comparable<Command>",
-    "subclasses": "[]",
     "superclass": "",
+    "subclasses": "[]",
     "associations": "MessagingController"
   }
 ]}
