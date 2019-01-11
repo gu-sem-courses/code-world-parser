@@ -1,10 +1,10 @@
 ﻿<Properties StartupConfiguration="{A28B6A98-27B3-45B6-8D1A-AF858301489F}|Default">
   <MonoDevelop.Ide.ItemProperties.parser PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="parser/JsonReader.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="parser/Parser.cs">
     <Files>
-      <File FileName="parser/Parser.cs" Line="17" Column="9" />
-      <File FileName="parser/SrcMlReader.cs" Line="64" Column="17" />
-      <File FileName="parser/JsonReader.cs" Line="9" Column="51" />
+      <File FileName="parser/Parser.cs" Line="1" Column="1" />
+      <File FileName="parser/SrcMLFilter.cs" Line="1" Column="1" />
+      <File FileName="parser/JsonParser.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

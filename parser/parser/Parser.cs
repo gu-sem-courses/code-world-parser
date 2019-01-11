@@ -25,7 +25,7 @@ class Program
         String inbox = "/../../../../../globalAssets/inbox/srcML.xml";
 
         /*set the project here*/
-        String project = inbox;
+        String project = projects[2];
 
         /*load project(s)*/
         String srcMLPath = AppDomain.CurrentDomain.BaseDirectory + project;
@@ -36,7 +36,7 @@ class Program
         namespaceManager.AddNamespace("src", "http://www.srcML.org/srcML/src");
 
         /*retrieve data*/
-        parser.SrcMLReader reader = new parser.SrcMLReader(); // parser for srcMl
+        parser.SrcMLFilter reader = new parser.SrcMLFilter(); // parser for srcMl
         XmlElement classes = srcML.CreateElement("JavaProject");// node that will store data
         reader.GetClasses(classes, srcML, namespaceManager);//callback that appends data to the "classes" node
 
@@ -47,7 +47,7 @@ class Program
         gameObjects.AppendChild(data);
 
         /*filter the xml in json format*/
-        parser.JsonReader jsonReader = new parser.JsonReader(); // custom parser for xml
+        parser.JsonParser jsonReader = new parser.JsonParser(); // custom parser for xml
         String json = jsonReader.XmlToJson(gameObjects); // pops root node out of xml document
 
         /*place json into outbox*/
@@ -73,5 +73,5 @@ class Program
             Console.WriteLine("error");
             Console.WriteLine(u.ToString());
         }
-        }
+    }
 }
