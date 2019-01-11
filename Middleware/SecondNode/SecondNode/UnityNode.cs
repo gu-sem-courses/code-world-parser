@@ -12,6 +12,9 @@ namespace Middleware
     {
         public static void Start(string[] args)
         {
+            //Environment.SetEnvironmentVariable("GRPC_TRACE", "api");
+            //Environment.SetEnvironmentVariable("GRPC_VERBOSITY", "debug");
+            //Grpc.Core.GrpcEnvironment.SetLogger(new Grpc.Core.Logging.ConsoleLogger());
             // initiate variables 
             string repository;
             string UserName;
@@ -19,8 +22,11 @@ namespace Middleware
             string filepath;
             string page;
             string filetype = ".json";
-           // string IP = "10.0.98.227";
-            string IP = System.Net.NetworkInformation.IPGlobalProperties.GetIPGlobalProperties().HostName;
+            string IP = "127.0.0.1";
+            // Console.WriteLine(IP);
+            //string IP = "129.16.31.63";
+            // string IP = "10.0.97.223";
+            // string IP = "LAPTOP-F7LVEQ0B";
 
 
             int Port = 23456;
@@ -56,7 +62,7 @@ namespace Middleware
             //This will set up the channel we will use to communicate with the "Server" process
             // the first value refers to the IP of the PC that is running the Server process, the second is what port to send it to
             // and the third is ChannelCredentials that have to match the one of the Server
-            Channel channel = new Channel(IP, Port, ChannelCredentials.Insecure);
+            Channel channel = new Channel(IP,Port,ChannelCredentials.Insecure);
 
             // This makes a new client variable referencing the Trial and TrialGrpc files
             var client = new Services.GameLog.GameLogClient(channel);

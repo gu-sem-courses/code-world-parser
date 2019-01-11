@@ -19,6 +19,7 @@ namespace Middleware
         public override Task<JsonReply> MainInteraction(ParsingRequest request, ServerCallContext context)
         {
             GetProject(request);
+            Console.WriteLine("Being called by " + context.Host.ToString());
             string filepath = "../../../../../dit355/globalAssets/outbox/xml2json.json";
             string result = string.Empty;
             using (StreamReader r = new StreamReader(filepath))
@@ -47,7 +48,7 @@ namespace Middleware
                 GitGetter.StartInfo.Arguments = req.Address.ToString();
                 GitGetter.Start();
                 GitGetter.WaitForExit();
-                GetterNode.ClietRequest(Console.ReadLine());
+                GetterNode.ClietRequest();
               
             }
             catch (Exception e)
@@ -69,13 +70,14 @@ namespace Middleware
        
         public static void Start()
         {
-
-            var Host = System.Net.NetworkInformation.IPGlobalProperties.GetIPGlobalProperties().HostName;
+            string Host = "127.0.0.1";
+            // var Host = System.Net.NetworkInformation.IPGlobalProperties.GetIPGlobalProperties().DomainName;
             Server server = new Server
             {
                 //the services or functions that the Server can peform, I guess we can add more if we need to.
                 Services = { Services.GameLog.BindService(new GetterService()) },
                 Ports = { { new ServerPort(Host, Port, ServerCredentials.Insecure) } }
+                
             };
 
             server.Start();
@@ -89,21 +91,21 @@ namespace Middleware
             server.ShutdownAsync().Wait();
         }
 
-        public static void ClietRequest(string IP)
+        public static void ClietRequest()
         {
             string filepathXML = "../../../../../dit355/globalAssets/inbox/srcML.xml";
             string filepathJSON = "../../../../../dit355/globalAssets/outbox/xml2json.json";
-            
+
             // if you just want it to run localy on your computer comment out the line below
             // IP = System.Net.NetworkInformation.IPGlobalProperties.GetIPGlobalProperties().HostName;
-            
+            string IP = "127.0.0.1";
             int Port = 23455;
             Channel channel = new Channel(IP, Port, ChannelCredentials.Insecure);
             var client = new Services.GameLog.GameLogClient(channel);
             string result = string.Empty;
             XDocument file = XDocument.Load(filepathXML);
             result = file.ToString();
-            Console.WriteLine(result);
+            // Console.WriteLine(result);
             
             var json = client.MainInteraction(new ParsingRequest { Address = WebUtility.HtmlEncode(result)});
             System.IO.File.WriteAllText(filepathJSON, json.File);
