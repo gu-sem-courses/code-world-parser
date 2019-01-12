@@ -52,6 +52,7 @@ namespace Middleware
             }
             catch (Exception e)
             {
+
                 Console.WriteLine(e.Message);
             }
         }

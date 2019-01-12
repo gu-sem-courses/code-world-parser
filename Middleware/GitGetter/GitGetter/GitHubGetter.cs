@@ -37,10 +37,10 @@ namespace GitGetter2
                 client.DefaultRequestHeaders.Add("Authorization", "token "+access_token.ToString());
 
                 // Used to authenticate us and make sure that we are not as rate limited as a anonymous user.
-                if (!githubAuthent())
+                /*if (!githubAuthent())
                 {
                     return false;
-                }   // Currently only used to check if authentication is working without running out the rate.
+                } */  // Currently only used to check if authentication is working without running out the rate.
 
                 HttpResponseMessage response = client.GetAsync(address).GetAwaiter().GetResult() ;
                 
