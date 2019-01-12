@@ -46,68 +46,76 @@ namespace parser
             XmlNodeList jAttributes = classNode.SelectNodes("./src:block//src:decl_stmt//src:decl", nsm);
             XmlElement[] processedElements = new XmlElement[jAttributes.Count];
 
-            for (int i = 0; i < jAttributes.Count; i++)
-            {
-                XmlNode attr = jAttributes.Item(i);
-
-                //retrive the nodes we need and store their value
-                String type, name, accessModifier;
-                XmlNode access, attrType;
-                access = attr.SelectSingleNode("./src:specifier[1]", nsm);
-                attrType = attr.SelectSingleNode("./src:type/src:name", nsm);
-
-                //access modifier
-                if (access != null)
+            if(jAttributes.Count > 0) {
+                for (int i = 0; i < jAttributes.Count; i++)
                 {
-                    accessModifier = access.InnerText;
-                }
-                else
-                {
-                    accessModifier = "public"; //if there is no access modifier then its default = public
-                }
+                    XmlNode attr = jAttributes.Item(i);
 
-                //type
-                if (attrType != null)
-                {
-                    type = attrType.InnerText;
-                }
-                else
-                {//if there is no type then check the previous node because it implies that there were a group of nodes declared 
-                    if (i != 0)
+                    //retrive the nodes we need and store their value
+                    String type, name, accessModifier;
+                    XmlNode access, attrType;
+                    access = attr.SelectSingleNode("./src:specifier[1]", nsm);
+                    attrType = attr.SelectSingleNode("./src:type/src:name", nsm);
+
+                    //access modifier
+                    if (access != null)
                     {
-                        type = processedElements[i - 1].SelectSingleNode("./type").InnerText;
+                        accessModifier = access.InnerText;
                     }
                     else
                     {
-                        type = "null";
+                        accessModifier = "public"; //if there is no access modifier then its default = public
                     }
+
+                    //type
+                    if (attrType != null)
+                    {
+                        type = attrType.InnerText;
+                    }
+                    else
+                    {//if there is no type then check the previous node because it implies that there were a group of nodes declared 
+                        if (i != 0)
+                        {
+                            type = processedElements[i - 1].SelectSingleNode("./type").InnerText;
+                        }
+                        else
+                        {
+                            type = "null";
+                        }
+                    }
+
+                    //name
+                    name = attr.SelectSingleNode("./src:name", nsm).InnerText;
+
+                    /*create a new element*/
+                    XmlElement attribute, accessModifierElement, typeElement, nameElement;
+
+                    /*accessmodifier*/
+                    accessModifierElement = xDoc.CreateElement("accessModifier");
+                    accessModifierElement.InnerText = accessModifier;
+
+                    /*type*/
+                    typeElement = xDoc.CreateElement("type");
+                    typeElement.InnerText = type;
+
+                    /*name*/
+                    nameElement = xDoc.CreateElement("name");
+                    nameElement.InnerText = name;
+
+                    /*attribute*/
+                    attribute = xDoc.CreateElement("attributes");
+                    attribute.AppendChild(accessModifierElement);
+                    attribute.AppendChild(typeElement);
+                    attribute.AppendChild(nameElement);
+                    processedElements[i] = attribute;
+                    root.AppendChild(processedElements[i]);
                 }
-
-                //name
-                name = attr.SelectSingleNode("./src:name", nsm).InnerText;
-
+            } else {
+                //if no attribute is found
                 /*create a new element*/
-                XmlElement attribute, accessModifierElement, typeElement, nameElement;
-
-                /*accessmodifier*/
-                accessModifierElement = xDoc.CreateElement("accessModifier");
-                accessModifierElement.InnerText = accessModifier;
-
-                /*type*/
-                typeElement = xDoc.CreateElement("type");
-                typeElement.InnerText = type;
-
-                /*name*/
-                nameElement = xDoc.CreateElement("name");
-                nameElement.InnerText = name;
-
-                /*attribute*/
-                attribute = xDoc.CreateElement("attributes");
-                attribute.AppendChild(accessModifierElement);
-                attribute.AppendChild(typeElement);
-                attribute.AppendChild(nameElement);
-                processedElements[i] = attribute;
-                root.AppendChild(processedElements[i]);
+                XmlElement attribute = xDoc.CreateElement("attributes");
+                attribute.InnerText = "[]";
+                root.AppendChild(attribute);
             }
         }
 
@@ -116,37 +124,45 @@ namespace parser
             XmlNodeList jMethods = classNode.SelectNodes(".//src:function", nsm);
 
             //we only need type, name
-            foreach (XmlNode meth in jMethods)
-            {
-                String type, name, accessModifier;
-                //retrive the nodes we need and store their value
-                if (meth.SelectSingleNode("./src:specifier[1]", nsm) != null)
+            if(jMethods.Count > 0) {
+                foreach (XmlNode meth in jMethods)
                 {
-                    accessModifier = meth.SelectSingleNode("./src:specifier[1]", nsm).InnerText;
+                    String type, name, accessModifier;
+                    //retrive the nodes we need and store their value
+                    if (meth.SelectSingleNode("./src:specifier[1]", nsm) != null)
+                    {
+                        accessModifier = meth.SelectSingleNode("./src:specifier[1]", nsm).InnerText;
+                    }
+                    else
+                    {
+                        accessModifier = "public"; //if there is no access modifier then its default = public
+                    }
+                    type = meth.SelectSingleNode("./src:type/src:name", nsm).InnerText;
+                    name = meth.SelectSingleNode("./src:name", nsm).InnerText;
+
+                    //create elements
+                    XmlElement method, methodAccess, methodName, methodType;
+                    methodAccess = xDoc.CreateElement("accessModifier");
+                    methodAccess.InnerText = accessModifier;
+
+                    methodType = xDoc.CreateElement("returnType");
+                    methodType.InnerText = type;
+
+                    methodName = xDoc.CreateElement("name");
+                    methodName.InnerText = name;
+
+                    method = xDoc.CreateElement("methods");
+                    method.AppendChild(methodAccess);
+                    method.AppendChild(methodType);
+                    method.AppendChild(methodName);
+
+                    /*append results*/
+                    root.AppendChild(method);
                 }
-                else
-                {
-                    accessModifier = "public"; //if there is no access modifier then its default = public
-                }
-                type = meth.SelectSingleNode("./src:type/src:name", nsm).InnerText;
-                name = meth.SelectSingleNode("./src:name", nsm).InnerText;
-
-                //create elements
-                XmlElement method, methodAccess, methodName, methodType;
-                methodAccess = xDoc.CreateElement("accessModifier");
-                methodAccess.InnerText = accessModifier;
-
-                methodType = xDoc.CreateElement("returnType");
-                methodType.InnerText = type;
-
-                methodName = xDoc.CreateElement("name");
-                methodName.InnerText = name;
-
-                method = xDoc.CreateElement("methods");
-                method.AppendChild(methodAccess);
-                method.AppendChild(methodType);
-                method.AppendChild(methodName);
-
+            } else {
+                //create element
+                XmlElement method = xDoc.CreateElement("methods");
+                method.InnerText = "[]";
                 /*append results*/
                 root.AppendChild(method);
             }

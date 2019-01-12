@@ -42,6 +42,7 @@
     },
     {
       "name": "Base43Test",
+      "attributes": [],
       "methods": [
         {
           "accessModifier": "public",
@@ -60,6 +61,7 @@
     },
     {
       "name": "WalletUtilsTest",
+      "attributes": [],
       "methods": [
         {
           "accessModifier": "public",
@@ -270,11 +272,13 @@
           "name": "signOnly"
         }
       ],
-      "methods": {
-        "accessModifier": "public",
-        "returnType": "void",
-        "name": "monetarySpannable"
-      },
+      "methods": [
+        {
+          "accessModifier": "public",
+          "returnType": "void",
+          "name": "monetarySpannable"
+        }
+      ],
       "superclass": "",
       "subclasses": [],
       "associations": []
@@ -348,11 +352,13 @@
           "name": "log"
         }
       ],
-      "methods": {
-        "accessModifier": "public",
-        "returnType": "void",
-        "name": "init"
-      },
+      "methods": [
+        {
+          "accessModifier": "public",
+          "returnType": "void",
+          "name": "init"
+        }
+      ],
       "superclass": "",
       "subclasses": [],
       "associations": []
@@ -1683,11 +1689,13 @@
           "name": "log"
         }
       ],
-      "methods": {
-        "accessModifier": "public",
-        "returnType": "void",
-        "name": "log"
-      },
+      "methods": [
+        {
+          "accessModifier": "public",
+          "returnType": "void",
+          "name": "log"
+        }
+      ],
       "superclass": "",
       "subclasses": [],
       "associations": []
@@ -1761,6 +1769,7 @@
           "name": "ELECTRUM_SERVERS_FILENAME"
         }
       ],
+      "methods": "[]",
       "superclass": "",
       "subclasses": [],
       "associations": []
@@ -2132,11 +2141,13 @@
     },
     {
       "name": "GenericUtils",
-      "attributes": {
-        "accessModifier": "public",
-        "type": "Currency",
-        "name": "currency"
-      },
+      "attributes": [
+        {
+          "accessModifier": "public",
+          "type": "Currency",
+          "name": "currency"
+        }
+      ],
       "methods": [
         {
           "accessModifier": "public",
@@ -2352,22 +2363,26 @@
           "name": "m"
         }
       ],
-      "methods": {
-        "accessModifier": "public",
-        "returnType": "String[]",
-        "name": "sanitizeMemo"
-      },
+      "methods": [
+        {
+          "accessModifier": "public",
+          "returnType": "String[]",
+          "name": "sanitizeMemo"
+        }
+      ],
       "superclass": "",
       "subclasses": [],
       "associations": []
     },
     {
       "name": "Iso8601Format",
-      "attributes": {
-        "accessModifier": "private",
-        "type": "TimeZone",
-        "name": "UTC"
-      },
+      "attributes": [
+        {
+          "accessModifier": "private",
+          "type": "TimeZone",
+          "name": "UTC"
+        }
+      ],
       "methods": [
         {
           "accessModifier": "public",
@@ -2911,11 +2926,14 @@
     },
     {
       "name": "WholeStringBuilder",
-      "methods": {
-        "accessModifier": "public",
-        "returnType": "CharSequence",
-        "name": "bold"
-      },
+      "attributes": [],
+      "methods": [
+        {
+          "accessModifier": "public",
+          "returnType": "CharSequence",
+          "name": "bold"
+        }
+      ],
       "superclass": "SpannableStringBuilder",
       "subclasses": [],
       "associations": []
@@ -3393,6 +3411,7 @@
     },
     {
       "name": "MonospaceSpan",
+      "attributes": [],
       "methods": [
         {
           "accessModifier": "public",
@@ -5574,11 +5593,14 @@
     },
     {
       "name": "ExchangeRatesActivity",
-      "methods": {
-        "accessModifier": "protected",
-        "returnType": "void",
-        "name": "onCreate"
-      },
+      "attributes": [],
+      "methods": [
+        {
+          "accessModifier": "protected",
+          "returnType": "void",
+          "name": "onCreate"
+        }
+      ],
       "superclass": "AbstractWalletActivity",
       "subclasses": [],
       "associations": []
@@ -5630,11 +5652,14 @@
     },
     {
       "name": "Observer<T>",
-      "methods": {
-        "accessModifier": "public",
-        "returnType": "void",
-        "name": "onChanged"
-      },
+      "attributes": [],
+      "methods": [
+        {
+          "accessModifier": "public",
+          "returnType": "void",
+          "name": "onChanged"
+        }
+      ],
       "superclass": "",
       "subclasses": [],
       "associations": []
@@ -6280,6 +6305,7 @@
           "name": "isSelected"
         }
       ],
+      "methods": "[]",
       "superclass": "",
       "subclasses": [
         "TransactionItem",
@@ -6322,17 +6348,20 @@
           "name": "menuView"
         }
       ],
+      "methods": "[]",
       "superclass": "RecyclerView.ViewHolder",
       "subclasses": [],
       "associations": []
     },
     {
       "name": "FancyListFragment",
-      "attributes": {
-        "accessModifier": "public",
-        "type": "TextView",
-        "name": "emptyView"
-      },
+      "attributes": [
+        {
+          "accessModifier": "public",
+          "type": "TextView",
+          "name": "emptyView"
+        }
+      ],
       "methods": [
         {
           "accessModifier": "public",
@@ -6431,11 +6460,13 @@
     },
     {
       "name": "ExchangeRatesLiveData",
-      "attributes": {
-        "accessModifier": "private",
-        "type": "CursorLoader",
-        "name": "loader"
-      },
+      "attributes": [
+        {
+          "accessModifier": "private",
+          "type": "CursorLoader",
+          "name": "loader"
+        }
+      ],
       "methods": [
         {
           "accessModifier": "public",
@@ -6826,11 +6857,13 @@
           "name": "fragment"
         }
       ],
-      "methods": {
-        "accessModifier": "public",
-        "returnType": "void",
-        "name": "onChanged"
-      },
+      "methods": [
+        {
+          "accessModifier": "public",
+          "returnType": "void",
+          "name": "onChanged"
+        }
+      ],
       "superclass": "",
       "subclasses": [],
       "associations": []
@@ -6849,6 +6882,7 @@
           "name": "wallet"
         }
       ],
+      "methods": "[]",
       "superclass": "AndroidViewModel",
       "subclasses": [],
       "associations": [
@@ -6857,11 +6891,13 @@
     },
     {
       "name": "RequestCoinsActivity",
-      "attributes": {
-        "accessModifier": "private",
-        "type": "RequestCoinsActivityViewModel",
-        "name": "viewModel"
-      },
+      "attributes": [
+        {
+          "accessModifier": "private",
+          "type": "RequestCoinsActivityViewModel",
+          "name": "viewModel"
+        }
+      ],
       "methods": [
         {
           "accessModifier": "protected",
@@ -6895,11 +6931,14 @@
     },
     {
       "name": "RequestCoinsActivityViewModel",
-      "attributes": {
-        "accessModifier": "public",
-        "type": "MutableLiveData<Event<Integer>>",
-        "name": "showHelpDialog"
-      },
+      "attributes": [
+        {
+          "accessModifier": "public",
+          "type": "MutableLiveData<Event<Integer>>",
+          "name": "showHelpDialog"
+        }
+      ],
+      "methods": "[]",
       "superclass": "ViewModel",
       "subclasses": [],
       "associations": [
@@ -7996,11 +8035,13 @@
     },
     {
       "name": "FreshReceiveAddressLiveData",
-      "attributes": {
-        "accessModifier": "public",
-        "type": "Wallet",
-        "name": "wallet"
-      },
+      "attributes": [
+        {
+          "accessModifier": "public",
+          "type": "Wallet",
+          "name": "wallet"
+        }
+      ],
       "methods": [
         {
           "accessModifier": "public",
@@ -8043,22 +8084,27 @@
           "name": "transformationMethod"
         }
       ],
-      "methods": {
-        "accessModifier": "public",
-        "returnType": "void",
-        "name": "onCheckedChanged"
-      },
+      "methods": [
+        {
+          "accessModifier": "public",
+          "returnType": "void",
+          "name": "onCheckedChanged"
+        }
+      ],
       "superclass": "",
       "subclasses": [],
       "associations": []
     },
     {
       "name": "StickToTopLinearLayoutManager",
-      "methods": {
-        "accessModifier": "public",
-        "returnType": "void",
-        "name": "onItemsAdded"
-      },
+      "attributes": [],
+      "methods": [
+        {
+          "accessModifier": "public",
+          "returnType": "void",
+          "name": "onItemsAdded"
+        }
+      ],
       "superclass": "LinearLayoutManager",
       "subclasses": [],
       "associations": []
@@ -8219,11 +8265,13 @@
     },
     {
       "name": "ClipLiveData",
-      "attributes": {
-        "accessModifier": "private",
-        "type": "ClipboardManager",
-        "name": "clipboardManager"
-      },
+      "attributes": [
+        {
+          "accessModifier": "private",
+          "type": "ClipboardManager",
+          "name": "clipboardManager"
+        }
+      ],
       "methods": [
         {
           "accessModifier": "protected",
@@ -9090,11 +9138,13 @@
     },
     {
       "name": "WalletEncryptedLiveData",
-      "attributes": {
-        "accessModifier": "public",
-        "type": "Wallet",
-        "name": "wallet"
-      },
+      "attributes": [
+        {
+          "accessModifier": "public",
+          "type": "Wallet",
+          "name": "wallet"
+        }
+      ],
       "methods": [
         {
           "accessModifier": "protected",
@@ -9596,6 +9646,7 @@
     },
     {
       "name": "WalletListener",
+      "attributes": [],
       "methods": [
         {
           "accessModifier": "public",
@@ -10357,11 +10408,13 @@
     },
     {
       "name": "IssuedReceiveKeysLiveData",
-      "attributes": {
-        "accessModifier": "public",
-        "type": "Wallet",
-        "name": "wallet"
-      },
+      "attributes": [
+        {
+          "accessModifier": "public",
+          "type": "Wallet",
+          "name": "wallet"
+        }
+      ],
       "methods": [
         {
           "accessModifier": "protected",
@@ -10740,11 +10793,13 @@
     },
     {
       "name": "DisclaimerEnabledLiveData",
-      "attributes": {
-        "accessModifier": "private",
-        "type": "Configuration",
-        "name": "config"
-      },
+      "attributes": [
+        {
+          "accessModifier": "private",
+          "type": "Configuration",
+          "name": "config"
+        }
+      ],
       "methods": [
         {
           "accessModifier": "protected",
@@ -12118,6 +12173,7 @@
           "name": "type"
         }
       ],
+      "methods": "[]",
       "superclass": "ListItem",
       "subclasses": [
         "TransactionItem",
@@ -12395,6 +12451,7 @@
           "name": "exchangeRate"
         }
       ],
+      "methods": "[]",
       "superclass": "ListItem",
       "subclasses": [],
       "associations": [
@@ -12403,11 +12460,14 @@
     },
     {
       "name": "WarningItem",
-      "attributes": {
-        "accessModifier": "public",
-        "type": "WarningType",
-        "name": "type"
-      },
+      "attributes": [
+        {
+          "accessModifier": "public",
+          "type": "WarningType",
+          "name": "type"
+        }
+      ],
+      "methods": "[]",
       "superclass": "ListItem",
       "subclasses": [],
       "associations": [
@@ -12416,16 +12476,20 @@
     },
     {
       "name": "ItemAnimator",
-      "attributes": {
-        "accessModifier": "public",
-        "type": "EnumSet<TransactionsAdapter.ChangeType>",
-        "name": "changes"
-      },
-      "methods": {
-        "accessModifier": "public",
-        "returnType": "boolean",
-        "name": "canReuseUpdatedViewHolder"
-      },
+      "attributes": [
+        {
+          "accessModifier": "public",
+          "type": "EnumSet<TransactionsAdapter.ChangeType>",
+          "name": "changes"
+        }
+      ],
+      "methods": [
+        {
+          "accessModifier": "public",
+          "returnType": "boolean",
+          "name": "canReuseUpdatedViewHolder"
+        }
+      ],
       "superclass": "DefaultItemAnimator",
       "subclasses": [],
       "associations": []
@@ -12601,11 +12665,14 @@
     },
     {
       "name": "WarningViewHolder",
-      "attributes": {
-        "accessModifier": "private",
-        "type": "TextView",
-        "name": "messageView"
-      },
+      "attributes": [
+        {
+          "accessModifier": "private",
+          "type": "TextView",
+          "name": "messageView"
+        }
+      ],
+      "methods": "[]",
       "superclass": "RecyclerView.ViewHolder",
       "subclasses": [],
       "associations": [
@@ -13009,6 +13076,7 @@
     },
     {
       "name": "WalletListener",
+      "attributes": [],
       "methods": [
         {
           "accessModifier": "public",
@@ -13042,6 +13110,7 @@
     },
     {
       "name": "TransactionsConfidenceLiveData",
+      "attributes": [],
       "methods": [
         {
           "accessModifier": "protected",
@@ -13084,11 +13153,13 @@
           "name": "dynamicFees"
         }
       ],
-      "methods": {
-        "accessModifier": "public",
-        "returnType": "DynamicFeeLiveData",
-        "name": "getDynamicFees"
-      },
+      "methods": [
+        {
+          "accessModifier": "public",
+          "returnType": "DynamicFeeLiveData",
+          "name": "getDynamicFees"
+        }
+      ],
       "superclass": "AndroidViewModel",
       "subclasses": [],
       "associations": [
@@ -14067,11 +14138,14 @@
     },
     {
       "name": "SendCoinsActivityViewModel",
-      "attributes": {
-        "accessModifier": "public",
-        "type": "MutableLiveData<Event<Integer>>",
-        "name": "showHelpDialog"
-      },
+      "attributes": [
+        {
+          "accessModifier": "public",
+          "type": "MutableLiveData<Event<Integer>>",
+          "name": "showHelpDialog"
+        }
+      ],
+      "methods": "[]",
       "superclass": "ViewModel",
       "subclasses": [],
       "associations": [
@@ -14494,6 +14568,7 @@
           "name": "dryrunException"
         }
       ],
+      "methods": "[]",
       "superclass": "AndroidViewModel",
       "subclasses": [],
       "associations": [
@@ -14856,6 +14931,7 @@
           "name": "idCounter"
         }
       ],
+      "methods": "[]",
       "superclass": "",
       "subclasses": [],
       "associations": [
@@ -14896,6 +14972,7 @@
           "name": "height"
         }
       ],
+      "methods": "[]",
       "superclass": "",
       "subclasses": [],
       "associations": [
@@ -14926,6 +15003,7 @@
           "name": "height"
         }
       ],
+      "methods": "[]",
       "superclass": "",
       "subclasses": [],
       "associations": [
@@ -14951,6 +15029,7 @@
           "name": "certificateFingerprint"
         }
       ],
+      "methods": "[]",
       "superclass": "",
       "subclasses": [],
       "associations": [
@@ -15121,11 +15200,13 @@
           "name": "sentTransaction"
         }
       ],
-      "methods": {
-        "accessModifier": "public",
-        "returnType": "DynamicFeeLiveData",
-        "name": "getDynamicFees"
-      },
+      "methods": [
+        {
+          "accessModifier": "public",
+          "returnType": "DynamicFeeLiveData",
+          "name": "getDynamicFees"
+        }
+      ],
       "superclass": "AndroidViewModel",
       "subclasses": [],
       "associations": [
@@ -15483,6 +15564,7 @@
           "name": "showProblemWarnDialog"
         }
       ],
+      "methods": "[]",
       "superclass": "ViewModel",
       "subclasses": [],
       "associations": [
@@ -16795,16 +16877,20 @@
     },
     {
       "name": "FakeTransaction",
-      "attributes": {
-        "accessModifier": "private",
-        "type": "Sha256Hash",
-        "name": "hash"
-      },
-      "methods": {
-        "accessModifier": "public",
-        "returnType": "Sha256Hash",
-        "name": "getHash"
-      },
+      "attributes": [
+        {
+          "accessModifier": "private",
+          "type": "Sha256Hash",
+          "name": "hash"
+        }
+      ],
+      "methods": [
+        {
+          "accessModifier": "public",
+          "returnType": "Sha256Hash",
+          "name": "getHash"
+        }
+      ],
       "superclass": "Transaction",
       "subclasses": [],
       "associations": []
@@ -16876,6 +16962,7 @@
     },
     {
       "name": "PreferenceActivity",
+      "attributes": [],
       "methods": [
         {
           "accessModifier": "public",
@@ -17423,6 +17510,7 @@
     },
     {
       "name": "PagerAdapter",
+      "attributes": [],
       "methods": [
         {
           "accessModifier": "public",
@@ -18135,6 +18223,7 @@
           "name": "entry"
         }
       ],
+      "methods": "[]",
       "superclass": "",
       "subclasses": [],
       "associations": [
@@ -18180,6 +18269,7 @@
           "name": "menuView"
         }
       ],
+      "methods": "[]",
       "superclass": "RecyclerView.ViewHolder",
       "subclasses": [],
       "associations": []
@@ -18663,6 +18753,7 @@
           "name": "isDownloading"
         }
       ],
+      "methods": "[]",
       "superclass": "",
       "subclasses": [
         "TransactionItem",
@@ -18705,6 +18796,7 @@
           "name": "pingView"
         }
       ],
+      "methods": "[]",
       "superclass": "RecyclerView.ViewHolder",
       "subclasses": [],
       "associations": []
@@ -18728,6 +18820,7 @@
           "name": "password"
         }
       ],
+      "methods": "[]",
       "superclass": "AndroidViewModel",
       "subclasses": [],
       "associations": [
@@ -18861,11 +18954,14 @@
     },
     {
       "name": "RestoreWalletFromExternalActivity",
-      "methods": {
-        "accessModifier": "protected",
-        "returnType": "void",
-        "name": "onCreate"
-      },
+      "attributes": [],
+      "methods": [
+        {
+          "accessModifier": "protected",
+          "returnType": "void",
+          "name": "onCreate"
+        }
+      ],
       "superclass": "AbstractWalletActivity",
       "subclasses": [],
       "associations": []
@@ -20233,6 +20329,7 @@
           "name": "showFailureDialog"
         }
       ],
+      "methods": "[]",
       "superclass": "AndroidViewModel",
       "subclasses": [],
       "associations": [
@@ -21345,11 +21442,13 @@
           "name": "config"
         }
       ],
-      "methods": {
-        "accessModifier": "public",
-        "returnType": "void",
-        "name": "onReceive"
-      },
+      "methods": [
+        {
+          "accessModifier": "public",
+          "returnType": "void",
+          "name": "onReceive"
+        }
+      ],
       "superclass": "BroadcastReceiver",
       "subclasses": [],
       "associations": []
@@ -22448,11 +22547,13 @@
           "name": "tx"
         }
       ],
-      "methods": {
-        "accessModifier": "public",
-        "returnType": "void",
-        "name": "run"
-      },
+      "methods": [
+        {
+          "accessModifier": "public",
+          "returnType": "void",
+          "name": "run"
+        }
+      ],
       "superclass": "AcceptBluetoothThread",
       "subclasses": [],
       "associations": []
@@ -22481,11 +22582,13 @@
           "name": "paymentAck"
         }
       ],
-      "methods": {
-        "accessModifier": "public",
-        "returnType": "void",
-        "name": "run"
-      },
+      "methods": [
+        {
+          "accessModifier": "public",
+          "returnType": "void",
+          "name": "run"
+        }
+      ],
       "superclass": "AcceptBluetoothThread",
       "subclasses": [],
       "associations": []
@@ -22972,11 +23075,13 @@
     },
     {
       "name": "ConfigFormatLiveData",
-      "attributes": {
-        "accessModifier": "private",
-        "type": "Configuration",
-        "name": "config"
-      },
+      "attributes": [
+        {
+          "accessModifier": "private",
+          "type": "Configuration",
+          "name": "config"
+        }
+      ],
       "methods": [
         {
           "accessModifier": "protected",
@@ -23073,11 +23178,13 @@
     },
     {
       "name": "ConfigOwnNameLiveData",
-      "attributes": {
-        "accessModifier": "private",
-        "type": "Configuration",
-        "name": "config"
-      },
+      "attributes": [
+        {
+          "accessModifier": "private",
+          "type": "Configuration",
+          "name": "config"
+        }
+      ],
       "methods": [
         {
           "accessModifier": "protected",
@@ -24104,6 +24211,7 @@
     },
     {
       "name": "WalletListener",
+      "attributes": [],
       "methods": [
         {
           "accessModifier": "public",
@@ -24291,11 +24399,14 @@
     },
     {
       "name": "LocalBinder",
-      "methods": {
-        "accessModifier": "public",
-        "returnType": "BlockchainService",
-        "name": "getService"
-      },
+      "attributes": [],
+      "methods": [
+        {
+          "accessModifier": "public",
+          "returnType": "BlockchainService",
+          "name": "getService"
+        }
+      ],
       "superclass": "Binder",
       "subclasses": [],
       "associations": []
@@ -24314,11 +24425,13 @@
           "name": "numBlocksDownloaded"
         }
       ],
-      "methods": {
-        "accessModifier": "public",
-        "returnType": "String",
-        "name": "toString"
-      },
+      "methods": [
+        {
+          "accessModifier": "public",
+          "returnType": "String",
+          "name": "toString"
+        }
+      ],
       "superclass": "",
       "subclasses": [],
       "associations": [
@@ -25021,11 +25134,14 @@
     },
     {
       "name": "WalletLiveData",
-      "methods": {
-        "accessModifier": "protected",
-        "returnType": "void",
-        "name": "onWalletActive"
-      },
+      "attributes": [],
+      "methods": [
+        {
+          "accessModifier": "protected",
+          "returnType": "void",
+          "name": "onWalletActive"
+        }
+      ],
       "superclass": "AbstractWalletLiveData<Wallet>",
       "subclasses": [],
       "associations": [
@@ -25133,6 +25249,7 @@
     },
     {
       "name": "WalletListener",
+      "attributes": [],
       "methods": [
         {
           "accessModifier": "public",
