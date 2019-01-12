@@ -46,13 +46,11 @@ C:/FakeDesktop/Coding/TEAMFLEX/dit355/parser/parser/obj/x86/Debug/parser.pdb
 /Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parser/parser/obj/x86/Debug/parser.csprojAssemblyReference.cache
 >>>>>>> mwSquash
 /Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parser/parser/obj/x86/Debug/parser.csproj.CoreCompileInputs.cache
-/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parser/parser/bin/Debug/parser.exe.config
-/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parser/parser/bin/Debug/parser.exe
-/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parser/parser/bin/Debug/parser.pdb
 /Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parser/parser/bin/Debug/Newtonsoft.Json.dll
 /Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parser/parser/bin/Debug/Newtonsoft.Json.pdb
 /Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parser/parser/bin/Debug/Newtonsoft.Json.xml
 /Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parser/parser/obj/x86/Debug/parser.csproj.CopyComplete
+<<<<<<< HEAD
 /Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parser/parser/obj/x86/Debug/parser.exe
 /Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parser/parser/obj/x86/Debug/parser.pdb
 C:\Users\Hakim\Desktop\Davids Code\dit355\parser\parser\obj\x86\Debug\parser.csprojAssemblyReference.cache
@@ -71,3 +69,21 @@ C:\Users\Hakim\Desktop\Davids Code\dit355\parser\parser\bin\Debug\parser.exe
 C:\Users\Hakim\Desktop\Davids Code\dit355\parser\parser\bin\Debug\parser.pdb
 C:\Users\Hakim\Desktop\Davids Code\dit355\parser\parser\obj\x86\Debug\parser.exe
 C:\Users\Hakim\Desktop\Davids Code\dit355\parser\parser\obj\x86\Debug\parser.pdb
+=======
+C:/Users/Hakim/Desktop/Davids Code/dit355/parser/parser/obj/x86/Debug/parser.csprojAssemblyReference.cache
+C:/Users/Hakim/Desktop/Davids Code/dit355/parser/parser/obj/x86/Debug/parser.csproj.CoreCompileInputs.cache
+C:/Users/Hakim/Desktop/Davids Code/dit355/parser/parser/bin/Debug/ConsoleApplication.exe.config
+C:/Users/Hakim/Desktop/Davids Code/dit355/parser/parser/bin/Debug/ConsoleApplication.exe
+C:/Users/Hakim/Desktop/Davids Code/dit355/parser/parser/bin/Debug/ConsoleApplication.pdb
+C:/Users/Hakim/Desktop/Davids Code/dit355/parser/parser/bin/Debug/Newtonsoft.Json.dll
+C:/Users/Hakim/Desktop/Davids Code/dit355/parser/parser/bin/Debug/Newtonsoft.Json.pdb
+C:/Users/Hakim/Desktop/Davids Code/dit355/parser/parser/bin/Debug/Newtonsoft.Json.xml
+C:/Users/Hakim/Desktop/Davids Code/dit355/parser/parser/obj/x86/Debug/parser.csproj.CopyComplete
+C:/Users/Hakim/Desktop/Davids Code/dit355/parser/parser/obj/x86/Debug/ConsoleApplication.exe
+C:/Users/Hakim/Desktop/Davids Code/dit355/parser/parser/obj/x86/Debug/ConsoleApplication.pdb
+/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parser/parser/bin/Debug/ConsoleApplication.exe.config
+/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parser/parser/bin/Debug/ConsoleApplication.exe
+/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parser/parser/bin/Debug/ConsoleApplication.pdb
+/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parser/parser/obj/x86/Debug/ConsoleApplication.exe
+/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parser/parser/obj/x86/Debug/ConsoleApplication.pdb
+>>>>>>> 2b2a2879c91c264437d57707996d8db70a2d60f8
