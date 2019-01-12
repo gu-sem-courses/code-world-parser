@@ -43,8 +43,6 @@ C:/FakeDesktop/Coding/TEAMFLEX/dit355/parser/parser/obj/x86/Debug/parser.csproj.
 C:/FakeDesktop/Coding/TEAMFLEX/dit355/parser/parser/obj/x86/Debug/parser.csproj.CopyComplete
 C:/FakeDesktop/Coding/TEAMFLEX/dit355/parser/parser/obj/x86/Debug/parser.exe
 C:/FakeDesktop/Coding/TEAMFLEX/dit355/parser/parser/obj/x86/Debug/parser.pdb
-<<<<<<< HEAD
-=======
 /Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parser/parser/obj/x86/Debug/parser.csprojAssemblyReference.cache
 >>>>>>> mwSquash
 /Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parser/parser/obj/x86/Debug/parser.csproj.CoreCompileInputs.cache
@@ -57,3 +55,14 @@ C:/FakeDesktop/Coding/TEAMFLEX/dit355/parser/parser/obj/x86/Debug/parser.pdb
 /Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parser/parser/obj/x86/Debug/parser.csproj.CopyComplete
 /Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parser/parser/obj/x86/Debug/parser.exe
 /Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parser/parser/obj/x86/Debug/parser.pdb
+C:\Users\Hakim\Desktop\Davids Code\dit355\parser\parser\obj\x86\Debug\parser.csprojAssemblyReference.cache
+C:\Users\Hakim\Desktop\Davids Code\dit355\parser\parser\obj\x86\Debug\parser.csproj.CoreCompileInputs.cache
+C:\Users\Hakim\Desktop\Davids Code\dit355\parser\parser\bin\Debug\ConsoleApplication.exe.config
+C:\Users\Hakim\Desktop\Davids Code\dit355\parser\parser\bin\Debug\ConsoleApplication.exe
+C:\Users\Hakim\Desktop\Davids Code\dit355\parser\parser\bin\Debug\ConsoleApplication.pdb
+C:\Users\Hakim\Desktop\Davids Code\dit355\parser\parser\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Hakim\Desktop\Davids Code\dit355\parser\parser\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\Hakim\Desktop\Davids Code\dit355\parser\parser\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Hakim\Desktop\Davids Code\dit355\parser\parser\obj\x86\Debug\parser.csproj.CopyComplete
+C:\Users\Hakim\Desktop\Davids Code\dit355\parser\parser\obj\x86\Debug\ConsoleApplication.exe
+C:\Users\Hakim\Desktop\Davids Code\dit355\parser\parser\obj\x86\Debug\ConsoleApplication.pdb
