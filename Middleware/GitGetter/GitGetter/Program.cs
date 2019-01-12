@@ -43,14 +43,14 @@ namespace GitGetter2
             if (isGitlab)
             {
                 ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
-                if (gitTreeRetriever(projectId[0].ToString()))
+                if (gitTreeRetriever(projectId[0].ToString()) && !errorHasOccured)
                 {
                     activateParser(projectId[0].ToString());
                 }
             }
             else
             {
-                if (GitHubGetter.getMainTree(projectId[0].ToString()))
+                if (GitHubGetter.getMainTree(projectId[0].ToString()) && !errorHasOccured)
                 {
                     activateParser(projectId[0].ToString());
                 }
