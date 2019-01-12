@@ -1,13 +1,3 @@
-/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parser/parser/obj/x86/Debug/parser.csprojAssemblyReference.cache
-/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parser/parser/obj/x86/Debug/parser.csproj.CoreCompileInputs.cache
-/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parser/parser/bin/Debug/parser.exe
-/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parser/parser/bin/Debug/parser.pdb
-/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parser/parser/bin/Debug/Newtonsoft.Json.dll
-/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parser/parser/bin/Debug/Newtonsoft.Json.pdb
-/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parser/parser/bin/Debug/Newtonsoft.Json.xml
-/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parser/parser/obj/x86/Debug/parser.csproj.CopyComplete
-/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parser/parser/obj/x86/Debug/parser.exe
-/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parser/parser/obj/x86/Debug/parser.pdb
 <<<<<<< HEAD
 /Users/humblebee/Documents/dit355/parser/parser/bin/Debug/parser.exe
 /Users/humblebee/Documents/dit355/parser/parser/bin/Debug/parser.pdb
@@ -30,27 +20,37 @@ C:/University/DistributedSystemsProject/dit355/parser/parser/obj/x86/Debug/parse
 C:/University/DistributedSystemsProject/dit355/parser/parser/obj/x86/Debug/parser.csproj.CopyComplete
 C:/University/DistributedSystemsProject/dit355/parser/parser/obj/x86/Debug/parser.exe
 C:/University/DistributedSystemsProject/dit355/parser/parser/obj/x86/Debug/parser.pdb
-/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parser/parser/bin/Debug/parser.exe.config
 =======
-C:\Projects\DIT355DistributedSystems\parser\parser\bin\Debug\parser.exe
-C:\Projects\DIT355DistributedSystems\parser\parser\bin\Debug\parser.pdb
-C:\Projects\DIT355DistributedSystems\parser\parser\bin\Debug\Newtonsoft.Json.dll
-C:\Projects\DIT355DistributedSystems\parser\parser\bin\Debug\Newtonsoft.Json.pdb
-C:\Projects\DIT355DistributedSystems\parser\parser\bin\Debug\Newtonsoft.Json.xml
-C:\Projects\DIT355DistributedSystems\parser\parser\obj\x86\Debug\parser.csprojResolveAssemblyReference.cache
-C:\Projects\DIT355DistributedSystems\parser\parser\obj\x86\Debug\parser.csproj.CoreCompileInputs.cache
-C:\Projects\DIT355DistributedSystems\parser\parser\obj\x86\Debug\parser.csproj.CopyComplete
-C:\Projects\DIT355DistributedSystems\parser\parser\obj\x86\Debug\parser.exe
-C:\Projects\DIT355DistributedSystems\parser\parser\obj\x86\Debug\parser.pdb
+C:/Projects/DIT355DistributedSystems/parser/parser/bin/Debug/parser.exe
+C:/Projects/DIT355DistributedSystems/parser/parser/bin/Debug/parser.pdb
+C:/Projects/DIT355DistributedSystems/parser/parser/bin/Debug/Newtonsoft.Json.dll
+C:/Projects/DIT355DistributedSystems/parser/parser/bin/Debug/Newtonsoft.Json.pdb
+C:/Projects/DIT355DistributedSystems/parser/parser/bin/Debug/Newtonsoft.Json.xml
+C:/Projects/DIT355DistributedSystems/parser/parser/obj/x86/Debug/parser.csprojResolveAssemblyReference.cache
+C:/Projects/DIT355DistributedSystems/parser/parser/obj/x86/Debug/parser.csproj.CoreCompileInputs.cache
+C:/Projects/DIT355DistributedSystems/parser/parser/obj/x86/Debug/parser.csproj.CopyComplete
+C:/Projects/DIT355DistributedSystems/parser/parser/obj/x86/Debug/parser.exe
+C:/Projects/DIT355DistributedSystems/parser/parser/obj/x86/Debug/parser.pdb
 >>>>>>> gitgetter
-C:\FakeDesktop\Coding\TEAMFLEX\dit355\parser\parser\bin\Debug\parser.exe.config
-C:\FakeDesktop\Coding\TEAMFLEX\dit355\parser\parser\bin\Debug\parser.exe
-C:\FakeDesktop\Coding\TEAMFLEX\dit355\parser\parser\bin\Debug\parser.pdb
-C:\FakeDesktop\Coding\TEAMFLEX\dit355\parser\parser\bin\Debug\Newtonsoft.Json.dll
-C:\FakeDesktop\Coding\TEAMFLEX\dit355\parser\parser\bin\Debug\Newtonsoft.Json.pdb
-C:\FakeDesktop\Coding\TEAMFLEX\dit355\parser\parser\bin\Debug\Newtonsoft.Json.xml
-C:\FakeDesktop\Coding\TEAMFLEX\dit355\parser\parser\obj\x86\Debug\parser.csprojAssemblyReference.cache
-C:\FakeDesktop\Coding\TEAMFLEX\dit355\parser\parser\obj\x86\Debug\parser.csproj.CoreCompileInputs.cache
-C:\FakeDesktop\Coding\TEAMFLEX\dit355\parser\parser\obj\x86\Debug\parser.csproj.CopyComplete
-C:\FakeDesktop\Coding\TEAMFLEX\dit355\parser\parser\obj\x86\Debug\parser.exe
-C:\FakeDesktop\Coding\TEAMFLEX\dit355\parser\parser\obj\x86\Debug\parser.pdb
+C:/FakeDesktop/Coding/TEAMFLEX/dit355/parser/parser/bin/Debug/parser.exe.config
+C:/FakeDesktop/Coding/TEAMFLEX/dit355/parser/parser/bin/Debug/parser.exe
+C:/FakeDesktop/Coding/TEAMFLEX/dit355/parser/parser/bin/Debug/parser.pdb
+C:/FakeDesktop/Coding/TEAMFLEX/dit355/parser/parser/bin/Debug/Newtonsoft.Json.dll
+C:/FakeDesktop/Coding/TEAMFLEX/dit355/parser/parser/bin/Debug/Newtonsoft.Json.pdb
+C:/FakeDesktop/Coding/TEAMFLEX/dit355/parser/parser/bin/Debug/Newtonsoft.Json.xml
+C:/FakeDesktop/Coding/TEAMFLEX/dit355/parser/parser/obj/x86/Debug/parser.csprojAssemblyReference.cache
+C:/FakeDesktop/Coding/TEAMFLEX/dit355/parser/parser/obj/x86/Debug/parser.csproj.CoreCompileInputs.cache
+C:/FakeDesktop/Coding/TEAMFLEX/dit355/parser/parser/obj/x86/Debug/parser.csproj.CopyComplete
+C:/FakeDesktop/Coding/TEAMFLEX/dit355/parser/parser/obj/x86/Debug/parser.exe
+C:/FakeDesktop/Coding/TEAMFLEX/dit355/parser/parser/obj/x86/Debug/parser.pdb
+/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parser/parser/obj/x86/Debug/parser.csprojAssemblyReference.cache
+/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parser/parser/obj/x86/Debug/parser.csproj.CoreCompileInputs.cache
+/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parser/parser/bin/Debug/parser.exe.config
+/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parser/parser/bin/Debug/parser.exe
+/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parser/parser/bin/Debug/parser.pdb
+/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parser/parser/bin/Debug/Newtonsoft.Json.dll
+/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parser/parser/bin/Debug/Newtonsoft.Json.pdb
+/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parser/parser/bin/Debug/Newtonsoft.Json.xml
+/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parser/parser/obj/x86/Debug/parser.csproj.CopyComplete
+/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parser/parser/obj/x86/Debug/parser.exe
+/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parser/parser/obj/x86/Debug/parser.pdb
