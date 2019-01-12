@@ -10,6 +10,10 @@ class Program
 {
     protected static void Main(string[] args)
     {
+        Stopwatch benchmark = new Stopwatch();
+        benchmark.Start();
+        Console.WriteLine(benchmark.ElapsedMilliseconds);
+
         XmlDocument srcML, gameObjects;
 
         /*Create an xml doc for existing file*/
@@ -25,7 +29,7 @@ class Program
         String inbox = "/../../../../../globalAssets/inbox/srcML.xml";
 
         /*set the project here*/
-        String project = projects[2];
+        String project = projects[1];
 
         /*load project(s)*/
         String srcMLPath = AppDomain.CurrentDomain.BaseDirectory + project;
@@ -52,6 +56,10 @@ class Program
 
         /*place json into outbox*/
         ExportJson(json);
+
+        /*Close Benchmark*/
+        benchmark.Stop();
+        Console.WriteLine("Benchmark: " + benchmark.Elapsed);
     }
 
 
