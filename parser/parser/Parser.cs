@@ -10,6 +10,7 @@ class Program
 {
     protected static void Main(string[] args)
     {
+
         XmlDocument srcML, gameObjects;
 
         /*Create an xml doc for existing file*/
@@ -22,10 +23,10 @@ class Program
         projects[2] = "/../../../../../globalAssets/tests/sample/reuxProject.xml";
         projects[3] = "/../../../../../globalAssets/tests/sample/omniProject.xml";
         projects[4] = "/../../../../../globalAssets/tests/sample/databaseProject.xml";
-        String inbox = "/../../../../../globalAssets/inbox/srcML.xml";
+        string inbox = "/../../../../../globalAssets/inbox/srcML.xml";
 
         /*set the project here*/
-        String project = inbox;
+        string project = inbox;
 
         /*load project(s)*/
         String srcMLPath = AppDomain.CurrentDomain.BaseDirectory + project;
@@ -36,7 +37,7 @@ class Program
         namespaceManager.AddNamespace("src", "http://www.srcML.org/srcML/src");
 
         /*retrieve data*/
-        parser.SrcMLReader reader = new parser.SrcMLReader(); // parser for srcMl
+        parser.SrcMLFilter reader = new parser.SrcMLFilter(); // parser for srcMl
         XmlElement classes = srcML.CreateElement("JavaProject");// node that will store data
         reader.GetClasses(classes, srcML, namespaceManager);//callback that appends data to the "classes" node
 
@@ -47,7 +48,7 @@ class Program
         gameObjects.AppendChild(data);
 
         /*filter the xml in json format*/
-        parser.JsonReader jsonReader = new parser.JsonReader(); // custom parser for xml
+        parser.JsonParser jsonReader = new parser.JsonParser(); // custom parser for xml
         String json = jsonReader.XmlToJson(gameObjects); // pops root node out of xml document
 
         /*place json into outbox*/
@@ -73,5 +74,5 @@ class Program
             Console.WriteLine("error");
             Console.WriteLine(u.ToString());
         }
-        }
+    }
 }
