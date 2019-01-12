@@ -18,12 +18,12 @@ class Program
 
         /*projects*/
         string[] projects = new string[6];
-        projects[0] = "/../../../../../globalAssets/tests/official/k9.xml";
-        projects[1] = "/../../../../../globalAssets/tests/official/bitcoin.xml";
-        projects[2] = "/../../../../../globalAssets/tests/sample/reuxProject.xml";
-        projects[3] = "/../../../../../globalAssets/tests/sample/omniProject.xml";
-        projects[4] = "/../../../../../globalAssets/tests/sample/databaseProject.xml";
-        string inbox = "/../../../../../globalAssets/inbox/srcML.xml";
+        projects[0] = "../../../../../globalAssets/tests/official/k9.xml";
+        projects[1] = "../../../../../globalAssets/tests/official/bitcoin.xml";
+        projects[2] = "../../../../../globalAssets/tests/sample/reuxProject.xml";
+        projects[3] = "../../../../../globalAssets/tests/sample/omniProject.xml";
+        projects[4] = "../../../../../globalAssets/tests/sample/databaseProject.xml";
+        string inbox = "../../../../../globalAssets/inbox/srcML.xml";
 
         /*set the project here*/
         string project = inbox;
@@ -66,7 +66,7 @@ class Program
     {
         try
         {
-            String path = "/../../../../../globalAssets/outbox/xml2json.json";
+            String path = "../../../../../globalAssets/outbox/xml2json.json";
             File.WriteAllText(path, jsonString);
         }
         catch (Exception u)

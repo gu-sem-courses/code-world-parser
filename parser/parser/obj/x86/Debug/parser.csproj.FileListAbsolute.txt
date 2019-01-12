@@ -66,3 +66,8 @@ C:\Users\Hakim\Desktop\Davids Code\dit355\parser\parser\bin\Debug\Newtonsoft.Jso
 C:\Users\Hakim\Desktop\Davids Code\dit355\parser\parser\obj\x86\Debug\parser.csproj.CopyComplete
 C:\Users\Hakim\Desktop\Davids Code\dit355\parser\parser\obj\x86\Debug\ConsoleApplication.exe
 C:\Users\Hakim\Desktop\Davids Code\dit355\parser\parser\obj\x86\Debug\ConsoleApplication.pdb
+C:\Users\Hakim\Desktop\Davids Code\dit355\parser\parser\bin\Debug\parser.exe.config
+C:\Users\Hakim\Desktop\Davids Code\dit355\parser\parser\bin\Debug\parser.exe
+C:\Users\Hakim\Desktop\Davids Code\dit355\parser\parser\bin\Debug\parser.pdb
+C:\Users\Hakim\Desktop\Davids Code\dit355\parser\parser\obj\x86\Debug\parser.exe
+C:\Users\Hakim\Desktop\Davids Code\dit355\parser\parser\obj\x86\Debug\parser.pdb
