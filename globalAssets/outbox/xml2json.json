@@ -1769,7 +1769,7 @@
           "name": "ELECTRUM_SERVERS_FILENAME"
         }
       ],
-      "methods": "[]",
+      "methods": [],
       "superclass": "",
       "subclasses": [],
       "associations": []
@@ -6305,7 +6305,7 @@
           "name": "isSelected"
         }
       ],
-      "methods": "[]",
+      "methods": [],
       "superclass": "",
       "subclasses": [
         "TransactionItem",
@@ -6348,7 +6348,7 @@
           "name": "menuView"
         }
       ],
-      "methods": "[]",
+      "methods": [],
       "superclass": "RecyclerView.ViewHolder",
       "subclasses": [],
       "associations": []
@@ -6882,7 +6882,7 @@
           "name": "wallet"
         }
       ],
-      "methods": "[]",
+      "methods": [],
       "superclass": "AndroidViewModel",
       "subclasses": [],
       "associations": [
@@ -6938,7 +6938,7 @@
           "name": "showHelpDialog"
         }
       ],
-      "methods": "[]",
+      "methods": [],
       "superclass": "ViewModel",
       "subclasses": [],
       "associations": [
@@ -12173,7 +12173,7 @@
           "name": "type"
         }
       ],
-      "methods": "[]",
+      "methods": [],
       "superclass": "ListItem",
       "subclasses": [
         "TransactionItem",
@@ -12451,7 +12451,7 @@
           "name": "exchangeRate"
         }
       ],
-      "methods": "[]",
+      "methods": [],
       "superclass": "ListItem",
       "subclasses": [],
       "associations": [
@@ -12467,7 +12467,7 @@
           "name": "type"
         }
       ],
-      "methods": "[]",
+      "methods": [],
       "superclass": "ListItem",
       "subclasses": [],
       "associations": [
@@ -12672,7 +12672,7 @@
           "name": "messageView"
         }
       ],
-      "methods": "[]",
+      "methods": [],
       "superclass": "RecyclerView.ViewHolder",
       "subclasses": [],
       "associations": [
@@ -14145,7 +14145,7 @@
           "name": "showHelpDialog"
         }
       ],
-      "methods": "[]",
+      "methods": [],
       "superclass": "ViewModel",
       "subclasses": [],
       "associations": [
@@ -14568,7 +14568,7 @@
           "name": "dryrunException"
         }
       ],
-      "methods": "[]",
+      "methods": [],
       "superclass": "AndroidViewModel",
       "subclasses": [],
       "associations": [
@@ -14931,7 +14931,7 @@
           "name": "idCounter"
         }
       ],
-      "methods": "[]",
+      "methods": [],
       "superclass": "",
       "subclasses": [],
       "associations": [
@@ -14972,7 +14972,7 @@
           "name": "height"
         }
       ],
-      "methods": "[]",
+      "methods": [],
       "superclass": "",
       "subclasses": [],
       "associations": [
@@ -15003,7 +15003,7 @@
           "name": "height"
         }
       ],
-      "methods": "[]",
+      "methods": [],
       "superclass": "",
       "subclasses": [],
       "associations": [
@@ -15029,7 +15029,7 @@
           "name": "certificateFingerprint"
         }
       ],
-      "methods": "[]",
+      "methods": [],
       "superclass": "",
       "subclasses": [],
       "associations": [
@@ -15564,7 +15564,7 @@
           "name": "showProblemWarnDialog"
         }
       ],
-      "methods": "[]",
+      "methods": [],
       "superclass": "ViewModel",
       "subclasses": [],
       "associations": [
@@ -18223,7 +18223,7 @@
           "name": "entry"
         }
       ],
-      "methods": "[]",
+      "methods": [],
       "superclass": "",
       "subclasses": [],
       "associations": [
@@ -18269,7 +18269,7 @@
           "name": "menuView"
         }
       ],
-      "methods": "[]",
+      "methods": [],
       "superclass": "RecyclerView.ViewHolder",
       "subclasses": [],
       "associations": []
@@ -18753,7 +18753,7 @@
           "name": "isDownloading"
         }
       ],
-      "methods": "[]",
+      "methods": [],
       "superclass": "",
       "subclasses": [
         "TransactionItem",
@@ -18796,7 +18796,7 @@
           "name": "pingView"
         }
       ],
-      "methods": "[]",
+      "methods": [],
       "superclass": "RecyclerView.ViewHolder",
       "subclasses": [],
       "associations": []
@@ -18820,7 +18820,7 @@
           "name": "password"
         }
       ],
-      "methods": "[]",
+      "methods": [],
       "superclass": "AndroidViewModel",
       "subclasses": [],
       "associations": [
@@ -20329,7 +20329,7 @@
           "name": "showFailureDialog"
         }
       ],
-      "methods": "[]",
+      "methods": [],
       "superclass": "AndroidViewModel",
       "subclasses": [],
       "associations": [
