@@ -22,9 +22,10 @@ namespace Middleware
             //this adds the new xml file
             string result = WebUtility.HtmlDecode(request.Address.ToString());
             XDocument file = XDocument.Parse(result);
-   
-            Console.WriteLine(result);
+
+            // Console.WriteLine(result);
             
+            Console.WriteLine("Being called by " + context.Host.ToString());
             string filepath = "../../../../../dit355/globalAssets/inbox/srcML.xml";
             string jsonPath = "../../../../../dit355/globalAssets/outbox/xml2json.json";
             string exepath = System.AppDomain.CurrentDomain.BaseDirectory + "../../../../parser/parser/bin/Debug/parser.exe";
@@ -70,7 +71,10 @@ namespace Middleware
         const int Port = 23455;
         public static void Start()
         {
-            string Host = System.Net.NetworkInformation.IPGlobalProperties.GetIPGlobalProperties().HostName;
+            Console.WriteLine("Please type in your IP");
+            string Host = Console.ReadLine();
+            // string Host = "127.0.0.1";
+            //string Host = System.Net.NetworkInformation.IPGlobalProperties.GetIPGlobalProperties().;
 
             Server server = new Server
             {
