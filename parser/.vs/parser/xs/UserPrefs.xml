@@ -2,7 +2,7 @@
   <MonoDevelop.Ide.ItemProperties.parser PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="parser/Parser.cs">
     <Files>
-      <File FileName="parser/Parser.cs" Line="1" Column="1" />
+      <File FileName="parser/Parser.cs" Line="71" Column="75" />
       <File FileName="parser/SrcMLFilter.cs" Line="1" Column="1" />
       <File FileName="parser/JsonParser.cs" Line="1" Column="1" />
     </Files>
