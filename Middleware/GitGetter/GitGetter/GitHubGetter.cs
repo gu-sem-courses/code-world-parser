@@ -15,12 +15,18 @@ namespace GitGetter2
     {
 
         private static readonly HttpClient client = Program.getClient();
+        private static Boolean errorHasOccured = false;
+        private static String errorSpecification = "";
+        private static String access_token = "46ee005df418450c69a336f11ea60cd4e71bff90";
 
 
         public static Boolean getMainTree(String projectId)
         {
             String address = "https://api.github.com/repos/" + projectId + "/contents";
+
             //String address = "https://api.github.com/repos/GokuMohandas/practicalAI/contents"; // Testing address
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
+
             Console.WriteLine(address);
 
             // The part where the request is actually made
@@ -28,7 +34,15 @@ namespace GitGetter2
             {
                 Console.WriteLine("Sending request. V2");
                 client.DefaultRequestHeaders.Add("User-Agent", "C# App");
+                client.DefaultRequestHeaders.Add("Authorization", "token "+access_token.ToString());
 
+                // Used to authenticate us and make sure that we are not as rate limited as a anonymous user.
+
+                /*if (!githubAuthent())
+                {
+                    return false;
+                } */  // Currently only used to check if authentication is working without running out the rate.
+                
                 HttpResponseMessage response = client.GetAsync(address).GetAwaiter().GetResult() ;
                 
                 Console.WriteLine("response has not been made");
@@ -37,7 +51,7 @@ namespace GitGetter2
                 else { return false; }
 
                 Console.WriteLine("ResponseString has been made");
-
+                Console.WriteLine("Resposne here: "+ responseString);
                 List<HubObject> noPathFolder = makeHubList(responseString);
 
                 //Makes a directory for this project
@@ -55,6 +69,11 @@ namespace GitGetter2
             }
             catch (Exception e)
             {
+                if (errorHasOccured == false)
+                {
+                    errorHasOccured = true;
+                    errorSpecification = "Http";
+                }
                 Console.WriteLine("Something went wrong with HTTP request :Defaultdance");
                 Console.WriteLine(e);
                 //Write stuff incase the git repository was not found. 
@@ -158,7 +177,7 @@ namespace GitGetter2
                 return getDirTree(hubObject.url, projectID);
 
             }
-            else if (hubObject.type == "file" && hubObject.name.Contains(/*Program.getFiletype()*/ ".txt"))
+            else if (hubObject.type == "file" && hubObject.name.Contains(Program.getFiletype()))
             { // If the object is a actual file
                 return getFile(hubObject.download_url, projectID);
             }
@@ -182,6 +201,23 @@ namespace GitGetter2
 
             return tempHubObject;
 
+        }
+
+        private static Boolean githubAuthent()
+        {
+            String address = "https://api.github.com/users/Anotinas";
+            //client.DefaultRequestHeaders.Add("Authorization", access_token);
+
+            HttpResponseMessage response = client.GetAsync(address).GetAwaiter().GetResult();
+            String responseString = "";
+
+            if (response != null) { responseString = response.Content.ReadAsStringAsync().GetAwaiter().GetResult(); }
+            else { return false; }
+
+            String resHeaders = response.Headers.ToString();
+            Console.WriteLine("Here are the headers: " + resHeaders);
+
+            return false;
         }
 
     }

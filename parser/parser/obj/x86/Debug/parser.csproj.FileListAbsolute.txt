@@ -43,6 +43,10 @@ C:/FakeDesktop/Coding/TEAMFLEX/dit355/parser/parser/obj/x86/Debug/parser.csproj.
 C:/FakeDesktop/Coding/TEAMFLEX/dit355/parser/parser/obj/x86/Debug/parser.csproj.CopyComplete
 C:/FakeDesktop/Coding/TEAMFLEX/dit355/parser/parser/obj/x86/Debug/parser.exe
 C:/FakeDesktop/Coding/TEAMFLEX/dit355/parser/parser/obj/x86/Debug/parser.pdb
+<<<<<<< HEAD
+=======
+/Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parser/parser/obj/x86/Debug/parser.csprojAssemblyReference.cache
+>>>>>>> mwSquash
 /Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parser/parser/obj/x86/Debug/parser.csproj.CoreCompileInputs.cache
 /Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parser/parser/bin/Debug/parser.exe.config
 /Users/olivermanzi/Desktop/PlayGround/School/Distributed System/dit355/parser/parser/bin/Debug/parser.exe

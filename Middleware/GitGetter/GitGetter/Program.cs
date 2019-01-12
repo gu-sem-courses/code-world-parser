@@ -18,16 +18,20 @@ namespace GitGetter2
         private static readonly HttpClient client = new HttpClient();
         private static String mainFolderLocation;
 
+        // Used to report what error has occured to the client.
+        private static Boolean errorHasOccured = false;
+        private static String errorSpecification = "";
+
 
 
         public static void Main(string[] projectId)
         {
-            //client.DefaultRequestHeaders.Add("PRIVATE-TOKEN" ,"ZqpfJzg-n9-qQNv2z1N2");
+
             fileType = ".java"; // controlls what type of files it will get.
                                 // String url = "dit341/express-template"; //Used for testing
 
             mainFolderGetter();
-            Console.WriteLine(projectId[0].ToString());
+           // Console.WriteLine(projectId[0].ToString());
 
             Boolean isGitlab = true;
             if (projectId[1].ToString() == "f")
@@ -38,14 +42,15 @@ namespace GitGetter2
 
             if (isGitlab)
             {
-                if (gitTreeRetriever(projectId[0].ToString()))
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
+                if (gitTreeRetriever(projectId[0].ToString()) && !errorHasOccured)
                 {
                     activateParser(projectId[0].ToString());
                 }
             }
             else
             {
-                if (GitHubGetter.getMainTree(projectId[0].ToString()))
+                if (GitHubGetter.getMainTree(projectId[0].ToString()) && !errorHasOccured)
                 {
                     activateParser(projectId[0].ToString());
                 }
@@ -62,12 +67,14 @@ namespace GitGetter2
             try
             {
                 Console.WriteLine("Sending request");
-                Task<String> responseTask = client.GetStringAsync(address);
-                while (responseTask.IsCompleted == false)
-                {
-                }
+                Task<String> responseTask;
+                responseTask = client.GetStringAsync(address);
+
+                while (responseTask.IsCompleted == false){}
+
                 Console.WriteLine("Request done");
                 String responseString = "";
+
                 try
                 {
                     responseString = responseTask.Result;
@@ -106,7 +113,7 @@ namespace GitGetter2
         {
             //urlEncoder(projectId);
             String address = "https://gitlab.com/api/v4/projects/" + urlEncoder(projectId) + "/repository/tree";
-            Console.WriteLine(address);
+            Console.WriteLine("Tree request: " + address);
             // String address = "https://gitlab.com/api/v4/projects/dit341%2Fexpress-template/repository/tree";
             // The part where the request is actually made
             try
@@ -137,8 +144,12 @@ namespace GitGetter2
                 return true;
 
             }
-            catch (Exception e)
+            catch (HttpRequestException e)
             {
+                if (errorHasOccured==false) {
+                    errorHasOccured = true;
+                    errorSpecification = "Https: " + e.HResult;
+                }
                 Console.WriteLine("Something went wrong with HTTP request :Defaultdance");
                 Console.WriteLine(e);
                 //Write stuff incase the git repository was not found. 
@@ -256,7 +267,6 @@ namespace GitGetter2
                 // Part that activates srcml
 
                 // Single code file Srcml call
-                //String dirPath = globalFolderGetter(4) + "/GitGetter/FileStorer/" + projectId + fileType; // Change for other code files.
                 String dirPath = storageAddress + projectId + fileType; // Change for other code files.
                 dirPath = dirPath.Replace(" ", String.Empty);
 
@@ -267,15 +277,13 @@ namespace GitGetter2
                 //End of srcml part. */
 
 
-                // This part should start the parser but I'm too lazy to test it right now. 
-
-                Process Project = new Process();
+                // Parser part. Has been moved to a different node. Kept in comments for now.
+              /*Process Project = new Process();
                 try
                 {
                     //so it know where to find the file it should use to start the proccess
                     //if no actual file is specified it will just open the specified folder
                     Project.StartInfo.FileName = PathP;
-                    Project.StartInfo.Arguments = dirPath;
                     // What arguments the file will take when it starts
                     Project.Start();
                     Project.WaitForExit();
@@ -283,8 +291,13 @@ namespace GitGetter2
                 }
                 catch (Exception e)
                 {
+                    if (errorHasOccured == false)
+                    {
+                        errorHasOccured = true;
+                        errorSpecification = "Parser";
+                    }
                     Console.WriteLine(e.Message);
-                }
+                }*/
             }
 
         }
@@ -357,6 +370,8 @@ namespace GitGetter2
             //srcml.Start();
 
             //StreamWriter srcmlText = srcml.StandardInput;
+            try { 
+
             srcml.StartInfo.FileName = batAddress; // IF YOU WANT TO CHANGE WHERE THE OUTPUT FILES GOES THEN CHANGE IT IN THE BAT FILE
 
             //srcml.StartInfo.Arguments = enumerator.Current+" "+dirPath+ "_srcml/"+ fileName;
@@ -365,6 +380,17 @@ namespace GitGetter2
             //srcmlText.WriteLine(argu);
             srcml.Start();
             srcml.WaitForExit();
+            }
+            catch (Exception e)
+            {
+                if (errorHasOccured == false)
+                {
+                    errorHasOccured = true;
+                    errorSpecification = "Srcml";
+                }
+                Console.WriteLine(e.Message);
+
+            }
 
         }
 
@@ -378,7 +404,16 @@ namespace GitGetter2
             return client;
         }
 
+        public static Boolean getErrorBool()
+        {
+            return errorHasOccured;
+        }
 
+        public static void ErrorOccured(String error)
+        {
+            errorHasOccured = true;
+            errorSpecification = error;
+        }
 
 
     }
