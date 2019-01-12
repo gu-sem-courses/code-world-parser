@@ -18,8 +18,9 @@ namespace Middleware
         //the parameters type and the name and what it returns are set in the proto generated files Trial.cs & TrialGrpc.cs
         public override Task<JsonReply> MainInteraction(ParsingRequest request, ServerCallContext context)
         {
-            GetProject(request);
+            
             Console.WriteLine("Being called by " + context.Host.ToString());
+            GetProject(request);
             string filepath = "../../../../../dit355/globalAssets/outbox/xml2json.json";
             string result = string.Empty;
             using (StreamReader r = new StreamReader(filepath))
