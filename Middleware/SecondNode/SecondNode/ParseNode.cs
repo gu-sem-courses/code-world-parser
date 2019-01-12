@@ -24,7 +24,7 @@ namespace Middleware
             XDocument file = XDocument.Parse(result);
 
             // Console.WriteLine(result);
-
+            
             Console.WriteLine("Being called by " + context.Host.ToString());
             string filepath = "../../../../../dit355/globalAssets/inbox/srcML.xml";
             string jsonPath = "../../../../../dit355/globalAssets/outbox/xml2json.json";
@@ -71,8 +71,10 @@ namespace Middleware
         const int Port = 23455;
         public static void Start()
         {
-            string Host = "127.0.0.1";
-            //string Host = System.Net.NetworkInformation.IPGlobalProperties.GetIPGlobalProperties().DomainName;
+            Console.WriteLine("Please type in your IP");
+            string Host = Console.ReadLine();
+            // string Host = "127.0.0.1";
+            //string Host = System.Net.NetworkInformation.IPGlobalProperties.GetIPGlobalProperties().;
 
             Server server = new Server
             {

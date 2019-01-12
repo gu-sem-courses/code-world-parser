@@ -22,7 +22,9 @@ namespace Middleware
             string filepath;
             string page;
             string filetype = ".json";
-            string IP = "127.0.0.1";
+            Console.WriteLine("Give us the IP of the Node your trying to reach");
+            string IP = Console.ReadLine();
+            // string IP = "127.0.0.1";
             // Console.WriteLine(IP);
             //string IP = "129.16.31.63";
             // string IP = "10.0.97.223";

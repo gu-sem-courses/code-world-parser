@@ -70,7 +70,9 @@ namespace Middleware
        
         public static void Start()
         {
-            string Host = "127.0.0.1";
+            Console.WriteLine("Please type in your IP");
+            string Host = Console.ReadLine();
+            // string Host = "127.0.0.1";
             // var Host = System.Net.NetworkInformation.IPGlobalProperties.GetIPGlobalProperties().DomainName;
             Server server = new Server
             {
@@ -98,7 +100,10 @@ namespace Middleware
 
             // if you just want it to run localy on your computer comment out the line below
             // IP = System.Net.NetworkInformation.IPGlobalProperties.GetIPGlobalProperties().HostName;
-            string IP = "127.0.0.1";
+
+            Console.WriteLine("Give us the IP of the Node your trying to reach");
+            string IP = Console.ReadLine();
+            // string IP = "127.0.0.1";
             int Port = 23455;
             Channel channel = new Channel(IP, Port, ChannelCredentials.Insecure);
             var client = new Services.GameLog.GameLogClient(channel);
