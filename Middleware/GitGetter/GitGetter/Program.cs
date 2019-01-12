@@ -16,19 +16,45 @@ namespace GitGetter2
     {
         private static String fileType;
         private static readonly HttpClient client = new HttpClient();
+        private static String mainFolderLocation;
+
+        // Used to report what error has occured to the client.
+        private static Boolean errorHasOccured = false;
+        private static String errorSpecification = "";
 
 
 
         public static void Main(string[] projectId)
         {
-            //client.DefaultRequestHeaders.Add("PRIVATE-TOKEN" ,"ZqpfJzg-n9-qQNv2z1N2");
+
             fileType = ".java"; // controlls what type of files it will get.
-                              // String url = "dit341/express-template"; //Used for testing
-            Console.WriteLine(projectId[0].ToString());
-            String dirPath = gitTreeRetriever(projectId[0].ToString());
-            activateParser(projectId[0].ToString());
+                                // String url = "dit341/express-template"; //Used for testing
+
+            mainFolderGetter();
+           // Console.WriteLine(projectId[0].ToString());
+
+            Boolean isGitlab = true;
+            if (projectId[1].ToString() == "f")
+            {
+                isGitlab = false;
+            }
 
 
+            if (isGitlab)
+            {
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
+                if (gitTreeRetriever(projectId[0].ToString()) && !errorHasOccured)
+                {
+                    activateParser(projectId[0].ToString());
+                }
+            }
+            else
+            {
+                if (GitHubGetter.getMainTree(projectId[0].ToString()) && !errorHasOccured)
+                {
+                    activateParser(projectId[0].ToString());
+                }
+            }
         }
 
         public static bool gitFileRetriever(String projectId, String filepath, String name)
@@ -41,12 +67,14 @@ namespace GitGetter2
             try
             {
                 Console.WriteLine("Sending request");
-                Task<String> responseTask = client.GetStringAsync(address);
-                while (responseTask.IsCompleted == false)
-                {
-                }
+                Task<String> responseTask;
+                responseTask = client.GetStringAsync(address);
+
+                while (responseTask.IsCompleted == false){}
+
                 Console.WriteLine("Request done");
                 String responseString = "";
+
                 try
                 {
                     responseString = responseTask.Result;
@@ -60,9 +88,9 @@ namespace GitGetter2
 
                 try
                 {
-                    String dirPath = "../../../GitGetter/FileStorer/" + projectId;
+                    String dirPath = mainFolderGetter() + "/Middleware/GitGetter/FileStorer/" + projectId;
                     //File.WriteAllText(dirPath+"/"+ name, responseString); // Creates a seperate file for each code
-                    File.AppendAllText(dirPath+fileType, responseString+" ");  // Should create a single file with the contents of all the code files.
+                    File.AppendAllText(dirPath + fileType, responseString + Environment.NewLine);  // Should create a single file with the contents of all the code files.
                 }
                 catch (Exception e)
                 {
@@ -81,11 +109,11 @@ namespace GitGetter2
 
             return true;
         }
-        private static String gitTreeRetriever(String projectId)
+        private static Boolean gitTreeRetriever(String projectId)
         {
             //urlEncoder(projectId);
             String address = "https://gitlab.com/api/v4/projects/" + urlEncoder(projectId) + "/repository/tree";
-            Console.WriteLine(address);
+            Console.WriteLine("Tree request: " + address);
             // String address = "https://gitlab.com/api/v4/projects/dit341%2Fexpress-template/repository/tree";
             // The part where the request is actually made
             try
@@ -94,28 +122,38 @@ namespace GitGetter2
                 Task<String> responseTask = client.GetStringAsync(address);
                 while (responseTask.IsCompleted != true) { }
 
-                String responseString = responseTask.Result;
+                Console.WriteLine("response has not been made");
+                String responseString;
+                if (responseTask.IsCompleted == true) { responseString = responseTask.Result; }
+                else { return false; }
+
+                Console.WriteLine("ResponseString has been made");
 
                 List<TreeObject> noPathFolder = makeTreeList(responseString);
 
                 //Makes a directory for this project
-                String dirPath = "../../GitGetter/FileStorer/" + projectId;
+                String dirPath = mainFolderGetter() + "/Middleware/Gitgetter/FileStorer/" + projectId;
+
                 System.IO.Directory.CreateDirectory(dirPath);
-                System.IO.Directory.CreateDirectory(dirPath+ "_srcml");
+                File.WriteAllText(dirPath + Program.getFiletype(), "");
 
                 foreach (TreeObject tree in noPathFolder)
                 {
                     TreeNavigator(projectId, tree);
                 }
-                return dirPath;
+                return true;
 
             }
-            catch (Exception e)
+            catch (HttpRequestException e)
             {
+                if (errorHasOccured==false) {
+                    errorHasOccured = true;
+                    errorSpecification = "Https: " + e.HResult;
+                }
                 Console.WriteLine("Something went wrong with HTTP request :Defaultdance");
                 Console.WriteLine(e);
                 //Write stuff incase the git repository was not found. 
-                return "ERROR";
+                return false;
             }
         }
 
@@ -166,6 +204,7 @@ namespace GitGetter2
             {
                 return false;
             }
+
         }
         private static List<TreeObject> makeTreeList(String populationMaker)
         {
@@ -178,6 +217,7 @@ namespace GitGetter2
 
             return tempTreeObject;
         }
+
         public static String urlEncoder(String url)
         {
             String encoded_url = "";
@@ -209,106 +249,64 @@ namespace GitGetter2
             return encoded_url;
         }
 
-        private static void activateParser(String projectId){
+        private static void activateParser(String projectId)
         {
+            {
 
-             string PathP = System.AppDomain.CurrentDomain.BaseDirectory + "../../../../../parser/parser/obj/x86/Debug/Parser.exe";
+                string PathP = mainFolderGetter() + "/parser/parser/bin/Debug/parser.exe";
 
-                
 
-                
-                String batAddress = System.AppDomain.CurrentDomain.BaseDirectory +".SrcmlStarter.bat";
-                String storageAddress = globalFolderGetter(4) + "/GitGetter/FileStorer/";
-                storageAddress = storageAddress.Replace( "/" ,"\\ ");
+
+
+                String batAddress = System.AppDomain.CurrentDomain.BaseDirectory + ".SrcmlStarter.bat";
+                String storageAddress = mainFolderGetter() + "/Middleware/Gitgetter/FileStorer/";
+                storageAddress = storageAddress.Replace("/", "\\ ");
+                Console.WriteLine(storageAddress);
 
                 Console.WriteLine("Enumerator and srcml beginning");
                 // Part that activates srcml
 
                 // Single code file Srcml call
-                String dirPath = globalFolderGetter(4) + "/GitGetter/FileStorer/" + projectId + fileType; // Change for other code files.
-                Console.WriteLine("Here is the dirpath: "+dirPath);
-                singleFileSrcmlCall(dirPath,projectId,batAddress);
-                
-                //This part is for multiple code files.
-                /* Console.WriteLine("Before enum");
-                String dirPath = globalFolderGetter(4) +"/GitGetter/FileStorer/" + projectId+ "/";
+                String dirPath = storageAddress + projectId + fileType; // Change for other code files.
+                dirPath = dirPath.Replace(" ", String.Empty);
 
-                IEnumerator<String> enumerator = System.IO.Directory.EnumerateFiles(dirPath).GetEnumerator();
-                Console.WriteLine("after enum");
-                do
+                Console.WriteLine("Here is the dirpath: " + dirPath); ;
+                singleFileSrcmlCall(dirPath, projectId, batAddress);
+
+
+                //End of srcml part. */
+
+
+                // Parser part. Has been moved to a different node. Kept in comments for now.
+              /*Process Project = new Process();
+                try
                 {
-                    try
+                    //so it know where to find the file it should use to start the proccess
+                    //if no actual file is specified it will just open the specified folder
+                    Project.StartInfo.FileName = PathP;
+                    // What arguments the file will take when it starts
+                    Project.Start();
+                    Project.WaitForExit();
+
+                }
+                catch (Exception e)
+                {
+                    if (errorHasOccured == false)
                     {
-                        Console.WriteLine("Current enum location: "+enumerator.Current);
-                        Process srcml = new Process();
-                        //This is intended to start sourceml and then do the thing on each file in the folder.
-
-                        char[] charArray = enumerator.Current.ToCharArray();
-                        
-                        String fileName = "";
-                        for (int i = charArray.Length - 1; i > 0; i--)
-                        {
-                            if (charArray[i] == '/')
-                            {
-                                break;
-                            }
-                            fileName += charArray[i];
-                        }
-                        char[] charArray2 = fileName.ToCharArray();
-
-                        fileName = "";
-
-                        for (int i = charArray2.Length-1; i>=0; i--)
-                        {
-                            fileName += charArray2[i];
-                        }
-
-                        Console.WriteLine("Before srcml calls");
-                        Console.WriteLine(storageAddress + "Srcml/SrcmlTextDoc.xml");
-
-                        srcml.StartInfo.FileName = batAddress; // IF YOU WANT TO CHANGE WHERE THE OUTPUT FILES GOES THEN CHANGE IT IN THE BAT FILE
-
-                        // srcml.StartInfo.Arguments = enumerator.Current+" "+dirPath+ "_srcml/"+ fileName;
-                        srcml.StartInfo.Arguments = enumerator.Current+ " "+ fileName;
-                        // What arguments the file will take when it starts
-                        srcml.Start();
-                        scrml.WaitForExit();
+                        errorHasOccured = true;
+                        errorSpecification = "Parser";
                     }
-                    catch (Exception e)
-                    {
-                        Console.WriteLine(e.Message);
-                    }
-
-
-                } while (enumerator.MoveNext() == true);
-             //End of srcml part. */
-
-
-                // This part should start the parser but I'm too lazy to test it right now. 
-                Process Project = new Process();
-                 try
-                 {
-                     //so it know where to find the file it should use to start the proccess
-                     //if no actual file is specified it will just open the specified folder
-                     Project.StartInfo.FileName = PathP;
-                     Project.StartInfo.Arguments = dirPath;
-                     // What arguments the file will take when it starts
-                     Project.Start();
-                     Project.WaitForExit();
-                     
-                 }
-                 catch (Exception e)
-                 {
-                     Console.WriteLine(e.Message);
-                 }
-        }
+                    Console.WriteLine(e.Message);
+                }*/
+            }
 
         }
-        private static String globalFolderGetter(int backwardsSteps) { // Used to move backwards in the folders
-            
+        protected static String globalFolderGetter(int backwardsSteps)
+        { // Used to move backwards in the folders
+
             String endlocation = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
             //Console.WriteLine("This is the exelocation = "+ endlocation);
-            for (int i = 0; i<backwardsSteps; i++)
+            for (int i = 0; i < backwardsSteps; i++)
             {
                 endlocation = Path.GetDirectoryName(endlocation);
                 //Console.WriteLine("This is the endlocation = " + endlocation);
@@ -318,8 +316,28 @@ namespace GitGetter2
 
             return endlocation;
         }
+
+        public static String mainFolderGetter()
+        {
+            if (mainFolderLocation != null)
+            {
+                return mainFolderLocation;
+            }
+            String endlocation = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+            //Boolean boolean = false;
+            while (endlocation.Contains("Middleware")) // Check to make sure that middleware is spelled exactly the same as the middleware folder. CHeck for capital letters etc.
+            {
+                endlocation = Path.GetDirectoryName(endlocation);
+            }
+            mainFolderLocation = endlocation;
+
+
+            return endlocation;
+        }
+
         private static void singleFileSrcmlCall(String dirpath, String projectId, String batAddress)
         {
+            Console.WriteLine("Here is the project id: " + projectId);
 
             Char[] charArray = projectId.ToCharArray();
 
@@ -341,18 +359,62 @@ namespace GitGetter2
                 fileName += charArray2[i];
             }
 
-
+            // String srcmlAddress = mainFolderGetter() + "/globalAssets/inbox/"+ fileName+".xml";
+            String srcmlAddress = mainFolderGetter() + "/globalAssets/inbox/srcML.xml";
+            srcmlAddress = srcmlAddress.Replace(" ", "");
 
             Process srcml = new Process();
+            //srcml.StartInfo.FileName = "cmd.exe";
+            // srcml.StartInfo.UseShellExecute = false;
+            // srcml.StartInfo.RedirectStandardInput = true;
+            //srcml.Start();
+
+            //StreamWriter srcmlText = srcml.StandardInput;
+            try { 
+
             srcml.StartInfo.FileName = batAddress; // IF YOU WANT TO CHANGE WHERE THE OUTPUT FILES GOES THEN CHANGE IT IN THE BAT FILE
 
-            // srcml.StartInfo.Arguments = enumerator.Current+" "+dirPath+ "_srcml/"+ fileName;
-            srcml.StartInfo.Arguments = dirpath + " " + fileName;
+            //srcml.StartInfo.Arguments = enumerator.Current+" "+dirPath+ "_srcml/"+ fileName;
+            srcml.StartInfo.Arguments = dirpath + " " + srcmlAddress;
             // What arguments the file will take when it starts
+            //srcmlText.WriteLine(argu);
             srcml.Start();
             srcml.WaitForExit();
+            }
+            catch (Exception e)
+            {
+                if (errorHasOccured == false)
+                {
+                    errorHasOccured = true;
+                    errorSpecification = "Srcml";
+                }
+                Console.WriteLine(e.Message);
+
+            }
 
         }
+
+        public static String getFiletype()
+        {
+            return fileType;
+        }
+
+        public static HttpClient getClient()
+        {
+            return client;
+        }
+
+        public static Boolean getErrorBool()
+        {
+            return errorHasOccured;
+        }
+
+        public static void ErrorOccured(String error)
+        {
+            errorHasOccured = true;
+            errorSpecification = error;
+        }
+
 
     }
 }
