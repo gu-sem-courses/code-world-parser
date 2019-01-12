@@ -34,15 +34,12 @@ namespace parser
                 //subclass
                 JToken subclass = unit.SelectToken("$.subclasses");
                 if(subclass.Type != JTokenType.Array) {
-                    Console.WriteLine(unit.SelectToken("$.name"));
-                    Console.WriteLine("NOT AN ARRAY");
                     /*if its not an array then there can be two casses
                     such that it can be a "[]" or a single value that needs to be an array*/
                     if(subclass.ToString() == "[]") {
                         subclass.Replace(new JArray());
                     }
                     else { 
-                    Console.WriteLine("its the single item");
                         JArray res = new JArray();
                         res.Add(subclass.ToString());
                         subclass.Replace(res);
@@ -53,8 +50,6 @@ namespace parser
                 JToken associations = unit.SelectToken("$.associations");
                 if (associations.Type != JTokenType.Array)
                 {
-                    Console.WriteLine(unit.SelectToken("$.name"));
-                    Console.WriteLine("NOT AN ARRAY");
                     /*if its not an array then there can be two casses
                     such that it can be a "[]" or a single value that needs to be an array*/
                     if (associations.ToString() == "[]")
@@ -63,7 +58,6 @@ namespace parser
                     }
                     else
                     {
-                        Console.WriteLine("its the single item");
                         JArray res = new JArray();
                         res.Add(associations.ToString());
                         associations.Replace(res);

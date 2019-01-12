@@ -9,12 +9,10 @@ namespace parser
         public void GetClasses(XmlNode target, XmlDocument xDoc, XmlNamespaceManager nsm)
         {
             XmlNodeList jClasses = xDoc.DocumentElement.SelectNodes("//src:class[src:specifier[.!='abstract']]", nsm);
-            XmlElement[] result = new XmlElement[jClasses.Count];
 
             for (int i = 0; i < jClasses.Count; i++)
             {
                 XmlNode currentClass = jClasses.Item(i);
-
                 XmlElement javaClass, name, superClass;
                 javaClass = xDoc.CreateElement("data");
                 //add name
@@ -32,7 +30,6 @@ namespace parser
                 //associations []
                 GetAssociations(name.InnerText, javaClass, currentClass, xDoc, nsm);
                 //append result to an array
-                result[i] = javaClass;
                 target.AppendChild(javaClass);
             }
         }
