@@ -67,7 +67,8 @@ class Program
     {
         try
         {
-            String path = System.AppDomain.CurrentDomain.BaseDirectory + @"../../../../globalAssets/outbox/xml2json.json";
+            string outbox = @"../../../../globalAssets/outbox/xml2json.json";
+            String path = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, outbox));
             File.WriteAllText(path, jsonString);
         }
         catch (Exception u)
