@@ -26,7 +26,7 @@ class Program
         string inbox = "/../../../../../globalAssets/inbox/srcML.xml";
 
         /*set the project here*/
-        string project = inbox;
+        string project = projects[1];
 
         /*load project(s)*/
         String srcMLPath = AppDomain.CurrentDomain.BaseDirectory + project;

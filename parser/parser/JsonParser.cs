@@ -48,7 +48,8 @@ namespace parser
 
                 //methods
                 JToken meth = unit.SelectToken("$.methods");
-                if (meth.GetType() == typeof(Newtonsoft.Json.Linq.JObject))
+                Console.WriteLine(meth.GetType());
+                if (meth.GetType() == typeof(Newtonsoft.Json.Linq.JObject) || meth.GetType() == typeof(Newtonsoft.Json.Linq.JValue))
                 {
                     /*if its not an array then there can be two casses
                     such that it can be a "[]" or a single value that needs to be an array*/
