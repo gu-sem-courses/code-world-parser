@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GitGetter2
 {
-    public class TreeObject
+    public class GitLabObject
     {
         public string id { get; set; }
         public string name { get; set; }
@@ -16,7 +16,7 @@ namespace GitGetter2
         public string mode { get; set; }
 
 
-        public TreeObject()
+        public GitLabObject()
         {
         }
     }
