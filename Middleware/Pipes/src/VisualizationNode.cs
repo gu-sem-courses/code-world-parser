@@ -24,6 +24,7 @@ namespace Pipes
             string filetype = ".json";
             // Console.WriteLine("Give us the IP of the Node your trying to reach");
             string IP = NodeConfig.getGetterIP();
+            Console.WriteLine("The server is trying to call the server hosting on: " + IP);
             // string IP = "127.0.0.1";
             // Console.WriteLine(IP);
             //string IP = "129.16.31.63";
@@ -70,6 +71,7 @@ namespace Pipes
             var client = new Services.GameLog.GameLogClient(channel);
 
             //This makes a new json variable and provides a request message, the return message will then be saved in the json var
+            Console.WriteLine(IP + " " + Port);
             var json = client.MainInteraction(new ParsingRequest { Address = repository });
 
             //sets the variable so we always make the file in the same place no matter the PC that runs it

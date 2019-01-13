@@ -13,21 +13,21 @@ namespace Pipes
         public static string getGetterIP()
         {
             string ip;
-            ip = File.ReadAllText("IPconfig/GetterIP.txt");
+            ip = File.ReadAllText(System.AppDomain.CurrentDomain.BaseDirectory + "IPconfig/GetterIP.txt");
             return ip;
         }
 
         public static string getParseIP()
         {
             string ip;
-            ip = File.ReadAllText("IPconfig/ParseIP.txt");
+            ip = File.ReadAllText(System.AppDomain.CurrentDomain.BaseDirectory + "IPconfig/ParseIP.txt");
             return ip;
         }
 
         public static string getVisualizationIP()
         {
             string ip;
-            ip = File.ReadAllText("IPconfig/VisualizationIP.txt");
+            ip = File.ReadAllText(System.AppDomain.CurrentDomain.BaseDirectory + "IPconfig/VisualizationIP.txt");
             return ip;
         }
 
