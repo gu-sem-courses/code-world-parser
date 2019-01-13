@@ -22,7 +22,7 @@ namespace Pipes
             string filepath;
             string page;
             string filetype = ".json";
-            Console.WriteLine("Give us the IP of the Node your trying to reach");
+            // Console.WriteLine("Give us the IP of the Node your trying to reach");
             string IP = NodeConfig.getGetterIP();
             // string IP = "127.0.0.1";
             // Console.WriteLine(IP);

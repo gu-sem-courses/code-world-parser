@@ -96,14 +96,14 @@ namespace Pipes
     
         public static string ClietRequest(string filepathXML)
         {
-           // string filepathXML = "../../../../../dit355/globalAssets/inbox/srcML.xml";
-           // string filepathJSON = "../../../../../dit355/globalAssets/outbox/xml2json.json";
+            // string filepathXML = "../../../../../dit355/globalAssets/inbox/srcML.xml";
+            // string filepathJSON = "../../../../../dit355/globalAssets/outbox/xml2json.json";
 
             // if you just want it to run localy on your computer comment out the line below
             // IP = System.Net.NetworkInformation.IPGlobalProperties.GetIPGlobalProperties().HostName;
 
-            Console.WriteLine("Give us the IP of the Node your trying to reach");
-            string IP = Console.ReadLine();
+            // Console.WriteLine("Give us the IP of the Node your trying to reach");
+            string IP = NodeConfig.getParseIP();
             // string IP = "127.0.0.1";
             int Port = 23455;
             Channel channel = new Channel(IP, Port, ChannelCredentials.Insecure);
