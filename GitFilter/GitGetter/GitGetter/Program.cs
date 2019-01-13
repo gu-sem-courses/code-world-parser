@@ -1,11 +1,6 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.IO;
-using System.Linq;
 using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 using System.Net;
 using System.Diagnostics;
 using System.Reflection;
@@ -28,10 +23,8 @@ namespace GitGetter2
         {
 
             fileType = ".java"; // controlls what type of files it will get.
-                                // String url = "dit341/express-template"; //Used for testing
 
             mainFolderGetter();
-           // Console.WriteLine(projectId[0].ToString());
 
             Boolean isGitlab = true;
             if (projectId[1].ToString() == "f")
@@ -61,6 +54,7 @@ namespace GitGetter2
 
         public static String urlEncoder(String url)
         {
+            // Sometimes you need to encode your url for it to work properly and this method does that.
             String encoded_url = "";
 
             char[] letters = url.ToCharArray();
@@ -92,15 +86,17 @@ namespace GitGetter2
 
         private static void PrepareSrcml(String projectId)
         {
-            {
+            { // This method prepares neccessary paths and data for the Srcml to be called and then calls Srcml with that data.
 
                 string PathP = mainFolderGetter() + "/parser/parser/bin/Debug/parser.exe";
 
 
 
-
+                // The address of the bat file with the commands to start srcml
                 String batAddress = System.AppDomain.CurrentDomain.BaseDirectory + ".SrcmlStarter.bat";
+                // Where the project file is stored
                 String storageAddress = mainFolderGetter() + "/GitFilter/Gitgetter/FileStorer/";
+                // If spaces are not removed then bugs can occur so they are removed
                 storageAddress = storageAddress.Replace("/", "\\ ");
                 Console.WriteLine(storageAddress);
 
@@ -120,12 +116,9 @@ namespace GitGetter2
         { // Used to move backwards in the folders
 
             String endlocation = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
-            //Console.WriteLine("This is the exelocation = "+ endlocation);
             for (int i = 0; i < backwardsSteps; i++)
             {
                 endlocation = Path.GetDirectoryName(endlocation);
-                //Console.WriteLine("This is the endlocation = " + endlocation);
-                //Console.WriteLine("Current iteration: " + i);
             }
 
 
@@ -139,7 +132,6 @@ namespace GitGetter2
                 return mainFolderLocation;
             }
             String endlocation = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
-            //Boolean boolean = false;
             while (endlocation.Contains("GitFilter")) // Check to make sure that GitFilter is spelled exactly the same as the GitFilter folder. CHeck for capital letters etc.
             {
                 endlocation = Path.GetDirectoryName(endlocation);
@@ -156,6 +148,7 @@ namespace GitGetter2
 
             Char[] charArray = projectId.ToCharArray();
 
+            // Used to get the projectname of the project
             String fileName = "";
             for (int i = charArray.Length - 1; i > 0; i--)
             {
@@ -173,26 +166,17 @@ namespace GitGetter2
             {
                 fileName += charArray2[i];
             }
-
-            // String srcmlAddress = mainFolderGetter() + "/globalAssets/inbox/"+ fileName+".xml";
+            
             String srcmlAddress = mainFolderGetter() + "/globalAssets/inbox/srcML.xml";
             srcmlAddress = srcmlAddress.Replace(" ", "");
 
             Process srcml = new Process();
-            //srcml.StartInfo.FileName = "cmd.exe";
-            // srcml.StartInfo.UseShellExecute = false;
-            // srcml.StartInfo.RedirectStandardInput = true;
-            //srcml.Start();
-
-            //StreamWriter srcmlText = srcml.StandardInput;
             try { 
 
             srcml.StartInfo.FileName = batAddress; // IF YOU WANT TO CHANGE WHERE THE OUTPUT FILES GOES THEN CHANGE IT IN THE BAT FILE
-
-            //srcml.StartInfo.Arguments = enumerator.Current+" "+dirPath+ "_srcml/"+ fileName;
-            srcml.StartInfo.Arguments = dirpath + " " + srcmlAddress;
             // What arguments the file will take when it starts
-            //srcmlText.WriteLine(argu);
+            srcml.StartInfo.Arguments = dirpath + " " + srcmlAddress;
+            
             srcml.Start();
             srcml.WaitForExit();
             }

@@ -2,13 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 using System.Net;
-using System.Diagnostics;
-using System.Reflection;
 namespace GitGetter2
 {
     class GitHubGetter
@@ -36,27 +32,30 @@ namespace GitGetter2
                 client.DefaultRequestHeaders.Add("User-Agent", "C# App");
                 client.DefaultRequestHeaders.Add("Authorization", "token "+access_token.ToString());
 
-                // Used to authenticate us and make sure that we are not as rate limited as a anonymous user.
-
+                // Used to check our current rate limit on github.
                 /*if (!githubAuthent())
                 {
                     return false;
                 } */  // Currently only used to check if authentication is working without running out the rate.
                 
+                // THe thing that makes the request to github
                 HttpResponseMessage response = client.GetAsync(address).GetAwaiter().GetResult() ;
                 
                 Console.WriteLine("response has not been made");
                 String responseString;
+                // The part that takes the response as a string.
                 if (response!=null) { responseString = response.Content.ReadAsStringAsync().GetAwaiter().GetResult(); }
                 else { return false; }
 
                 Console.WriteLine("ResponseString has been made");
                 Console.WriteLine("Resposne here: "+ responseString);
+                // Makes a list of the objects that github returned to us.
                 List<HubObject> noPathFolder = makeHubList(responseString);
 
                 //Makes a directory for this project
                 String dirPath = Program.mainFolderGetter() + "/GitFilter/Gitgetter/FileStorer/" + projectId;
-
+                
+                // Creates the directory which stores the project file
                 System.IO.Directory.CreateDirectory(dirPath);
                 File.WriteAllText (dirPath + Program.getFiletype(), "");
 
@@ -88,18 +87,20 @@ namespace GitGetter2
         {
             String address = url; // It is possible that I'll have to encode it or parts of it for the address to work. NOT TESTED YET.
             Console.WriteLine(address);
-            // String address = "https://gitlab.com/api/v4/projects/dit341%2Fexpress-template/repository/tree"; 
             // The part where the request is actually made
             try
             {
                 Console.WriteLine("Sending request");
+                // The request is made
                 Task<String> responseTask = client.GetStringAsync(address);
                 while (responseTask.IsCompleted != true) { }
 
                 String responseString = responseTask.Result;
 
+                // Makes a list of the objects in the response
                 List<HubObject> noPathFolder = makeHubList(responseString);
 
+                // Makes a request for each of the objects in the list
                 foreach (HubObject tree in noPathFolder)
                 {
                     FolderNavigator(projectId, tree);
@@ -148,7 +149,6 @@ namespace GitGetter2
                     dirPath = dirPath.Replace(" ", "");
 
                     Console.WriteLine("Here is where the file should be: "+ dirPath);
-                    //File.WriteAllText(dirPath+"/"+ name, responseString); // Creates a seperate file for each code
                     File.AppendAllText(dirPath + Program.getFiletype(), responseString +Environment.NewLine);  // Should create a single file with the contents of all the code files.
                 }
                 catch (Exception e)
@@ -193,7 +193,6 @@ namespace GitGetter2
         private static List<HubObject> makeHubList(String populationMaker)
         {
             String populationString = populationMaker;
-            //Console.WriteLine(populationString);
 
             List<HubObject> tempHubObject = new List<HubObject>();
 
@@ -205,8 +204,9 @@ namespace GitGetter2
 
         private static Boolean githubAuthent()
         {
+            // This method exists only for the sake of the developers. So that they can check how many requests we are currently allowed to do 
+            // Could be used for error messaging in the future but that has not been implemented yet.
             String address = "https://api.github.com/users/Anotinas";
-            //client.DefaultRequestHeaders.Add("Authorization", access_token);
 
             HttpResponseMessage response = client.GetAsync(address).GetAwaiter().GetResult();
             String responseString = "";

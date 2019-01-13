@@ -2,13 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 using System.Net;
-using System.Diagnostics;
-using System.Reflection;
 
 namespace GitGetter2
 {
@@ -21,7 +17,6 @@ namespace GitGetter2
 
         private static bool gitFileRetriever(String projectId, String filepath, String name)
         { // This method is meant to take the id/filepath of a single file. 
-          //String address = "https://gitlab.com/"+ projectId +"/raw/master/"+filepath;
             String address = "https://gitlab.com/api/v4/projects/" + WebUtility.UrlEncode(projectId) + "/repository/files/" + WebUtility.UrlEncode(filepath) + "/raw?ref=master";
             Console.WriteLine(address);
 
@@ -31,7 +26,7 @@ namespace GitGetter2
                 Console.WriteLine("Sending request");
                 Task<String> responseTask;
                 responseTask = client.GetStringAsync(address);
-
+                // Waits for the request to finish
                 while (responseTask.IsCompleted == false) { }
 
                 Console.WriteLine("Request done");
@@ -51,7 +46,6 @@ namespace GitGetter2
                 try
                 {
                     String dirPath = Program.mainFolderGetter() + "/GitFilter/GitGetter/FileStorer/" + projectId;
-                    //File.WriteAllText(dirPath+"/"+ name, responseString); // Creates a seperate file for each code
                     File.AppendAllText(dirPath + Program.getFiletype(), responseString + Environment.NewLine);  // Should create a single file with the contents of all the code files.
                 }
                 catch (Exception e)
@@ -73,10 +67,8 @@ namespace GitGetter2
         }
         public static Boolean gitTreeRetriever(String projectId)
         {
-            //urlEncoder(projectId);
             String address = "https://gitlab.com/api/v4/projects/" + Program.urlEncoder(projectId) + "/repository/tree";
             Console.WriteLine("Tree request: " + address);
-            // String address = "https://gitlab.com/api/v4/projects/dit341%2Fexpress-template/repository/tree";
             // The part where the request is actually made
             try
             {
@@ -91,6 +83,7 @@ namespace GitGetter2
 
                 Console.WriteLine("ResponseString has been made");
 
+                // Makes a list of the objects gitlab returned to us so that you get request the contents of those folders
                 List<GitLabObject> noPathFolder = makeGitLabList(responseString);
 
                 //Makes a directory for this project
@@ -124,7 +117,6 @@ namespace GitGetter2
         { // intended to be used recursivly to get the things in all the folders
             String address = "https://gitlab.com/api/v4/projects/" + Program.urlEncoder(projectId) + "/repository/tree?path=" + WebUtility.UrlEncode(filepath);
             Console.WriteLine(address);
-            // String address = "https://gitlab.com/api/v4/projects/dit341%2Fexpress-template/repository/tree";
             // The part where the request is actually made
             try
             {
@@ -134,6 +126,7 @@ namespace GitGetter2
 
                 String responseString = responseTask.Result;
 
+                // Makes a list of the objects gitlab returned to us so that you get request the contents of those folders
                 List<GitLabObject> noPathFolder = makeGitLabList(responseString);
 
                 foreach (GitLabObject tree in noPathFolder)
@@ -156,12 +149,13 @@ namespace GitGetter2
 
             if (map.type == "tree")
             {
+                // If the thing is a folder
                 return gitTreeRetriever(projectId, map.path);
             }
             else if (map.type == "blob" && map.name.Contains(Program.getFiletype()))
             {
+                // If the thing is a file
                 return gitFileRetriever(projectId, map.path, map.name);
-                //return true; //Added for the testing of enumerator. Remember to uncomment gitFileRetriever and remove this. 
             }
             else
             {
@@ -172,7 +166,6 @@ namespace GitGetter2
         private static List<GitLabObject> makeGitLabList(String populationMaker)
         {
             String populationString = populationMaker;
-            //Console.WriteLine(populationString);
 
             List<GitLabObject> tempTreeObject = new List<GitLabObject>();
 
