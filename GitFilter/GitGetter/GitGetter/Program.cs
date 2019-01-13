@@ -88,7 +88,7 @@ namespace GitGetter2
 
                 try
                 {
-                    String dirPath = mainFolderGetter() + "/Middleware/GitGetter/FileStorer/" + projectId;
+                    String dirPath = mainFolderGetter() + "/GitFilter/GitGetter/FileStorer/" + projectId;
                     //File.WriteAllText(dirPath+"/"+ name, responseString); // Creates a seperate file for each code
                     File.AppendAllText(dirPath + fileType, responseString + Environment.NewLine);  // Should create a single file with the contents of all the code files.
                 }
@@ -132,7 +132,7 @@ namespace GitGetter2
                 List<TreeObject> noPathFolder = makeTreeList(responseString);
 
                 //Makes a directory for this project
-                String dirPath = mainFolderGetter() + "/Middleware/Gitgetter/FileStorer/" + projectId;
+                String dirPath = mainFolderGetter() + "/GitFilter/Gitgetter/FileStorer/" + projectId;
 
                 System.IO.Directory.CreateDirectory(dirPath);
                 File.WriteAllText(dirPath + Program.getFiletype(), "");
@@ -259,7 +259,7 @@ namespace GitGetter2
 
 
                 String batAddress = System.AppDomain.CurrentDomain.BaseDirectory + ".SrcmlStarter.bat";
-                String storageAddress = mainFolderGetter() + "/Middleware/Gitgetter/FileStorer/";
+                String storageAddress = mainFolderGetter() + "/GitFilter/Gitgetter/FileStorer/";
                 storageAddress = storageAddress.Replace("/", "\\ ");
                 Console.WriteLine(storageAddress);
 
@@ -325,7 +325,7 @@ namespace GitGetter2
             }
             String endlocation = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
             //Boolean boolean = false;
-            while (endlocation.Contains("Middleware")) // Check to make sure that middleware is spelled exactly the same as the middleware folder. CHeck for capital letters etc.
+            while (endlocation.Contains("GitFilter")) // Check to make sure that GitFilter is spelled exactly the same as the GitFilter folder. CHeck for capital letters etc.
             {
                 endlocation = Path.GetDirectoryName(endlocation);
             }

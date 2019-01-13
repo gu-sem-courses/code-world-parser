@@ -55,7 +55,7 @@ namespace GitGetter2
                 List<HubObject> noPathFolder = makeHubList(responseString);
 
                 //Makes a directory for this project
-                String dirPath = Program.mainFolderGetter() + "/Middleware/Gitgetter/FileStorer/" + projectId;
+                String dirPath = Program.mainFolderGetter() + "/GitFilter/Gitgetter/FileStorer/" + projectId;
 
                 System.IO.Directory.CreateDirectory(dirPath);
                 File.WriteAllText (dirPath + Program.getFiletype(), "");
@@ -144,7 +144,7 @@ namespace GitGetter2
 
                 try
                 {
-                    String dirPath = Program.mainFolderGetter() + "/Middleware/GitGetter/FileStorer/" + projectId;
+                    String dirPath = Program.mainFolderGetter() + "/GitFilter/GitGetter/FileStorer/" + projectId;
                     dirPath = dirPath.Replace(" ", "");
 
                     Console.WriteLine("Here is where the file should be: "+ dirPath);
