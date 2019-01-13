@@ -8,7 +8,7 @@ using Services;
 
 namespace Pipes
 {
-    class UnityNode
+    class VisualizationNode
     {
         public static void Start(string[] args)
         {
