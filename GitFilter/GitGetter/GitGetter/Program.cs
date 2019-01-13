@@ -45,14 +45,14 @@ namespace GitGetter2
                 ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
                 if (GitLabGetter.gitTreeRetriever(projectId[0].ToString()) && !errorHasOccured)
                 {
-                    activateParser(projectId[0].ToString());
+                    PrepareSrcml(projectId[0].ToString());
                 }
             }
             else
             {
                 if (GitHubGetter.getMainTree(projectId[0].ToString()) && !errorHasOccured)
                 {
-                    activateParser(projectId[0].ToString());
+                    PrepareSrcml(projectId[0].ToString());
                 }
             }
         }
@@ -90,7 +90,7 @@ namespace GitGetter2
             return encoded_url;
         }
 
-        private static void activateParser(String projectId)
+        private static void PrepareSrcml(String projectId)
         {
             {
 
@@ -113,32 +113,6 @@ namespace GitGetter2
 
                 Console.WriteLine("Here is the dirpath: " + dirPath); ;
                 singleFileSrcmlCall(dirPath, projectId, batAddress);
-
-
-                //End of srcml part. */
-
-
-                // Parser part. Has been moved to a different node. Kept in comments for now.
-              /*Process Project = new Process();
-                try
-                {
-                    //so it know where to find the file it should use to start the proccess
-                    //if no actual file is specified it will just open the specified folder
-                    Project.StartInfo.FileName = PathP;
-                    // What arguments the file will take when it starts
-                    Project.Start();
-                    Project.WaitForExit();
-
-                }
-                catch (Exception e)
-                {
-                    if (errorHasOccured == false)
-                    {
-                        errorHasOccured = true;
-                        errorSpecification = "Parser";
-                    }
-                    Console.WriteLine(e.Message);
-                }*/
             }
 
         }
