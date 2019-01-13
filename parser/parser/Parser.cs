@@ -15,21 +15,24 @@ class Program
 
         /*Create an xml doc for existing file*/
         srcML = new XmlDocument();
-
+        
         /*projects*/
+        /*
         string[] projects = new string[6];
-        projects[0] = "/../../../../../globalAssets/tests/official/k9.xml";
-        projects[1] = "/../../../../../globalAssets/tests/official/bitcoin.xml";
-        projects[2] = "/../../../../../globalAssets/tests/sample/reuxProject.xml";
-        projects[3] = "/../../../../../globalAssets/tests/sample/omniProject.xml";
-        projects[4] = "/../../../../../globalAssets/tests/sample/databaseProject.xml";
-        string inbox = "/../../../../../globalAssets/inbox/srcML.xml";
+        projects[0] = @"../../../../globalAssets/tests/official/k9.xml";
+        projects[1] = @"../../../../globalAssets/tests/official/bitcoin.xml";
+        projects[2] = @"../../../../globalAssets/tests/sample/reuxProject.xml";
+        projects[3] = @"../../../../globalAssets/tests/sample/omniProject.xml";
+        projects[4] = @"../../../../globalAssets/tests/sample/databaseProject.xml";
+        */
+        string inbox = @"../../../../globalAssets/inbox/srcML.xml";
 
         /*set the project here*/
         string project = inbox;
 
         /*load project(s)*/
-        String srcMLPath = AppDomain.CurrentDomain.BaseDirectory + project;
+        String srcMLPath = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, project));
+
         srcML.Load(srcMLPath);
 
         /*create a namspace for xpath querying*/
@@ -53,6 +56,7 @@ class Program
 
         /*place json into outbox*/
         ExportJson(json);
+        Console.ReadKey();
     }
 
 
@@ -66,8 +70,10 @@ class Program
     {
         try
         {
-            String path = System.AppDomain.CurrentDomain.BaseDirectory + "/../../../../globalAssets/outbox/xml2json.json";
+            string outbox = @"../../../../../dit355/globalAssets/outbox/xml2json.json";
+            String path = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, outbox));
             File.WriteAllText(path, jsonString);
+            
         }
         catch (Exception u)
         {
