@@ -29,6 +29,16 @@ namespace Pipes
             string filepath = "../../../../../dit355/globalAssets/inbox/srcML.xml";
             string jsonPath = "../../../../../dit355/globalAssets/outbox/xml2json.json";
             string exepath = System.AppDomain.CurrentDomain.BaseDirectory + "../../../../parser/parser/bin/Debug/parser.exe";
+            try
+            {
+                File.Delete(filepath);
+                File.Delete(jsonPath);
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            //This saves the XML file down in the right location
             file.Save(filepath);
             Console.WriteLine(exepath);
             Console.WriteLine(filepath);

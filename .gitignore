@@ -62,6 +62,4 @@ sysinfo.txt
 # OS
 .DS_Store
 
-Middleware/Pipes/.vs/*"
-Middleware/GitGetter/GitGetter/packages/
-Middleware/GitGetter/packages/
+Middleware/Pipes/.vs/*
