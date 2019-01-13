@@ -7,6 +7,7 @@ using Services;
 using Grpc.Core;
 using Newtonsoft.Json.Linq;
 using System.Diagnostics;
+using System.IO;
 
 namespace Pipes
 { //Wierd name, but the class it extends from is a class generted by the proto file/files
@@ -17,11 +18,12 @@ namespace Pipes
         //the parameters type and the name and what it returns are set in the proto generated files Trial.cs & TrialGrpc.cs
         public override Task<JsonReply> MainInteraction(ParsingRequest request, ServerCallContext context)
         {
-            
+            string filepathXML = "../../../../../dit355/globalAssets/inbox/srcML.xml";
+            File.Delete(filepathXML);
             Console.WriteLine("Being called by " + context.Host.ToString());
             string result = string.Empty;
-            result = GetProject(request);
-            string filepath = "../../../../../dit355/globalAssets/outbox/xml2json.json";
+            result = GetProject(request, filepathXML);
+            Console.WriteLine(result);
             JObject jsonobj = JObject.Parse(result);
             result = jsonobj.ToString();
             return Task.FromResult(new JsonReply { File = result });
@@ -29,7 +31,7 @@ namespace Pipes
 
         // This function starts a the GitGetter process and passes along the request message 
         // from the client proccess as a argument while starting the process
-        public string GetProject(ParsingRequest req)
+        public string GetProject(ParsingRequest req, string path)
         {
             string PathP = System.AppDomain.CurrentDomain.BaseDirectory + "../../../../GitFilter/GitGetter/bin/Debug/Gitgetter.exe";
             Console.WriteLine(PathP);
@@ -51,7 +53,7 @@ namespace Pipes
                 Console.WriteLine(e.Message);
             }
             
-                return GetterNode.ClietRequest();
+                return GetterNode.ClietRequest(path);
         }
     }
 
@@ -90,10 +92,10 @@ namespace Pipes
             server.ShutdownAsync().Wait();
         }
     
-        public static string ClietRequest()
+        public static string ClietRequest(string filepathXML)
         {
-            string filepathXML = "../../../../../dit355/globalAssets/inbox/srcML.xml";
-            string filepathJSON = "../../../../../dit355/globalAssets/outbox/xml2json.json";
+           // string filepathXML = "../../../../../dit355/globalAssets/inbox/srcML.xml";
+           // string filepathJSON = "../../../../../dit355/globalAssets/outbox/xml2json.json";
 
             // if you just want it to run localy on your computer comment out the line below
             // IP = System.Net.NetworkInformation.IPGlobalProperties.GetIPGlobalProperties().HostName;
@@ -105,6 +107,7 @@ namespace Pipes
             Channel channel = new Channel(IP, Port, ChannelCredentials.Insecure);
             var client = new Services.GameLog.GameLogClient(channel);
             string result = string.Empty;
+           
             XDocument file = XDocument.Load(filepathXML);
             result = file.ToString();
             // Console.WriteLine(result);
@@ -112,7 +115,7 @@ namespace Pipes
             var json = client.MainInteraction(new ParsingRequest { Address = WebUtility.HtmlEncode(result)});
             // System.IO.File.WriteAllText(filepathJSON, json.File);
             channel.ShutdownAsync().Wait();
-            return json.ToString();
+            return json.File.ToString();
         }
     }
 

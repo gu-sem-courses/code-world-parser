@@ -6,11 +6,6 @@ Team Flex - Middleware
 
 In this folder we have the C# code for our Piping-Middleware and GitGetter-Filter system .
 
-# GitGetter Folder
-The C# file named Program.cs contains the software that grabs the git project and initiates the parsing of the xml file.
-The .exe file is located bin/Debug, and not in GitGetter/bin/Debug.
-The .bat file is neccesary to run scrml.
-
 # protos Folder
 The trial.proto file works as a form of blueprint/interface provider for what services and messages the server and client side can use. A script is needed to be run every time the proto files are changed.
 
