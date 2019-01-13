@@ -69,10 +69,12 @@ namespace Pipes
        
         public static void Start()
         {
-            Console.WriteLine("Please type in your IP");
-            string Host = Console.ReadLine();
+            // Console.WriteLine("Please type in your IP");
+            // string Host = Console.ReadLine();
+            string Host = NodeConfig.getGetterIP();
             // string Host = "127.0.0.1";
             // var Host = System.Net.NetworkInformation.IPGlobalProperties.GetIPGlobalProperties().DomainName;
+
             Server server = new Server
             {
                 //the services or functions that the Server can peform, I guess we can add more if we need to.

@@ -23,7 +23,7 @@ namespace Pipes
             string page;
             string filetype = ".json";
             Console.WriteLine("Give us the IP of the Node your trying to reach");
-            string IP = Console.ReadLine();
+            string IP = NodeConfig.getGetterIP();
             // string IP = "127.0.0.1";
             // Console.WriteLine(IP);
             //string IP = "129.16.31.63";

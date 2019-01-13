@@ -81,8 +81,8 @@ namespace Pipes
         const int Port = 23455;
         public static void Start()
         {
-            Console.WriteLine("Please type in your IP");
-            string Host = Console.ReadLine();
+            // Console.WriteLine("Please type in your IP");
+            string Host = NodeConfig.getParseIP();
             // string Host = "127.0.0.1";
             //string Host = System.Net.NetworkInformation.IPGlobalProperties.GetIPGlobalProperties().;
 
