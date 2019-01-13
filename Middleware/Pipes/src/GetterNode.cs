@@ -4,7 +4,6 @@ using System.Net.NetworkInformation;
 using System.Xml.Linq;
 using System.Threading.Tasks;
 using Services;
-using System.IO;
 using Grpc.Core;
 using Newtonsoft.Json.Linq;
 using System.Diagnostics;
@@ -20,23 +19,19 @@ namespace Pipes
         {
             
             Console.WriteLine("Being called by " + context.Host.ToString());
-            GetProject(request);
-            string filepath = "../../../../../dit355/globalAssets/outbox/xml2json.json";
             string result = string.Empty;
-            using (StreamReader r = new StreamReader(filepath))
-            {
-                var json = r.ReadToEnd();
-                JObject jsonobj = JObject.Parse(json);
-                result = jsonobj.ToString();
-            }
+            result = GetProject(request);
+            string filepath = "../../../../../dit355/globalAssets/outbox/xml2json.json";
+            JObject jsonobj = JObject.Parse(result);
+            result = jsonobj.ToString();
             return Task.FromResult(new JsonReply { File = result });
         }
 
         // This function starts a the GitGetter process and passes along the request message 
         // from the client proccess as a argument while starting the process
-        public void GetProject(ParsingRequest req)
+        public string GetProject(ParsingRequest req)
         {
-            string PathP = System.AppDomain.CurrentDomain.BaseDirectory + "../../../GitGetter/bin/Debug/Gitgetter.exe";
+            string PathP = System.AppDomain.CurrentDomain.BaseDirectory + "../../../../GitFilter/GitGetter/bin/Debug/Gitgetter.exe";
             Console.WriteLine(PathP);
             Process GitGetter = new Process();
             try
@@ -49,14 +44,14 @@ namespace Pipes
                 GitGetter.StartInfo.Arguments = req.Address.ToString();
                 GitGetter.Start();
                 GitGetter.WaitForExit();
-                GetterNode.ClietRequest();
-              
-            }
+                }
             catch (Exception e)
             {
 
                 Console.WriteLine(e.Message);
             }
+            
+                return GetterNode.ClietRequest();
         }
     }
 
@@ -94,8 +89,8 @@ namespace Pipes
             Console.ReadKey();
             server.ShutdownAsync().Wait();
         }
-
-        public static void ClietRequest()
+    
+        public static string ClietRequest()
         {
             string filepathXML = "../../../../../dit355/globalAssets/inbox/srcML.xml";
             string filepathJSON = "../../../../../dit355/globalAssets/outbox/xml2json.json";
@@ -115,8 +110,9 @@ namespace Pipes
             // Console.WriteLine(result);
             
             var json = client.MainInteraction(new ParsingRequest { Address = WebUtility.HtmlEncode(result)});
-            System.IO.File.WriteAllText(filepathJSON, json.File);
+            // System.IO.File.WriteAllText(filepathJSON, json.File);
             channel.ShutdownAsync().Wait();
+            return json.ToString();
         }
     }
 
