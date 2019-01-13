@@ -62,6 +62,6 @@ sysinfo.txt
 # OS
 .DS_Store
 
-Middleware/SecondNode/.vs/SecondNode/v15/Server/sqlite3/"
+Middleware/Pipes/.vs/*"
 Middleware/GitGetter/GitGetter/packages/
 Middleware/GitGetter/packages/
