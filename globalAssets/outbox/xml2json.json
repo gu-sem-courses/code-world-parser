@@ -1,279 +1,188 @@
 {
   "data": [
     {
-      "name": "NativeSecp256k1",
+      "name": "GameFrame",
       "attributes": [
         {
-          "accessModifier": "private",
-          "type": "ReentrantReadWriteLock",
-          "name": "rwl"
-        },
-        {
-          "accessModifier": "private",
-          "type": "Lock",
-          "name": "r"
-        },
-        {
-          "accessModifier": "private",
-          "type": "Lock",
-          "name": "w"
-        },
-        {
-          "accessModifier": "private",
-          "type": "ThreadLocal<ByteBuffer>",
-          "name": "nativeECDSABuffer"
+          "accessModifier": "public",
+          "type": "String",
+          "name": "CampaingName"
         },
         {
           "accessModifier": "public",
-          "type": "ByteBuffer",
-          "name": "byteBuff"
+          "type": "JFrame",
+          "name": "frame"
         },
         {
           "accessModifier": "public",
-          "type": "byte[][]",
-          "name": "retByteArray"
+          "type": "JPanel",
+          "name": "panel"
         },
         {
           "accessModifier": "public",
-          "type": "ByteBuffer",
-          "name": "byteBuff"
+          "type": "JsonReader",
+          "name": "reader"
         },
         {
           "accessModifier": "public",
-          "type": "byte[][]",
-          "name": "retByteArray"
+          "type": "JFileChooser",
+          "name": "fileChooser"
         },
         {
           "accessModifier": "public",
-          "type": "byte[]",
-          "name": "sigArr"
+          "type": "String",
+          "name": "CName"
         },
         {
           "accessModifier": "public",
-          "type": "int",
-          "name": "sigLen"
+          "type": "JLabel",
+          "name": "Name"
+        },
+        {
+          "accessModifier": "public",
+          "type": "String",
+          "name": "json"
+        },
+        {
+          "accessModifier": "public",
+          "type": "FileNameExtensionFilter",
+          "name": "filter"
         },
         {
           "accessModifier": "public",
           "type": "int",
-          "name": "retVal"
-        },
-        {
-          "accessModifier": "public",
-          "type": "ByteBuffer",
-          "name": "byteBuff"
-        },
-        {
-          "accessModifier": "public",
-          "type": "ByteBuffer",
-          "name": "byteBuff"
-        },
-        {
-          "accessModifier": "public",
-          "type": "byte[][]",
-          "name": "retByteArray"
-        },
-        {
-          "accessModifier": "public",
-          "type": "byte[]",
-          "name": "pubArr"
-        },
-        {
-          "accessModifier": "public",
-          "type": "int",
-          "name": "pubLen"
-        },
-        {
-          "accessModifier": "public",
-          "type": "int",
-          "name": "retVal"
-        },
-        {
-          "accessModifier": "public",
-          "type": "ByteBuffer",
-          "name": "byteBuff"
-        },
-        {
-          "accessModifier": "public",
-          "type": "byte[][]",
-          "name": "retByteArray"
-        },
-        {
-          "accessModifier": "public",
-          "type": "byte[]",
-          "name": "privArr"
-        },
-        {
-          "accessModifier": "public",
-          "type": "int",
-          "name": "privLen"
-        },
-        {
-          "accessModifier": "public",
-          "type": "int",
-          "name": "retVal"
-        },
-        {
-          "accessModifier": "public",
-          "type": "ByteBuffer",
-          "name": "byteBuff"
-        },
-        {
-          "accessModifier": "public",
-          "type": "byte[][]",
-          "name": "retByteArray"
-        },
-        {
-          "accessModifier": "public",
-          "type": "byte[]",
-          "name": "privArr"
-        },
-        {
-          "accessModifier": "public",
-          "type": "int",
-          "name": "privLen"
-        },
-        {
-          "accessModifier": "public",
-          "type": "int",
-          "name": "retVal"
-        },
-        {
-          "accessModifier": "public",
-          "type": "ByteBuffer",
-          "name": "byteBuff"
-        },
-        {
-          "accessModifier": "public",
-          "type": "byte[][]",
-          "name": "retByteArray"
-        },
-        {
-          "accessModifier": "public",
-          "type": "byte[]",
-          "name": "pubArr"
-        },
-        {
-          "accessModifier": "public",
-          "type": "int",
-          "name": "pubLen"
-        },
-        {
-          "accessModifier": "public",
-          "type": "int",
-          "name": "retVal"
-        },
-        {
-          "accessModifier": "public",
-          "type": "ByteBuffer",
-          "name": "byteBuff"
-        },
-        {
-          "accessModifier": "public",
-          "type": "byte[][]",
-          "name": "retByteArray"
-        },
-        {
-          "accessModifier": "public",
-          "type": "byte[]",
-          "name": "pubArr"
-        },
-        {
-          "accessModifier": "public",
-          "type": "int",
-          "name": "pubLen"
-        },
-        {
-          "accessModifier": "public",
-          "type": "int",
-          "name": "retVal"
-        },
-        {
-          "accessModifier": "public",
-          "type": "ByteBuffer",
-          "name": "byteBuff"
-        },
-        {
-          "accessModifier": "public",
-          "type": "byte[][]",
-          "name": "retByteArray"
-        },
-        {
-          "accessModifier": "public",
-          "type": "byte[]",
-          "name": "resArr"
-        },
-        {
-          "accessModifier": "public",
-          "type": "int",
-          "name": "retVal"
-        },
-        {
-          "accessModifier": "public",
-          "type": "ByteBuffer",
-          "name": "byteBuff"
+          "name": "returnVal"
         }
       ],
       "methods": [
         {
           "accessModifier": "public",
-          "returnType": "boolean",
-          "name": "verify"
+          "returnType": "void",
+          "name": "setGameFrame"
         },
         {
           "accessModifier": "public",
-          "returnType": "byte[]",
-          "name": "sign"
-        },
-        {
-          "accessModifier": "public",
-          "returnType": "boolean",
-          "name": "secKeyVerify"
-        },
-        {
-          "accessModifier": "public",
-          "returnType": "byte[]",
-          "name": "computePubkey"
+          "returnType": "JLabel",
+          "name": "getCampaingName"
         },
         {
           "accessModifier": "public",
           "returnType": "void",
-          "name": "cleanup"
+          "name": "setPanel"
         },
         {
           "accessModifier": "public",
-          "returnType": "long",
-          "name": "cloneContext"
+          "returnType": "String",
+          "name": "getChooser"
+        }
+      ],
+      "superclass": "",
+      "subclasses": [],
+      "associations": [
+        "MainWindow"
+      ]
+    },
+    {
+      "name": "JsonReader",
+      "attributes": [
+        {
+          "accessModifier": "public",
+          "type": "String",
+          "name": "Cname"
         },
         {
           "accessModifier": "public",
-          "returnType": "byte[]",
-          "name": "privKeyTweakMul"
+          "type": "String",
+          "name": "jsonText"
         },
         {
           "accessModifier": "public",
-          "returnType": "byte[]",
-          "name": "privKeyTweakAdd"
+          "type": "JSONObject",
+          "name": "reader"
         },
         {
           "accessModifier": "public",
-          "returnType": "byte[]",
-          "name": "pubKeyTweakAdd"
+          "type": "String",
+          "name": "name"
         },
         {
           "accessModifier": "public",
-          "returnType": "byte[]",
-          "name": "pubKeyTweakMul"
+          "type": "String",
+          "name": "jsonText"
         },
         {
           "accessModifier": "public",
-          "returnType": "byte[]",
-          "name": "createECDHSecret"
+          "type": "JSONObject",
+          "name": "parser"
         },
         {
           "accessModifier": "public",
-          "returnType": "boolean",
-          "name": "randomize"
+          "type": "int",
+          "name": "w"
+        },
+        {
+          "accessModifier": "public",
+          "type": "int",
+          "name": "h"
+        },
+        {
+          "accessModifier": "public",
+          "type": "int",
+          "name": "size[]"
+        }
+      ],
+      "methods": [
+        {
+          "accessModifier": "public",
+          "returnType": "String",
+          "name": "getCName"
+        },
+        {
+          "accessModifier": "public",
+          "returnType": "int[]",
+          "name": "getAppSize"
+        }
+      ],
+      "superclass": "",
+      "subclasses": [],
+      "associations": [
+        "GameFrame"
+      ]
+    },
+    {
+      "name": "JsonWriter",
+      "attributes": [
+        {
+          "accessModifier": "public",
+          "type": "FileWriter",
+          "name": "file"
+        },
+        {
+          "accessModifier": "public",
+          "type": "String",
+          "name": "Cname"
+        },
+        {
+          "accessModifier": "public",
+          "type": "String",
+          "name": "jsonText"
+        },
+        {
+          "accessModifier": "public",
+          "type": "JSONObject",
+          "name": "writer"
+        },
+        {
+          "accessModifier": "public",
+          "type": "JSONObject",
+          "name": "info"
+        }
+      ],
+      "methods": [
+        {
+          "accessModifier": "public",
+          "returnType": "void",
+          "name": "setCName"
         }
       ],
       "superclass": "",
@@ -281,396 +190,24 @@
       "associations": []
     },
     {
-      "name": "NativeSecp256k1Test",
+      "name": "MainWindow",
       "attributes": [
         {
           "accessModifier": "public",
-          "type": "boolean",
-          "name": "result"
-        },
-        {
-          "accessModifier": "public",
-          "type": "byte[]",
-          "name": "data"
-        },
-        {
-          "accessModifier": "public",
-          "type": "byte[]",
-          "name": "sig"
-        },
-        {
-          "accessModifier": "public",
-          "type": "byte[]",
-          "name": "pub"
-        },
-        {
-          "accessModifier": "public",
-          "type": "boolean",
-          "name": "result"
-        },
-        {
-          "accessModifier": "public",
-          "type": "byte[]",
-          "name": "data"
-        },
-        {
-          "accessModifier": "public",
-          "type": "byte[]",
-          "name": "sig"
-        },
-        {
-          "accessModifier": "public",
-          "type": "byte[]",
-          "name": "pub"
-        },
-        {
-          "accessModifier": "public",
-          "type": "boolean",
-          "name": "result"
-        },
-        {
-          "accessModifier": "public",
-          "type": "byte[]",
-          "name": "sec"
-        },
-        {
-          "accessModifier": "public",
-          "type": "boolean",
-          "name": "result"
-        },
-        {
-          "accessModifier": "public",
-          "type": "byte[]",
-          "name": "sec"
-        },
-        {
-          "accessModifier": "public",
-          "type": "byte[]",
-          "name": "sec"
-        },
-        {
-          "accessModifier": "public",
-          "type": "byte[]",
-          "name": "resultArr"
-        },
-        {
-          "accessModifier": "public",
           "type": "String",
-          "name": "pubkeyString"
+          "name": "appName"
         },
         {
           "accessModifier": "public",
-          "type": "byte[]",
-          "name": "sec"
-        },
-        {
-          "accessModifier": "public",
-          "type": "byte[]",
-          "name": "resultArr"
-        },
-        {
-          "accessModifier": "public",
-          "type": "String",
-          "name": "pubkeyString"
-        },
-        {
-          "accessModifier": "public",
-          "type": "byte[]",
-          "name": "data"
-        },
-        {
-          "accessModifier": "public",
-          "type": "byte[]",
-          "name": "sec"
-        },
-        {
-          "accessModifier": "public",
-          "type": "byte[]",
-          "name": "resultArr"
-        },
-        {
-          "accessModifier": "public",
-          "type": "String",
-          "name": "sigString"
-        },
-        {
-          "accessModifier": "public",
-          "type": "byte[]",
-          "name": "data"
-        },
-        {
-          "accessModifier": "public",
-          "type": "byte[]",
-          "name": "sec"
-        },
-        {
-          "accessModifier": "public",
-          "type": "byte[]",
-          "name": "resultArr"
-        },
-        {
-          "accessModifier": "public",
-          "type": "String",
-          "name": "sigString"
-        },
-        {
-          "accessModifier": "public",
-          "type": "byte[]",
-          "name": "sec"
-        },
-        {
-          "accessModifier": "public",
-          "type": "byte[]",
-          "name": "data"
-        },
-        {
-          "accessModifier": "public",
-          "type": "byte[]",
-          "name": "resultArr"
-        },
-        {
-          "accessModifier": "public",
-          "type": "String",
-          "name": "sigString"
-        },
-        {
-          "accessModifier": "public",
-          "type": "byte[]",
-          "name": "sec"
-        },
-        {
-          "accessModifier": "public",
-          "type": "byte[]",
-          "name": "data"
-        },
-        {
-          "accessModifier": "public",
-          "type": "byte[]",
-          "name": "resultArr"
-        },
-        {
-          "accessModifier": "public",
-          "type": "String",
-          "name": "sigString"
-        },
-        {
-          "accessModifier": "public",
-          "type": "byte[]",
-          "name": "pub"
-        },
-        {
-          "accessModifier": "public",
-          "type": "byte[]",
-          "name": "data"
-        },
-        {
-          "accessModifier": "public",
-          "type": "byte[]",
-          "name": "resultArr"
-        },
-        {
-          "accessModifier": "public",
-          "type": "String",
-          "name": "sigString"
-        },
-        {
-          "accessModifier": "public",
-          "type": "byte[]",
-          "name": "pub"
-        },
-        {
-          "accessModifier": "public",
-          "type": "byte[]",
-          "name": "data"
-        },
-        {
-          "accessModifier": "public",
-          "type": "byte[]",
-          "name": "resultArr"
-        },
-        {
-          "accessModifier": "public",
-          "type": "String",
-          "name": "sigString"
-        },
-        {
-          "accessModifier": "public",
-          "type": "byte[]",
-          "name": "seed"
-        },
-        {
-          "accessModifier": "public",
-          "type": "boolean",
-          "name": "result"
-        },
-        {
-          "accessModifier": "public",
-          "type": "byte[]",
-          "name": "sec"
-        },
-        {
-          "accessModifier": "public",
-          "type": "byte[]",
-          "name": "pub"
-        },
-        {
-          "accessModifier": "public",
-          "type": "byte[]",
-          "name": "resultArr"
-        },
-        {
-          "accessModifier": "public",
-          "type": "String",
-          "name": "ecdhString"
+          "type": "GameFrame",
+          "name": "mainwindow"
         }
       ],
       "methods": [
-        {
-          "accessModifier": "public",
-          "returnType": "void",
-          "name": "testVerifyPos"
-        },
-        {
-          "accessModifier": "public",
-          "returnType": "void",
-          "name": "testVerifyNeg"
-        },
-        {
-          "accessModifier": "public",
-          "returnType": "void",
-          "name": "testSecKeyVerifyPos"
-        },
-        {
-          "accessModifier": "public",
-          "returnType": "void",
-          "name": "testSecKeyVerifyNeg"
-        },
-        {
-          "accessModifier": "public",
-          "returnType": "void",
-          "name": "testPubKeyCreatePos"
-        },
-        {
-          "accessModifier": "public",
-          "returnType": "void",
-          "name": "testPubKeyCreateNeg"
-        },
-        {
-          "accessModifier": "public",
-          "returnType": "void",
-          "name": "testSignPos"
-        },
-        {
-          "accessModifier": "public",
-          "returnType": "void",
-          "name": "testSignNeg"
-        },
-        {
-          "accessModifier": "public",
-          "returnType": "void",
-          "name": "testPrivKeyTweakAdd_1"
-        },
-        {
-          "accessModifier": "public",
-          "returnType": "void",
-          "name": "testPrivKeyTweakMul_1"
-        },
-        {
-          "accessModifier": "public",
-          "returnType": "void",
-          "name": "testPrivKeyTweakAdd_2"
-        },
-        {
-          "accessModifier": "public",
-          "returnType": "void",
-          "name": "testPrivKeyTweakMul_2"
-        },
-        {
-          "accessModifier": "public",
-          "returnType": "void",
-          "name": "testRandomize"
-        },
-        {
-          "accessModifier": "public",
-          "returnType": "void",
-          "name": "testCreateECDHSecret"
-        },
         {
           "accessModifier": "public",
           "returnType": "void",
           "name": "main"
-        }
-      ],
-      "superclass": "",
-      "subclasses": [],
-      "associations": []
-    },
-    {
-      "name": "NativeSecp256k1Util",
-      "attributes": [],
-      "methods": [
-        {
-          "accessModifier": "public",
-          "returnType": "void",
-          "name": "assertEquals"
-        },
-        {
-          "accessModifier": "public",
-          "returnType": "void",
-          "name": "assertEquals"
-        },
-        {
-          "accessModifier": "public",
-          "returnType": "void",
-          "name": "assertEquals"
-        }
-      ],
-      "superclass": "Exception",
-      "subclasses": [],
-      "associations": []
-    },
-    {
-      "name": "AssertFailException",
-      "attributes": [],
-      "methods": [],
-      "superclass": "Exception",
-      "subclasses": [],
-      "associations": []
-    },
-    {
-      "name": "Secp256k1Context",
-      "attributes": [
-        {
-          "accessModifier": "private",
-          "type": "boolean",
-          "name": "enabled"
-        },
-        {
-          "accessModifier": "private",
-          "type": "long",
-          "name": "context"
-        },
-        {
-          "accessModifier": "public",
-          "type": "boolean",
-          "name": "isEnabled"
-        },
-        {
-          "accessModifier": "public",
-          "type": "long",
-          "name": "contextRef"
-        }
-      ],
-      "methods": [
-        {
-          "accessModifier": "public",
-          "returnType": "boolean",
-          "name": "isEnabled"
-        },
-        {
-          "accessModifier": "public",
-          "returnType": "long",
-          "name": "getContext"
         }
       ],
       "superclass": "",
