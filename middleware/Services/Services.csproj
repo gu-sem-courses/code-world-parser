@@ -1,0 +1,139 @@
+﻿<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\Grpc.Tools.1.17.0\build\Grpc.Tools.props" Condition="Exists('packages\Grpc.Tools.1.17.0\build\Grpc.Tools.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BBD6BB2D-5608-4DA5-995A-DD6A56AA9475}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <NoStandardLibraries>false</NoStandardLibraries>
+    <AssemblyName>ClassLibrary</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>Services</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Google.Protobuf, Version=3.6.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="Grpc.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d754f35622e28bad, processorArchitecture=MSIL">
+      <HintPath>packages\Grpc.Core.1.17.0\lib\net45\Grpc.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Interactive.Async, Version=3.2.0.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>packages\System.Interactive.Async.3.2.0\lib\net46\System.Interactive.Async.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".vs\Services\v15\.suo" />
+    <None Include=".vs\Services\v15\Server\sqlite3\db.lock" />
+    <None Include=".vs\Services\v15\Server\sqlite3\storage.ide" />
+    <None Include="packages.config" />
+    <None Include="packages\Google.Protobuf.3.6.1\.signature.p7s" />
+    <None Include="packages\Google.Protobuf.3.6.1\Google.Protobuf.3.6.1.nupkg" />
+    <None Include="packages\Grpc.1.16.0\.signature.p7s" />
+    <None Include="packages\Grpc.1.16.0\Grpc.1.16.0.nupkg" />
+    <None Include="packages\Grpc.Core.1.16.0\.signature.p7s" />
+    <None Include="packages\Grpc.Core.1.16.0\Grpc.Core.1.16.0.nupkg" />
+    <None Include="packages\Grpc.Core.1.16.0\native\android\arm64-v8a\libgrpc_csharp_ext.so" />
+    <None Include="packages\Grpc.Core.1.16.0\native\android\armeabi-v7a\libgrpc_csharp_ext.so" />
+    <None Include="packages\Grpc.Core.1.16.0\native\android\x86\libgrpc_csharp_ext.so" />
+    <None Include="packages\Grpc.Core.1.16.0\native\ios\universal\libgrpc.a" />
+    <None Include="packages\Grpc.Core.1.16.0\native\ios\universal\libgrpc_csharp_ext.a" />
+    <None Include="packages\Grpc.Core.1.16.0\runtimes\linux\native\libgrpc_csharp_ext.x64.so" />
+    <None Include="packages\Grpc.Core.1.16.0\runtimes\linux\native\libgrpc_csharp_ext.x86.so" />
+    <None Include="packages\Grpc.Core.1.16.0\runtimes\osx\native\libgrpc_csharp_ext.x64.dylib" />
+    <None Include="packages\Grpc.Core.1.16.0\runtimes\osx\native\libgrpc_csharp_ext.x86.dylib" />
+    <None Include="packages\Grpc.Tools.1.16.0\.signature.p7s" />
+    <None Include="packages\Grpc.Tools.1.16.0\Grpc.Tools.1.16.0.nupkg" />
+    <None Include="packages\Grpc.Tools.1.16.0\tools\linux_x64\grpc_csharp_plugin" />
+    <None Include="packages\Grpc.Tools.1.16.0\tools\linux_x64\protoc" />
+    <None Include="packages\Grpc.Tools.1.16.0\tools\linux_x86\grpc_csharp_plugin" />
+    <None Include="packages\Grpc.Tools.1.16.0\tools\linux_x86\protoc" />
+    <None Include="packages\Grpc.Tools.1.16.0\tools\macosx_x64\grpc_csharp_plugin" />
+    <None Include="packages\Grpc.Tools.1.16.0\tools\macosx_x64\protoc" />
+    <None Include="packages\Grpc.Tools.1.16.0\tools\macosx_x86\grpc_csharp_plugin" />
+    <None Include="packages\Grpc.Tools.1.16.0\tools\macosx_x86\protoc" />
+    <None Include="packages\System.Interactive.Async.3.1.1\.signature.p7s" />
+    <None Include="packages\System.Interactive.Async.3.1.1\System.Interactive.Async.3.1.1.nupkg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Trial.cs" />
+    <Compile Include="TrialGrpc.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages\Google.Protobuf.3.6.1\lib\net45\Google.Protobuf.dll" />
+    <Content Include="packages\Google.Protobuf.3.6.1\lib\net45\Google.Protobuf.xml" />
+    <Content Include="packages\Google.Protobuf.3.6.1\lib\netstandard1.0\Google.Protobuf.dll" />
+    <Content Include="packages\Google.Protobuf.3.6.1\lib\netstandard1.0\Google.Protobuf.xml" />
+    <Content Include="packages\Grpc.Core.1.16.0\lib\net45\Grpc.Core.dll" />
+    <Content Include="packages\Grpc.Core.1.16.0\lib\net45\Grpc.Core.pdb" />
+    <Content Include="packages\Grpc.Core.1.16.0\lib\net45\Grpc.Core.xml" />
+    <Content Include="packages\Grpc.Core.1.16.0\lib\netstandard1.5\Grpc.Core.dll" />
+    <Content Include="packages\Grpc.Core.1.16.0\lib\netstandard1.5\Grpc.Core.pdb" />
+    <Content Include="packages\Grpc.Core.1.16.0\lib\netstandard1.5\Grpc.Core.xml" />
+    <Content Include="packages\Grpc.Core.1.16.0\runtimes\win\native\grpc_csharp_ext.x64.dll" />
+    <Content Include="packages\Grpc.Core.1.16.0\runtimes\win\native\grpc_csharp_ext.x86.dll" />
+    <Content Include="packages\Grpc.Tools.1.16.0\tools\windows_x64\grpc_csharp_plugin.exe" />
+    <Content Include="packages\Grpc.Tools.1.16.0\tools\windows_x64\protoc.exe" />
+    <Content Include="packages\Grpc.Tools.1.16.0\tools\windows_x86\grpc_csharp_plugin.exe" />
+    <Content Include="packages\Grpc.Tools.1.16.0\tools\windows_x86\protoc.exe" />
+    <Content Include="packages\System.Interactive.Async.3.1.1\lib\net45\System.Interactive.Async.dll" />
+    <Content Include="packages\System.Interactive.Async.3.1.1\lib\net45\System.Interactive.Async.xml" />
+    <Content Include="packages\System.Interactive.Async.3.1.1\lib\net46\System.Interactive.Async.dll" />
+    <Content Include="packages\System.Interactive.Async.3.1.1\lib\net46\System.Interactive.Async.xml" />
+    <Content Include="packages\System.Interactive.Async.3.1.1\lib\netstandard1.0\System.Interactive.Async.dll" />
+    <Content Include="packages\System.Interactive.Async.3.1.1\lib\netstandard1.0\System.Interactive.Async.xml" />
+    <Content Include="packages\System.Interactive.Async.3.1.1\lib\netstandard1.3\System.Interactive.Async.dll" />
+    <Content Include="packages\System.Interactive.Async.3.1.1\lib\netstandard1.3\System.Interactive.Async.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
+  <ProjectExtensions>
+    <VisualStudio AllowExistingFolder="true" />
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Grpc.Tools.1.17.0\build\Grpc.Tools.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Grpc.Tools.1.17.0\build\Grpc.Tools.props'))" />
+    <Error Condition="!Exists('packages\Grpc.Tools.1.17.0\build\Grpc.Tools.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Grpc.Tools.1.17.0\build\Grpc.Tools.targets'))" />
+    <Error Condition="!Exists('packages\Grpc.Core.1.17.0\build\net45\Grpc.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Grpc.Core.1.17.0\build\net45\Grpc.Core.targets'))" />
+  </Target>
+  <Import Project="packages\Grpc.Tools.1.17.0\build\Grpc.Tools.targets" Condition="Exists('packages\Grpc.Tools.1.17.0\build\Grpc.Tools.targets')" />
+  <Import Project="packages\Grpc.Core.1.17.0\build\net45\Grpc.Core.targets" Condition="Exists('packages\Grpc.Core.1.17.0\build\net45\Grpc.Core.targets')" />
+</Project>

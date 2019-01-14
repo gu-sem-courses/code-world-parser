@@ -1,0 +1,31 @@
+
+syntax = "proto3";
+
+package services;
+
+message HelloRequest{
+    string name = 1; 
+    string lastname =2;
+}
+
+message HelloReply{
+    string message = 1;
+}
+
+message ParsingRequest{
+    string address = 1;
+}
+
+message JsonReply{
+    string file = 1;
+    bool error = 2;
+    string eMessage = 3;
+}
+
+
+service GameLog{
+
+rpc MessageExamples(HelloRequest) returns (HelloReply){}
+rpc MainInteraction(ParsingRequest) returns (JsonReply){}
+
+}
