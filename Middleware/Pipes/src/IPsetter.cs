@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 
 namespace Pipes
 {
+
+    //The class functions all deal with getting the ip in the ip config.txt files we have 
     class NodeConfig
     {
 
