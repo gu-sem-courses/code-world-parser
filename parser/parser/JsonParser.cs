@@ -25,7 +25,6 @@ namespace parser
 
                 //attributes
                 JToken attr = unit.SelectToken("$.attributes");
-                Console.WriteLine(attr.GetType());
                  if (attr.GetType() == typeof(Newtonsoft.Json.Linq.JObject) || attr.GetType() == typeof(Newtonsoft.Json.Linq.JValue))
                 {
                     /*if its not an array then there can be two casses
@@ -48,7 +47,6 @@ namespace parser
 
                 //methods
                 JToken meth = unit.SelectToken("$.methods");
-                Console.WriteLine(meth.GetType());
                 if (meth.GetType() == typeof(Newtonsoft.Json.Linq.JObject) || meth.GetType() == typeof(Newtonsoft.Json.Linq.JValue))
                 {
                     /*if its not an array then there can be two casses

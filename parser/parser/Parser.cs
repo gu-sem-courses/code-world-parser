@@ -56,7 +56,6 @@ class Program
 
         /*place json into outbox*/
         ExportJson(json);
-        Console.ReadKey();
     }
 
 
