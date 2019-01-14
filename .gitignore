@@ -67,4 +67,5 @@ sysinfo.txt
 # Packages 
 Middleware/Pipes/packages/
 Middleware/Services/packages/
+parser/packages/
 GitFilter/GitGetter/GitGetter/packages/
