@@ -1,8 +1,8 @@
-﻿<Properties StartupConfiguration="{A28B6A98-27B3-45B6-8D1A-AF858301489F}|Default">
+﻿<Properties StartupConfiguration="{4C738225-A122-4008-8D43-0BE7248E673E}|Default">
   <MonoDevelop.Ide.ItemProperties.parser PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="parser/Parser.cs">
     <Files>
-      <File FileName="parser/Parser.cs" Line="71" Column="75" />
+      <File FileName="parser/Parser.cs" Line="71" Column="10" />
       <File FileName="parser/SrcMLFilter.cs" Line="1" Column="1" />
       <File FileName="parser/JsonParser.cs" Line="1" Column="1" />
     </Files>

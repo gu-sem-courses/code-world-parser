@@ -57,11 +57,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="JsonParser.cs" />
-    <Compile Include="JsonReader.cs" />
     <Compile Include="Parser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SrcMLFilter.cs" />
-    <Compile Include="SrcMlReader.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages\Newtonsoft.Json.12.0.1\lib\net20\Newtonsoft.Json.dll" />
