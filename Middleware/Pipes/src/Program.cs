@@ -29,10 +29,10 @@ namespace Pipes
                 Console.WriteLine();
                 string userInput = Console.ReadLine();
 
-                if (userInput.Contains("GetterNode"))
+                if (userInput.Contains("GetterPipe"))
                 {
                     GetterPipe.Start();
-                }else if (userInput.Contains("ParseNode"))
+                }else if (userInput.Contains("ParsePipe"))
                 {
                     ParsePipe.Start();
                 }
