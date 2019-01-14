@@ -22,10 +22,11 @@ namespace GitGetter2
         public static void Main(string[] projectId)
         {
 
-            fileType = ".java"; // controlls what type of files it will get.
+            fileType = ".java"; // controlls what type of files it will retrieve from the database.
 
             mainFolderGetter();
 
+            // Used to check which database the user wants use to pull from
             Boolean isGitlab = true;
             if (projectId[1].ToString() == "f")
             {
