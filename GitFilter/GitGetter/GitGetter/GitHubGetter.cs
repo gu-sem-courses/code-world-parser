@@ -32,7 +32,7 @@ namespace GitGetter2
                 client.DefaultRequestHeaders.Add("User-Agent", "C# App");
                 client.DefaultRequestHeaders.Add("Authorization", "token "+access_token.ToString());
 
-                // Used to check our current rate limit on github.
+                // Used to check our current rate limit on github. Not that useful but could be highly useful in the future.
                 /*if (!githubAuthent())
                 {
                     return false;
@@ -145,6 +145,7 @@ namespace GitGetter2
 
                 try
                 {
+                    // Set ups the path to where we put the file containing the repositorys code.
                     String dirPath = Program.mainFolderGetter() + "/GitFilter/GitGetter/FileStorer/" + projectId;
                     dirPath = dirPath.Replace(" ", "");
 
@@ -171,7 +172,8 @@ namespace GitGetter2
         }
 
         private static Boolean FolderNavigator(String projectID, HubObject hubObject)
-        {
+        {// This is used to activate the correct method depending on the type of the object. If the object is a file of the correct type
+         //then we download its contents. If it is a folder then we make a request to get a json representation of its contents.
             if (hubObject.type == "dir")
             { // If the object is a folder and potentially has stuff in it
                 return getDirTree(hubObject.url, projectID);
@@ -191,7 +193,7 @@ namespace GitGetter2
 
 
         private static List<HubObject> makeHubList(String populationMaker)
-        {
+        { // Creates a list of GitHubObjects. Each representing one thing in the Json object we get from github.
             String populationString = populationMaker;
 
             List<HubObject> tempHubObject = new List<HubObject>();

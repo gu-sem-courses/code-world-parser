@@ -45,6 +45,7 @@ namespace GitGetter2
 
                 try
                 {
+                    // Makes a file with the contents of the downloaded content or append the contents of the downloaded file to the file in filestorer
                     String dirPath = Program.mainFolderGetter() + "/GitFilter/GitGetter/FileStorer/" + projectId;
                     File.AppendAllText(dirPath + Program.getFiletype(), responseString + Environment.NewLine);  // Should create a single file with the contents of all the code files.
                 }
@@ -164,7 +165,7 @@ namespace GitGetter2
 
         }
         private static List<GitLabObject> makeGitLabList(String populationMaker)
-        {
+        {// Makes a list of GitLabObjects based on a JSON representation of the contents of a repository folder. 
             String populationString = populationMaker;
 
             List<GitLabObject> tempTreeObject = new List<GitLabObject>();
