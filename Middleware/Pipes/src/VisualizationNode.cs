@@ -8,60 +8,36 @@ using Services;
 
 namespace Pipes
 {
-    class VisualizationNode
+    class VisualizationPipe
     {
         public static void Start(string[] args)
         {
-            //Environment.SetEnvironmentVariable("GRPC_TRACE", "api");
-            //Environment.SetEnvironmentVariable("GRPC_VERBOSITY", "debug");
-            //Grpc.Core.GrpcEnvironment.SetLogger(new Grpc.Core.Logging.ConsoleLogger());
-            // initiate variables 
-            string repository;
+            // initiating variables 
+            string repository = "";
             string UserName;
             string ProjectName;
             string filepath;
             string page;
             string filetype = ".json";
-            // Console.WriteLine("Give us the IP of the Node your trying to reach");
+            // Look in the IPSetter file for a explanation of what NodeConfig.getGetter does.
             string IP = NodeConfig.getGetterIP();
             Console.WriteLine("The server is trying to call the server hosting on: " + IP);
-            // string IP = "127.0.0.1";
-            // Console.WriteLine(IP);
-            //string IP = "129.16.31.63";
-            // string IP = "10.0.97.223";
-            // string IP = "LAPTOP-F7LVEQ0B";
-
-
             int Port = 23456;
 
-            // Checks if the we succesfully got the correct amount of arguments
-            // otherwise we set it to a pre-know project
-            if (args.Length >= 3)
+            // Checks if the we succesfully got the correct amount of arguments and then sets the
+            // otherwise we produce a error message saying what happend and close the function call
+            try
             {
                 UserName = args[0];
                 ProjectName = args[1];
                 page = args[2];
-
+                repository = UserName + "/" + ProjectName + " " + page;
             }
-            else if (args.Length == 2)
+            catch (Exception e)
             {
-                UserName = args[0];
-                ProjectName = args[1];
-                page = "t";
+                Console.WriteLine("There was an error with the input provided.");
+                return;
             }
-            else
-            {
-                // this should be changed as it reference a none java project
-                UserName = "dit341";
-                ProjectName = "express-template";
-                page = "t";
-            }
-
-            //This could already be done before we give the parameters 
-            //but doing it this way makes it easier to name the json file based on the 
-            // project that you are getting
-            repository = UserName + "/" + ProjectName + " " + page;
-
             //This will set up the channel we will use to communicate with the "Server" process
             // the first value refers to the IP of the PC that is running the Server process, the second is what port to send it to
             // and the third is ChannelCredentials that have to match the one of the Server

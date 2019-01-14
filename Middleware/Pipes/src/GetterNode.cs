@@ -18,66 +18,61 @@ namespace Pipes
         //the parameters type and the name and what it returns are set in the proto generated files Trial.cs & TrialGrpc.cs
         public override Task<JsonReply> MainInteraction(ParsingRequest request, ServerCallContext context)
         {
+            // initiating variables and tells the pipe were it can find the data
             string filepathXML = "../../../../../dit355/globalAssets/inbox/srcML.xml";
+            string result;
+            // in case the software has been run before it will delete the file before anything else
             File.Delete(filepathXML);
+
+            // prompt so we can see who is calling us
             Console.WriteLine("Being called by " + context.Host.ToString());
-            string result = string.Empty;
+            
+            // Starts the chain of operations to have the request handeld
             result = GetProject(request, filepathXML);
-            Console.WriteLine(result);
             JObject jsonobj = JObject.Parse(result);
             result = jsonobj.ToString();
             return Task.FromResult(new JsonReply { File = result });
         }
 
-        // This function starts a the GitGetter process and passes along the request message 
-        // from the client proccess as a argument while starting the process
+        // This function starts a the GitGetter process and then sends the data produced by the GitGetter
+        // to the ParsePipe
         public string GetProject(ParsingRequest req, string path)
         {
+            // Sets up the process call to the
             string PathP = System.AppDomain.CurrentDomain.BaseDirectory + "../../../../GitFilter/GitGetter/bin/Debug/Gitgetter.exe";
-            Console.WriteLine(PathP);
             Process GitGetter = new Process();
             try
             {
-                //so it know where to find the file it should use to start the proccess
-                //if no actuall file is specified it will just open the specified folder
+                // What arguments the process will take when it starts
                 GitGetter.StartInfo.FileName = PathP;
-                // What arguments the file will take when it starts
-                Console.WriteLine(req.Address.ToString());
                 GitGetter.StartInfo.Arguments = req.Address.ToString();
+                // Starts the process and then waits for the process to close down
                 GitGetter.Start();
                 GitGetter.WaitForExit();
-                }
+            }
             catch (Exception e)
             {
-
                 Console.WriteLine(e.Message);
             }
-            
-                return GetterNode.ClietRequest(path);
+            return GetterPipe.ClietRequest(path);
         }
     }
 
     // This class contain the "Static void Main" in wich it starts the "Server" and gives it a set of services and a port to listen to.
-    public class GetterNode
+    public class GetterPipe
     {
-        //the host IP, 0.0.0.0 (127.0.0.1 seems to work just as well) means it hosts it locally, 
-        //not sure if you can change to another computers IP
-        // The Port 23456 is the specific port the proccess will listen on for requests. 
-        // the port needs to be the same on the Server and Client proccesses.
-       
+        // The Port 23456 is the specific port the Pipe will listen on for requests. 
         const int Port = 23456;
        
         public static void Start()
         {
-            // Console.WriteLine("Please type in your IP");
-            // string Host = Console.ReadLine();
+            //gets the IP stated of the GetterPipe in the IP config file
             string Host = NodeConfig.getGetterIP();
-            // string Host = "127.0.0.1";
-            // var Host = System.Net.NetworkInformation.IPGlobalProperties.GetIPGlobalProperties().DomainName;
-
+            
             Server server = new Server
             {
-                //the services or functions that the Server can peform, I guess we can add more if we need to.
+                // the general setup of ther server side of the pipe, the services that the Server can peform
+                // and the Host ip and port it will be listning in on
                 Services = { Services.GameLog.BindService(new GetterService()) },
                 Ports = { { new ServerPort(Host, Port, ServerCredentials.Insecure) } }
                 
@@ -85,9 +80,7 @@ namespace Pipes
 
             server.Start();
 
-            // This is just here so the program doesnt just shutdown when it gets done, could be nice to add 
-            // quality of life messages here but can´t think of any right now
-            
+            // Tells the user that is was sucessful setting up the server 
             Console.WriteLine("Server listening on port " + Port + " and Domain is " +  Host);
             Console.WriteLine("Press any key to stop the server...");
             Console.ReadKey();
@@ -96,27 +89,20 @@ namespace Pipes
     
         public static string ClietRequest(string filepathXML)
         {
-            // string filepathXML = "../../../../../dit355/globalAssets/inbox/srcML.xml";
-            // string filepathJSON = "../../../../../dit355/globalAssets/outbox/xml2json.json";
-
-            // if you just want it to run localy on your computer comment out the line below
-            // IP = System.Net.NetworkInformation.IPGlobalProperties.GetIPGlobalProperties().HostName;
-
-            // Console.WriteLine("Give us the IP of the Node your trying to reach");
+            // initiates and starts the channel to the ParsePipe
             string IP = NodeConfig.getParseIP();
-            // string IP = "127.0.0.1";
             int Port = 23455;
-            Channel channel = new Channel(IP, Port, ChannelCredentials.Insecure);
-            var client = new Services.GameLog.GameLogClient(channel);
-            string result = string.Empty;
-           
+            Channel parsepipe = new Channel(IP, Port, ChannelCredentials.Insecure);
+            var request = new Services.GameLog.GameLogClient(parsepipe);
+
+            // loads the data to be sent to the through the parse pipe
+            string data = string.Empty;
             XDocument file = XDocument.Load(filepathXML);
-            result = file.ToString();
-            // Console.WriteLine(result);
-            
-            var json = client.MainInteraction(new ParsingRequest { Address = WebUtility.HtmlEncode(result)});
-            // System.IO.File.WriteAllText(filepathJSON, json.File);
-            channel.ShutdownAsync().Wait();
+            data = file.ToString();
+           
+            // starts the request and then returns the reply data
+            var json = request.MainInteraction(new ParsingRequest { Address = WebUtility.HtmlEncode(data)});
+            parsepipe.ShutdownAsync().Wait();
             return json.File.ToString();
         }
     }
