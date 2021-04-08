@@ -4,6 +4,9 @@ Team Flex - Parser
 
 **Authers**: [@olivermanzi](https://github.com/olivermanzi), [@Jorelsin](https://github.com/Jorelsin), [@Naief](https://github.com/Naief), [@Anotinas](https://github.com/Anotinas)
 
+# Description
+This repositiory has the purpose of generating Unity objects from Java projects so that they can be [visualized in an immersive 3D world](https://github.com/olivermanzi/code-world-unity).
+
 # Global Assets
 The Global Assets folder stores files that are used by the many different components of the system.
 
