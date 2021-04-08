@@ -1,3 +1,9 @@
+# DIT355 H18 Mini Project: Distributed Systems Development
+
+Team Flex - Parser
+
+**Authers**: [@olivermanzi](https://github.com/olivermanzi), [@Jorelsin](https://github.com/Jorelsin), [@Naief](https://github.com/Naief), [@Anotinas](https://github.com/Anotinas)
+
 # Global Assets
 The Global Assets folder stores files that are used by the many different components of the system.
 
